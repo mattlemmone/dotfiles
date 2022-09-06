@@ -1,9 +1,8 @@
 " Plugins
-call plug#begin('~/dotfiles/neovim/plugged')
-so ~/dotfiles/neovim/plugins.vim
-call plug#end()
+lua <<EOF
+  require("plugins.install")
+  require("plugins.init")
+  require("mappings")
+EOF
 
-" Options
-so ~/dotfiles/neovim/options/main.vim
-so ~/dotfiles/neovim/mappings.vim
-so ~/dotfiles/neovim/functions.vim
+so ~/dotfiles/neovim/after/options/main.vim
