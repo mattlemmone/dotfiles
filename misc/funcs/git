@@ -1,0 +1,47 @@
+#!/bin/bash
+local git_log_format="%h | %<(13)%cr | %<(17)%an | %s"
+
+gcpm() {
+    local log=$(git log master -50 --format="$git_log_format")
+    local commit=$(echo $log| fzf --reverse | awk '{print $1}')
+    git cherry-pick $commit
+}
+    
+get_branch_name(){
+    echo $(git rev-parse --abbrev-ref HEAD)
+}
+
+set_and_push_upstream(){
+    branch=$(get_branch_name)
+    output=$(git push --set-upstream origin $branch)
+    url=$(output | cat | grep '/pull/' | awk '{print $2}')
+
+    echo $output
+    open $url
+}
+
+oopsies(){
+    git reset --hard
+}
+
+crebase(){
+    git add . && git rebase --continue
+}
+
+arebase(){
+    git rebase --abort
+}
+
+delete_all_but_master_and_current_branch(){
+    gb | grep -v 'master\|\*' | xargs git branch -D
+}
+
+gbi(){
+    local branch=$(gb | grep -v '*' | fzf | xargs)
+    gc $branch
+}
+
+grv(){
+    local file=$(git diff master --name-only --relative | fzf --preview "bat --color=always {}")
+    git checkout master $file
+}
