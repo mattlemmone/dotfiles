@@ -1,12 +1,4 @@
 #!/bin/bash
-export OS=$(uname -s)
-
-# if [ $OS = "Darwin" ]; then
-#     echo "MAC BOI"
-#     export TERM="xterm-256color"
-#     # export TERM_PROGRAM='Alacritty.app'
-# fi
-
 export SHELL=/bin/zsh
 export EDITOR=nvim
 export PAGER='less'
@@ -14,13 +6,6 @@ export GOPATH=$HOME/go
 export PYENV_ROOT="$HOME/.pyenv"
 
 # Path
-export PATH="$PATH:/Users/matthew.lemmone/Library/Python/2.7/bin/"
-export PATH="$PATH:/Users/matthew.lemmone/Library/Python/3.7/bin/"
-#export PATH="$HOME/.pyenv/bin:$PATH"
-#export PATH="$HOME/.jenv/bin:$PATH"
-#export PATH="$HOME/.rbenv/bin:$PATH"
-#export PATH="$HOME/.rbenv/shims:$PATH"
-#export PATH="$HOME/.tfenv/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
