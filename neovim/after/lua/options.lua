@@ -5,13 +5,13 @@ local expand = vim.fn.expand
 set.laststatus = 2 -- always show it
 
 -- Display
-set.cpoptions:append(">") -- indicator for change motion
+
+vim.o.cpoptions = vim.o.cpoptions..'y'
 set.cursorline = true -- highlight current line
 set.encoding = "utf-8"
 set.expandtab = true -- convert <TAB> key-presses to spaces
 set.list = true -- show special chars
 set.listchars = {
-	eol = "↲",
 	tab = "› ",
 	trail = "·",
 	extends = "#",

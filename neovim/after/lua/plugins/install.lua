@@ -42,6 +42,7 @@ Plug("honza/vim-snippets")
 Plug("jparise/vim-graphql")
 
 -- Display
+Plug('nvim-lualine/lualine.nvim')
 Plug("lukas-reineke/indent-blankline.nvim")
 Plug("junegunn/goyo.vim")
 Plug("junegunn/limelight.vim")
