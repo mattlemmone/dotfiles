@@ -3,8 +3,8 @@
 
 ## Load antibody plugin manager - must come before plugins
 source <(antibody init)
-source ~/.zsh/plugins.zsh
-source ~/.zsh/options.zsh
+source ~/dotfiles/zsh/plugins.zsh
+source ~/dotfiles/zsh/options.zsh
 
 ## Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
