@@ -16,7 +16,6 @@ source ~/dotfiles/misc/funcs/bash
 source ~/dotfiles/misc/funcs/yabai
 source ~/dotfiles/misc/funcs/git
 
-eval $(ssh-agent) >> /dev/null
 source ~/dotfiles/misc/.secrets
 source ~/dotfiles/misc/doordash
 source ~/dotfiles/misc/wolt
@@ -30,5 +29,6 @@ source /Users/matt/.config/broot/launcher/bash/br
 . /usr/local/opt/asdf/libexec/asdf.sh
 
 ssh-add --apple-use-keychain ~/.ssh/dd_github
+eval $(ssh-agent) >> /dev/null
 
 eval "$(zoxide init zsh)"
