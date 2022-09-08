@@ -22,23 +22,23 @@ keymap.set("n", "<Leader>O", "O<Esc>")
 keymap.set("n", "<Leader>o", "o<Esc>")
 
 -- list open buffers
-keymap.set("n", "<Leader>b", ":Buffers<CR> ")
+keymap.set("n", "<Leader>b", ":Buffers<CR>")
 
 -- jump to line in current buffer
-keymap.set("n", "<Leader>l", ":Lines<CR> ")
+keymap.set("n", "<Leader>l", ":Lines<CR>")
 
 -- jump to line in any open buffer
 keymap.set("n", "<Leader>ll", ":BLines<CR>")
 
 -- command history
-keymap.set("n", "<Leader>ch", ":History:<CR> ")
+keymap.set("n", "<Leader>ch", ":History:<CR>")
 
 -- file search
-keymap.set("n", "<Leader>f", ":Files<CR> ")
-keymap.set("n", "<Leader>g", ":Commits<CR> ")
+keymap.set("n", "<Leader>f", ":Files<CR>")
+keymap.set("n", "<Leader>g", ":Commits<CR>")
 
 -- file history
-keymap.set("n", "<Leader>hh", ":History<CR> ")
+keymap.set("n", "<Leader>hh", ":History<CR>")
 
 -- disable highlight
 keymap.set("n", "<Leader>hl", ":nohl<CR> ")
@@ -47,9 +47,8 @@ keymap.set("n", "<Leader>s", ":Rg<CR>")
 
 -- search for word under cursor in project
 keymap.set("n", "<Leader>*", ":Rg <C-R><C-W><CR> ")
-keymap.set("n", "<Leader>d", ":BD<CR>")
+keymap.set("n", "<Leader>d", ":Bdelete<CR>")
 keymap.set("n", "<Leader>w", ":ArgWrap<CR>", { silent = true })
-keymap.set("n", "<F3>", ":call YarnTest()<CR><CR>")
 
 -- Copy to clipboard
 keymap.set("n", "<Leader>y", '"*yy')
@@ -77,13 +76,18 @@ keymap.set("n", "<Leader>CR", ":<C-u>CocRestart<CR>", { silent = true })
 -- no select by `"suggest.noselect": true` in your configuration file.
 -- NOTE: Use command ':verbose keymap.set('i', '<tab>' to make sure tab is not mapped by')
 -- other plugin before putting this into your config.
-keymap.set("i", "<expr> <TAB>", 'coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "<Tab>" : coc#refresh()')
-
-keymap.set("i", "<expr><S-TAB>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-h>"')
+keymap.set(
+	"i",
+	"<TAB>",
+	'coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "<Tab>" : coc#refresh()',
+	{ silent = true, expr = true }
+)
+keymap.set("i", "<S-TAB>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-h>"', { silent = true, expr = true })
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
 -- <C-g>u breaks current undo, 'please', make your own choice.
-keymap.set("i", "<expr><CR>", 'coc#pum#visible() ? coc#pum#confirm() : "<C-g>u<CR><c-r>=coc#on_enter()<CR>')
+keymap.set("i", "<CR>", 'coc#pum#visible() ? coc#pum#confirm() : "<C-g>u<CR><c-r>=coc#on_enter()<CR>"',{ silent = true, expr = true })
+
 -- Use K to show documentation in preview window.
 keymap.set("n", "K", ":call ShowDocumentation()<CR>", { silent = true })
 
@@ -97,6 +101,9 @@ keymap.set("n", "<Leader>le", ":<C-u>CocList diagnostics<cr>")
 
 --" Rename instances
 keymap.set("n", "<Leader>rn", "<Plug>(coc-rename)")
+
+--" Rename instances
+keymap.set("n", "<Leader>?", ":Cheatsheet<CR>")
 
 --" Goto
 keymap.set("n", "gd", "<Plug>(coc-definition)", { silent = true })
