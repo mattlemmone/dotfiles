@@ -60,6 +60,9 @@ Plug("ray-x/sad.nvim") -- batch edit
 Plug("embark-theme/vim", { as = "embark" })
 Plug("catppuccin/nvim", { as = "catppuccin" })
 Plug("EdenEast/nightfox.nvim")
+Plug("shaunsingh/moonlight.nvim")
+Plug("sainnhe/everforest")
+Plug("Everblush/everblush.nvim", { as = "everblush" })
 
 -- Navigation
 Plug("rmagatti/auto-session") -- session management

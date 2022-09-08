@@ -29,4 +29,6 @@ source /Users/matt/.config/broot/launcher/bash/br
 # asdf
 . /usr/local/opt/asdf/libexec/asdf.sh
 
+ssh-add --apple-use-keychain ~/.ssh/dd_github
+
 eval "$(zoxide init zsh)"

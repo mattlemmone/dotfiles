@@ -1,26 +1,31 @@
 local dashboard = require("dashboard")
 dashboard.custom_center = {
-      {icon = '  ',
-      desc = 'Resume last session                  ',
-      shortcut = 'SPC s l',
-      action ='SessionLoad'},
-      {icon = '  ',
-      desc = 'Recently opened files                   ',
-      action =  'DashboardFindHistory',
-      shortcut = 'SPC f h'},
-      {icon = '  ',
-      desc = 'Find File                              ',
-      action = 'Telescope find_files find_command=rg,--hidden,--files',
-      shortcut = 'SPC f f'},
-      {icon = '  ',
-      desc ='File Browser                            ',
-      action =  'Telescope file_browser',
-      shortcut = 'SPC f b'},
-      {icon = '  ',
-      desc = 'Search',
-      action = 'Telescope live_grep',
-      shortcut = 'SPC f w'},
-    }
+	{
+		icon = "  ",
+		desc = "Resume last session                  ",
+		shortcut = "SPC s l",
+		action = "SessionLoad",
+	},
+	{
+		icon = "  ",
+		desc = "Recently opened files                   ",
+		action = "DashboardFindHistory",
+		shortcut = "SPC f h",
+	},
+	{
+		icon = "  ",
+		desc = "Find File                              ",
+		action = "Telescope find_files find_command=rg,--hidden,--files",
+		shortcut = "SPC f f",
+	},
+	{
+		icon = "  ",
+		desc = "File Browser                            ",
+		action = "Telescope file_browser",
+		shortcut = "SPC f b",
+	},
+	{ icon = "  ", desc = "Search", action = "Telescope live_grep", shortcut = "SPC f w" },
+}
 dashboard.custom_header = [[
 '',
 '         ▄              ▄    ',
@@ -45,19 +50,18 @@ dashboard.custom_header = [[
 '',
 ]]
 
-local neotree = require('neo-tree')
+local neotree = require("neo-tree")
 neotree.setup({
-  filesystem = {
-          filtered_items = {
-            visible = true, -- when true, they will just be displayed differently than normal items
-            hide_dotfiles = false,
-            hide_gitignored = false,
-  }
-  }
+	filesystem = {
+		filtered_items = {
+			visible = true, -- when true, they will just be displayed differently than normal items
+			hide_dotfiles = false,
+			hide_gitignored = false,
+		},
+	},
 })
 
-
-require('reach').setup()
+require("reach").setup()
 require("catppuccin").setup({
 	integrations = {
 		neotree = {
