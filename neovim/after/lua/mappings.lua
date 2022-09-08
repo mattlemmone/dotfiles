@@ -24,11 +24,8 @@ keymap.set("n", "<Leader>o", "o<Esc>")
 -- list open buffers
 keymap.set("n", "<Leader>b", ":Buffers<CR>")
 
--- jump to line in current buffer
-keymap.set("n", "<Leader>l", ":Lines<CR>")
-
--- jump to line in any open buffer
-keymap.set("n", "<Leader>ll", ":BLines<CR>")
+-- reload current lua file
+keymap.set("n", "<Leader>l", ":luafile %<CR>")
 
 -- command history
 keymap.set("n", "<Leader>ch", ":History:<CR>")
@@ -42,6 +39,7 @@ keymap.set("n", "<Leader>hh", ":History<CR>")
 
 -- disable highlight
 keymap.set("n", "<Leader>hl", ":nohl<CR> ")
+keymap.set("n", "<Leader>r", ":so ~/dotfiles/neovim/.vimrc<CR>")
 keymap.set("n", "<Leader>r", ":so ~/dotfiles/neovim/.vimrc<CR>")
 keymap.set("n", "<Leader>s", ":Rg<CR>")
 
@@ -86,7 +84,12 @@ keymap.set("i", "<S-TAB>", 'coc#pum#visible() ? coc#pum#prev(1) : "<C-h>"', { si
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
 -- <C-g>u breaks current undo, 'please', make your own choice.
-keymap.set("i", "<CR>", 'coc#pum#visible() ? coc#pum#confirm() : "<C-g>u<CR><c-r>=coc#on_enter()<CR>"',{ silent = true, expr = true })
+keymap.set(
+	"i",
+	"<CR>",
+	'coc#pum#visible() ? coc#pum#confirm() : "<C-g>u<CR><c-r>=coc#on_enter()<CR>"',
+	{ silent = true, expr = true }
+)
 
 -- Use K to show documentation in preview window.
 keymap.set("n", "K", ":call ShowDocumentation()<CR>", { silent = true })
