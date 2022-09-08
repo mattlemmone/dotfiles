@@ -6,8 +6,8 @@ alias gc='git checkout'
 alias gb='git branch'
 alias gp='git pull'
 alias gs='git status'
-alias gd='git diff | delta'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias gd='git diff'
+alias dotfiles='nvim ~/dotfiles'
 
 # Docker
 alias docker_tty='docker exec -it $(docker ps | fzf -e --header-lines=1 --reverse | cut -d" " -f1) bash'
