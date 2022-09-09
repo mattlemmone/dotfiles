@@ -1,3 +1,5 @@
+require("plugins.config.coc")
+
 local dashboard = require("dashboard")
 dashboard.custom_center = {
 	{
