@@ -1,7 +1,7 @@
 " Plugins
 lua <<EOF
   require("plugins.install")
-  require("plugins.init")
+  require("plugins.config.main")
   require("mappings")
   require("options")
 EOF

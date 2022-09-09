@@ -70,5 +70,4 @@ vim.cmd([[
   filetype plugin on
   colorscheme catppuccin
   so ~/dotfiles/neovim/after/options/fzf.vim
-  so ~/dotfiles/neovim/after/options/coc.vim
 ]])
