@@ -1,4 +1,5 @@
 require("plugins.config.coc")
+require("plugins.config.fzf")
 
 local dashboard = require("dashboard")
 dashboard.custom_center = {
@@ -120,25 +121,6 @@ require("nvim-autopairs").setup({})
 require("indent_blankline").setup({
 	show_current_context = true,
 	show_current_context_start = false,
-})
-
-require("telescope").setup({
-	defaults = {
-		layout_config = {
-			vertical = { width = 0.25 },
-			prompt_position = "top",
-			-- other layout configuration here
-		},
-		-- other defaults configuration here
-	},
-	pickers = {
-		find_files = {
-			find_command = { "fd" },
-		},
-		live_grep = {
-			find_command = { "rcatg", "-l" },
-		},
-	},
 })
 
 require("nvim-treesitter.configs").setup({

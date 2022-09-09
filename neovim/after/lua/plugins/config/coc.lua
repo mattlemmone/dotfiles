@@ -92,3 +92,9 @@ keymap.set("n", "<Leader>le", ":<C-u>CocList diagnostics<cr>")
 
 --" Rename instances
 keymap.set("n", "<Leader>rn", "<Plug>(coc-rename)")
+
+--" Goto
+keymap.set("n", "gd", "<Plug>(coc-definition)", { silent = true })
+keymap.set("n", "gy", "<Plug>(coc-type-definition)", { silent = true })
+keymap.set("n", "gi", "<Plug>(coc-implementation)", { silent = true })
+keymap.set("n", "gr", "<Plug>(coc-references)", { silent = true })

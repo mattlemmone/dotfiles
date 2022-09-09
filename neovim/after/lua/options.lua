@@ -69,5 +69,4 @@ g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 vim.cmd([[
   filetype plugin on
   colorscheme catppuccin
-  so ~/dotfiles/neovim/after/options/fzf.vim
 ]])
