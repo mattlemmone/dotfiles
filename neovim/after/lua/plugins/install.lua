@@ -20,16 +20,14 @@ Plug("tpope/vim-surround")
 Plug("christoomey/vim-tmux-navigator") -- shared shortcuts btwn tmux panes and vim splits
 Plug("nvim-neo-tree/neo-tree.nvim")
 Plug("windwp/nvim-autopairs")
+Plug("ckipp01/stylua-nvim")
 
 -- Git
 Plug("lewis6991/gitsigns.nvim")
-Plug("tpope/vim-fugitive") -- git
 Plug("junegunn/gv.vim") -- git browser
 Plug("rhysd/git-messenger.vim") -- git blame magic
 Plug("ruanyl/vim-gh-line")
 Plug("nvim-lua/plenary.nvim")
-Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
-Plug("folke/zen-mode.nvim")
 Plug("wesleimp/stylua.nvim")
 
 -- Snippets
@@ -69,14 +67,11 @@ Plug("rmagatti/auto-session") -- session management
 Plug("nvim-telescope/telescope-file-browser.nvim")
 Plug("unblevable/quick-scope")
 Plug("ggandor/lightspeed.nvim") -- fast nav
-Plug("toppair/reach.nvim") --buffer / mark / tabpage / colorscheme switcher
 Plug("axieax/urlview.nvim")
 
 -- Searching
-Plug("/usr/local/opt/fzf")
 Plug("mileszs/ack.vim")
-Plug("junegunn/fzf", { dir = "~/.fzf", ["do"] = "./install --all" })
-Plug("junegunn/fzf.vim")
+Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
 
 -- Misc
 Plug("kristijanhusak/vim-carbon-now-sh") -- Screenshot and upload code to carbon.now.sh
@@ -84,7 +79,6 @@ Plug("vim-test/vim-test")
 Plug("voldikss/vim-floaterm")
 Plug("folke/which-key.nvim")
 Plug("sudormrfbin/cheatsheet.nvim")
-Plug("gaborvecsei/memento.nvim") -- Remember where u been
 Plug("pwntester/octo.nvim") -- github ui
 Plug("glepnir/dashboard-nvim") -- greeter y0
 

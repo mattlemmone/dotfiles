@@ -64,7 +64,6 @@ neotree.setup({
 	},
 })
 
-require("reach").setup()
 require("catppuccin").setup({
 	integrations = {
 		neotree = {

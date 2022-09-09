@@ -1,5 +1,8 @@
 local keymap = vim.keymap
 
+-- im lazy but i should fix this dupe
+vim.g.mapleader = " "
+
 require("telescope").setup({
 	defaults = {
   sorting_strategy = "ascending",

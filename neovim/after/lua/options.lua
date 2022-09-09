@@ -1,6 +1,7 @@
 local set = vim.opt
 local g = vim.g
 local expand = vim.fn.expand
+local autocmd = vim.api.nvim_create_autocmd
 
 set.laststatus = 2 -- always show it
 
@@ -70,3 +71,11 @@ vim.cmd([[
   filetype plugin on
   colorscheme catppuccin
 ]])
+
+-- Format lua on save
+-- autocmd{
+--             pattern = "markdown,txt",
+--             callback = function()
+--                 vim.api.nvim_win_set_option(0, "spell", true)
+--             end,
+--         },
