@@ -79,7 +79,6 @@ Plug("kristijanhusak/vim-carbon-now-sh") -- Screenshot and upload code to carbon
 Plug("vim-test/vim-test")
 Plug("folke/which-key.nvim")
 Plug("sudormrfbin/cheatsheet.nvim")
-Plug("glepnir/dashboard-nvim") -- greeter y0
 Plug("tjdevries/train.nvim") -- get better at vim lol
 
 vim.call("plug#end")

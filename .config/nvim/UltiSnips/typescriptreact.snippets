@@ -1,0 +1,44 @@
+extends typescript
+
+global !p
+def getReactPropNames(text):
+  lines = text.split('\n')
+  var_names = [
+    line.split(':')[0].lstrip() 
+    for line in lines
+  ]
+  return ', '.join(var_names)
+   
+def upperfirst(t):
+	if len(t) < 2:
+		return '' if len(t) < 1 else t.capitalize()
+	return t[0].capitalize() + t[1:]
+endglobal
+
+snippet rfc "React.FC"
+type Props = {
+  ${1:props}
+}
+
+const ${2:`!v expand('%:t:r')`}: React.FC<Props> = ({ `!p snip.rv=getReactPropNames(t[1])` }) => {
+  $0
+
+  return ()
+}
+
+export default $2
+endsnippet
+
+snippet ap "Assign Prop"
+${1:prop}={$1}
+endsnippet
+
+snippet ue "React.useEffect"
+React.useEffect(() => {
+ $2 
+}, [${1:deps}])
+endsnippet
+
+snippet us "React.useState"
+const [$1, set`!p snip.rv=upperfirst(t[1])`] = React.useState()
+endsnippet
