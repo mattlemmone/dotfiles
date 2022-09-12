@@ -17,3 +17,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Bat
 export BAT_THEME="Dracula"
+
+# Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
