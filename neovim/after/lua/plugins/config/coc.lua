@@ -104,7 +104,6 @@ keymap.set("n", "gi", "<Plug>(coc-implementation)", { silent = true })
 keymap.set("n", "gr", "<Plug>(coc-references)", { silent = true })
 
 -- fix CR overlap with nvim pairs: https://github.com/windwp/nvim-autopairs/wiki/Completion-plugin
-local remap = vim.api.nvim_set_keymap
 local npairs = require('nvim-autopairs')
 
 npairs.setup({map_cr=false})
@@ -119,5 +118,7 @@ MUtils.completion_confirm=function()
     end
 end
 
-remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
+
+-- this must be loaded after nvim-pairs
+keymap.set('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
 
