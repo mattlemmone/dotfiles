@@ -27,4 +27,4 @@ source ~/dotfiles/zsh/options.zsh
 
 eval "$(zoxide init zsh)"
 
-source /Users/mattlemmone/.config/broot/launcher/bash/br
+source ~/.config/broot/launcher/bash/br
