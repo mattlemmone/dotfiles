@@ -2,7 +2,6 @@ require("mkdnflow").setup({})
 require("nvim-autopairs").setup({})
 require("plugins.config.coc")
 require("plugins.config.fzf")
-require("plugins.config.greeter")
 require("plugins.config.statusline")
 
 require("auto-session").setup({

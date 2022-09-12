@@ -45,3 +45,9 @@ grv(){
     local file=$(git diff master --name-only --relative | fzf --preview "bat --color=always {}")
     git checkout master $file
 }
+
+omgcommit() {
+  description="$1"
+  git add . && git commit -m "$1"
+}
+
