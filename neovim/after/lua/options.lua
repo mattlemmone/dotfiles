@@ -73,9 +73,9 @@ vim.cmd([[
 ]])
 
 -- Format lua on save
--- autocmd{
---             pattern = "markdown,txt",
---             callback = function()
---                 vim.api.nvim_win_set_option(0, "spell", true)
---             end,
---         },
+autocmd("BufWritePre", {
+	pattern = "*.lua",
+	callback = function()
+		require("stylua-nvim").format_file()
+	end,
+})
