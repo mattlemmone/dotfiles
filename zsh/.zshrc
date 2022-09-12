@@ -14,8 +14,6 @@ source ~/dotfiles/misc/.secrets
 # asdf
 . /usr/local/opt/asdf/libexec/asdf.sh
 
-eval $(ssh-agent) >> /dev/null
-
 # Zsh
 ## Load antibody plugin manager - must come before plugins
 source <(antibody init)
