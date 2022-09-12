@@ -15,11 +15,15 @@ require("telescope").setup({
 	},
 	pickers = {
 		find_files = {
-			find_command = { "fd" },
+			find_command = { "rg", "--files" },
 		},
 		live_grep = {
-			find_command = { "rcatg", "-l" },
+			find_command = { "rg", "-l" },
 		},
+    buffers = {
+      sort_lastused = true,
+      ignore_current_buffer = true
+    }
 	},
 })
 
