@@ -1,17 +1,22 @@
 local keymap = vim.keymap
 
--- Set this before any Leader mappings
-vim.g.mapleader = " "
-
 -- Plugin Mappings
-keymap.set("n", "<Leader>n", ":Neotree focus dir=%:p:h toggle<CR>|:silent vertical res 30<CR>", { silent = true })
+keymap.set("n", "<Leader>n", "<CMD>Neotree focus dir=%:p:h toggle<CR>|:silent vertical res 30<CR>", { silent = true })
+
+keymap.set("n", "s", "<CMD>Pounce<CR>", { silent = true })
+keymap.set("n", "S", "<CMD>PounceRepeat<CR>", { silent = true })
+
 -- Start interactive EasyAlign in visual mode (e.g. vipga)
 keymap.set("x", "ga", "<Plug>(EasyAlign)")
 
 -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
 keymap.set("n", "ga", "<Plug>(EasyAlign)")
 
--- Insert Mode Mappings
+-- Git
+keymap.set("n", "gf", "<CMD>DiffviewFileHistory<CR>") -- show git history for current buffer
+keymap.set("n", "gd", "<CMD>DiffviewOpen<CR>") -- show modified files
+
+-- ESCAPEEE
 keymap.set("i", "jk", "<ESC>")
 
 -- Terminal Mode Mappings
@@ -22,30 +27,23 @@ keymap.set("n", "<Leader>O", "O<Esc>")
 keymap.set("n", "<Leader>o", "o<Esc>")
 
 -- disable highlight
-keymap.set("n", "<Leader>hl", ":nohl<CR> ")
+keymap.set("n", "<Leader>hl", "<CMD>nohl<CR> ")
 
 -- reload current lua file
-keymap.set("n", "<Leader>l", ":luafile %<CR>")
+keymap.set("n", "<Leader>l", "<CMD>luafile %<CR>")
 
 -- reload vimrc
-keymap.set("n", "<Leader>r", ":so ~/dotfiles/neovim/.vimrc<CR>")
+keymap.set("n", "<Leader>r", "<CMD>so ~/dotfiles/neovim/.vimrc<CR>")
 
-keymap.set("n", "<Leader>d", ":Bdelete<CR>")
-keymap.set("n", "<Leader>w", ":ArgWrap<CR>", { silent = true })
+keymap.set("n", "<Leader>d", "<CMD>Bdelete<CR>")
 
--- Copy to clipboard
-keymap.set("n", "<Leader>y", '"*yy')
-keymap.set("v", "<Leader>y", '"*y')
-
--- Paste from clipboard
-keymap.set("n", "<Leader>p", '"*p')
+keymap.set("n", "<Leader>w", "<CMD>ArgWrap<CR>", { silent = true })
 
 -- Copy filename to clipboard
-keymap.set("n", "<Leader>yf", ':let @+ = expand("%")<CR>', { silent = true })
+keymap.set("n", "<Leader>yf", "<CMD>let @+ = expand('%')<CR>", { silent = true })
 
---" Rename instances
-keymap.set("n", "<Leader>?", ":Cheatsheet<CR>")
+keymap.set("n", "<Leader>?", "<CMD>Cheatsheet<CR>")
 
 -- Split Navigation
-keymap.set("n", "<Leader>-", ":split<CR>")
-keymap.set("n", "<Leader>|", ":vsplit<CR>")
+keymap.set("n", "<Leader>-", "<CMD>split<CR>")
+keymap.set("n", "<Leader>|", "<CMD>vsplit<CR>")
