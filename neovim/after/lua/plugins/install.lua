@@ -33,8 +33,6 @@ Plug("ruanyl/vim-gh-line")
 Plug("sindrets/diffview.nvim")
 
 -- Snippets
-Plug("SirVer/ultisnips")
-Plug("honza/vim-snippets")
 
 -- Display
 Plug("rcarriga/nvim-notify")
@@ -61,9 +59,9 @@ Plug("sam4llis/nvim-tundra")
 
 -- Navigation
 Plug("nvim-neo-tree/neo-tree.nvim")
+Plug("rlane/pounce.nvim")
 Plug("rmagatti/auto-session") -- session management
-Plug("nvim-telescope/telescope-file-browser.nvim")
-Plug("unblevable/quick-scope")
+Plug("jinh0/eyeliner.nvim")
 Plug("axieax/urlview.nvim")
 Plug("mong8se/actually.vim") -- suggest similar file names if not found
 
@@ -74,6 +72,5 @@ Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
 Plug("kristijanhusak/vim-carbon-now-sh") -- Screenshot and upload code to carbon.now.sh
 Plug("folke/which-key.nvim")
 Plug("sudormrfbin/cheatsheet.nvim")
-Plug("tjdevries/train.nvim") -- get better at vim lol
 
 vim.call("plug#end")

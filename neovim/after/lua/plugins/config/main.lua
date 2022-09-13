@@ -1,3 +1,4 @@
+require("nvim-surround").setup()
 require("octo").setup()
 require("nvim-tundra").setup({
 	plugins = {
