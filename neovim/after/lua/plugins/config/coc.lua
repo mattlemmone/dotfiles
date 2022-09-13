@@ -3,9 +3,6 @@ local fn = vim.fn
 local set = vim.opt
 local autocmd = vim.api.nvim_create_autocmd
 
--- Set this before any Leader mappings
-vim.g.mapleader = " "
-
 -- if hidden is not set, TextEdit might fail.
 set.hidden = true
 
@@ -82,7 +79,6 @@ keymap.set(
 	{ silent = true, expr = true }
 )
 
-
 -- Use K to show documentation in preview window.
 keymap.set("n", "K", ":lua ShowDocumentation()<CR>", { silent = true })
 
@@ -104,21 +100,19 @@ keymap.set("n", "gi", "<Plug>(coc-implementation)", { silent = true })
 keymap.set("n", "gr", "<Plug>(coc-references)", { silent = true })
 
 -- fix CR overlap with nvim pairs: https://github.com/windwp/nvim-autopairs/wiki/Completion-plugin
-local npairs = require('nvim-autopairs')
+local npairs = require("nvim-autopairs")
 
-npairs.setup({map_cr=false})
+npairs.setup({ map_cr = false })
 
-_G.MUtils= {}
+_G.MUtils = {}
 
-MUtils.completion_confirm=function()
-    if vim.fn["coc#pum#visible"]() ~= 0  then
-        return vim.fn["coc#pum#confirm"]()
-    else
-        return npairs.autopairs_cr()
-    end
+MUtils.completion_confirm = function()
+	if vim.fn["coc#pum#visible"]() ~= 0 then
+		return vim.fn["coc#pum#confirm"]()
+	else
+		return npairs.autopairs_cr()
+	end
 end
 
-
 -- this must be loaded after nvim-pairs
-keymap.set('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
-
+keymap.set("i", "<CR>", "v:lua.MUtils.completion_confirm()", { expr = true, noremap = true })

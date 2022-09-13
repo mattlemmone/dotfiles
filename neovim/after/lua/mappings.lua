@@ -1,17 +1,19 @@
 local keymap = vim.keymap
 
--- Set this before any Leader mappings
-vim.g.mapleader = " "
-
 -- Plugin Mappings
 keymap.set("n", "<Leader>n", ":Neotree focus dir=%:p:h toggle<CR>|:silent vertical res 30<CR>", { silent = true })
+
 -- Start interactive EasyAlign in visual mode (e.g. vipga)
 keymap.set("x", "ga", "<Plug>(EasyAlign)")
 
 -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
 keymap.set("n", "ga", "<Plug>(EasyAlign)")
 
--- Insert Mode Mappings
+-- Git
+keymap.set("n", "gf", ":DiffviewFileHistory<CR>") -- show git history for current buffer
+keymap.set("n", "gd", ":DiffviewOpen<CR>") -- show modified files
+
+-- ESCAPEEE
 keymap.set("i", "jk", "<ESC>")
 
 -- Terminal Mode Mappings
@@ -31,19 +33,12 @@ keymap.set("n", "<Leader>l", ":luafile %<CR>")
 keymap.set("n", "<Leader>r", ":so ~/dotfiles/neovim/.vimrc<CR>")
 
 keymap.set("n", "<Leader>d", ":Bdelete<CR>")
+
 keymap.set("n", "<Leader>w", ":ArgWrap<CR>", { silent = true })
-
--- Copy to clipboard
-keymap.set("n", "<Leader>y", '"*yy')
-keymap.set("v", "<Leader>y", '"*y')
-
--- Paste from clipboard
-keymap.set("n", "<Leader>p", '"*p')
 
 -- Copy filename to clipboard
 keymap.set("n", "<Leader>yf", ':let @+ = expand("%")<CR>', { silent = true })
 
---" Rename instances
 keymap.set("n", "<Leader>?", ":Cheatsheet<CR>")
 
 -- Split Navigation
