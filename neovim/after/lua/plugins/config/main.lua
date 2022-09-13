@@ -1,7 +1,15 @@
+require("octo").setup()
+require("nvim-tundra").setup({
+	plugins = {
+		telescope = true,
+		treesitter = true,
+		gitsigns = true,
+	},
+})
 require("mkdnflow").setup({})
 require("nvim-autopairs").setup({})
 require("plugins.config.coc")
-require("plugins.config.fzf")
+require("plugins.config.search")
 require("plugins.config.statusline")
 
 require("auto-session").setup({
