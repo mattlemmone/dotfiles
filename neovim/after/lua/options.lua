@@ -66,10 +66,17 @@ g.gitgutter_map_keys = 0 -- Don't use any key mappings
 g.NERDTreeQuitOnOpen = 1 -- close browser after opening a new buffer
 g.BufKillCreateMappings = 0
 
+-- Clipboard
+set.clipboard = "unnamedplus"
+
+--  tundra only
+set.termguicolors = true
+set.background = "dark"
+
 g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 vim.cmd([[
   filetype plugin on
-  colorscheme catppuccin
+  colorscheme tundra
 ]])
 
 -- Format lua on save

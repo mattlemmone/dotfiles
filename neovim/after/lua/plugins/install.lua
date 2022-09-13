@@ -4,7 +4,7 @@ vim.call("plug#begin", "~/dotfiles/neovim/plugged")
 
 -- deps
 Plug("nvim-lua/plenary.nvim")
-Plug("MunifTanjim/nui.nvim") -- reqd
+Plug("MunifTanjim/nui.nvim")
 
 -- Editing
 Plug("sQVe/sort.nvim")
@@ -23,22 +23,17 @@ Plug("tpope/vim-speeddating") -- inc/dec dates
 Plug("kylechui/nvim-surround")
 Plug("windwp/nvim-autopairs")
 Plug("ckipp01/stylua-nvim")
+Plug("jakewvincent/mkdnflow.nvim") -- markdown
 
 -- Git
 Plug("pwntester/octo.nvim") -- github ui
 Plug("lewis6991/gitsigns.nvim")
-Plug("junegunn/gv.vim") -- git browser
 Plug("rhysd/git-messenger.vim") -- git blame magic
 Plug("ruanyl/vim-gh-line")
-Plug("jakewvincent/mkdnflow.nvim") -- markdown
+Plug("sindrets/diffview.nvim")
 
 -- Snippets
 Plug("L3MON4D3/LuaSnip", { tag = "v1.*" })
-Plug("honza/vim-snippets")
-
--- Syntax
--- Plug('sheerun/vim-polyglot')
-Plug("jparise/vim-graphql")
 
 -- Display
 Plug("rcarriga/nvim-notify")
@@ -50,6 +45,7 @@ Plug("junegunn/limelight.vim")
 Plug("camspiers/lens.vim")
 Plug("kyazdani42/nvim-web-devicons")
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
+Plug("nvim-treesitter/nvim-treesitter-context")
 Plug("iamcco/markdown-preview.nvim", { ["do"] = "cd app && yarn install" })
 Plug("akinsho/bufferline.nvim", { tag = "v2.*" }) -- stylized buffer tabs
 Plug("norcalli/nvim-colorizer.lua") -- highlight color codes real-time
@@ -60,25 +56,22 @@ Plug("ray-x/sad.nvim") -- batch edit
 Plug("embark-theme/vim", { as = "embark" })
 Plug("catppuccin/nvim", { as = "catppuccin" })
 Plug("EdenEast/nightfox.nvim")
-Plug("shaunsingh/moonlight.nvim")
-Plug("sainnhe/everforest")
-Plug("Everblush/everblush.nvim", { as = "everblush" })
+Plug("sam4llis/nvim-tundra")
 
 -- Navigation
 Plug("nvim-neo-tree/neo-tree.nvim")
+Plug("rlane/pounce.nvim")
 Plug("rmagatti/auto-session") -- session management
-Plug("nvim-telescope/telescope-file-browser.nvim")
-Plug("unblevable/quick-scope")
+Plug("jinh0/eyeliner.nvim")
 Plug("axieax/urlview.nvim")
+Plug("mong8se/actually.vim") -- suggest similar file names if not found
 
 -- Searching
 Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
 
 -- Misc
 Plug("kristijanhusak/vim-carbon-now-sh") -- Screenshot and upload code to carbon.now.sh
-Plug("vim-test/vim-test")
 Plug("folke/which-key.nvim")
 Plug("sudormrfbin/cheatsheet.nvim")
-Plug("tjdevries/train.nvim") -- get better at vim lol
 
 vim.call("plug#end")

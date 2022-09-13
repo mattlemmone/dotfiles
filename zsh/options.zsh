@@ -28,10 +28,6 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^[[3~' delete-char
 bindkey '^[3;5~' delete-char
-# bindkey '^R' fzf-history-widget
-# bindkey '^I' fzf-completion
-# bindkey '^[[A' up-line-or-search
-# bindkey '^[[B' down-line-or-search
 
 # Enable autocompletions
 autoload -Uz compinit
