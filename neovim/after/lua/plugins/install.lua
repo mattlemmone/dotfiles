@@ -33,7 +33,7 @@ Plug("ruanyl/vim-gh-line")
 Plug("jakewvincent/mkdnflow.nvim") -- markdown
 
 -- Snippets
-Plug("SirVer/ultisnips")
+Plug("L3MON4D3/LuaSnip", { tag = "v1.*" })
 Plug("honza/vim-snippets")
 
 -- Syntax

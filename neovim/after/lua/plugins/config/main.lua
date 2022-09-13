@@ -1,5 +1,6 @@
 require("mkdnflow").setup({})
 require("nvim-autopairs").setup({})
+require("nvim-surround").setup({})
 require("plugins.config.coc")
 require("plugins.config.fzf")
 require("plugins.config.statusline")
