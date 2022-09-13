@@ -6,11 +6,13 @@ export GOPATH=$HOME/go
 export PYENV_ROOT="$HOME/.pyenv"
 
 # Path
-export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
-export PATH="/usr/local/go/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$(brew --prefix)/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+
 
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -18,5 +20,3 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # Bat
 export BAT_THEME="Dracula"
 
-# Homebrew
-export PATH="/opt/homebrew/bin:$PATH"

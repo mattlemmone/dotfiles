@@ -31,7 +31,7 @@ keymap.set("n", "<Leader>b", "<CMD>lua require('telescope.builtin').buffers()<CR
 keymap.set("n", "<Leader>ll", "<CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>")
 
 -- registers
-keymap.set("n", '<Leader>"', "<CMD>lua require('telescope.builtin').registers()<CR>")
+keymap.set("n", "<Leader>re", "<CMD>lua require('telescope.builtin').registers()<CR>")
 
 -- command history
 keymap.set("n", "<Leader>ch", "<CMD>lua require('telescope.builtin').command_history()<CR>")
