@@ -12,7 +12,7 @@ source ~/dotfiles/misc/.secrets
 #[ -z "$TMUX" ] && tmux attach || tmux
 
 # asdf
-. /usr/local/opt/asdf/libexec/asdf.sh
+. $(brew --prefix asdf)/libexec/asdf.sh
 
 # Zsh
 ## Load antibody plugin manager - must come before plugins
@@ -24,5 +24,6 @@ source ~/dotfiles/zsh/options.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(zoxide init zsh)"
+eval $(thefuck --alias)
 
 source ~/.config/broot/launcher/bash/br
