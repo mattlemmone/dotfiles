@@ -4,6 +4,7 @@ require("nvim-tundra").setup({
 	plugins = {
 		telescope = true,
 		treesitter = true,
+		context = true,
 		gitsigns = true,
 	},
 })
@@ -46,6 +47,7 @@ require("indent_blankline").setup({
 	show_current_context_start = false,
 })
 
+require("treesitter-context").setup({})
 require("nvim-treesitter.configs").setup({
 	-- Automatically install missing parsers when entering buffer
 	auto_install = true,
