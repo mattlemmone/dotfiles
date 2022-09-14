@@ -13,8 +13,8 @@ keymap.set("x", "ga", "<Plug>(EasyAlign)")
 keymap.set("n", "ga", "<Plug>(EasyAlign)")
 
 -- Git
-keymap.set("n", "gf", "<CMD>DiffviewFileHistory<CR>") -- show git history for current buffer
-keymap.set("n", "gd", "<CMD>DiffviewOpen<CR>") -- show modified files
+keymap.set("n", "<Leader>gf", "<CMD>DiffviewFileHistory<CR>") -- show git history for current buffer
+keymap.set("n", "<Leader>gd", "<CMD>DiffviewOpen<CR>") -- show modified files
 
 -- ESCAPEEE
 keymap.set("i", "jk", "<ESC>")

@@ -47,3 +47,6 @@ keymap.set("n", "<Leader>s", "<CMD>lua require('telescope.builtin').live_grep()<
 
 -- search for word under cursor in project
 keymap.set("n", "<Leader>*", ":Rg <C-R>:<C-W><CR> ")
+
+-- registers
+keymap.set("n", "<Leader>re", "<CMD>Telescope registers<CR>")

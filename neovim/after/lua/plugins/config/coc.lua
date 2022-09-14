@@ -55,11 +55,11 @@ keymap.set("n", "<Leader>cac", "<Plug>(coc-codeaction-cursor)", { silent = true 
 keymap.set("n", "<Leader>qf", "<Plug>(coc-fix-current)")
 
 -- Restart Coc.nvim on fuckery
-keymap.set("n", "<Leader>CR", ":<C-u>CocRestart<CR>", { silent = true })
+keymap.set("n", "<Leader>CR", "<CMD><C-u>CocRestart<CR>", { silent = true })
 
 -- Use tab for trigger completion with characters ahead and navigate.
 -- NOTE: There's always complete item selected by default, you may want to enable
--- no select by `"suggest.noselect": true` in your configuration file.
+-- no select by `"suggest.noselect"<CMD> true` in your configuration file.
 -- NOTE: Use command ':verbose keymap.set('i', '<tab>' to make sure tab is not mapped by')
 -- other plugin before putting this into your config.
 keymap.set(
@@ -80,15 +80,16 @@ keymap.set(
 )
 
 -- Use K to show documentation in preview window.
-keymap.set("n", "K", ":lua ShowDocumentation()<CR>", { silent = true })
+keymap.set("n", "K", "<CMD>lua ShowDocumentation()<CR>", { silent = true })
 
 --" Navigate errors
-keymap.set("n", "ee", "<Plug>(coc-diagnostic-info)", { silent = true })
+keymap.set("n", "<Leader>e", "<CMD>CocDiagnostics<CR>", { silent = true })
 keymap.set("n", "gE", "<Plug>(coc-diagnostic-prev)", { silent = true })
 keymap.set("n", "ge", "<Plug>(coc-diagnostic-next)", { silent = true })
+keymap.set("n", "<Leader>co", "<CMD>CocOutline<CR>")
 
 --" Show all errors
-keymap.set("n", "<Leader>le", ":<C-u>CocList diagnostics<cr>")
+keymap.set("n", "<Leader>le", "<CMD><C-u>CocList diagnostics<cr>")
 
 --" Rename instances
 keymap.set("n", "<Leader>rn", "<Plug>(coc-rename)")
