@@ -55,7 +55,7 @@ keymap.set("n", "<Leader>cac", "<Plug>(coc-codeaction-cursor)", { silent = true 
 keymap.set("n", "<Leader>qf", "<Plug>(coc-fix-current)")
 
 -- Restart Coc.nvim on fuckery
-keymap.set("n", "<Leader>CR", "<CMD><C-u>CocRestart<CR>", { silent = true })
+keymap.set("n", "<Leader>CR", "<CMD>CocRestart<CR>", { silent = true })
 
 -- Use tab for trigger completion with characters ahead and navigate.
 -- NOTE: There's always complete item selected by default, you may want to enable

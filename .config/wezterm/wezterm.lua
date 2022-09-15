@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local action = wezterm.action
 
 return {
 	window_close_confirmation = "NeverPrompt",
@@ -17,4 +18,56 @@ return {
 
 	default_gui_startup_args = { "connect", "unix" },
 	show_update_window = false,
+	keys = {
+		{
+			key = "-",
+			mods = "CTRL",
+			action = action.SplitVertical({ domain = "CurrentPaneDomain" }),
+		},
+		{
+			key = "|",
+			mods = "CTRL",
+			action = action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+		},
+		{
+			key = "w",
+			mods = "CMD",
+			action = action.CloseCurrentPane({ confirm = true }),
+		},
+		{
+			key = "h",
+			mods = "CTRL",
+			action = action.ActivatePaneDirection("Left"),
+		},
+		{
+			key = "l",
+			mods = "CTRL",
+			action = action.ActivatePaneDirection("Right"),
+		},
+		{
+			key = "k",
+			mods = "CTRL",
+			action = action.ActivatePaneDirection("Up"),
+		},
+		{
+			key = "j",
+			mods = "CTRL",
+			action = action.ActivatePaneDirection("Down"),
+		},
+		{
+			key = "f",
+			mods = "CTRL",
+			action = action.TogglePaneZoomState,
+		},
+		{
+			key = "Escape",
+			mods = "CTRL",
+			action = action.ActivateCopyMode,
+		},
+		{
+			key = "Tab",
+			mods = "CTRL",
+			action = action.QuickSelect,
+		},
+	},
 }
