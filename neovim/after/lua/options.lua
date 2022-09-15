@@ -73,9 +73,10 @@ set.clipboard = "unnamedplus"
 set.termguicolors = true
 set.background = "dark"
 
-g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+-- we dont like dis
+set.swapfile = false
+
 vim.cmd([[
-  filetype plugin on
   colorscheme tundra
 ]])
 
