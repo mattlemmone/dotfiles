@@ -24,6 +24,7 @@ Plug("kylechui/nvim-surround")
 Plug("windwp/nvim-autopairs")
 Plug("ckipp01/stylua-nvim")
 Plug("jakewvincent/mkdnflow.nvim") -- markdown
+Plug("pocco81/auto-save.nvim")
 
 -- Git
 Plug("pwntester/octo.nvim") -- github ui
@@ -61,7 +62,6 @@ Plug("sam4llis/nvim-tundra")
 -- Navigation
 Plug("nvim-neo-tree/neo-tree.nvim")
 Plug("rlane/pounce.nvim")
-Plug("rmagatti/auto-session") -- session management
 Plug("jinh0/eyeliner.nvim")
 Plug("axieax/urlview.nvim")
 Plug("mong8se/actually.vim") -- suggest similar file names if not found

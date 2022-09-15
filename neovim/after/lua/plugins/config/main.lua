@@ -28,21 +28,7 @@ require("plugins.config.coc")
 require("plugins.config.search")
 require("plugins.config.statusline")
 
-require("auto-session").setup({
-	cwd_change_handling = {
-		restore_upcoming_session = false,
-	},
-})
-
-require("neo-tree").setup({
-	filesystem = {
-		filtered_items = {
-			visible = true, -- when true, they will just be displayed differently than normal items
-			hide_dotfiles = false,
-			hide_gitignored = false,
-		},
-	},
-})
+require("neo-tree").setup()
 
 require("catppuccin").setup({
 	integrations = {
