@@ -8,9 +8,6 @@ source ~/dotfiles/misc/.secrets
 [ -f ~/dotfiles/misc/doordash ] && source ~/dotfiles/misc/doordash
 [ -f ~/dotfiles/misc/wolt ] && source ~/dotfiles/misc/wolt
 
-# Start or resume tmux
-#[ -z "$TMUX" ] && tmux attach || tmux
-
 # asdf
 . $(brew --prefix asdf)/libexec/asdf.sh
 
@@ -24,6 +21,10 @@ source ~/dotfiles/zsh/options.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(zoxide init zsh)"
+
+# Misc
 eval $(thefuck --alias)
 
 source ~/.config/broot/launcher/bash/br
+
+eval $(ssh-agent) > /dev/null
