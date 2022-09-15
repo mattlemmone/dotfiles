@@ -1,7 +1,29 @@
 local keymap = vim.keymap
 local fn = vim.fn
 local set = vim.opt
+local g = vim.g
 local autocmd = vim.api.nvim_create_autocmd
+
+g.coc_global_extensions = {
+	"coc-css",
+	"coc-docker",
+	"coc-emoji",
+	"coc-html",
+	"coc-json",
+	"coc-lua",
+	"coc-prettier",
+	"coc-protobuf",
+	"coc-pyright",
+	"coc-sh",
+	"coc-snippets",
+	"coc-tsserver",
+	"coc-vimlsp",
+	"coc-webpack",
+	"coc-xml",
+	"coc-yaml",
+	"coc-yank",
+	"friendly-snippets",
+}
 
 -- if hidden is not set, TextEdit might fail.
 set.hidden = true

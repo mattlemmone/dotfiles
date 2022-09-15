@@ -36,22 +36,22 @@ return {
 		},
 		{
 			key = "h",
-			mods = "CTRL",
+			mods = "CMD",
 			action = action.ActivatePaneDirection("Left"),
 		},
 		{
 			key = "l",
-			mods = "CTRL",
+			mods = "CMD",
 			action = action.ActivatePaneDirection("Right"),
 		},
 		{
 			key = "k",
-			mods = "CTRL",
+			mods = "CMD",
 			action = action.ActivatePaneDirection("Up"),
 		},
 		{
 			key = "j",
-			mods = "CTRL",
+			mods = "CMD",
 			action = action.ActivatePaneDirection("Down"),
 		},
 		{

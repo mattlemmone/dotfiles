@@ -24,7 +24,6 @@ Plug("kylechui/nvim-surround")
 Plug("windwp/nvim-autopairs")
 Plug("ckipp01/stylua-nvim")
 Plug("jakewvincent/mkdnflow.nvim") -- markdown
-Plug("pocco81/auto-save.nvim")
 
 -- Git
 Plug("pwntester/octo.nvim") -- github ui
@@ -32,9 +31,6 @@ Plug("lewis6991/gitsigns.nvim")
 Plug("rhysd/git-messenger.vim") -- git blame magic
 Plug("ruanyl/vim-gh-line")
 Plug("sindrets/diffview.nvim")
-
--- Snippets
-Plug("L3MON4D3/LuaSnip", { tag = "v1.*" })
 
 -- Display
 Plug("rcarriga/nvim-notify")

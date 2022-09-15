@@ -12,16 +12,7 @@
   ],
   "tsserver.npm": "/usr/local/bin/npm",
   "typescript.preferences.importModuleSpecifier": "relative",
-  "python.linting.flake8Enabled": true,
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "/Users/matt/.local/share/virtualenvs/payment-service-mPKxY5Zc/bin/black",
-  "python.analysis.diagnosticMode": "workspace",
-  "python.pythonPath": "/Users/matt/.local/share/virtualenvs/payment-service-mPKxY5Zc/bin/python",
   "languageserver": {
-    "kotlin": {
-      "command": "~/Dev/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
-      "filetypes": ["kotlin"]
-    },
     "terraform": {
       "command": "terraform-ls",
       "args": ["serve"],
