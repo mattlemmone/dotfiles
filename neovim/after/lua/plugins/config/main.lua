@@ -66,6 +66,9 @@ require("gitsigns").setup({
 	current_line_blame = true,
 })
 
+-- Fix color highlighting for gitsigns
+vim.highlight.link("GitSignsCurrentLineBlame", "Comment", true)
+
 require("bufferline").setup({
 	highlights = {
 		buffer_selected = { italic = false },
