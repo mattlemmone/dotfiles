@@ -1,0 +1,87 @@
+#!/usr/bin/env sh
+# modes
+## default has navigation and misc commands
+:: default : yabai -m config active_window_border_color 0x000F75E0; hs -c "hs.alert('Default mode')"
+
+## resize windows
+:: resize : yabai -m config active_window_border_color 0xff24ccaa; hs -c "hs.alert('Resize mode')"
+
+## move windows, send to other spaces
+:: move : yabai -m config active_window_border_color 0xef23ccaa;  hs -c "hs.alert('Move mode')"
+
+## mode switching
+resize, move < escape ; default
+default, move < alt - space; resize
+resize, default < ctrl + alt - space ; move
+
+## float
+ctrl + alt - f: yabai -m window --toggle float
+
+## test nav
+ctrl + alt - k: yabai -m window --focus "$( yabai -m query --windows --space $(yabai_get_current_space) | jq -re "sort_by(.frame.x, .frame.y, .id) | map(select(.\"is-visible\" == true and .role != \"AXUnknown\")) | nth( index( map( select(.\"has-focus\" == true))) - 1).id")"
+
+ctrl + alt - j: yabai -m window --focus "$( yabai -m query --windows --space $(yabai_get_current_space) | jq -re "sort_by(.frame.x, .frame.y, .id) | map(select(.\"is-visible\" == true and .role != \"AXUnknown\")) | reverse | nth( index( map( select(.\"has-focus\" == true))) - 1).id")"
+
+# space
+## focus space
+alt - 1 : yabai -m space --focus 1  
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+ctrl + alt - x : yabai -m space --focus recent
+ctrl + alt - h : yabai -m space --focus prev || yabai -m space --focus last
+ctrl + alt - l : yabai -m space --focus next || yabai -m space --focus first
+
+## send to space, focus space
+move < alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
+move < alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
+move < alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
+
+## distribute space equally (=)
+alt - 0x18 : yabai -m space --balance
+
+# reload yabai
+alt - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+# alt - r : source ~/.yabairc
+
+# toggle window fullscreen zoom
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# stack bois
+alt - i : yabai -m window --insert stack
+
+# window
+## focus
+alt - x : yabai -m window --focus recent
+alt - h : yabai -m window --focus west || yabai -m window --focus first
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east|| yabai -m window --focus last
+alt - z : yabai -m window --focus stack.prev || yabai -m window --focus stack.next
+alt - c : yabai -m window --focus stack.next || yabai -m window --focus stack.prev
+
+## swap window
+move < ctrl + alt - x : yabai -m window --swap recent
+move < ctrl + alt - h : yabai -m window --swap west || yabai -m window --swap last
+move < ctrl + alt - j : yabai -m window --swap south
+move < ctrl + alt - k : yabai -m window --swap north
+move < ctrl + alt - l : yabai -m window --swap east || yabai -m window --swap first
+
+## move window
+move < alt - h : yabai -m window --warp west
+move < alt - j : yabai -m window --warp south
+move < alt - k : yabai -m window --warp north
+move < alt - l : yabai -m window --warp east
+
+## grid system (floating window)
+
+### left half
+resize < alt - h : yabai -m window --grid 1:2:0:1:1:1 
+
+### center 
+resize < alt - j : yabai -m window --grid 1:6:1:1:4:1 
+
+### center (fullscreen)
+resize < alt - k : yabai -m window --grid 1:1:1:1:1:1
+
+### right half
+resize < alt - l : yabai -m window --grid 1:2:1:2:2:1 
