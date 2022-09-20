@@ -47,10 +47,10 @@ set.wildmenu = true -- visual autocomplete
 set.pyxversion = 3
 
 -- neovim
-g.node_host_prog = expand("~/.asdf/installs/nodejs/18.9.0/.npm/bin/neovim-node-host")
+g.node_host_prog = expand("~/.asdf/shims/neovim-node-host")
 g.python3_host_prog = expand("~/.asdf/shims/python3")
 g.python_host_prog = expand("~/.asdf/shims/python2")
-g.ruby_host_prog = expand("~/.asdf/installs/ruby/3.1.2/bin/neovim-ruby-host")
+g.ruby_host_prog = expand("~/.asdf/shims/neovim-ruby-host")
 
 -- vim-go
 g.go_highlight_build_constraints = 1
