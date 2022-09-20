@@ -22,7 +22,7 @@ g.coc_global_extensions = {
 	"coc-xml",
 	"coc-yaml",
 	"coc-yank",
-	"friendly-snippets",
+	"https://github.com/rafamadriz/friendly-snippets@main",
 }
 
 -- if hidden is not set, TextEdit might fail.
