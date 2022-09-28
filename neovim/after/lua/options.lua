@@ -78,6 +78,7 @@ set.swapfile = false
 
 vim.cmd([[
   colorscheme tundra
+  highlight link GitSignsCurrentLineBlame Comment
 ]])
 
 -- Format lua on save
