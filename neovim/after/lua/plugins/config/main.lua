@@ -1,5 +1,6 @@
 -- TODO move out of here
 local actions = require("diffview.actions")
+
 require("diffview").setup({
 	keymaps = {
 		disable_defaults = false, -- Disable the default keymaps
@@ -12,7 +13,6 @@ require("diffview").setup({
 	},
 })
 require("nvim-surround").setup()
-require("octo").setup()
 require("nvim-tundra").setup({
 	plugins = {
 		telescope = true,
@@ -65,9 +65,6 @@ require("neo-tree").setup({
 require("gitsigns").setup({
 	current_line_blame = true,
 })
-
--- Fix color highlighting for gitsigns
-vim.highlight.link("GitSignsCurrentLineBlame", "Comment", true)
 
 require("bufferline").setup({
 	highlights = {

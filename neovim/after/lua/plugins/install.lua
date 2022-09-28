@@ -24,9 +24,9 @@ Plug("kylechui/nvim-surround")
 Plug("windwp/nvim-autopairs")
 Plug("ckipp01/stylua-nvim")
 Plug("jakewvincent/mkdnflow.nvim") -- markdown
+Plug("inkarkat/vim-ReplaceWithRegister") -- ez replace motion with register contents
 
 -- Git
-Plug("pwntester/octo.nvim") -- github ui
 Plug("lewis6991/gitsigns.nvim")
 Plug("rhysd/git-messenger.vim") -- git blame magic
 Plug("ruanyl/vim-gh-line")
