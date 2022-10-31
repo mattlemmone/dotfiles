@@ -14,7 +14,7 @@ Plug("junegunn/vim-easy-align")
 Plug("mizlan/iswap.nvim") -- swap args, lines, objects
 Plug("markonm/traces.vim") -- live subst preview
 Plug("neoclide/coc.nvim", { branch = "release" })
-Plug("famiu/bufdelete.nvim") -- dont close split when closing buffer
+Plug("ojroques/nvim-bufdel") -- dont close split when closing buffer
 Plug("simnalamburt/vim-mundo") -- undo tree
 Plug("tpope/vim-abolish") -- easy abbrevs, subversion
 Plug("tpope/vim-commentary") -- commenting
@@ -25,6 +25,7 @@ Plug("windwp/nvim-autopairs")
 Plug("ckipp01/stylua-nvim")
 Plug("jakewvincent/mkdnflow.nvim") -- markdown
 Plug("inkarkat/vim-ReplaceWithRegister") -- ez replace motion with register contents
+Plug("anuvyklack/pretty-fold.nvim") -- foldinggg
 
 -- Git
 Plug("lewis6991/gitsigns.nvim")
@@ -56,7 +57,8 @@ Plug("EdenEast/nightfox.nvim")
 Plug("sam4llis/nvim-tundra")
 
 -- Navigation
-Plug("nvim-neo-tree/neo-tree.nvim")
+Plug("kyazdani42/nvim-tree.lua")
+Plug("elihunter173/dirbuf.nvim")
 Plug("rlane/pounce.nvim")
 Plug("jinh0/eyeliner.nvim")
 Plug("axieax/urlview.nvim")

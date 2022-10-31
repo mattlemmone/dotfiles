@@ -10,6 +10,8 @@
     "python",
     "lua"
   ],
+  "snippets.loadVSCodeProjectSnippets": false,
+  "snippets.loadFromExtensions": false,
   "tsserver.npm": "/usr/local/bin/npm",
   "typescript.preferences.importModuleSpecifier": "relative",
   "languageserver": {

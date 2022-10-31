@@ -1,6 +1,5 @@
 -- TODO move out of here
 local actions = require("diffview.actions")
-
 require("diffview").setup({
 	keymaps = {
 		disable_defaults = false, -- Disable the default keymaps
@@ -9,6 +8,7 @@ require("diffview").setup({
 			-- tabpage is a Diffview.
 			["gE"] = actions.prev_conflict, -- In the merge_tool: jump to the previous conflict
 			["ge"] = actions.next_conflict, -- In the merge_tool: jump to the next conflict
+			["nn"] = actions.focus_entry,
 		},
 	},
 })
@@ -28,17 +28,18 @@ require("plugins.config.coc")
 require("plugins.config.search")
 require("plugins.config.statusline")
 
-require("neo-tree").setup()
-
 require("catppuccin").setup({
-	integrations = {
-		neotree = {
-			enabled = true,
-			show_root = true, -- makes the root folder not transparent
-			transparent_panel = false, -- make the panel transparent
-		},
+	integrations = {},
+})
+
+require("nvim-tree").setup({
+	update_focused_file = {
+		enable = false,
+		update_root = false,
+		ignore_list = {},
 	},
 })
+
 require("which-key").setup({})
 
 require("indent_blankline").setup({
@@ -52,14 +53,6 @@ require("nvim-treesitter.configs").setup({
 	auto_install = true,
 	highlight = { enable = true },
 	indent = { enable = true },
-})
-
-require("neo-tree").setup({
-	popup_border_style = "rounded",
-	enable_git_status = true,
-	filesystem = {
-		follow_current_file = false,
-	},
 })
 
 require("gitsigns").setup({
@@ -76,3 +69,5 @@ require("bufferline").setup({
 		pick = { italic = false },
 	},
 })
+
+require("pretty-fold").setup()

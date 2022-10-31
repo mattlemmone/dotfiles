@@ -5,7 +5,7 @@ source ~/dotfiles/misc/funcs/yabai
 source ~/dotfiles/misc/funcs/git
 source ~/dotfiles/misc/.secrets
 
-eval $(ssh-agent) > /dev/null
+eval $(ssh-agent) 
 [ -f ~/dotfiles/misc/doordash ] && source ~/dotfiles/misc/doordash
 [ -f ~/dotfiles/misc/wolt ] && source ~/dotfiles/misc/wolt
 
