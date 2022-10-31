@@ -1,7 +1,7 @@
 local keymap = vim.keymap
 
 -- Plugin Mappings
-keymap.set("n", "<Leader>n", "<CMD>Neotree focus dir=%:p:h toggle<CR>|:silent vertical res 30<CR>", { silent = true })
+keymap.set("n", "<Leader>n", ":NvimTreeFindFileToggle!<CR>", { silent = true })
 
 keymap.set("n", "<Leader>m", "<CMD>MundoToggle<CR>", { silent = true })
 keymap.set("n", "s", "<CMD>Pounce<CR>", { silent = true })
@@ -36,7 +36,7 @@ keymap.set("n", "<Leader>l", "<CMD>luafile %<CR>")
 -- reload vimrc
 keymap.set("n", "<Leader>r", "<CMD>so ~/dotfiles/neovim/.vimrc<CR>")
 
-keymap.set("n", "<Leader>d", "<CMD>Bdelete<CR>")
+keymap.set("n", "<Leader>d", "<CMD>BufDel<CR>")
 
 keymap.set("n", "<Leader>w", "<CMD>ArgWrap<CR>", { silent = true })
 
@@ -48,3 +48,17 @@ keymap.set("n", "<Leader>?", "<CMD>Cheatsheet<CR>")
 -- Split Navigation
 keymap.set("n", "<Leader>-", "<CMD>split<CR>")
 keymap.set("n", "<Leader>|", "<CMD>vsplit<CR>")
+
+-- ReplaceWithRegister
+keymap.set("n", "<Leader>p", "<Plug>ReplaceWithRegisterOperator")
+keymap.set("n", "<Leader>pp", "<Plug>ReplaceWithRegisterLine")
+keymap.set("x", "<Leader>p", "<Plug>ReplaceWithRegisterVisual")
+
+-- lazy, fix later. ReplaceWithRegister innately maps gr... >:(
+keymap.set("n", "gr", "<Plug>(coc-references)", { silent = true })
+
+-- Open urls
+keymap.set("n", "<Leader>u", "<CMD>UrlView<CR>")
+
+-- Swap
+keymap.set("n", "<Leader>i", "<CMD>ISwap<CR>")

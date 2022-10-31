@@ -25,7 +25,7 @@ return {
 			action = action.SplitVertical({ domain = "CurrentPaneDomain" }),
 		},
 		{
-			key = "|",
+			key = "\\",
 			mods = "CTRL",
 			action = action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 		},

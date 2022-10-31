@@ -14,15 +14,16 @@ yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 0.8
 
 # Space labels
-yabai -m space 1 --label doordash
-yabai -m space 2 --label wolt
-yabai -m space 3 --label personal
+yabai -m space 1 --label wolt
+yabai -m space 2 --label personal
 
 # Rules
-yabai -m rule --add app="^Google Chrome$" space=^doordash
+yabai -m rule --add app="^Google Chrome$" space=^wolt
 
 ## Unmanaged, sticky
 yabai -m rule --add app="^(System Preferences|Things|Raycast|Contexts|zoom.us|Reeder)$" sticky=on manage=off 
+
+yabai -m rule --add app="^(Screen Shot|CleanShot X)$" sticky=on manage=off mouse_follows_focus=off
 
 ## Personal
 yabai -m rule --add app="^(Signal|Firefox|LINE|Music)$" space=^personal

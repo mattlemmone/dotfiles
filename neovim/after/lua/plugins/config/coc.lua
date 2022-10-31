@@ -8,6 +8,7 @@ g.coc_global_extensions = {
 	"coc-css",
 	"coc-docker",
 	"coc-emoji",
+	"coc-eslint",
 	"coc-html",
 	"coc-json",
 	"coc-lua",
@@ -22,7 +23,6 @@ g.coc_global_extensions = {
 	"coc-xml",
 	"coc-yaml",
 	"coc-yank",
-	"https://github.com/rafamadriz/friendly-snippets@main",
 }
 
 -- if hidden is not set, TextEdit might fail.
@@ -111,14 +111,14 @@ keymap.set("n", "ge", "<Plug>(coc-diagnostic-next)", { silent = true })
 keymap.set("n", "<Leader>co", "<CMD>CocOutline<CR>")
 
 --" Show all errors
-keymap.set("n", "<Leader>le", "<CMD><C-u>CocList diagnostics<cr>")
+keymap.set("n", "<Leader>le", "<CMD>CocList diagnostics<cr>")
 
 --" Rename instances
 keymap.set("n", "<Leader>rn", "<Plug>(coc-rename)")
 
 --" Goto
 keymap.set("n", "gd", "<Plug>(coc-definition)", { silent = true })
-keymap.set("n", "gy", "<Plug>(coc-type-definition)", { silent = true })
+keymap.set("n", "gt", "<Plug>(coc-type-definition)", { silent = true })
 keymap.set("n", "gi", "<Plug>(coc-implementation)", { silent = true })
 keymap.set("n", "gr", "<Plug>(coc-references)", { silent = true })
 
