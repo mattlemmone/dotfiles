@@ -8,6 +8,12 @@ require("telescope").setup({
 			prompt_position = "top",
 			-- other layout configuration here
 		},
+		mappings = {
+			i = {
+				["<C-D>"] = require("telescope.actions").cycle_history_next,
+				["<C-U>"] = require("telescope.actions").cycle_history_prev,
+			},
+		},
 		-- other defaults configuration here
 	},
 	pickers = {

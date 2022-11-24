@@ -9,9 +9,9 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 # Enable output of debug information to stdout. [<BOOL_SEL>]
 yabai -m config debug_output on
 yabai -m config layout bsp
-yabai -m config window_border on
-yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.8
+# yabai -m config window_border on # causes blur issue when using mission control, cleanshot, etc
+# yabai -m config active_window_opacity 1.0
+# yabai -m config normal_window_opacity 0.8
 
 # Space labels
 yabai -m space 1 --label wolt
@@ -21,12 +21,10 @@ yabai -m space 2 --label personal
 yabai -m rule --add app="^Google Chrome$" space=^wolt
 
 ## Unmanaged, sticky
-yabai -m rule --add app="^(System Preferences|Things|Raycast|Contexts|zoom.us|Reeder)$" sticky=on manage=off 
-
-yabai -m rule --add app="^(Screen Shot|CleanShot X)$" sticky=on manage=off mouse_follows_focus=off
+yabai -m rule --add app="^(System Preferences|Things|Raycast|Contexts|zoom.us|Clean Shot X)$" sticky=on manage=off 
 
 ## Personal
-yabai -m rule --add app="^(Signal|Firefox|LINE|Music)$" space=^personal
+yabai -m rule --add app="^(Signal|Firefox|LINE|Music|Reeder)$" space=^personal
 
 # Padding
 yabai -m config top_padding    5
