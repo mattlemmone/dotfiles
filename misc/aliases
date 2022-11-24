@@ -26,8 +26,4 @@ alias tfv='terraform validate'
 alias tfi='terraform init'
 
 # Everything else
-alias ls='lsd'
-alias l='ls -l'
-alias la='ls -la'
-alias lla='ls -la'
-alias lt='ls --tree'
+alias ls='exa --icons'

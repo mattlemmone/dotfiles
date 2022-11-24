@@ -62,7 +62,6 @@ Plug("elihunter173/dirbuf.nvim")
 Plug("rlane/pounce.nvim")
 Plug("jinh0/eyeliner.nvim")
 Plug("axieax/urlview.nvim")
-Plug("mong8se/actually.vim") -- suggest similar file names if not found
 
 -- Searching
 Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
