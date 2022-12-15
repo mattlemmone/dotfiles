@@ -6,7 +6,6 @@ require("telescope").setup({
 		layout_config = {
 			vertical = { width = 0.25 },
 			prompt_position = "top",
-			-- other layout configuration here
 		},
 		mappings = {
 			i = {
@@ -14,14 +13,15 @@ require("telescope").setup({
 				["<C-U>"] = require("telescope.actions").cycle_history_prev,
 			},
 		},
-		-- other defaults configuration here
+	},
+	extensions = {
+		file_browser = {
+			mappings = {},
+		},
 	},
 	pickers = {
 		find_files = {
 			find_command = { "rg", "--files" },
-		},
-		live_grep = {
-			find_command = { "rg", "-l" },
 		},
 		buffers = {
 			sort_lastused = true,
@@ -30,6 +30,10 @@ require("telescope").setup({
 	},
 })
 
+-- Plugins
+require("telescope").load_extension("file_browser")
+
+-- Key Maps
 -- list open buffers
 keymap.set("n", "<Leader>b", "<CMD>lua require('telescope.builtin').buffers()<CR>")
 
@@ -47,6 +51,9 @@ keymap.set("n", "<Leader>f", "<CMD>lua require('telescope.builtin').find_files()
 
 -- file history
 keymap.set("n", "<Leader>hh", "<CMD>lua require('telescope.builtin').oldfiles()<CR>")
+
+-- file nav
+keymap.set("n", "<Leader>n", "<CMD>Telescope file_browser path=%:p:h initial_mode=normal<CR>", { silent = true })
 
 -- grep
 keymap.set("n", "<Leader>s", "<CMD>lua require('telescope.builtin').live_grep()<CR>")
