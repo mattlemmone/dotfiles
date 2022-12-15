@@ -1,8 +1,6 @@
 local keymap = vim.keymap
 
 -- Plugin Mappings
-keymap.set("n", "<Leader>n", ":NvimTreeFindFileToggle!<CR>", { silent = true })
-
 keymap.set("n", "<Leader>m", "<CMD>MundoToggle<CR>", { silent = true })
 keymap.set("n", "s", "<CMD>Pounce<CR>", { silent = true })
 keymap.set("n", "S", "<CMD>PounceRepeat<CR>", { silent = true })

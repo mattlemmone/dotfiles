@@ -32,13 +32,13 @@ require("catppuccin").setup({
 	integrations = {},
 })
 
-require("nvim-tree").setup({
-	update_focused_file = {
-		enable = false,
-		update_root = false,
-		ignore_list = {},
-	},
-})
+-- require("nvim-tree").setup({
+-- 	update_focused_file = {
+-- 		enable = false,
+-- 		update_root = false,
+-- 		ignore_list = {},
+-- 	},
+-- })
 
 require("which-key").setup({})
 
