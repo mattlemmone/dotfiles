@@ -27,3 +27,5 @@ alias tfi='terraform init'
 
 # Everything else
 alias ls='exa --icons'
+alias rm='rip'
+alias rm_undo='rip -s'

@@ -17,7 +17,13 @@ export
 endsnippet
 
 snippet exc "export const"
-export const
+export const 
+endsnippet
+
+snippet ty "type"
+type $1 = {
+	$2
+}
 endsnippet
 
 snippet cl "console.log"
@@ -42,4 +48,26 @@ endsnippet
 
 snippet us "React.useState"
 const [$1, set`!p snip.rv=upperfirst(t[1])`] = React.useState()
+endsnippet
+
+snippet exd "export default"
+export default
+endsnippet
+
+snippet cofe "Function Expression"
+const $1 = ($2) => {
+	$2
+}
+endsnippet
+
+snippet use "Create a Hook"
+const use$1 = ($2) => {
+	$2
+}
+
+export default use$1
+endsnippet
+
+snippet impr "Import React" 
+import React from 'react';
 endsnippet
