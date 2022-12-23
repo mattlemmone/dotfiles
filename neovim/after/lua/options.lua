@@ -14,10 +14,10 @@ set.encoding = "utf-8"
 set.expandtab = true -- convert <TAB> key-presses to spaces
 set.list = true -- show special chars
 set.listchars = {
-	tab = "› ",
-	trail = "·",
-	extends = "#",
-	nbsp = ".",
+  tab = "› ",
+  trail = "·",
+  extends = "#",
+  nbsp = ".",
 } -- special character overrides
 -- set.lcs+=space:•      -- dot instead of space
 set.number = true -- show line numbers
@@ -25,6 +25,7 @@ set.ruler = true -- show cursor position
 set.showcmd = true
 set.textwidth = 79
 set.tw = 0 -- text width 0 wont allow linebreak
+set.signcolumn = "yes" -- prevent flickering on save
 
 -- Indentation (Universal default)
 set.shiftwidth = 2
@@ -36,10 +37,6 @@ set.ignorecase = true
 set.smartcase = true -- switch to case-sensitive searches when uppercase chars found
 set.incsearch = true -- partial matches
 set.hlsearch = true -- highlight matches
-
--- Indentation (Universal default)
-set.shiftwidth = 2
-set.tabstop = 2
 
 -- Commands
 set.wildmenu = true -- visual autocomplete
@@ -62,7 +59,6 @@ g.go_highlight_operators = 1
 g.go_highlight_structs = 1
 
 -- Plugins
-g.UltiSnipsExpandTrigger = "<nop>" -- Let coc.nvim use tab instead of ultisnips
 g.gitgutter_map_keys = 0 -- Don't use any key mappings
 g.NERDTreeQuitOnOpen = 1 -- close browser after opening a new buffer
 g.BufKillCreateMappings = 0
@@ -88,8 +84,8 @@ vim.cmd([[
 
 -- Format lua on save
 autocmd("BufWritePre", {
-	pattern = "*.lua",
-	callback = function()
-		require("stylua-nvim").format_file()
-	end,
+  pattern = "*.lua",
+  callback = function()
+    vim.lsp.buf.format()
+  end,
 })
