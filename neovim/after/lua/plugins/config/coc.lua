@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local keymap = vim.keymap
 local fn = vim.fn
 local set = vim.opt
@@ -24,6 +25,10 @@ g.coc_global_extensions = {
 	"coc-yaml",
 	"coc-yank",
 }
+
+-- navigate snippet placeholders
+g.coc_snippet_next = "<c-d>"
+g.coc_snippet_prev = "<c-u>"
 
 -- if hidden is not set, TextEdit might fail.
 set.hidden = true
@@ -105,22 +110,21 @@ keymap.set(
 keymap.set("n", "K", "<CMD>lua ShowDocumentation()<CR>", { silent = true })
 
 --" Navigate errors
-keymap.set("n", "<Leader>e", "<CMD>CocDiagnostics<CR>", { silent = true })
 keymap.set("n", "gE", "<Plug>(coc-diagnostic-prev)", { silent = true })
 keymap.set("n", "ge", "<Plug>(coc-diagnostic-next)", { silent = true })
 keymap.set("n", "<Leader>co", "<CMD>CocOutline<CR>")
 
 --" Show all errors
-keymap.set("n", "<Leader>le", "<CMD>CocList diagnostics<cr>")
+keymap.set("n", "<Leader>le", "<CMD>Telescope coc diagnostics<CR>")
 
 --" Rename instances
 keymap.set("n", "<Leader>rn", "<Plug>(coc-rename)")
 
 --" Goto
-keymap.set("n", "gd", "<Plug>(coc-definition)", { silent = true })
-keymap.set("n", "gt", "<Plug>(coc-type-definition)", { silent = true })
-keymap.set("n", "gi", "<Plug>(coc-implementation)", { silent = true })
-keymap.set("n", "gr", "<Plug>(coc-references)", { silent = true })
+keymap.set("n", "gd", "<CMD>Telescope coc definitions<CR>", { silent = true })
+keymap.set("n", "gt", "<CMD>Telescope coc type_definitions<CR>", { silent = true })
+keymap.set("n", "gi", "<CMD>Telescope coc implementations<CR>", { silent = true })
+keymap.set("n", "gr", "<CMD>Telescope coc references<CR>", { silent = true })
 
 -- fix CR overlap with nvim pairs: https://github.com/windwp/nvim-autopairs/wiki/Completion-plugin
 local npairs = require("nvim-autopairs")

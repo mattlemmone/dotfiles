@@ -12,7 +12,6 @@ require("diffview").setup({
 		},
 	},
 })
-require("nvim-surround").setup()
 require("nvim-tundra").setup({
 	plugins = {
 		telescope = true,
@@ -21,26 +20,10 @@ require("nvim-tundra").setup({
 		gitsigns = true,
 	},
 })
-require("mkdnflow").setup({})
-require("nvim-autopairs").setup({})
-require("nvim-surround").setup({})
-require("plugins.config.coc")
-require("plugins.config.search")
-require("plugins.config.statusline")
 
 require("catppuccin").setup({
 	integrations = {},
 })
-
--- require("nvim-tree").setup({
--- 	update_focused_file = {
--- 		enable = false,
--- 		update_root = false,
--- 		ignore_list = {},
--- 	},
--- })
-
-require("which-key").setup({})
 
 require("indent_blankline").setup({
 	show_current_context = true,
@@ -71,3 +54,11 @@ require("bufferline").setup({
 })
 
 require("pretty-fold").setup()
+require("which-key").setup({})
+require("nvim-surround").setup()
+require("mkdnflow").setup({})
+require("nvim-autopairs").setup({})
+require("nvim-surround").setup({})
+require("plugins.config.coc")
+require("plugins.config.search")
+require("plugins.config.statusline")

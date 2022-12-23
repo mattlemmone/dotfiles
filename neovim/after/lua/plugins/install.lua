@@ -14,6 +14,7 @@ Plug("junegunn/vim-easy-align")
 Plug("mizlan/iswap.nvim") -- swap args, lines, objects
 Plug("markonm/traces.vim") -- live subst preview
 Plug("neoclide/coc.nvim", { branch = "release" })
+Plug("fannheyward/telescope-coc.nvim") -- Coc in telescope! :o
 Plug("ojroques/nvim-bufdel") -- dont close split when closing buffer
 Plug("simnalamburt/vim-mundo") -- undo tree
 Plug("tpope/vim-abolish") -- easy abbrevs, subversion
@@ -48,6 +49,7 @@ Plug("embark-theme/vim", { as = "embark" })
 Plug("catppuccin/nvim", { as = "catppuccin" })
 Plug("EdenEast/nightfox.nvim")
 Plug("sam4llis/nvim-tundra")
+Plug("nyoom-engineering/oxocarbon.nvim")
 
 -- Navigation
 Plug("nvim-telescope/telescope-file-browser.nvim")
@@ -55,6 +57,7 @@ Plug("elihunter173/dirbuf.nvim")
 Plug("rlane/pounce.nvim")
 Plug("jinh0/eyeliner.nvim")
 Plug("axieax/urlview.nvim")
+Plug("debugloop/telescope-undo.nvim") -- Mundo replacement w/ telescope
 
 -- Searching
 Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
