@@ -1,39 +1,38 @@
 local keymap = vim.keymap
 
 require("telescope").setup({
-	defaults = {
-		sorting_strategy = "ascending",
-		layout_config = {
-			vertical = { width = 0.25 },
-			prompt_position = "top",
-		},
-		mappings = {
-			i = {
-				["<C-D>"] = require("telescope.actions").cycle_history_next,
-				["<C-U>"] = require("telescope.actions").cycle_history_prev,
-			},
-		},
-	},
-	extensions = {
-		file_browser = {
-			mappings = {},
-		},
-	},
-	pickers = {
-		find_files = {
-			find_command = { "rg", "--files" },
-		},
-		buffers = {
-			sort_lastused = true,
-			ignore_current_buffer = true,
-		},
-	},
+  defaults = {
+    sorting_strategy = "ascending",
+    layout_config = {
+      vertical = { width = 0.25 },
+      prompt_position = "top",
+    },
+    mappings = {
+      i = {
+        ["<C-D>"] = require("telescope.actions").cycle_history_next,
+        ["<C-U>"] = require("telescope.actions").cycle_history_prev,
+      },
+    },
+  },
+  extensions = {
+    file_browser = {
+      mappings = {},
+    },
+  },
+  pickers = {
+    find_files = {
+      find_command = { "rg", "--files" },
+    },
+    buffers = {
+      sort_lastused = true,
+      ignore_current_buffer = true,
+    },
+  },
 })
 
 -- Plugins
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("undo")
-require("telescope").load_extension("coc")
 
 -- Key Maps
 -- list open buffers

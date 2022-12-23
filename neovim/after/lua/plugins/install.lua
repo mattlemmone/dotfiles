@@ -6,15 +6,34 @@ vim.call("plug#begin", "~/dotfiles/neovim/plugged")
 Plug("nvim-lua/plenary.nvim")
 Plug("MunifTanjim/nui.nvim")
 
+-- LSP
+Plug("williamboman/mason.nvim")
+Plug("williamboman/mason-lspconfig.nvim")
+Plug("glepnir/lspsaga.nvim", { branch = "main" })
+Plug("neovim/nvim-lspconfig")
+Plug("folke/trouble.nvim")
+Plug("onsails/lspkind.nvim")
+Plug("jose-elias-alvarez/null-ls.nvim")
+
+--- completion
+Plug("hrsh7th/nvim-cmp") -- completion engine
+Plug("hrsh7th/cmp-nvim-lsp")
+Plug("hrsh7th/cmp-nvim-lsp-document-symbol") -- navigate symbols
+Plug("hrsh7th/cmp-buffer")
+Plug("hrsh7th/cmp-path")
+Plug("hrsh7th/cmp-cmdline")
+Plug("ray-x/cmp-treesitter")
+Plug("folke/lsp-colors.nvim") -- backfill missing lsp highlight colors
+Plug("dcampos/cmp-snippy")
+
 -- Editing
+Plug("ThePrimeagen/refactoring.nvim")
 Plug("sQVe/sort.nvim")
 Plug("FooSoft/vim-argwrap") -- auto inline/multiline args
 Plug("fatih/vim-go")
 Plug("junegunn/vim-easy-align")
 Plug("mizlan/iswap.nvim") -- swap args, lines, objects
 Plug("markonm/traces.vim") -- live subst preview
-Plug("neoclide/coc.nvim", { branch = "release" })
-Plug("fannheyward/telescope-coc.nvim") -- Coc in telescope! :o
 Plug("ojroques/nvim-bufdel") -- dont close split when closing buffer
 Plug("simnalamburt/vim-mundo") -- undo tree
 Plug("tpope/vim-abolish") -- easy abbrevs, subversion
@@ -22,10 +41,10 @@ Plug("tpope/vim-commentary") -- commenting
 Plug("tpope/vim-repeat")
 Plug("kylechui/nvim-surround")
 Plug("windwp/nvim-autopairs")
-Plug("ckipp01/stylua-nvim") -- lua formatter
 Plug("jakewvincent/mkdnflow.nvim") -- markdown
 Plug("inkarkat/vim-ReplaceWithRegister") -- ez replace motion with register contents
 Plug("anuvyklack/pretty-fold.nvim") -- foldinggg
+Plug("dcampos/nvim-snippy")
 
 -- Git
 Plug("lewis6991/gitsigns.nvim")
@@ -34,6 +53,7 @@ Plug("ruanyl/vim-gh-line") -- open in gh
 Plug("sindrets/diffview.nvim")
 
 -- Display
+Plug("rcarriga/nvim-notify")
 Plug("nvim-lualine/lualine.nvim") -- status bar
 Plug("lukas-reineke/indent-blankline.nvim") -- indent mgmt
 Plug("camspiers/lens.vim")
