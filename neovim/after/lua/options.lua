@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local set = vim.opt
 local g = vim.g
 local expand = vim.fn.expand

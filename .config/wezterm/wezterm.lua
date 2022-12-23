@@ -32,7 +32,7 @@ return {
 		{
 			key = "w",
 			mods = "CMD",
-			action = action.CloseCurrentPane({ confirm = true }),
+			action = action.CloseCurrentPane({ confirm = false }),
 		},
 		{
 			key = "h",
@@ -55,19 +55,19 @@ return {
 			action = action.ActivatePaneDirection("Down"),
 		},
 		{
-			key = "f",
+			key = "Tab",
 			mods = "CTRL",
-			action = action.TogglePaneZoomState,
-		},
-		{
-			key = "Escape",
-			mods = "CTRL",
-			action = action.ActivateCopyMode,
+			action = action.RotatePanes("Clockwise"),
 		},
 		{
 			key = "Tab",
+			mods = "CTRL|SHIFT",
+			action = action.RotatePanes("CounterClockwise"),
+		},
+		{
+			key = "f",
 			mods = "CTRL",
-			action = action.QuickSelect,
+			action = action.TogglePaneZoomState,
 		},
 	},
 }

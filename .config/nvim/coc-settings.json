@@ -10,6 +10,9 @@
     "python",
     "lua"
   ],
+  "eslint.autoFixOnSave": true,
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "/usr/local/bin/black",
   "snippets.loadVSCodeProjectSnippets": false,
   "snippets.loadFromExtensions": false,
   "tsserver.npm": "/usr/local/bin/npm",

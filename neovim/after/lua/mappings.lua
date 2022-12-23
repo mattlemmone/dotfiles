@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local keymap = vim.keymap
 
 -- Plugin Mappings
@@ -51,9 +52,6 @@ keymap.set("n", "<Leader>|", "<CMD>vsplit<CR>")
 keymap.set("n", "<Leader>p", "<Plug>ReplaceWithRegisterOperator")
 keymap.set("n", "<Leader>pp", "<Plug>ReplaceWithRegisterLine")
 keymap.set("x", "<Leader>p", "<Plug>ReplaceWithRegisterVisual")
-
--- lazy, fix later. ReplaceWithRegister innately maps gr... >:(
-keymap.set("n", "gr", "<Plug>(coc-references)", { silent = true })
 
 -- Open urls
 keymap.set("n", "<Leader>u", "<CMD>UrlView<CR>")
