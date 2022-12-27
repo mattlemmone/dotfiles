@@ -2,6 +2,6 @@ misc/doordash
 misc/wolt
 misc/.secrets
 
-tmux/plugins
-tmux/resurrect
 neovim/plugged
+
+.config/nvim/sessions
