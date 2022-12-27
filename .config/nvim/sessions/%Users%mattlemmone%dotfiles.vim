@@ -13,21 +13,18 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +15 neovim/after/lua/lmnlym/plugins/registry.lua
-badd +14 neovim/after/lua/lmnlym/plugins/config/completion.lua
-badd +1 neovim/after/snippets/go.snippets
+badd +5 .gitignore
 argglobal
 %argdel
-$argadd neovim/after/lua/lmnlym/plugins/registry.lua
-edit neovim/after/lua/lmnlym/plugins/config/completion.lua
+$argadd .gitignore
+edit .gitignore
 argglobal
-balt neovim/after/snippets/go.snippets
-let s:l = 14 - ((13 * winheight(0) + 19) / 38)
+let s:l = 5 - ((4 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 14
-normal! 041|
+keepjumps 5
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -41,6 +38,7 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
