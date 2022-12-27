@@ -1,0 +1,42 @@
+snippet desc "Create a Test"
+	describe('${1:test suite}', ()=>{
+		it('${2:test name}', ()=>{
+			$0
+		})
+	})
+
+snippet itt "Create a Test"
+	it('${2:test name}', ()=>{
+		$0
+	})
+
+snippet ex "export"
+	export
+
+snippet exc "export const"
+	export const 
+
+snippet ty "type"
+	type $1 = {
+		$2
+	}
+
+snippet cl "console.log"
+	console.log($1)
+
+snippet ct "console.table"
+	console.table({$1})
+
+snippet arrow "Arrow Function"
+	('${1:args}') => {
+		$2
+	}
+
+snippet exd "export default"
+	export default
+
+snippet cofe "Function Expression"
+	const $1 = ($2) => {
+		$2
+	}
+

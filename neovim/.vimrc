@@ -2,9 +2,10 @@
 lua <<EOF
   vim.g.mapleader = " "
 
-  require("plugins.install")
-  require("plugins.config.main")
-  require("mappings")
-  require("options")
+  require("lmnlym.plugins.registry")
+  require("lmnlym.plugins.config.main")
+  require("lmnlym.mappings")
+  require("lmnlym.options.main")
+  require("lmnlym.autocmd")
 EOF
 
