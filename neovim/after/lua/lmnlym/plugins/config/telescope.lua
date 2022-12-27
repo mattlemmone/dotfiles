@@ -32,14 +32,11 @@ require("telescope").setup({
 
 -- Plugins
 require("telescope").load_extension("file_browser")
-require("telescope").load_extension("undo")
+require("telescope").load_extension("ui-select")
 
 -- Key Maps
 -- list open buffers
 keymap.set("n", "<Leader>b", "<CMD>lua require('telescope.builtin').buffers()<CR>")
-
--- search current buffer
-keymap.set("n", "<Leader>ll", "<CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>")
 
 -- registers
 keymap.set("n", "<Leader>re", "<CMD>lua require('telescope.builtin').registers()<CR>")

@@ -1,10 +1,10 @@
----@diagnostic disable: undefined-global
 local keymap = vim.keymap
+local plugin_registry = "~/dotfiles/neovim/after/lua/lmnlym/plugins/registry.lua"
 
 -- Plugin Mappings
 keymap.set("n", "<Leader>m", "<CMD>MundoToggle<CR>", { silent = true })
-keymap.set("n", "s", "<CMD>Pounce<CR>", { silent = true })
-keymap.set("n", "S", "<CMD>PounceRepeat<CR>", { silent = true })
+-- keymap.set("n", "s", "<CMD>Pounce<CR>", { silent = true })
+-- keymap.set("n", "S", "<CMD>PounceRepeat<CR>", { silent = true })
 
 -- Start interactive EasyAlign in visual mode (e.g. vipga)
 keymap.set("x", "ga", "<Plug>(EasyAlign)")
@@ -32,9 +32,6 @@ keymap.set("n", "<Leader>hl", "<CMD>nohl<CR> ")
 -- reload current lua file
 keymap.set("n", "<Leader>l", "<CMD>luafile %<CR>")
 
--- reload vimrc
-keymap.set("n", "<Leader>r", "<CMD>so ~/dotfiles/neovim/.vimrc<CR>")
-
 keymap.set("n", "<Leader>d", "<CMD>BufDel<CR>")
 
 keymap.set("n", "<Leader>w", "<CMD>ArgWrap<CR>", { silent = true })
@@ -58,3 +55,32 @@ keymap.set("n", "<Leader>u", "<CMD>UrlView<CR>")
 
 -- Swap
 keymap.set("n", "<Leader>i", "<CMD>ISwap<CR>")
+
+-- Sessions
+keymap.set("n", "<Leader>ls", "<CMD>lua require('persistence').load()<CR>")
+keymap.set("n", "<Leader>ll", "<CMD>lua require('persistence').load({last= true})<CR>")
+
+-- Plugin Manager
+---- Install plugins
+keymap.set("n", "<Leader>;i", "", {
+  callback = function()
+    vim.cmd("luafile " .. plugin_registry)
+    vim.cmd("PlugInstall")
+  end,
+})
+
+---- Update plugins
+keymap.set("n", "<Leader>;u", "", {
+  callback = function()
+    vim.cmd("luafile " .. plugin_registry)
+    vim.cmd("PlugUpdate")
+  end,
+})
+
+---- Remove plugins
+keymap.set("n", "<Leader>;r", "", {
+  callback = function()
+    vim.cmd("luafile " .. plugin_registry)
+    vim.cmd("PlugClean")
+  end,
+})
