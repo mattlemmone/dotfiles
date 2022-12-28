@@ -15,8 +15,11 @@ require("telescope").setup({
     },
   },
   extensions = {
-    file_browser = {
-      mappings = {},
+    fzf = {
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
     },
     ["ui-select"] = {
       require("telescope.themes").get_cursor(),
@@ -33,8 +36,9 @@ require("telescope").setup({
   },
 })
 
--- Plugins
+-- extensions
 require("telescope").load_extension("file_browser")
+require("telescope").load_extension("fzf")
 require("telescope").load_extension("ui-select")
 
 -- Key Maps
@@ -56,8 +60,8 @@ keymap.set("n", "<Leader>n", "<CMD>Telescope file_browser path=%:p:h initial_mod
 -- grep
 keymap.set("n", "<Leader>s", "<CMD>lua require('telescope.builtin').live_grep()<CR>")
 
--- search for word under cursor in project
+-- search for word under cursor
 keymap.set("n", "<Leader>*", "<CMD>lua require('telescope.builtin').grep_string()<CR>")
 
 -- registers
-keymap.set("n", "<Leader>re", "<CMD>Telescope registers<CR>")
+keymap.set("n", "<Leader>r", "<CMD>Telescope resume<CR>")

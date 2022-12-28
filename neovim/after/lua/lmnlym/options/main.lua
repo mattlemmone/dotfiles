@@ -43,14 +43,10 @@ set.wildmenu = true -- visual autocomplete
 -- Clipboard
 set.clipboard = "unnamedplus"
 
---  tundra only
-set.termguicolors = true
-
 -- we dont like dis
 set.swapfile = false
 
 vim.cmd([[
-  colorscheme tundra
   highlight link GitSignsCurrentLineBlame Comment
   set foldmethod=expr
   set foldlevelstart=20
