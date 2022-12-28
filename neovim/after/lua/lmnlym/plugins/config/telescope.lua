@@ -18,6 +18,9 @@ require("telescope").setup({
     file_browser = {
       mappings = {},
     },
+    ["ui-select"] = {
+      require("telescope.themes").get_cursor(),
+    },
   },
   pickers = {
     find_files = {
@@ -38,9 +41,6 @@ require("telescope").load_extension("ui-select")
 -- list open buffers
 keymap.set("n", "<Leader>b", "<CMD>lua require('telescope.builtin').buffers()<CR>")
 
--- registers
-keymap.set("n", "<Leader>re", "<CMD>lua require('telescope.builtin').registers()<CR>")
-
 -- command history
 keymap.set("n", "<Leader>ch", "<CMD>lua require('telescope.builtin').command_history()<CR>")
 
@@ -57,7 +57,7 @@ keymap.set("n", "<Leader>n", "<CMD>Telescope file_browser path=%:p:h initial_mod
 keymap.set("n", "<Leader>s", "<CMD>lua require('telescope.builtin').live_grep()<CR>")
 
 -- search for word under cursor in project
-keymap.set("n", "<Leader>*", ":Rg <C-R>:<C-W><CR> ")
+keymap.set("n", "<Leader>*", "<CMD>lua require('telescope.builtin').grep_string()<CR>")
 
 -- registers
 keymap.set("n", "<Leader>re", "<CMD>Telescope registers<CR>")
