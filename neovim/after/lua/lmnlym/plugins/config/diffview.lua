@@ -1,4 +1,5 @@
 local actions = require("diffview.actions")
+local keymap = vim.keymap
 
 require("diffview").setup({
   keymaps = {
@@ -12,3 +13,6 @@ require("diffview").setup({
     },
   },
 })
+
+keymap.set("n", "<Leader>gf", "<CMD>DiffviewFileHistory<CR>") -- show git history for current buffer
+keymap.set("n", "<Leader>gd", "<CMD>DiffviewOpen<CR>") -- show modified files

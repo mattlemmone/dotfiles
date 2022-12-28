@@ -1,4 +1,6 @@
-require('nvim-tundra').setup({
+local set = vim.opt
+
+require("nvim-tundra").setup({
   transparent_background = false,
   dim_inactive_windows = {
     enabled = false,
@@ -44,3 +46,8 @@ require('nvim-tundra').setup({
     highlights = {},
   },
 })
+
+set.termguicolors = true
+vim.cmd([[
+  colorscheme tundra
+]])

@@ -1,21 +1,22 @@
 -- Vendor
+require("impatient") -- keep this at the top
 require("leap").add_default_mappings()
-require("treesitter-context").setup({})
-require("persistence").setup()
-require("twilight").setup({})
-require("pretty-fold").setup({})
-require("which-key").setup({})
-require("mkdnflow").setup({})
 require("nvim-autopairs").setup({})
+require("pretty-fold").setup({})
+require("treesitter-context").setup({})
+require("twilight").setup({})
+require("which-key").setup({})
 
 -- Local
 require("lmnlym.plugins.config.catppuccin")
-require("lmnlym.plugins.config.tundra")
+require("lmnlym.plugins.config.completion")
 require("lmnlym.plugins.config.diffview")
 require("lmnlym.plugins.config.lsp")
-require("lmnlym.plugins.config.completion")
-require("lmnlym.plugins.config.telescope")
+require("lmnlym.plugins.config.persistence")
 require("lmnlym.plugins.config.statusline")
+require("lmnlym.plugins.config.telescope")
+require("lmnlym.plugins.config.tundra")
+require("lmnlym.plugins.config.vim-plug")
 
 require("indent_blankline").setup({
   show_current_context = true,
