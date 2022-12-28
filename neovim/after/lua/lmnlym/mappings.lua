@@ -30,7 +30,12 @@ keymap.set("n", "<Leader>o", "o<Esc>")
 keymap.set("n", "<Leader>hl", "<CMD>nohl<CR> ")
 
 -- reload current lua file
-keymap.set("n", "<Leader>l", "<CMD>luafile %<CR>")
+keymap.set("n", "<Leader>l", "", {
+  callback = function()
+    require("notify")(vim.fn.expand("%"), "", { title = "Sourcing luafile" })
+    vim.cmd("luafile %")
+  end,
+})
 
 keymap.set("n", "<Leader>d", "<CMD>BufDel<CR>")
 

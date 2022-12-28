@@ -13,20 +13,23 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +42 dotfiles/neovim/after/lua/lmnlym/plugins/config/lsp.lua
-badd +16 Dev/jpdb/sorezore/src/jpdb.ts
-badd +2 dotfiles/neovim/after/lua/lmnlym/plugins/config/main.lua
+badd +56 dotfiles/neovim/after/lua/lmnlym/plugins/config/lsp.lua
+badd +4 Dev/jpdb/sorezore/src/jpdb.ts
+badd +31 dotfiles/neovim/after/lua/lmnlym/autocmd.lua
+badd +59 dotfiles/neovim/after/lua/lmnlym/plugins/config/telescope.lua
+badd +91 dotfiles/neovim/after/lua/lmnlym/mappings.lua
+badd +29 dotfiles/neovim/after/lua/lmnlym/plugins/config/completion.lua
 argglobal
 %argdel
-edit dotfiles/neovim/after/lua/lmnlym/plugins/config/lsp.lua
+edit Dev/jpdb/sorezore/src/jpdb.ts
 argglobal
-balt Dev/jpdb/sorezore/src/jpdb.ts
-let s:l = 42 - ((21 * winheight(0) + 20) / 40)
+balt dotfiles/neovim/after/lua/lmnlym/plugins/config/lsp.lua
+let s:l = 4 - ((3 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 42
-normal! 07|
+keepjumps 4
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -40,7 +43,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

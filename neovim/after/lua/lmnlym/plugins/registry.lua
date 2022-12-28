@@ -21,7 +21,6 @@ Plug("williamboman/mason.nvim") -- lsp package mgr
 --- completion
 Plug("L3MON4D3/LuaSnip") -- snippets
 Plug("hrsh7th/cmp-buffer")
-Plug("hrsh7th/cmp-calc")
 Plug("hrsh7th/cmp-cmdline")
 Plug("hrsh7th/cmp-nvim-lsp")
 Plug("hrsh7th/cmp-nvim-lsp-document-symbol") -- navigate symbols
