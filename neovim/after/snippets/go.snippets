@@ -1,0 +1,12 @@
+snippet ife "Error check"
+	if err != nil {
+		${1:body}
+	}
+
+snippet iife "Inline error check"
+	if err := ${1}; err != nil {
+		${2:body}
+	}
+
+snippet erw "Wrap Error"
+	return errors.Wrap(err, $1)
