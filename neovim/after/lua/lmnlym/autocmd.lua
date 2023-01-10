@@ -29,3 +29,25 @@ autocmd("TextYankPost", {
     vim.highlight.on_yank({ timeout = 600 })
   end,
 })
+
+-- Enable relative numbers
+autocmd("InsertEnter", {
+  callback = function()
+    vim.opt.relativenumber = true
+  end,
+})
+
+-- Disable relative numbers
+autocmd("InsertLeave", {
+  callback = function()
+    vim.opt.relativenumber = false
+  end,
+})
+
+-- Enable spellchecking in markdown, text and gitcommit files
+autocmd("FileType", {
+  pattern = { "gitcommit", "markdown", "text", "tex" },
+  callback = function()
+    vim.opt_local.spell = true
+  end,
+})

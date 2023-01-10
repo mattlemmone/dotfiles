@@ -11,6 +11,8 @@ null_ls.setup({
   sources = {
     require("typescript.extensions.null-ls.code-actions"),
     null_ls.builtins.diagnostics.todo_comments,
+    -- Some Linters are managed by Mason
+    -- null_ls.builtins.diagnostics.markdownlint,
     -- Formatters are managed by Mason
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.prettier,
