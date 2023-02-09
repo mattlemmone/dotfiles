@@ -10,18 +10,15 @@ Plug("nvim-lua/plenary.nvim") -- misc lua functions
 Plug("j-hui/fidget.nvim") -- lsp loading indicator
 Plug("folke/lsp-colors.nvim") -- backfill missing lsp highlight colors
 Plug("folke/trouble.nvim") -- diagnostics
-Plug("glepnir/lspsaga.nvim", { branch = "main" }) -- lsp ui
 Plug("jose-elias-alvarez/null-ls.nvim")
 Plug("jose-elias-alvarez/typescript.nvim")
 Plug("neovim/nvim-lspconfig") -- easier lsp mgmt
 Plug("onsails/lspkind.nvim") -- styling for cmp
-Plug("williamboman/mason-lspconfig.nvim")
 Plug("williamboman/mason.nvim") -- lsp package mgr
 
 --- Completion
 Plug("L3MON4D3/LuaSnip") -- snippets
 Plug("hrsh7th/cmp-buffer")
-Plug("amarakon/nvim-cmp-buffer-lines")
 Plug("hrsh7th/cmp-cmdline")
 Plug("hrsh7th/cmp-nvim-lsp")
 Plug("hrsh7th/cmp-path")
@@ -41,10 +38,11 @@ Plug("markonm/traces.vim") -- live subst preview
 Plug("mizlan/iswap.nvim") -- swap args, lines, objects
 Plug("ojroques/nvim-bufdel") -- dont close split when closing buffer
 Plug("simnalamburt/vim-mundo") -- undo tree
-Plug("tpope/vim-surround")
+Plug("terrastruct/d2-vim") -- D2 syntax support
 Plug("tpope/vim-abolish") -- easy abbrevs, subversion
 Plug("tpope/vim-commentary") -- commenting
 Plug("tpope/vim-repeat")
+Plug("tpope/vim-surround")
 Plug("windwp/nvim-autopairs")
 
 -- Git
@@ -84,5 +82,6 @@ Plug("folke/persistence.nvim") -- session mgmt
 Plug("folke/which-key.nvim")
 Plug("kristijanhusak/vim-carbon-now-sh") -- Screenshot and upload code to carbon.now.sh
 Plug("lewis6991/impatient.nvim") -- lua module caching to improve startup time
+Plug("nathom/filetype.nvim") -- filetype autocmds
 
 vim.call("plug#end")
