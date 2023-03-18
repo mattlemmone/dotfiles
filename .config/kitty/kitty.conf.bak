@@ -1,0 +1,9 @@
+# vim:ft=kitty
+font_family FiraCode Nerd Font Mono
+font_size 16
+
+
+# BEGIN_KITTY_THEME
+# Catppuccin-Mocha
+include current-theme.conf
+# END_KITTY_THEME
