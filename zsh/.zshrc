@@ -5,7 +5,7 @@ source ~/dotfiles/misc/funcs/yabai
 source ~/dotfiles/misc/funcs/git
 source ~/dotfiles/misc/.secrets
 
-eval $(ssh-agent) 
+eval $(ssh-agent) &>/dev/null
 [ -f ~/dotfiles/misc/doordash ] && source ~/dotfiles/misc/doordash
 [ -f ~/dotfiles/misc/wolt ] && source ~/dotfiles/misc/wolt
 
@@ -27,4 +27,3 @@ eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
 
 source ~/.config/broot/launcher/bash/br
-
