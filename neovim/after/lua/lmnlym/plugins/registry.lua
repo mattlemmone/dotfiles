@@ -3,17 +3,18 @@ local Plug = vim.fn["plug#"]
 vim.call("plug#begin", "~/dotfiles/neovim/plugged")
 
 -- more or less global lua deps
-Plug("MunifTanjim/nui.nvim")  -- ui
+Plug("MunifTanjim/nui.nvim") -- ui
 Plug("nvim-lua/plenary.nvim") -- misc lua functions
+Plug("kkharji/sqlite.lua") -- used for sqlite DBs. neoclip only?
 
 -- LSP
-Plug("j-hui/fidget.nvim")     -- lsp loading indicator
+Plug("j-hui/fidget.nvim") -- lsp loading indicator
 Plug("folke/lsp-colors.nvim") -- backfill missing lsp highlight colors
-Plug("folke/trouble.nvim")    -- diagnostics
+Plug("folke/trouble.nvim") -- diagnostics
 Plug("jose-elias-alvarez/null-ls.nvim")
 Plug("jose-elias-alvarez/typescript.nvim")
-Plug("neovim/nvim-lspconfig")   -- easier lsp mgmt
-Plug("onsails/lspkind.nvim")    -- styling for cmp
+Plug("neovim/nvim-lspconfig") -- easier lsp mgmt
+Plug("onsails/lspkind.nvim") -- styling for cmp
 Plug("williamboman/mason.nvim") -- lsp package mgr
 
 --- Completion
@@ -29,39 +30,44 @@ Plug("saadparwaiz1/cmp_luasnip")
 Plug("b0o/schemastore.nvim") -- json validation against schemastore
 
 -- Editing
-Plug("FooSoft/vim-argwrap")              -- auto inline/multiline args
-Plug("anuvyklack/pretty-fold.nvim")      -- foldinggg
+Plug("FooSoft/vim-argwrap") -- auto inline/multiline args
+Plug("anuvyklack/pretty-fold.nvim") -- foldinggg
+Plug("chentoast/marks.nvim") -- marks
 Plug("fatih/vim-go")
 Plug("inkarkat/vim-ReplaceWithRegister") -- ez replace motion with register contents
-Plug("junegunn/vim-easy-align")          -- align text around tokens
-Plug("markonm/traces.vim")               -- live subst preview
-Plug("mizlan/iswap.nvim")                -- swap args, lines, objects
-Plug("ojroques/nvim-bufdel")             -- dont close split when closing buffer
-Plug("simnalamburt/vim-mundo")           -- undo tree
-Plug("terrastruct/d2-vim")               -- D2 syntax support
-Plug("tpope/vim-abolish")                -- easy abbrevs, subversion
-Plug("tpope/vim-commentary")             -- commenting
+Plug("junegunn/vim-easy-align") -- align text around tokens
+Plug("markonm/traces.vim") -- live subst preview
+Plug("mizlan/iswap.nvim") -- swap args, lines, objects
+Plug("AckslD/nvim-neoclip.lua") -- register history
+Plug("ojroques/nvim-bufdel") -- dont close split when closing buffer
+Plug("simnalamburt/vim-mundo") -- undo tree
+Plug("terrastruct/d2-vim") -- D2 syntax support
+Plug("tpope/vim-abolish") -- easy abbrevs, subversion
+Plug("tpope/vim-commentary") -- commenting
 Plug("tpope/vim-repeat")
 Plug("tpope/vim-surround")
 Plug("windwp/nvim-autopairs")
 
+-- Testing
+Plug("nvim-neotest/neotest")
+
 -- Git
 Plug("lewis6991/gitsigns.nvim") -- buffer icons and other things
 Plug("rhysd/git-messenger.vim") -- git blame magic
-Plug("ruanyl/vim-gh-line")      -- open in gh
-Plug("sindrets/diffview.nvim")  -- diff mgmt!
+Plug("ruanyl/vim-gh-line") -- open in gh
+Plug("sindrets/diffview.nvim") -- diff mgmt!
 
 -- Display
-Plug("folke/twilight.nvim")                 -- focus on active code selection
-Plug("rcarriga/nvim-notify")                -- notification window
-Plug("nvim-lualine/lualine.nvim")           -- status bar
+Plug("folke/twilight.nvim") -- focus on active code selection
+Plug("rcarriga/nvim-notify") -- notification window
+Plug("nvim-lualine/lualine.nvim") -- status bar
 Plug("lukas-reineke/indent-blankline.nvim") -- indent mgmt
 Plug("kyazdani42/nvim-web-devicons")
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 Plug("nvim-treesitter/nvim-treesitter-context")
 Plug("iamcco/markdown-preview.nvim", { ["do"] = "cd app && yarn install" })
 Plug("akinsho/bufferline.nvim", { tag = "v2.*" }) -- stylized buffer tabs
-Plug("norcalli/nvim-colorizer.lua")               -- highlight color codes real-time
+Plug("norcalli/nvim-colorizer.lua") -- highlight color codes real-time
 Plug("fladson/vim-kitty")
 
 -- Colors
@@ -71,19 +77,27 @@ Plug("nyoom-engineering/oxocarbon.nvim")
 Plug("sam4llis/nvim-tundra")
 
 -- Navigation
+Plug("echasnovski/mini.starter", { branch = "stable" })
 Plug("elihunter173/dirbuf.nvim")
+Plug("folke/persistence.nvim") -- session mgmt
+Plug("ggandor/leap.nvim") -- ez motion
 Plug("jinh0/eyeliner.nvim") -- f/F indicators
-Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
 Plug("nvim-telescope/telescope-file-browser.nvim")
 Plug("nvim-telescope/telescope-fzf-native.nvim", { ["do"] = "make" })
 Plug("nvim-telescope/telescope-ui-select.nvim") -- code actions in telescope.. is that all?
-Plug("ggandor/leap.nvim")                       -- ez motion
-Plug("folke/persistence.nvim")                  -- session mgmt
+Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
+
+-- AI
+Plug("dpayne/CodeGPT.nvim")
+Plug("jackMort/ChatGPT.nvim")
+Plug("jakewvincent/mkdnflow.nvim")
 
 -- Misc
 Plug("folke/which-key.nvim")
 Plug("kristijanhusak/vim-carbon-now-sh") -- Screenshot and upload code to carbon.now.sh
-Plug("lewis6991/impatient.nvim")         -- lua module caching to improve startup time
-Plug("nathom/filetype.nvim")             -- filetype autocmds
+Plug("lewis6991/impatient.nvim") -- lua module caching to improve startup time
+Plug("metakirby5/codi.vim") -- live eval mode
+Plug("michaelb/sniprun", { ["do"] = "bash install.sh" }) -- execute lines of selected code
+Plug("nathom/filetype.nvim") -- filetype autocmds
 
 vim.call("plug#end")

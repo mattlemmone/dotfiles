@@ -30,7 +30,6 @@ keymap.set("n", "<Leader>yf", "<CMD>let @+ = expand('%')<CR>", { silent = true }
 
 -- Plugin Mappings
 keymap.set("n", "<Leader>m", "<CMD>MundoToggle<CR>", { silent = true })
-
 keymap.set("n", "<Leader>d", "<CMD>BufDel<CR>")
 keymap.set("n", "<Leader>w", "<CMD>ArgWrap<CR>", { silent = true })
 
@@ -50,3 +49,6 @@ keymap.set("x", "ga", "<Plug>(EasyAlign)")
 
 -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
 keymap.set("n", "ga", "<Plug>(EasyAlign)")
+
+-- Yank history
+keymap.set("n", '<Leader>"', "<CMD>Telescope neoclip<CR>")
