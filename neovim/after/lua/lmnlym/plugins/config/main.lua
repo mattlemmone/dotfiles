@@ -54,9 +54,9 @@ require("fidget").setup({
   text = { spinner = "dots" },
   align = { bottom = false },
   window = {
-    relative = "win", -- where to anchor, either "win" or "editor"
-    blend = 100,      -- &winblend for the window
-    zindex = 1,       -- the zindex value for the window
+    relative = "win",   -- where to anchor, either "win" or "editor"
+    blend = 100,        -- &winblend for the window
+    zindex = 1,         -- the zindex value for the window
     border = "rounded", -- style of border for the fidget window
   },
 })
@@ -75,7 +75,6 @@ require("mini.starter").setup({
   ]],
   footer = "",
 })
-require("chatgpt").setup({})
 require("mkdnflow").setup({
   mappings = {
     MkdnEnter = { { "n", "v" }, "<CR>" },
@@ -116,6 +115,7 @@ require("mkdnflow").setup({
   },
 })
 require("marks").setup({ default_mappings = true })
+require("glow").setup()
 require("sniprun").setup({
   display = {
     "VirtualTextOk", --# display ok results as virtual text (multiline is shortened)
@@ -128,4 +128,12 @@ require("sniprun").setup({
     "NvimNotify", --# display with the nvim-notify plugin
     -- "Api"                      --# return output to a programming interface
   },
+})
+
+require('neural').setup({
+    source = {
+        openai = {
+            api_key = vim.env.OPENAI_API_KEY,
+        },
+    },
 })

@@ -59,6 +59,7 @@ Plug("sindrets/diffview.nvim")  -- diff mgmt!
 
 -- Display
 Plug("akinsho/bufferline.nvim", { tag = "v2.*" }) -- stylized buffer tabs
+Plug("ellisonleao/glow.nvim")
 Plug("fladson/vim-kitty")
 Plug("iamcco/markdown-preview.nvim", { ["do"] = "cd app && yarn install" })
 Plug("kyazdani42/nvim-web-devicons")
@@ -87,12 +88,16 @@ Plug("nvim-telescope/telescope-ui-select.nvim") -- code actions in telescope.. i
 Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
 
 -- AI
-Plug("dpayne/CodeGPT.nvim")
-Plug("jackMort/ChatGPT.nvim")
+Plug("dense-analysis/neural")
 Plug("jakewvincent/mkdnflow.nvim")
 
 -- Misc
 Plug("folke/which-key.nvim")
+Plug("glacambre/firenvim", {
+  ["do"] = function()
+    vim.fn["firenvim#install"](0)
+  end,
+})                                                       -- nvim? in the BROWSER?
 Plug("kristijanhusak/vim-carbon-now-sh")                 -- Screenshot and upload code to carbon.now.sh
 Plug("lewis6991/impatient.nvim")                         -- lua module caching to improve startup time
 Plug("metakirby5/codi.vim")                              -- live eval mode
