@@ -3,7 +3,6 @@ require("impatient") -- keep this at the top
 require("leap").add_default_mappings()
 require("nvim-autopairs").setup({})
 require("pretty-fold").setup({})
-require("twilight").setup({})
 require("which-key").setup({})
 
 -- Needs to be loaded before telescope. Weird race condition causes things to break.
@@ -56,8 +55,8 @@ require("fidget").setup({
   align = { bottom = false },
   window = {
     relative = "win", -- where to anchor, either "win" or "editor"
-    blend = 100, -- &winblend for the window
-    zindex = 1, -- the zindex value for the window
+    blend = 100,      -- &winblend for the window
+    zindex = 1,       -- the zindex value for the window
     border = "rounded", -- style of border for the fidget window
   },
 })
@@ -65,20 +64,57 @@ require("fidget").setup({
 require("mini.starter").setup({
   header = [[
 
-.-.                       .-.              .-. .-.              
-: :                       : :             .' `.: :              
-: `-.  .--.  .--. .-..-.  : `-. .--.  .--.`. .': `-.  .--. .--. 
+.-.                       .-.              .-. .-.
+: :                       : :             .' `.: :
+: `-.  .--.  .--. .-..-.  : `-. .--.  .--.`. .': `-.  .--. .--.
 : .. :' '_.'' '_.': :; :  ' .; :: ..'' .; :: : : .. :' '_.': ..'
-:_;:_;`.__.'`.__.'`._. ;  `.__.':_;  `.__.':_; :_;:_;`.__.':_;  
-                   .-. :                                        
-                   `._.'                                        
+:_;:_;`.__.'`.__.'`._. ;  `.__.':_;  `.__.':_; :_;:_;`.__.':_;
+                   .-. :
+                   `._.'
                            😮🙂
   ]],
   footer = "",
 })
 require("chatgpt").setup({})
-require("mkdnflow").setup()
-
+require("mkdnflow").setup({
+  mappings = {
+    MkdnEnter = { { "n", "v" }, "<CR>" },
+    MkdnTab = false,
+    MkdnSTab = false,
+    MkdnNextLink = { "n", "<Tab>" },
+    MkdnPrevLink = { "n", "<S-Tab>" },
+    MkdnNextHeading = { "n", "]]" },
+    MkdnPrevHeading = { "n", "[[" },
+    MkdnGoBack = false,
+    MkdnGoForward = false,
+    MkdnCreateLink = false, -- see MkdnEnter
+    MkdnCreateLinkFromClipboard = false,
+    MkdnFollowLink = false, -- see MkdnEnter
+    MkdnDestroyLink = { "n", "<M-CR>" },
+    MkdnTagSpan = false,
+    MkdnMoveSource = false,
+    MkdnYankAnchorLink = false,
+    MkdnYankFileAnchorLink = false,
+    MkdnIncreaseHeading = { "n", "+" },
+    MkdnDecreaseHeading = { "n", "-" },
+    MkdnToggleToDo = { { "n", "v" }, "<C-k>" },
+    MkdnNewListItem = false,
+    MkdnNewListItemBelowInsert = { "n", "o" },
+    MkdnNewListItemAboveInsert = { "n", "O" },
+    MkdnExtendList = false,
+    MkdnUpdateNumbering = false,
+    MkdnTableNextCell = { "i", "<Tab>" },
+    MkdnTablePrevCell = { "i", "<S-Tab>" },
+    MkdnTableNextRow = false,
+    MkdnTablePrevRow = false,
+    MkdnTableNewRowBelow = { "n", "<leader>ir" },
+    MkdnTableNewRowAbove = { "n", "<leader>iR" },
+    MkdnTableNewColAfter = { "n", "<leader>ic" },
+    MkdnTableNewColBefore = { "n", "<leader>iC" },
+    MkdnFoldSection = false,
+    MkdnUnfoldSection = false,
+  },
+})
 require("marks").setup({ default_mappings = true })
 require("sniprun").setup({
   display = {

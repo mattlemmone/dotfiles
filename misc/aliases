@@ -31,4 +31,4 @@ alias rm='rip'
 alias rm_undo='rip -s'
 
 # Obsidian
-alias open_notes='vim /Users/matt/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/iOS\ Vault'
+alias edit_personal_notes='vim /Users/matt/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/iOS\ Vault'
