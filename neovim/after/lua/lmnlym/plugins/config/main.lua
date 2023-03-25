@@ -20,7 +20,7 @@ require("lmnlym.plugins.config.lsp")
 require("lmnlym.plugins.config.persistence")
 require("lmnlym.plugins.config.statusline")
 require("lmnlym.plugins.config.telescope")
-require("lmnlym.plugins.config.tundra")
+-- require("lmnlym.plugins.config.tundra")
 require("lmnlym.plugins.config.vim-plug")
 
 require("indent_blankline").setup({
@@ -50,16 +50,16 @@ require("bufferline").setup({
   },
 })
 
-require("fidget").setup({
-  text = { spinner = "dots" },
-  align = { bottom = false },
-  window = {
-    relative = "win",   -- where to anchor, either "win" or "editor"
-    blend = 100,        -- &winblend for the window
-    zindex = 1,         -- the zindex value for the window
-    border = "rounded", -- style of border for the fidget window
-  },
-})
+-- require("fidget").setup({
+--   text = { spinner = "dots" },
+--   align = { bottom = false },
+--   window = {
+--     relative = "win", -- where to anchor, either "win" or "editor"
+--     blend = 100, -- &winblend for the window
+--     zindex = 1, -- the zindex value for the window
+--     border = "rounded", -- style of border for the fidget window
+--   },
+-- })
 
 require("mini.starter").setup({
   header = [[
@@ -75,6 +75,7 @@ require("mini.starter").setup({
   ]],
   footer = "",
 })
+
 require("mkdnflow").setup({
   mappings = {
     MkdnEnter = { { "n", "v" }, "<CR>" },
@@ -114,11 +115,54 @@ require("mkdnflow").setup({
     MkdnUnfoldSection = false,
   },
 })
+
+require("mkdnflow").setup()
+require("mini.bracketed").setup()
+require("scrollbar").setup()
+require("symbols-outline").setup()
+local augend = require("dial.augend")
+require("dial.config").augends:register_group({
+  default = {
+    augend.integer.alias.decimal,
+    augend.integer.alias.hex,
+    augend.date.alias["%Y/%m/%d"],
+    augend.date.alias["%m/%d/%Y"],
+    augend.constant.alias.bool,
+    augend.semver.alias.semver,
+  },
+})
+vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
+vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
+vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual(), { noremap = true })
+vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual(), { noremap = true })
+vim.keymap.set("v", "g<C-a>", require("dial.map").inc_gvisual(), { noremap = true })
+vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
+require("noice").setup({
+  routes = {
+    -- Hide 'saved' msgs
+    {
+      filter = {
+        event = "msg_show",
+        kind = "",
+        find = "written",
+      },
+      opts = { skip = true },
+    },
+    -- Hide virtual search text
+    {
+      filter = {
+        event = "msg_show",
+        kind = "search_count",
+      },
+      opts = { skip = true },
+    },
+  },
+})
 require("marks").setup({ default_mappings = true })
 require("glow").setup()
 require("sniprun").setup({
   display = {
-    "VirtualTextOk", --# display ok results as virtual text (multiline is shortened)
+    -- "VirtualTextOk", --# display ok results as virtual text (multiline is shortened)
 
     -- "VirtualText",             --# display results as virtual text
     "TempFloatingWindow", --# display results in a floating window
@@ -130,10 +174,10 @@ require("sniprun").setup({
   },
 })
 
-require('neural').setup({
-    source = {
-        openai = {
-            api_key = vim.env.OPENAI_API_KEY,
-        },
+require("neural").setup({
+  source = {
+    openai = {
+      api_key = vim.env.OPENAI_API_KEY,
     },
+  },
 })

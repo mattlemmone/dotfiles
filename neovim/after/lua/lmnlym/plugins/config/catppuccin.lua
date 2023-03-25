@@ -1,9 +1,9 @@
 require("catppuccin").setup({
   flavour = "mocha", -- latte, frappe, macchiato, mocha
-  background = { -- :h background
-    light = "latte",
-    dark = "mocha",
-  },
+  -- background = { -- :h background
+  --   -- light = "latte",
+  --   dark = "mocha",
+  -- },
   transparent_background = false,
   term_colors = false,
   dim_inactive = {
@@ -34,8 +34,38 @@ require("catppuccin").setup({
     gitsigns = true,
     nvimtree = true,
     telescope = true,
-    notify = false,
-    mini = false,
+    notify = true,
+    leap = true,
+    native_lsp = {
+      enabled = true,
+      virtual_text = {
+        errors = { "italic" },
+        hints = { "italic" },
+        warnings = { "italic" },
+        information = { "italic" },
+      },
+      underlines = {
+        errors = { "underline" },
+        hints = { "underline" },
+        warnings = { "underline" },
+        information = { "underline" },
+      },
+    },
+    mason = true,
+    indent_blankline = {
+      enabled = true,
+      colored_indent_levels = false,
+    },
+    symbols_outline = true,
+    fidget = true,
+    lsp_trouble = true,
+    markdown = true,
+    noice = true,
+    which_key = true,
+    mini = true,
     -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
   },
 })
+vim.cmd([[
+  colorscheme catppuccin
+]])
