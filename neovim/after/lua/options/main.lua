@@ -1,6 +1,6 @@
 -- Imports
-require("lmnlym.options.host-programs")
-require("lmnlym.options.vim-go")
+require("options.host-programs")
+require("options.vim-go")
 
 local set = vim.opt
 

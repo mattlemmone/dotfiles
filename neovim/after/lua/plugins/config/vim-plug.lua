@@ -1,5 +1,5 @@
 local keymap = vim.keymap
-local plugin_registry = "~/dotfiles/neovim/after/lua/lmnlym/plugins/registry.lua"
+local plugin_registry = "~/dotfiles/neovim/after/lua/plugins/registry.lua"
 
 ---- Install plugins
 keymap.set("n", "<Leader>;i", "", {

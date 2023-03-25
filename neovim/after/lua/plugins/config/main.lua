@@ -13,15 +13,15 @@ require("neoclip").setup({
 })
 
 -- Local
-require("lmnlym.plugins.config.catppuccin")
-require("lmnlym.plugins.config.completion")
-require("lmnlym.plugins.config.diffview")
-require("lmnlym.plugins.config.lsp")
-require("lmnlym.plugins.config.persistence")
-require("lmnlym.plugins.config.statusline")
-require("lmnlym.plugins.config.telescope")
--- require("lmnlym.plugins.config.tundra")
-require("lmnlym.plugins.config.vim-plug")
+require("plugins.config.catppuccin")
+require("plugins.config.completion")
+require("plugins.config.diffview")
+require("plugins.config.lsp")
+require("plugins.config.persistence")
+require("plugins.config.statusline")
+require("plugins.config.telescope")
+-- require("plugins.config.tundra")
+require("plugins.config.vim-plug")
 
 require("indent_blankline").setup({
   show_current_context = true,
