@@ -1,4 +1,4 @@
-set runtimepath^=~/dotfiles/neovim runtimepath+=~/dotfiles/neovim/after
+set runtimepath^=~/dotfiles/neovim 
 let &packpath = &runtimepath
 
 source ~/dotfiles/neovim/.vimrc
