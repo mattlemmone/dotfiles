@@ -1,5 +1,6 @@
 return {
   "sam4llis/nvim-tundra",
+  enabled = false,
   config = function()
     local set = vim.opt
 

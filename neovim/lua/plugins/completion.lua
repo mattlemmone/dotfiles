@@ -23,7 +23,7 @@ return {
             and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
       end
 
-      require("luasnip.loaders.from_snipmate").lazy_load({ paths = "~/dotfiles/neovim/after/snippets" })
+      require("luasnip.loaders.from_snipmate").lazy_load({ paths = "~/dotfiles/neovim/snippets" })
 
       cmp.setup({
         formatting = {

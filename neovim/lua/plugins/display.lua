@@ -1,8 +1,12 @@
 return {
+  "winston0410/range-highlight.nvim", -- highlight selected ranges from command line
+  "nyoom-engineering/oxocarbon.nvim",
   "RRethy/vim-illuminate",
+  "fladson/vim-kitty", -- syntax for kitty terminal config
+  { "embark-theme/vim", name = "embark" },
   {
     "akinsho/bufferline.nvim",
-    tag = "v3*",
+    tag = "v3.*",
     config = function()
       -- vim.opt.termguicolors = true
       require("bufferline").setup({
@@ -17,32 +21,33 @@ return {
       })
     end,
   }, -- stylized buffer tabs
-  "fladson/vim-kitty", -- syntax for kitty terminal config
-  -- {"folke/noice.nvim",
-  -- config = function()
-  -- require("noice").setup({
-  -- routes = {
-  --   -- Hide 'saved' msgs
-  --   {
-  --     filter = {
-  --       event = "msg_show",
-  --       kind = "",
-  --       find = "written",
-  --     },
-  --     opts = { skip = true },
-  --   },
-  --   -- Hide virtual search text
-  --   {
-  --     filter = {
-  --       event = "msg_show",
-  --       kind = "search_count",
-  --     },
-  --     opts = { skip = true },
-  --   },
-  -- },
-  -- })
-  -- end
-  -- },
+  {
+    "folke/noice.nvim",
+    enabled = false,
+    config = function()
+      require("noice").setup({
+        routes = {
+          -- Hide 'saved' msgs
+          {
+            filter = {
+              event = "msg_show",
+              kind = "",
+              find = "written",
+            },
+            opts = { skip = true },
+          },
+          -- Hide virtual search text
+          {
+            filter = {
+              event = "msg_show",
+              kind = "search_count",
+            },
+            opts = { skip = true },
+          },
+        },
+      })
+    end,
+  },
   "folke/twilight.nvim", -- focus on active code selection
   "kyazdani42/nvim-web-devicons",
   {
@@ -77,7 +82,23 @@ return {
       require("scrollbar").setup()
     end,
   },
-  "rcarriga/nvim-notify", -- notification window
+  {
+    "rcarriga/nvim-notify",
+    keys = {
+      -- reload current lua file
+      {
+        "<Leader>l",
+        "",
+        mode = "n",
+        callback = function()
+          require("notify")(vim.fn.expand("%"), "", { title = "Sourcing luafile" })
+          vim.cmd("luafile %")
+        end,
+      },
+    },
+    opts = {},
+    config = nil,
+  },
   {
     "simrat39/symbols-outline.nvim",
 
@@ -85,9 +106,4 @@ return {
       require("symbols-outline").setup()
     end,
   },
-  "winston0410/range-highlight.nvim", -- highlight selected ranges from command line
-
-  -- Colors
-  { "embark-theme/vim", name = "embark" },
-  "nyoom-engineering/oxocarbon.nvim",
 }

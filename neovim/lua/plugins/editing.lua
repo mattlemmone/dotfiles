@@ -1,17 +1,74 @@
 return {
-  "ojroques/nvim-bufdel", -- dont close split when closing buffer
-  "simnalamburt/vim-mundo", -- undo tree
-  "terrastruct/d2-vim", -- D2 syntax support
-  "tpope/vim-abolish", -- easy abbrevs, subversion
-  "tpope/vim-commentary", -- commenting
-  "tpope/vim-repeat",
-  "tpope/vim-surround",
-  "FooSoft/vim-argwrap", -- auto inline/multiline args
-  "fatih/vim-go",
-  "inkarkat/vim-ReplaceWithRegister", -- ez replace motion with register contents
+  {
+    "terrastruct/d2-vim", -- D2 syntax support
+    "tpope/vim-abolish", -- easy abbrevs, subversion
+    "tpope/vim-commentary", -- commenting
+    "tpope/vim-repeat",
+    "tpope/vim-surround",
+    "junegunn/vim-easy-align",
+    keys = {
+      {
+        -- Start interactive EasyAlign in visual mode (e.g. vipga)
+        "ga",
+        "<Plug>(EasyAlign)",
+        mode = "x",
+      },
+
+      {
+        -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
+        "ga",
+        "<Plug>(EasyAlign)",
+        mode = "n",
+      },
+    },
+    opts = {},
+    config = nil,
+  },
+  { "ojroques/nvim-bufdel", keys = {
+    { "<Leader>d", "<CMD>BufDel<CR>", mode = "n" },
+  } }, -- dont close split when closing buffer
+  {
+    "simnalamburt/vim-mundo",
+    keys = {
+      {
+        "<Leader>m",
+        "<CMD>MundoToggle<CR>",
+        mode = "n",
+        silent = true,
+      },
+    },
+  }, -- undo tree
+  { "FooSoft/vim-argwrap", keys = {
+    { "<Leader>w", "<CMD>ArgWrap<CR>", mode = "n", silent = true },
+  } }, -- auto inline/multiline args
+  {
+    "fatih/vim-go",
+    keys = {},
+    opts = {},
+    config = function()
+      local g = vim.g
+
+      g.go_highlight_build_constraints = 1
+      g.go_highlight_functions = 1
+      g.go_highlight_interfaces = 1
+      g.go_highlight_methods = 1
+      g.go_highlight_operators = 1
+      g.go_highlight_structs = 1
+    end,
+  },
+  {
+    "inkarkat/vim-ReplaceWithRegister",
+    keys = {
+      { "<Leader>p", "<Plug>ReplaceWithRegisterOperator", mode = "n" },
+      { "<Leader>pp", "<Plug>ReplaceWithRegisterLine", mode = "n" },
+      { "<Leader>p", "<Plug>ReplaceWithRegisterVisual", mode = "x" },
+    },
+  }, -- ez replace motion with register contents
   "junegunn/vim-easy-align", -- align text around tokens
   "markonm/traces.vim", -- live subst preview
-  "mizlan/iswap.nvim", -- swap args, lines, objects
+  { "mizlan/iswap.nvim", keys = {
+    { "<Leader>i", "<CMD>ISwap<CR>", mode = "n" },
+  } }, -- swap args, lines, objects
   {
     "andymass/vim-matchup",
     config = function()
