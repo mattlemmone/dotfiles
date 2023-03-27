@@ -1,9 +1,9 @@
 return {
-  "winston0410/range-highlight.nvim", -- highlight selected ranges from command line
+  { import = "plugins.colors" },
+  { "embark-theme/vim",       name = "embark" },
   "nyoom-engineering/oxocarbon.nvim",
+  "winston0410/range-highlight.nvim", -- highlight selected ranges from command line
   "RRethy/vim-illuminate",
-  "fladson/vim-kitty", -- syntax for kitty terminal config
-  { "embark-theme/vim", name = "embark" },
   {
     "akinsho/bufferline.nvim",
     tag = "v3.*",
@@ -23,7 +23,7 @@ return {
   }, -- stylized buffer tabs
   {
     "folke/noice.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
       require("noice").setup({
         routes = {
@@ -52,19 +52,17 @@ return {
   "kyazdani42/nvim-web-devicons",
   {
     "lukas-reineke/indent-blankline.nvim",
-
     config = function()
       require("indent_blankline").setup({
         show_current_context = true,
         show_current_context_start = false,
       })
     end,
-  }, -- indent mgmt
+  },                            -- indent mgmt
   "norcalli/nvim-colorizer.lua", -- highlight color codes real-time
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-
     config = function()
       require("nvim-treesitter.configs").setup({
         -- Automatically install missing parsers when entering buffer
@@ -77,7 +75,6 @@ return {
   "nvim-treesitter/nvim-treesitter-context",
   {
     "petertriho/nvim-scrollbar",
-
     config = function()
       require("scrollbar").setup()
     end,
@@ -101,7 +98,6 @@ return {
   },
   {
     "simrat39/symbols-outline.nvim",
-
     config = function()
       require("symbols-outline").setup()
     end,
