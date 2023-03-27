@@ -2,12 +2,15 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "L3MON4D3/LuaSnip", -- snippets
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lsp-signature-help",
+      {
+        "L3MON4D3/LuaSnip",
+        build = "make install_jsregexp",
+      },
     },
     config = function()
       local cmp = require("cmp")
@@ -29,7 +32,7 @@ return {
         formatting = {
           format = lspkind.cmp_format({
             mode = "symbol_text",
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            maxwidth = 50,   -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
             menu = {
               luasnip = "[snippet]",
@@ -65,7 +68,6 @@ return {
               fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
             end
           end, { "i", "s" }),
-
           ["<S-Tab>"] = cmp.mapping(function()
             if cmp.visible() then
               cmp.select_prev_item()
@@ -74,7 +76,6 @@ return {
             end
           end, { "i", "s" }),
         }),
-
         sources = cmp.config.sources({
           -- { name = "buffer", keyword_length = 3 },
           { name = "nvim_lsp_signature_help" },

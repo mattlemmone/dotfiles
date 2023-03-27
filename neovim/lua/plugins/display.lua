@@ -6,7 +6,8 @@ return {
   "RRethy/vim-illuminate",
   {
     "akinsho/bufferline.nvim",
-    tag = "v3.*",
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+    -- tag = "v3.*",
     config = function()
       -- vim.opt.termguicolors = true
       require("bufferline").setup({
@@ -23,7 +24,7 @@ return {
   }, -- stylized buffer tabs
   {
     "folke/noice.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
       require("noice").setup({
         routes = {
