@@ -12,10 +12,10 @@ return {
       require("mkdnflow").setup({
         mappings = {
           MkdnEnter = { { "n", "v" }, "<CR>" },
-          MkdnTab = false,
+          MkdnTab = { { "n", "i" }, "<Tab>" },
           MkdnSTab = false,
-          MkdnNextLink = { "n", "<Tab>" },
-          MkdnPrevLink = { "n", "<S-Tab>" },
+          MkdnNextLink = false,
+          MkdnPrevLink = false,
           MkdnNextHeading = { "n", "]]" },
           MkdnPrevHeading = { "n", "[[" },
           MkdnGoBack = false,
@@ -23,7 +23,7 @@ return {
           MkdnCreateLink = false, -- see MkdnEnter
           MkdnCreateLinkFromClipboard = false,
           MkdnFollowLink = false, -- see MkdnEnter
-          MkdnDestroyLink = { "n", "<M-CR>" },
+          MkdnDestroyLink = false,
           MkdnTagSpan = false,
           MkdnMoveSource = false,
           MkdnYankAnchorLink = false,
@@ -31,7 +31,7 @@ return {
           MkdnIncreaseHeading = { "n", "+" },
           MkdnDecreaseHeading = { "n", "-" },
           MkdnToggleToDo = { { "n", "v" }, "<C-k>" },
-          MkdnNewListItem = false,
+          MkdnNewListItem = { "i", "<CR>" }, -- Use this command instead if you only want <CR> in
           MkdnNewListItemBelowInsert = { "n", "o" },
           MkdnNewListItemAboveInsert = { "n", "O" },
           MkdnExtendList = false,

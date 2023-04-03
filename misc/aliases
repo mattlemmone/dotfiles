@@ -31,4 +31,4 @@ alias rm='rip'
 alias rm_undo='rip -s'
 
 # Obsidian
-alias edit_personal_notes='pushd /Users/matt/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/iOS\ Vault; vim .; popd'
+alias edit_personal_notes="pushd /Users/$USER/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/iOS\ Vault; vim .; popd"
