@@ -7,6 +7,22 @@ return {
     "tpope/vim-repeat",
     "tpope/vim-surround",
     {
+      -- doc strings
+      "danymat/neogen",
+      dependencies = "nvim-treesitter/nvim-treesitter",
+      config = true,
+      version = "*",
+      keys = {
+        {
+          "<Leader>/",
+          "<CMD>lua require('neogen').generate()<CR>",
+          mode = "n",
+          noremap = true,
+          silent = true,
+        },
+      },
+    },
+    {
       "junegunn/vim-easy-align",
       keys = {
         {

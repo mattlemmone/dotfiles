@@ -12,7 +12,7 @@ return {
       require("mkdnflow").setup({
         mappings = {
           MkdnEnter = { { "n", "v" }, "<CR>" },
-          MkdnTab = { { "n", "i" }, "<Tab>" },
+          MkdnTab = { { "n" }, "<Tab>" },
           MkdnSTab = false,
           MkdnNextLink = false,
           MkdnPrevLink = false,
@@ -36,8 +36,8 @@ return {
           MkdnNewListItemAboveInsert = { "n", "O" },
           MkdnExtendList = false,
           MkdnUpdateNumbering = false,
-          MkdnTableNextCell = { "i", "<Tab>" },
-          MkdnTablePrevCell = { "i", "<S-Tab>" },
+          MkdnTableNextCell = false,
+          MkdnTablePrevCell = false,
           MkdnTableNextRow = false,
           MkdnTablePrevRow = false,
           MkdnTableNewRowBelow = { "n", "<leader>ir" },
