@@ -1,13 +1,13 @@
 return {
   { import = "plugins.colors" },
-  { "embark-theme/vim",       name = "embark" },
-  "nyoom-engineering/oxocarbon.nvim",
+  { "embark-theme/vim",                 name = "embark", enabled = false },
+  { "nyoom-engineering/oxocarbon.nvim", enabled = false },
   "winston0410/range-highlight.nvim", -- highlight selected ranges from command line
   "RRethy/vim-illuminate",
   {
     "akinsho/bufferline.nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons" },
-    -- tag = "v3.*",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    version = "v3.*",
     config = function()
       -- vim.opt.termguicolors = true
       require("bufferline").setup({
@@ -50,7 +50,6 @@ return {
     end,
   },
   "folke/twilight.nvim", -- focus on active code selection
-  "kyazdani42/nvim-web-devicons",
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
@@ -99,6 +98,15 @@ return {
   },
   {
     "simrat39/symbols-outline.nvim",
+    keys = {
+      {
+        "<Leader>t",
+        "<CMD>SymbolsOutline<CR>",
+        mode = "n",
+        noremap = true,
+        silent = true,
+      },
+    },
     config = function()
       require("symbols-outline").setup()
     end,

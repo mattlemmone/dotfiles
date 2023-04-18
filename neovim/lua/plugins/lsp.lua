@@ -102,9 +102,9 @@ return {
       -- LS with nonstandard settings
       require("typescript").setup({
         disable_commands = false, -- prevent the plugin from creating Vim commands
-        debug = false, -- enable debug logging for commands
+        debug = false,        -- enable debug logging for commands
         go_to_source_definition = {
-          fallback = true, -- fall back to standard LSP definition on failure
+          fallback = true,    -- fall back to standard LSP definition on failure
         },
         server = {
           -- pass options to lspconfig's setup method
@@ -169,6 +169,9 @@ return {
       nvim_lsp.kotlin_language_server.setup({
         capabilities = capabilities,
         on_attach = on_attach_default,
+        cmd = {
+          "/Users/matt/Dev/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
+        },
         settings = {
           compiler = { jvm = { target = "1.8.10" } },
         },

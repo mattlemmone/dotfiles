@@ -1,9 +1,16 @@
 return {
-  "rhysd/git-messenger.vim", -- git blame magic
   "ruanyl/vim-gh-line", -- open in gh
   {
     "lewis6991/gitsigns.nvim",
-
+    keys = {
+      {
+        "<Leader>gm",
+        "<CMD>Gitsigns blame_line<CR>",
+        mode = "n",
+        noremap = true,
+        silent = true,
+      },
+    },
     config = function()
       require("gitsigns").setup({
         current_line_blame = true,
@@ -30,7 +37,7 @@ return {
       })
 
       keymap.set("n", "<Leader>gf", "<CMD>DiffviewFileHistory<CR>") -- show git history for current buffer
-      keymap.set("n", "<Leader>gd", "<CMD>DiffviewOpen<CR>") -- show modified files
+      keymap.set("n", "<Leader>gd", "<CMD>DiffviewOpen<CR>")     -- show modified files
     end,
-  }, -- diff mgmt!
+  },                                                             -- diff mgmt!
 }
