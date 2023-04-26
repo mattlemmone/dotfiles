@@ -1,9 +1,15 @@
 return {
-  "nvim-telescope/telescope-fzf-native.nvim",
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.0",
+    tag = "0.1.1",
     dependencies = {
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        config = function()
+          require("telescope").load_extension("fzf")
+        end,
+      },
       {
         "nvim-telescope/telescope-ui-select.nvim", -- code actions in telescope.. is that all?
         config = function()
@@ -31,13 +37,6 @@ return {
 
           -- This must come after the above neoclip setup function, or persistent history will not work
           require("telescope").load_extension("neoclip")
-        end,
-      },
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-        config = function()
-          require("telescope").load_extension("fzf")
         end,
       },
     },

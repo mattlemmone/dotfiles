@@ -6,7 +6,6 @@ source ~/dotfiles/misc/funcs/git
 source ~/dotfiles/misc/.secrets
 
 eval $(ssh-agent) &>/dev/null
-[ -f ~/dotfiles/misc/doordash ] && source ~/dotfiles/misc/doordash
 [ -f ~/dotfiles/misc/wolt ] && source ~/dotfiles/misc/wolt
 
 # asdf

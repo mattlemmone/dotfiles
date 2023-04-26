@@ -125,6 +125,12 @@ return {
           augend.integer.alias.hex,
           augend.date.alias["%Y/%m/%d"],
           augend.date.alias["%m/%d/%Y"],
+          augend.date.new({
+            pattern = "%a, %b %d %Y",
+            default_kind = "day",
+            only_valid = true,
+            word = false,
+          }),
           augend.constant.alias.bool,
           augend.semver.alias.semver,
         },

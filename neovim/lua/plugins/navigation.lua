@@ -1,4 +1,5 @@
 return {
+  "jinh0/eyeliner.nvim", -- f/F indicators
   {
     "echasnovski/mini.bracketed",
     config = function()
@@ -20,7 +21,7 @@ return {
                      .-. :
                      `._.'
                              😮🙂
-    ]]   ,
+    ]],
         footer = "",
       })
     end,
@@ -38,10 +39,14 @@ return {
   }, -- session mgmt
   {
     "ggandor/leap.nvim",
-
     config = function()
       require("leap").add_default_mappings()
     end,
   }, -- ez motion
-  "jinh0/eyeliner.nvim", -- f/F indicators
+  {
+    "chrishrb/gx.nvim",
+    event = { "BufEnter" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = true, -- default settings
+  },             -- improved 'gx' for opening links, plugin repos, etc
 }

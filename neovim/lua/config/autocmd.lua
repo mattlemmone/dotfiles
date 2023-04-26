@@ -61,10 +61,10 @@ autocmd("FileType", {
   end,
 })
 
--- Reload kitty after updating configs
-autocmd("BufWritePost", {
-  pattern = "*/kitty/kitty.conf",
-  callback = function()
-    vim.cmd({ cmd = "!kill -SIGUSR1 $(pgrep -a kitty)", mods = { silent = false } })
-  end,
-})
+-- -- Reload kitty after updating configs
+-- autocmd("BufWritePost", {
+--   pattern = "*/kitty/kitty.conf",
+--   callback = function()
+--     vim.cmd({ cmd = "!kill -SIGUSR1 $(pgrep -a kitty)", mods = { silent = false } })
+--   end,
+-- })

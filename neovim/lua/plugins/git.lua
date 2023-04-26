@@ -1,5 +1,6 @@
 return {
   "ruanyl/vim-gh-line", -- open in gh
+  "kdheepak/lazygit.nvim",
   {
     "lewis6991/gitsigns.nvim",
     keys = {
