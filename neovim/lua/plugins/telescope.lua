@@ -4,6 +4,7 @@ return {
     tag = "0.1.1",
     dependencies = {
       {
+        -- if you get issues when installing, make sure to build the binary via `gb`
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
         config = function()
