@@ -2,7 +2,6 @@ return {
   -- more or less global lua deps
   "MunifTanjim/nui.nvim",            -- ui
   "nvim-lua/plenary.nvim",           -- misc lua functions
-  "nathom/filetype.nvim",            -- speed up boot time by optimizing filetype autocmd creation
   "kristijanhusak/vim-carbon-now-sh", -- Screenshot and upload code to carbon.now.sh
   "metakirby5/codi.vim",             -- live eval mode
   {

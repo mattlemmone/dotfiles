@@ -34,6 +34,7 @@ return {
           -- Some Linters are managed by Mason
           null_ls.builtins.diagnostics.protolint,
           -- Formatters are managed by Mason
+          null_ls.builtins.formatting.shfmt,
           null_ls.builtins.formatting.black,
           null_ls.builtins.formatting.prettierd,
           null_ls.builtins.formatting.eslint,

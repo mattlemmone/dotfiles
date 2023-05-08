@@ -3,6 +3,7 @@ local autocmd = vim.api.nvim_create_autocmd
 -- Format on save
 autocmd("BufWritePre", {
   pattern = {
+    "*.sh",
     "*.lua",
     "*.html",
     "*.json",
