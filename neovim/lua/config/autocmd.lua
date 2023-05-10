@@ -13,12 +13,14 @@ autocmd("BufWritePre", {
   end,
 })
 
+-- For them slo bois
 autocmd("BufWritePre", {
   pattern = {
     "*.ts",
     "*.tsx",
     "*.js",
     "*.jsx",
+    "*.kt",
   },
   callback = function()
     -- On save, only use null-ls
@@ -59,6 +61,14 @@ autocmd("FileType", {
   pattern = { "gitcommit", "text", "tex" },
   callback = function()
     vim.opt_local.spell = true
+  end,
+})
+
+-- Enable spellchecking
+autocmd({ "BufReadPost", "BufNewFile", "BufRead" }, {
+  pattern = { "*.conf" },
+  callback = function()
+    vim.cmd([[set filetype=ini]])
   end,
 })
 

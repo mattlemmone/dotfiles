@@ -32,9 +32,10 @@ return {
             end,
           }),
           -- Some Linters are managed by Mason
-          null_ls.builtins.diagnostics.protolint,
+          null_ls.builtins.diagnostics.buf,
           -- Formatters are managed by Mason
           null_ls.builtins.formatting.shfmt,
+          null_ls.builtins.formatting.buf,
           null_ls.builtins.formatting.black,
           null_ls.builtins.formatting.prettierd,
           null_ls.builtins.formatting.eslint,
@@ -45,6 +46,7 @@ return {
 
       local on_attach_default = function(_, bufnr)
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
+        local keymap = vim.keymap
 
         -- Code Actions
         keymap.set({ "n", "v" }, "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
@@ -170,9 +172,10 @@ return {
       nvim_lsp.kotlin_language_server.setup({
         capabilities = capabilities,
         on_attach = on_attach_default,
-        cmd = {
-          "/Users/matt/Dev/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
-        },
+        -- Commenting this out since an official release came out to support 1.8.10 and it's not necessary to run locally
+        -- cmd = {
+        --   "/Users/matt/Dev/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
+        -- },
         settings = {
           compiler = { jvm = { target = "1.8.10" } },
         },
