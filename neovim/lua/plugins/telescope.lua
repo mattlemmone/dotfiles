@@ -54,7 +54,7 @@ return {
       },
       {
         "<Leader>n",
-        "<CMD>lua require('telescope').extensions.file_browser.file_browser({path='%:p:h',initial_mode='normal',hidden='true'})<CR>",
+        "<CMD>lua require('telescope').extensions.file_browser.file_browser({path='%:p:h',initial_mode='normal',hidden=true,respect_gitignore=false})<CR>",
         mode = "n",
         silent = true,
         desc = "File Navigation",

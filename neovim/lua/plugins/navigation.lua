@@ -34,7 +34,7 @@ return {
   "elihunter173/dirbuf.nvim",
   {
     "folke/persistence.nvim",
-    event = "BufReadPre",
+    event = "VimEnter",
     config = function()
       local keymap = vim.keymap
       require("persistence").setup()

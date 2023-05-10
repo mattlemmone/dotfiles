@@ -6,7 +6,7 @@ source ~/dotfiles/misc/funcs/git
 source ~/dotfiles/misc/.secrets
 
 eval $(ssh-agent) &>/dev/null
-[ -f ~/dotfiles/misc/wolt ] && source ~/dotfiles/misc/wolt
+[ -f ~/dotfiles/misc/wolt.sh ] && source ~/dotfiles/misc/wolt.sh
 
 # asdf
 . $(brew --prefix asdf)/libexec/asdf.sh
