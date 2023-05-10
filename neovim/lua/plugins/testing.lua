@@ -1,10 +1,17 @@
 return {
   {
     "nvim-neotest/neotest",
+    lazy = true,
     dependencies = {
       {
         "nvim-neotest/neotest-vim-test",
-        dependencies = { "vim-test/vim-test" },
+        lazy = true,
+        dependencies = {
+          {
+            "vim-test/vim-test",
+            lazy = true,
+          },
+        },
       },
     },
     config = function()

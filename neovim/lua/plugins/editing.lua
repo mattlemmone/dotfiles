@@ -1,14 +1,20 @@
 return {
   {
-    "terrastruct/d2-vim", -- D2 syntax support
-    "fladson/vim-kitty",  -- syntax for kitty terminal config
-    "tpope/vim-abolish",  -- easy abbrevs, subversion
-    "tpope/vim-commentary", -- commenting
-    "tpope/vim-repeat",
-    "tpope/vim-surround",
     {
-      -- doc strings
+      "terrastruct/d2-vim",
+      event = "BufEnter *.d2",
+    }, -- D2 syntax support
+    {
+      "fladson/vim-kitty",
+      event = "BufEnter kitty.conf",
+    },                                            -- syntax for kitty terminal config
+    { "tpope/vim-abolish",    event = "VeryLazy" }, -- easy abbrevs, subversion
+    { "tpope/vim-commentary", event = "VeryLazy" }, -- commenting
+    { "tpope/vim-repeat",     event = "VeryLazy" },
+    { "tpope/vim-surround",   event = "VeryLazy" },
+    {
       "danymat/neogen",
+      lazy = true,
       dependencies = "nvim-treesitter/nvim-treesitter",
       config = true,
       version = "*",
@@ -19,11 +25,13 @@ return {
           mode = "n",
           noremap = true,
           silent = true,
+          desc = "Generate Doc Strings",
         },
       },
     },
     {
       "junegunn/vim-easy-align",
+      lazy = true,
       keys = {
         {
           -- Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -88,35 +96,47 @@ return {
       { "<Leader>pp", "<Plug>ReplaceWithRegisterLine",     mode = "n" },
       { "<Leader>p",  "<Plug>ReplaceWithRegisterVisual",   mode = "x" },
     },
-  },                        -- ez replace motion with register contents
-  "junegunn/vim-easy-align", -- align text around tokens
-  "markonm/traces.vim",     -- live subst preview
+  },                   -- ez replace motion with register contents
+  "markonm/traces.vim", -- live subst preview
   {
     "mizlan/iswap.nvim",
+    lazy = true,
     keys = {
       { "<Leader>i", "<CMD>ISwap<CR>", mode = "n" },
     },
   }, -- swap args, lines, objects
   {
     "andymass/vim-matchup",
+    event = "VeryLazy",
     config = function()
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   }, -- improved % matching
   {
     "anuvyklack/pretty-fold.nvim",
+    event = "VeryLazy",
     config = function()
       require("pretty-fold").setup({})
     end,
   }, -- foldinggg
   {
     "chentoast/marks.nvim",
+    event = "VeryLazy",
     config = function()
       require("marks").setup({ default_mappings = true })
     end,
   }, -- marks
   {
     "monaqa/dial.nvim",
+    lazy = true,
+    keys = {
+      { "<C-a>",  "<CMD>lua require('dial.map').inc_normal()<CR>",  noremap = true, mode = "n" },
+      { "<C-x>",  "<CMD>lua require('dial.map').dec_normal()<CR>",  noremap = true, mode = "n" },
+      { "<C-a>",  "<CMD>lua require('dial.map').inc_visual()<CR>",  noremap = true, mode = "v" },
+      { "<C-x>",  "<CMD>lua require('dial.map').dec_visual()<CR>",  noremap = true, mode = "v" },
+      { "g<C-a>", "<CMD>lua require('dial.map').inc_gvisual()<CR>", noremap = true, mode = "v" },
+      { "g<C-x>", "<CMD>lua require('dial.map').dec_gvisual()<CR>", noremap = true, mode = "v" },
+    },
     config = function()
       local augend = require("dial.augend")
       require("dial.config").augends:register_group({
@@ -135,22 +155,26 @@ return {
           augend.semver.alias.semver,
         },
       })
-      vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
-      vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
-      vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual(), { noremap = true })
-      vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual(), { noremap = true })
-      vim.keymap.set("v", "g<C-a>", require("dial.map").inc_gvisual(), { noremap = true })
-      vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
     end,
   }, -- easy inc/dec/toggling of types
   {
     "windwp/nvim-autopairs",
+    event = "VeryLazy",
     config = function()
       require("nvim-autopairs").setup({})
     end,
   },
   {
     "cshuaimin/ssr.nvim",
+    lazy = true,
+    keys = {
+      {
+        "<leader>sr",
+        "<CMD>lua require('ssr').open()<CR>",
+        mode = { "n", "x" },
+        desc = "Structural Search and Replace",
+      },
+    },
     module = "ssr",
     -- Calling setup is optional.
     config = function()
@@ -168,10 +192,6 @@ return {
           replace_all = "<leader><cr>",
         },
       })
-
-      vim.keymap.set({ "n", "x" }, "<leader>sr", function()
-        require("ssr").open()
-      end)
     end,
   },
 }

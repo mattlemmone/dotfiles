@@ -1,14 +1,15 @@
 return {
-  "folke/lsp-colors.nvim", -- backfill missing lsp highlight colors
-  "onsails/lspkind.nvim", -- styling for cmp
+  { "folke/lsp-colors.nvim", event = { "BufReadPre", "BufNewFile" } }, -- backfill missing lsp highlight colors
   {
     "folke/trouble.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("trouble").setup({})
     end,
   }, -- diagnostics
   {
     "jose-elias-alvarez/null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "jose-elias-alvarez/typescript.nvim",
       "hrsh7th/cmp-nvim-lsp",
@@ -16,7 +17,6 @@ return {
     },
     config = function()
       local null_ls = require("null-ls")
-      local keymap = vim.keymap
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local nvim_lsp = require("lspconfig")
 
@@ -182,6 +182,7 @@ return {
 
   {
     "williamboman/mason.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("mason").setup()
     end,

@@ -1,13 +1,19 @@
 return {
-  { "iamcco/markdown-preview.nvim", build = "cd app && yarn install" },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && yarn install",
+    event = "BufEnter *.md",
+  },
   {
     "ellisonleao/glow.nvim",
+    event = "BufEnter *.md",
     config = function()
       require("glow").setup()
     end,
   },
   {
     "jakewvincent/mkdnflow.nvim",
+    event = "BufEnter *.md",
     config = function()
       require("mkdnflow").setup({
         mappings = {

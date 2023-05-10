@@ -1,8 +1,9 @@
 return {
-  "ruanyl/vim-gh-line", -- open in gh
-  "kdheepak/lazygit.nvim",
+  { "ruanyl/vim-gh-line",    event = "VeryLazy" }, -- open in gh
+  { "kdheepak/lazygit.nvim", event = "VeryLazy" },
   {
     "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     keys = {
       {
         "<Leader>gm",
@@ -20,9 +21,24 @@ return {
   }, -- buffer icons and other things
   {
     "sindrets/diffview.nvim",
+    lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
+    keys = {
+      {
+        "<Leader>gf",
+        "<CMD>DiffviewFileHistory<CR>",
+        desc = "Show Git History for Current Buffer",
+        mode = "n",
+      },
+      {
+        "<Leader>gd",
+        "<CMD>DiffviewOpen<CR>",
+        desc = "Show Modified Files",
+        mode = "n",
+      },
+    },
     config = function()
       local actions = require("diffview.actions")
-      local keymap = vim.keymap
 
       require("diffview").setup({
         keymaps = {
@@ -36,9 +52,6 @@ return {
           },
         },
       })
-
-      keymap.set("n", "<Leader>gf", "<CMD>DiffviewFileHistory<CR>") -- show git history for current buffer
-      keymap.set("n", "<Leader>gd", "<CMD>DiffviewOpen<CR>")     -- show modified files
     end,
-  },                                                             -- diff mgmt!
+  }, -- diff mgmt!
 }

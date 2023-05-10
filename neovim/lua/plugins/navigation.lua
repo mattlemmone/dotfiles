@@ -1,13 +1,18 @@
 return {
-  "jinh0/eyeliner.nvim", -- f/F indicators
+  {
+    "jinh0/eyeliner.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+  }, -- f/F indicators
   {
     "echasnovski/mini.bracketed",
+    event = "VeryLazy",
     config = function()
       require("mini.bracketed").setup()
     end,
   }, -- navigation using brackets. TS nodes, conflicts, comments, diag, files, bufs, windows...
   {
     "echasnovski/mini.starter",
+    event = "VimEnter",
     branch = "stable",
     config = function()
       require("mini.starter").setup({
@@ -29,6 +34,7 @@ return {
   "elihunter173/dirbuf.nvim",
   {
     "folke/persistence.nvim",
+    event = "BufReadPre",
     config = function()
       local keymap = vim.keymap
       require("persistence").setup()
@@ -39,13 +45,14 @@ return {
   }, -- session mgmt
   {
     "ggandor/leap.nvim",
+    event = "VeryLazy",
     config = function()
       require("leap").add_default_mappings()
     end,
   }, -- ez motion
   {
     "chrishrb/gx.nvim",
-    event = { "BufEnter" },
+    event = { "VeryLazy" },
     dependencies = { "nvim-lua/plenary.nvim" },
     config = true, -- default settings
   },             -- improved 'gx' for opening links, plugin repos, etc
