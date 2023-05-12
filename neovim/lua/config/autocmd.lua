@@ -58,7 +58,7 @@ autocmd("InsertLeave", {
 
 -- Enable spellchecking
 autocmd("FileType", {
-  pattern = { "gitcommit", "text", "tex" },
+  pattern = { "*.md", "gitcommit", "text", "tex" },
   callback = function()
     vim.opt_local.spell = true
   end,
