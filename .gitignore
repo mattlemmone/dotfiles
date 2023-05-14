@@ -1,5 +1,5 @@
-misc/wolt.sh
-misc/.secrets
+*wolt*
+*secret*
 
 # vim
 neovim/plugged
