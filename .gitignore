@@ -1,5 +1,4 @@
-misc/doordash
-misc/wolt
+misc/wolt.sh
 misc/.secrets
 
 # vim
