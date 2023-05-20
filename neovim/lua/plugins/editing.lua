@@ -2,11 +2,11 @@ return {
   {
     {
       "terrastruct/d2-vim",
-      event = "BufEnter *.d2",
+      event = "BufReadPre *.d2",
     }, -- D2 syntax support
     {
       "fladson/vim-kitty",
-      event = "BufEnter kitty.conf",
+      event = "BufReadPre kitty.conf",
     },                                            -- syntax for kitty terminal config
     { "tpope/vim-abolish",    event = "VeryLazy" }, -- easy abbrevs, subversion
     { "tpope/vim-commentary", event = "VeryLazy" }, -- commenting

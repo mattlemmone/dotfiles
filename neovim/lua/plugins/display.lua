@@ -1,6 +1,10 @@
 return {
   { import = "plugins.colors" },
-  { "embark-theme/vim",                 name = "embark", enabled = false },
+  {
+    "embark-theme/vim",
+    name = "embark",
+    enabled = false,
+  },
   { "nyoom-engineering/oxocarbon.nvim", enabled = false },
   {
     "winston0410/range-highlight.nvim",
