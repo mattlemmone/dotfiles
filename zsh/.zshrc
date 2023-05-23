@@ -26,3 +26,8 @@ eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
 
 source ~/.config/broot/launcher/bash/br
+
+# pnpm
+export PNPM_HOME="/Users/matt/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
