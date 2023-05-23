@@ -1,12 +1,13 @@
-source ~/dotfiles/misc/aliases
-source ~/dotfiles/misc/exports
-source ~/dotfiles/misc/funcs/bash
-source ~/dotfiles/misc/funcs/yabai
-source ~/dotfiles/misc/funcs/git
+source ~/dotfiles/misc/aliases.sh
+source ~/dotfiles/misc/exports.sh
+source ~/dotfiles/misc/funcs/bash.sh
+source ~/dotfiles/misc/funcs/yabai.sh
+source ~/dotfiles/misc/funcs/git.sh
 source ~/dotfiles/misc/.secrets
 
 eval $(ssh-agent) &>/dev/null
 [ -f ~/dotfiles/misc/wolt.sh ] && source ~/dotfiles/misc/wolt.sh
+[ -f ~/.ssh/github ] && ssh-add --apple-use-keychain ~/.ssh/github > /dev/null 2>&1
 
 # asdf
 . $(brew --prefix asdf)/libexec/asdf.sh
