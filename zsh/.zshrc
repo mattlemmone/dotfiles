@@ -6,8 +6,8 @@ source ~/dotfiles/misc/funcs/git.sh
 source ~/dotfiles/misc/.secrets
 
 eval $(ssh-agent) &>/dev/null
-[ -f ~/dotfiles/misc/wolt.sh ] && source ~/dotfiles/misc/wolt.sh
 [ -f ~/.ssh/github ] && ssh-add --apple-use-keychain ~/.ssh/github > /dev/null 2>&1
+[ -f ~/dotfiles/misc/wolt.sh ] && source ~/dotfiles/misc/wolt.sh
 
 # asdf
 . $(brew --prefix asdf)/libexec/asdf.sh
@@ -32,3 +32,5 @@ source ~/.config/broot/launcher/bash/br
 export PNPM_HOME="/Users/matt/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+source /Users/matt/.config/broot/launcher/bash/br

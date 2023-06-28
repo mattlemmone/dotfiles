@@ -1,6 +1,27 @@
 return {
   { "folke/lsp-colors.nvim", event = { "BufReadPre", "BufNewFile" } }, -- backfill missing lsp highlight colors
   {
+    "pmizio/typescript-tools.nvim",                                   -- replacement for other ts plugins; be sure to disable while testing this
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+    settings = {
+      separate_diagnostic_server = true,
+      tsserver_file_preferences = {
+        includeCompletionsForModuleExports = true,
+        includeInlayEnumMemberValueHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayParameterNameHints = "all",
+        includeInlayVariableTypeHints = true,
+        quotePreference = "auto",
+      },
+      tsserver_format_options = {
+        allowIncompleteCompletions = false,
+        allowRenameOfImportPath = false,
+      },
+    },
+  },
+  {
     "folke/trouble.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
@@ -11,18 +32,20 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      "jose-elias-alvarez/typescript.nvim",
+      -- "jose-elias-alvarez/typescript.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "neovim/nvim-lspconfig", -- easier lsp mgmt
+      "SmiteshP/nvim-navic", -- breadcrumbs for lsp
     },
     config = function()
       local null_ls = require("null-ls")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local nvim_lsp = require("lspconfig")
+      local navic = require("nvim-navic")
 
       null_ls.setup({
         sources = {
-          require("typescript.extensions.null-ls.code-actions"),
+          -- require("typescript.extensions.null-ls.code-actions"),
           null_ls.builtins.code_actions.eslint,
           null_ls.builtins.diagnostics.todo_comments,
           null_ls.builtins.diagnostics.eslint.with({
@@ -44,9 +67,13 @@ return {
         },
       })
 
-      local on_attach_default = function(_, bufnr)
+      local on_attach_default = function(client, bufnr)
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
         local keymap = vim.keymap
+
+        if client.server_capabilities.documentSymbolProvider then
+          navic.attach(client, bufnr)
+        end
 
         -- Code Actions
         keymap.set({ "n", "v" }, "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
@@ -90,6 +117,7 @@ return {
         "gradle_ls",
         "html",
         "pylsp",
+        -- "pyright",
         "terraformls",
         "yamlls",
         "vimls",
@@ -103,21 +131,21 @@ return {
       end
 
       -- LS with nonstandard settings
-      require("typescript").setup({
-        disable_commands = false, -- prevent the plugin from creating Vim commands
-        debug = false,        -- enable debug logging for commands
-        go_to_source_definition = {
-          fallback = true,    -- fall back to standard LSP definition on failure
-        },
-        server = {
-          -- pass options to lspconfig's setup method
-          on_attach = function(client, bufnr)
-            -- Disable, prefer null-ls!
-            -- client.server_capabilities.documentFormattingProvider = false
-            on_attach_default(client, bufnr)
-          end,
-        },
-      })
+      -- require("typescript").setup({
+      --   disable_commands = false, -- prevent the plugin from creating Vim commands
+      --   debug = false,            -- enable debug logging for commands
+      --   go_to_source_definition = {
+      --     fallback = true,        -- fall back to standard LSP definition on failure
+      --   },
+      --   server = {
+      --     -- pass options to lspconfig's setup method
+      --     on_attach = function(client, bufnr)
+      --       -- Disable, prefer null-ls!
+      --       -- client.server_capabilities.documentFormattingProvider = false
+      --       on_attach_default(client, bufnr)
+      --     end,
+      --   },
+      -- })
 
       -- nvim_lsp.eslint.setup({
       --   on_attach = on_attach_default,
@@ -190,4 +218,14 @@ return {
       require("mason").setup()
     end,
   }, -- lsp package mgr
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+      -- Disable virtual_text since it's redundant due to lsp_lines.
+      vim.diagnostic.config({
+        virtual_text = false,
+      })
+    end,
+  },
 }

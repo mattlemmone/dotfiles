@@ -61,7 +61,7 @@ return {
   }, -- session mgmt
   {
     "ggandor/leap.nvim",
-    event = "VeryLazy",
+    -- Lazy loading not needed, per docs
     config = function()
       require("leap").add_default_mappings()
     end,

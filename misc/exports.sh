@@ -6,14 +6,14 @@ export GOPATH=$HOME/go
 export PYENV_ROOT="$HOME/.pyenv"
 
 # Path
-case `arch` in
-    arm64) # M1
-        export BREW_PREFIX=/opt/homebrew
+case $(arch) in
+arm64) # M1
+	export BREW_PREFIX=/opt/homebrew
 
-    ;;
-    i386) # Intel
-        export BREW_PREFIX=/usr/local
-    ;;
+	;;
+i386) # Intel
+	export BREW_PREFIX=/usr/local
+	;;
 esac
 
 export PATH="$GOPATH/bin:$PATH"
@@ -23,10 +23,8 @@ export PATH="$BREW_PREFIX/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
-
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Bat
 export BAT_THEME="Dracula"
-

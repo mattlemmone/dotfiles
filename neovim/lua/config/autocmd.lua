@@ -7,6 +7,7 @@ autocmd("BufWritePre", {
     "*.lua",
     "*.html",
     "*.json",
+    -- "*.py",
   },
   callback = function()
     vim.lsp.buf.format()
