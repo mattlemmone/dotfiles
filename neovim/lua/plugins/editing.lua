@@ -14,7 +14,6 @@ return {
     { "tpope/vim-surround",   event = "VeryLazy" },
     {
       "danymat/neogen",
-      lazy = true,
       dependencies = "nvim-treesitter/nvim-treesitter",
       config = true,
       version = "*",
@@ -31,7 +30,6 @@ return {
     },
     {
       "junegunn/vim-easy-align",
-      lazy = true,
       keys = {
         {
           -- Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -100,7 +98,7 @@ return {
   "markonm/traces.vim", -- live subst preview
   {
     "mizlan/iswap.nvim",
-    lazy = true,
+    event = "VeryLazy",
     keys = {
       { "<Leader>i", "<CMD>ISwap<CR>", mode = "n" },
     },
@@ -128,7 +126,6 @@ return {
   }, -- marks
   {
     "monaqa/dial.nvim",
-    lazy = true,
     keys = {
       { "<C-a>",  "<CMD>lua require('dial.map').inc_normal()<CR>",  noremap = true, mode = "n" },
       { "<C-x>",  "<CMD>lua require('dial.map').dec_normal()<CR>",  noremap = true, mode = "n" },
@@ -166,7 +163,6 @@ return {
   },
   {
     "cshuaimin/ssr.nvim",
-    lazy = true,
     keys = {
       {
         "<leader>sr",

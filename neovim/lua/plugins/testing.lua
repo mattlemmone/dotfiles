@@ -1,15 +1,15 @@
 return {
   {
     "nvim-neotest/neotest",
-    lazy = true,
+    event = "VeryLazy",
     dependencies = {
       {
         "nvim-neotest/neotest-vim-test",
-        lazy = true,
+        event = "VeryLazy",
         dependencies = {
           {
             "vim-test/vim-test",
-            lazy = true,
+            event = "VeryLazy",
           },
         },
       },

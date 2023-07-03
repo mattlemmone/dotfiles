@@ -13,6 +13,13 @@ return {
       "ray-x/cmp-treesitter",
       "saadparwaiz1/cmp_luasnip",
       {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup()
+        end,
+      },
+      {
+        event = "VeryLazy",
         "L3MON4D3/LuaSnip",
         build = "make install_jsregexp",
       },
@@ -24,8 +31,6 @@ return {
 
       local has_words_before = function()
         unpack = unpack or table.unpack
-        -- This is wrong... bugs out when removing param
-        ---@diagnostic disable-next-line: redundant-parameter
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0
             and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -36,9 +41,11 @@ return {
       cmp.setup({
         formatting = {
           format = lspkind.cmp_format({
+            -- mode = "symbol",
             mode = "symbol_text",
             maxwidth = 50,   -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+            symbol_map = { Copilot = "" },
             menu = {
               luasnip = "[snippet]",
               nvim_lua = "[nvim]",
@@ -82,13 +89,13 @@ return {
           end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
-          -- { name = "buffer", keyword_length = 3 },
-          { name = "nvim_lsp_signature_help" },
-          { name = "nvim_lsp" },
-          { name = "nvim_lua" },
-          { name = "luasnip" },
-          { name = "treesitter" },
-          { name = "path" },
+          { name = "luasnip",                 group_index = 1 },
+          { name = "copilot",                 group_index = 2 },
+          { name = "nvim_lsp_signature_help", group_index = 2 },
+          { name = "nvim_lsp",                group_index = 2 },
+          { name = "nvim_lua",                group_index = 2 },
+          { name = "buffer",                  group_index = 2, keyword_length = 3 },
+          { name = "path",                    group_index = 2 },
         }),
       })
 

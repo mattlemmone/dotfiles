@@ -21,8 +21,6 @@ return {
   }, -- buffer icons and other things
   {
     "sindrets/diffview.nvim",
-    lazy = true,
-    event = { "BufReadPre", "BufNewFile" },
     keys = {
       {
         "<Leader>gf",

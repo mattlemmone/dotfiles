@@ -35,7 +35,19 @@ return {
       -- "jose-elias-alvarez/typescript.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "neovim/nvim-lspconfig", -- easier lsp mgmt
-      "SmiteshP/nvim-navic", -- breadcrumbs for lsp
+      {
+        "utilyre/barbecue.nvim",
+        event = "VeryLazy",
+        name = "barbecue",
+        version = "*",
+        dependencies = {
+          "smiteshp/nvim-navic",
+          "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        opts = {
+          -- configurations go here
+        },
+      },
     },
     config = function()
       local null_ls = require("null-ls")
@@ -215,11 +227,14 @@ return {
     "williamboman/mason.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require("mason").setup()
+      require("mason").setup({
+        PATH = "prepend",
+      })
     end,
   }, -- lsp package mgr
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    event = "VeryLazy",
     config = function()
       require("lsp_lines").setup()
       -- Disable virtual_text since it's redundant due to lsp_lines.
