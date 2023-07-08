@@ -1,0 +1,151 @@
+""" General settings
+let mapleader = " "
+set ideamarks
+
+""" Plugin
+set surround
+set commentary
+set argtextobj
+" set ReplaceWithRegister
+set easymotion
+set matchit
+set quickscope
+set which-key
+set highlightedyank
+
+""" Idea specific settings
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+""" Settings
+set visualbell
+set number relativenumber
+
+""" Plugin Settings
+let g:argtextobj_pairs="[:],(:),<:>"
+
+set notimeout
+
+map s <Plug>(easymotion-s2)
+map S <Plug>(easymotion-s2)
+
+""" Idea mappings
+map <Leader>/ <action>(FindInPath)
+map <leader>f <action>(GotoFile)
+map <leader>ss <action>(GotoSymbol)
+map <leader>sc <action>(GotoClass)
+map <leader>sa <action>(GotoAction)
+
+map <c-o> <action>(Back)
+map <c-i> <action>(Forward)
+
+map <leader>d <action>(Debug)
+map <c-r> <action>(RenameElement)
+map <leader>c <action>(Stop)
+map <leader>z <action>(ToggleDistractionFreeMode)
+
+map <leader>v <action>(SelectInProjectView)
+map <leader>a <action>(Annotate)
+map <leader>e <action>(RecentFiles)
+map - <action>(SelectInProjectView)
+map <leader>q <action>(HideActiveWindow)
+
+map ga <action>(ShowIntentionActions)
+map ;e <action>(GotoNextError)
+map ,e <action>(GotoPreviousError)
+map ;k <action>(ShowErrorDescription)
+map gr <action>(FindUsages)
+map gp <action>(QuickImplementations)
+map gd <action>(GotoDeclaration)
+map gI <action>(GotoImplementation)
+map gY <action>(QuickTypeDefinition)
+map gy <action>(GotoTypeDeclaration)
+map gt <action>(GotoTest)
+map ;r <action>(Refactorings.QuickListPopupAction)
+map ;n <action>(ActivateStructureToolWindow)
+map K <action>(QuickJavaDoc)
+
+map ;b <action>(NextTab)
+map ,b <action>(PreviousTab)
+
+imap <C-.> <action>(CodeCompletion)
+imap <C-a> <action>(ParameterInfo)
+
+imap <C-k> <action>(copilot.requestCompletions)
+imap <C-;> <action>(copilot.cycleNextInlays)
+imap <C-,> <action>(copilot.cyclePrevInlays)
+
+map <A-Down> <action>(MoveStatementDown)
+map <A-Up> <action>(MoveStatementUp)
+
+map <leader>b <action>(ToggleLineBreakpoint)
+
+map <leader>p <action>(PreviousTab)
+map <leader>n <action>(NextTab)
+map <leader>x <action>(CloseEditor)
+
+map <Leader>w <Action>(HideAllWindows)
+map <leader>t <Action>(ActivateTerminalToolWindow)
+
+map gww <action>(SplitVertically)
+map gwh <action>(SplitHorizontally)
+map gwp <action>(PreviousTab)
+map gwn <action>(NextTab)
+map gwk <action>(CloseEditor)
+
+" map K <action>(FileStructurePopup)
+
+map ,, <Action>(MethodUp)
+map ;; <Action>(MethodDown)
+
+map <C-e> <Action>(RecentFiles)
+
+" Better navigation between windows
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+" Join lines without spaces
+nnoremap J mzJ`z
+
+" Select the whole line except for trailing whitespace
+nnoremap vv ^vg_
+
+" Scroll down/up half a page and center the cursor
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Select until the first non-whitespace character on the left or right
+vnoremap < <gv
+vnoremap > >gv
+
+" Paste from the default register, but don't overwrite the current register
+nnoremap _ "_
+vnoremap p "_dP
+
+" Clear search highlights
+nnoremap <Esc> :noh <CR>
+
+" Redo with U instead of <C-r>
+nnoremap U <C-r>
+
+" Uppercase/lowercase the word under the cursor or the selected text
+nnoremap gUiw mzgUiw`z
+nnoremap guiw mzguiw`z
+
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set hls
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+set clipboard+=unnamed

@@ -62,20 +62,6 @@ return {
   },
   {
     "rcarriga/nvim-notify",
-    keys = {
-      -- reload current lua file
-      {
-        "<Leader>l",
-        "",
-        mode = "n",
-        callback = function()
-          require("notify")(vim.fn.expand("%"), "", { title = "Sourcing luafile" })
-          vim.cmd("luafile %")
-        end,
-      },
-    },
-    opts = {},
-    config = nil,
   },
   {
     "simrat39/symbols-outline.nvim",

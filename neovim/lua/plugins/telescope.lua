@@ -102,6 +102,8 @@ return {
     config = function()
       require("telescope").setup({
         defaults = {
+          --- Specifically ignoring things in personal notes folder
+          file_ignore_patterns = { "Bear Export/", "Attachments/" },
           sorting_strategy = "ascending",
           layout_config = {
             vertical = { width = 0.25 },

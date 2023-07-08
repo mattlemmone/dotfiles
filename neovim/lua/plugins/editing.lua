@@ -1,53 +1,53 @@
 return {
   {
-    {
-      "terrastruct/d2-vim",
-      event = "BufReadPre *.d2",
-    }, -- D2 syntax support
-    {
-      "fladson/vim-kitty",
-      event = "BufReadPre kitty.conf",
-    },                                            -- syntax for kitty terminal config
-    { "tpope/vim-abolish",    event = "VeryLazy" }, -- easy abbrevs, subversion
-    { "tpope/vim-commentary", event = "VeryLazy" }, -- commenting
-    { "tpope/vim-repeat",     event = "VeryLazy" },
-    { "tpope/vim-surround",   event = "VeryLazy" },
-    {
-      "danymat/neogen",
-      dependencies = "nvim-treesitter/nvim-treesitter",
-      config = true,
-      version = "*",
-      keys = {
-        {
-          "<Leader>/",
-          "<CMD>lua require('neogen').generate()<CR>",
-          mode = "n",
-          noremap = true,
-          silent = true,
-          desc = "Generate Doc Strings",
-        },
-      },
-    },
-    {
-      "junegunn/vim-easy-align",
-      keys = {
-        {
-          -- Start interactive EasyAlign in visual mode (e.g. vipga)
-          "ga",
-          "<Plug>(EasyAlign)",
-          mode = "x",
-        },
-
-        {
-          -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
-          "ga",
-          "<Plug>(EasyAlign)",
-          mode = "n",
-        },
-      },
-    },
+    "m4xshen/hardtime.nvim",
     opts = {},
-    config = nil,
+  },
+  {
+    "terrastruct/d2-vim",
+    event = "BufReadPre *.d2",
+  }, -- D2 syntax support
+  {
+    "fladson/vim-kitty",
+    event = "BufReadPre kitty.conf",
+  },                                             -- syntax for kitty terminal config
+  { "tpope/vim-abolish",    event = "VeryLazy" }, -- easy abbrevs, subversion
+  { "tpope/vim-commentary", event = "VeryLazy" }, -- commenting
+  { "tpope/vim-repeat",     event = "VeryLazy" },
+  { "tpope/vim-surround",   event = "VeryLazy" },
+  {
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = true,
+    version = "*",
+    keys = {
+      {
+        "<Leader>/",
+        "<CMD>lua require('neogen').generate()<CR>",
+        mode = "n",
+        noremap = true,
+        silent = true,
+        desc = "Generate Doc Strings",
+      },
+    },
+  },
+  {
+    "junegunn/vim-easy-align",
+    keys = {
+      {
+        -- Start interactive EasyAlign in visual mode (e.g. vipga)
+        "ga",
+        "<Plug>(EasyAlign)",
+        mode = "x",
+      },
+
+      {
+        -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
+        "ga",
+        "<Plug>(EasyAlign)",
+        mode = "n",
+      },
+    },
   },
   {
     "ojroques/nvim-bufdel",

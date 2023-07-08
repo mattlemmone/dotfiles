@@ -13,7 +13,7 @@ keymap.set("t", "jk", "<C-\\><C-n>")
 -- Normal Mode Mappings
 keymap.set("n", "<Leader>O", "O<Esc>")
 keymap.set("n", "<Leader>o", "o<Esc>")
-keymap.set("n", "<cr>", "ciw")
+keymap.set("n", "<CR>", "ciw")
 
 -- disable highlight
 keymap.set("n", "<Leader>hl", "<CMD>nohl<CR> ")
@@ -26,3 +26,6 @@ keymap.set("n", "U", "<C-r>")
 
 -- Visual Mode
 keymap.set("v", "y", "ygv<esc>") -- preserve yank location
+
+--
+keymap.set("n", "<Leader>l", "<CMD>Lazy<CR>")

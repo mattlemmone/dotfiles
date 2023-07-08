@@ -200,15 +200,6 @@ return {
         },
       })
 
-      nvim_lsp.jsonls.setup({
-        settings = {
-          json = {
-            schemas = require("schemastore").json.schemas(),
-            validate = { enable = true },
-          },
-        },
-      })
-
       nvim_lsp.kotlin_language_server.setup({
         capabilities = capabilities,
         on_attach = on_attach_default,

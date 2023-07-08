@@ -1,5 +1,4 @@
 return {
-  "b0o/schemastore.nvim", -- json validation against schemastore
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
