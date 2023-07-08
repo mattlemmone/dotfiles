@@ -47,7 +47,12 @@ return {
       })
     end,
   },
-  "elihunter173/dirbuf.nvim",
+  {
+    "stevearc/oil.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
   {
     "folke/persistence.nvim",
     event = "VimEnter",
