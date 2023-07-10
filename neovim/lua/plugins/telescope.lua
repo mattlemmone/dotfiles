@@ -1,9 +1,15 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
+    tag = "0.1.2",
     cmd = "Telescope",
     keys = {
+      {
+        "<Leader>;",
+        ":lua require'telescope'.extensions.project.project{}<CR>",
+        mode = "n",
+        desc = "Project List",
+      },
       {
         "<Leader>s",
         "<CMD>lua require('telescope.builtin').live_grep()<CR>",
@@ -62,6 +68,12 @@ return {
     },
     dependencies = {
       {
+        "nvim-telescope/telescope-project.nvim",
+        config = function()
+          require("telescope").load_extension("project")
+        end,
+      },
+      {
         -- if you get issues when installing, make sure to build the binary via `gb`
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
@@ -113,7 +125,7 @@ return {
             i = {
               ["<C-D>"] = require("telescope.actions").cycle_history_next,
               ["<C-U>"] = require("telescope.actions").cycle_history_prev,
-              ["<C-E>"] = require("telescope.actions").to_fuzzy_refine,
+              ["<C-CR>"] = require("telescope.actions").to_fuzzy_refine,
             },
           },
         },
@@ -123,6 +135,11 @@ return {
             override_generic_sorter = true, -- override the generic sorter
             override_file_sorter = true, -- override the file sorter
             case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+          },
+          project = {
+            base_dirs = {
+              "~/Dev",
+            },
           },
           ["ui-select"] = {
             require("telescope.themes").get_cursor(),

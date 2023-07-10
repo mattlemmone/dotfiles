@@ -1,9 +1,5 @@
 return {
   {
-    "m4xshen/hardtime.nvim",
-    opts = {},
-  },
-  {
     "terrastruct/d2-vim",
     event = "BufReadPre *.d2",
   }, -- D2 syntax support
