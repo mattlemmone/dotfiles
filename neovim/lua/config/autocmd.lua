@@ -1,41 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- Format on save
-autocmd("BufWritePre", {
-  pattern = {
-    "*.sh",
-    "*.lua",
-    "*.html",
-    "*.json",
-    -- "*.py",
-  },
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
-
--- For them slo bois
-autocmd("BufWritePre", {
-  pattern = {
-    "*.ts",
-    "*.tsx",
-    "*.js",
-    "*.jsx",
-    "*.kt",
-  },
-  callback = function()
-    -- On save, only use null-ls
-    vim.lsp.buf.format({
-      bufnr = vim.api.nvim_get_current_buf(),
-      filter = function(client)
-        return client.name == "null-ls"
-      end,
-      async = false,
-      timeout_ms = 4000,
-    })
-  end,
-})
-
 -- Highlight after yank
 autocmd("TextYankPost", {
   callback = function()
@@ -72,11 +36,3 @@ autocmd({ "BufReadPost", "BufNewFile", "BufRead" }, {
     vim.cmd([[set filetype=ini]])
   end,
 })
-
--- -- Reload kitty after updating configs
--- autocmd("BufWritePost", {
---   pattern = "*/kitty/kitty.conf",
---   callback = function()
---     vim.cmd({ cmd = "!kill -SIGUSR1 $(pgrep -a kitty)", mods = { silent = false } })
---   end,
--- })

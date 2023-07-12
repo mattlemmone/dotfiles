@@ -1,25 +1,11 @@
 return {
-  { "folke/lsp-colors.nvim", event = { "BufReadPre", "BufNewFile" } }, -- backfill missing lsp highlight colors
+  { "lukas-reineke/lsp-format.nvim", event = { "BufReadPre", "BufNewFile" } },
+  { "folke/lsp-colors.nvim",         event = { "BufReadPre", "BufNewFile" } }, -- backfill missing lsp highlight colors
   {
     "pmizio/typescript-tools.nvim",                                   -- replacement for other ts plugins; be sure to disable while testing this
     event = { "BufReadPre", "BufNewFile" },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
-    settings = {
-      separate_diagnostic_server = true,
-      tsserver_file_preferences = {
-        includeCompletionsForModuleExports = true,
-        includeInlayEnumMemberValueHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayParameterNameHints = "all",
-        includeInlayVariableTypeHints = true,
-        quotePreference = "auto",
-      },
-      tsserver_format_options = {
-        allowIncompleteCompletions = false,
-        allowRenameOfImportPath = false,
-      },
-    },
   },
   {
     "folke/trouble.nvim",
@@ -32,7 +18,6 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      -- "jose-elias-alvarez/typescript.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "neovim/nvim-lspconfig", -- easier lsp mgmt
       {
@@ -57,7 +42,6 @@ return {
 
       null_ls.setup({
         sources = {
-          -- require("typescript.extensions.null-ls.code-actions"),
           null_ls.builtins.code_actions.eslint,
           null_ls.builtins.diagnostics.todo_comments,
           null_ls.builtins.diagnostics.eslint.with({
@@ -83,9 +67,13 @@ return {
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
         local keymap = vim.keymap
 
+        -- Bread Crumbs
         if client.server_capabilities.documentSymbolProvider then
           navic.attach(client, bufnr)
         end
+
+        -- Format on save
+        require("lsp-format").on_attach(client)
 
         -- Code Actions
         keymap.set({ "n", "v" }, "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
@@ -105,10 +93,6 @@ return {
 
         -- Docs
         keymap.set("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", bufopts)
-
-        --" Navigate errors
-        keymap.set("n", "gE", "<cmd>lua vim.diagnostic.goto_prev()<CR>", bufopts)
-        keymap.set("n", "ge", "<cmd>lua vim.diagnostic.goto_next()<CR>", bufopts)
 
         --" Rename instances
         keymap.set("n", "<Leader>rn", "<CMD>lua vim.lsp.buf.rename()<CR>", bufopts)
@@ -143,6 +127,28 @@ return {
       end
 
       -- LS with nonstandard settings
+      require("typescript-tools").setup({
+        on_attach = on_attach_default,
+        -- handlers = { ... },
+        settings = {
+          separate_diagnostic_server = true,
+          tsserver_file_preferences = {
+            includeCompletionsForModuleExports = true,
+            includeInlayEnumMemberValueHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayParameterNameHints = "all",
+            includeInlayVariableTypeHints = true,
+            quotePreference = "auto",
+          },
+          publish_diagnostic_on = "insert_leave",
+          tsserver_path = nil,
+          -- specify a list of plugins to load by tsserver, e.g., for support `styled-components`
+          tsserver_plugins = {},
+          tsserver_max_memory = "auto",
+          tsserver_format_options = {},
+        },
+      })
+
       -- require("typescript").setup({
       --   disable_commands = false, -- prevent the plugin from creating Vim commands
       --   debug = false,            -- enable debug logging for commands
@@ -157,11 +163,6 @@ return {
       --       on_attach_default(client, bufnr)
       --     end,
       --   },
-      -- })
-
-      -- nvim_lsp.eslint.setup({
-      --   on_attach = on_attach_default,
-      --   capabilities = capabilities,
       -- })
 
       nvim_lsp.gopls.setup({

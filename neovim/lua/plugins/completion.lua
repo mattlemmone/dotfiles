@@ -10,6 +10,7 @@ return {
       "hrsh7th/cmp-nvim-lsp-signature-help",
       "onsails/lspkind.nvim", -- styling for cmp
       "ray-x/cmp-treesitter",
+      'lukas-reineke/cmp-rg',
       "saadparwaiz1/cmp_luasnip",
       {
         "zbirenbaum/copilot-cmp",
@@ -42,7 +43,7 @@ return {
           format = lspkind.cmp_format({
             -- mode = "symbol",
             mode = "symbol_text",
-            maxwidth = 50,   -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
             ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
             symbol_map = { Copilot = "" },
             menu = {
@@ -95,6 +96,12 @@ return {
           { name = "nvim_lua",                group_index = 2 },
           { name = "buffer",                  group_index = 2, keyword_length = 3 },
           { name = "path",                    group_index = 2 },
+          { name = 'treesitter',              group_index = 2 },
+          {
+            name = "rg",
+            keyword_length = 3,
+            group_index = 2,
+          },
         }),
       })
 

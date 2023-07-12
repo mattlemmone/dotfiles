@@ -17,7 +17,7 @@ set_and_push_upstream() {
 	output=$(git pull)
 
 	# Define a regular expression to match the GitHub URL
-	regex='https:\/\/github.com\/.*\/pull\/new\/.*'
+	regex='(https:\/\/github\.com\/.*\/.*\/pull\/new\/.*)'
 
 	# Extract the URL from the output using the regular expression
 	if [[ $output =~ $regex ]]; then

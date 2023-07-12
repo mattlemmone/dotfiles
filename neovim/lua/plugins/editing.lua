@@ -1,5 +1,10 @@
 return {
   {
+    "mg979/vim-visual-multi",
+    branch = "master",
+    event = "VeryLazy",
+  },
+  {
     "terrastruct/d2-vim",
     event = "BufReadPre *.d2",
   }, -- D2 syntax support

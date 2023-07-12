@@ -1,8 +1,8 @@
 vim.g.mapleader = " "
 
+require("config.abbrev")
 require("config.mappings")
 require("config.options")
-require("config.autocmd")
 
 -- Install lazy vim plugin mgr
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
