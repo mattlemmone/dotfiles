@@ -1,20 +1,17 @@
 return {
   { import = "plugins.colors" },
   {
-    "embark-theme/vim",
-    name = "embark",
-    enabled = false,
-  },
-  { "nyoom-engineering/oxocarbon.nvim", enabled = false },
-  {
+    -- highlight selected ranges from command line
     "winston0410/range-highlight.nvim",
     event = "CmdwinEnter",
-  }, -- highlight selected ranges from command line
+  },
   {
+    -- "automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching."
     "RRethy/vim-illuminate",
     event = { "BufReadPost", "BufNewFile" },
   },
   {
+    -- stylized buffer tabs
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -32,8 +29,9 @@ return {
         },
       })
     end,
-  }, -- stylized buffer tabs
+  },
   {
+    -- indent mgmt
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },
     config = function()
@@ -42,30 +40,12 @@ return {
         show_current_context_start = false,
       })
     end,
-  },                             -- indent mgmt
+  },
   "norcalli/nvim-colorizer.lua", -- highlight color codes real-time
-  {
-    "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPost", "BufNewFile" },
-    build = ":TSUpdate",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-context",
-    },
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        -- Automatically install missing parsers when entering buffer
-        auto_install = true,
-        highlight = { enable = true },
-        indent = { enable = true },
-      })
-    end,
-  },
-  {
-    "rcarriga/nvim-notify",
-  },
+  "rcarriga/nvim-notify",
   {
     "simrat39/symbols-outline.nvim",
-    -- event = "VeryLazy",
+    event = { "BufReadPost", "BufNewFile" },
     cmd = "SymbolsOutline",
     keys = {
       {
@@ -78,53 +58,6 @@ return {
     },
     config = function()
       require("symbols-outline").setup()
-    end,
-  },
-  {
-    "nvim-lualine/lualine.nvim", -- status bar
-    event = "VeryLazy",
-    config = function()
-      require("lualine").setup({
-        options = {
-          icons_enabled = true,
-          -- theme = "tundra",
-          theme = "catppuccin",
-          component_separators = { left = "", right = "" },
-          section_separators = { left = "", right = "" },
-          disabled_filetypes = {
-            statusline = {},
-            winbar = {},
-          },
-          ignore_focus = {},
-          always_divide_middle = true,
-          globalstatus = false,
-          refresh = {
-            statusline = 1000,
-            tabline = 1000,
-            winbar = 1000,
-          },
-        },
-        sections = {
-          lualine_a = { "mode" },
-          lualine_b = { "branch", "diff", "diagnostics" },
-          lualine_c = { "filename", require('NeoComposer.ui').status_recording },
-          lualine_x = { "filetype" },
-          lualine_y = {},
-          lualine_z = { "location" },
-        },
-        inactive_sections = {
-          lualine_a = {},
-          lualine_b = {},
-          lualine_c = { "filename" },
-          lualine_x = { "location" },
-          lualine_y = {},
-          lualine_z = {},
-        },
-        tabline = {},
-        winbar = {},
-        inactive_winbar = {},
-        extensions = {},
-      })
     end,
   },
 }

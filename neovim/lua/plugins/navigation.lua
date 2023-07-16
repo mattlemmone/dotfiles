@@ -1,4 +1,5 @@
 return {
+  { import = "plugins.telescope.core" },
   {
     "jinh0/eyeliner.nvim",
     event = { "BufReadPre", "BufNewFile" },

@@ -2,7 +2,9 @@ return {
   {
     'j-hui/fidget.nvim',
     config = function()
-      require "fidget".setup {}
+      require "fidget".setup {
+        text = { spinner = 'dots' },
+      }
     end
   },
   {

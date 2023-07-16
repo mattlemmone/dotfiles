@@ -1,5 +1,4 @@
 return {
-  -- more or less global lua deps
   "MunifTanjim/nui.nvim",                                     -- ui
   { "nvim-lua/plenary.nvim",            lazy = true },        -- misc lua functions
   { "kristijanhusak/vim-carbon-now-sh", event = "VeryLazy" }, -- Screenshot and upload code to carbon.now.sh

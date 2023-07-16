@@ -18,16 +18,6 @@ return {
     branch = "master",
     event = "VeryLazy",
   },
-  {
-    -- D2 syntax support
-    "terrastruct/d2-vim",
-    event = "BufReadPre *.d2",
-  },
-  {
-    -- syntax for kitty terminal config
-    "fladson/vim-kitty",
-    event = "BufReadPre kitty.conf",
-  },
   { "tpope/vim-abolish",    event = "VeryLazy" }, -- easy abbrevs, subversion
   { "tpope/vim-commentary", event = "VeryLazy" }, -- commenting
   { "tpope/vim-repeat",     event = "VeryLazy" },
@@ -90,21 +80,6 @@ return {
     },
   }, -- auto inline/multiline args
   {
-    "fatih/vim-go",
-    keys = {},
-    opts = {},
-    config = function()
-      local g = vim.g
-
-      g.go_highlight_build_constraints = 1
-      g.go_highlight_functions = 1
-      g.go_highlight_interfaces = 1
-      g.go_highlight_methods = 1
-      g.go_highlight_operators = 1
-      g.go_highlight_structs = 1
-    end,
-  },
-  {
     "inkarkat/vim-ReplaceWithRegister",
     keys = {
       { "<Leader>p",  "<Plug>ReplaceWithRegisterOperator", mode = "n" },
@@ -143,14 +118,7 @@ return {
   }, -- marks
   {
     "monaqa/dial.nvim",
-    keys = {
-      { "<C-a>",  "<CMD>lua require('dial.map').inc_normal()<CR>",  noremap = true, mode = "n" },
-      { "<C-x>",  "<CMD>lua require('dial.map').dec_normal()<CR>",  noremap = true, mode = "n" },
-      { "<C-a>",  "<CMD>lua require('dial.map').inc_visual()<CR>",  noremap = true, mode = "v" },
-      { "<C-x>",  "<CMD>lua require('dial.map').dec_visual()<CR>",  noremap = true, mode = "v" },
-      { "g<C-a>", "<CMD>lua require('dial.map').inc_gvisual()<CR>", noremap = true, mode = "v" },
-      { "g<C-x>", "<CMD>lua require('dial.map').dec_gvisual()<CR>", noremap = true, mode = "v" },
-    },
+    event = "VeryLazy",
     config = function()
       local augend = require("dial.augend")
       require("dial.config").augends:register_group({
@@ -169,6 +137,13 @@ return {
           augend.semver.alias.semver,
         },
       })
+
+      vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
+      vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
+      vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual(), { noremap = true })
+      vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual(), { noremap = true })
+      vim.keymap.set("v", "g<C-a>", require("dial.map").inc_gvisual(), { noremap = true })
+      vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
     end,
   }, -- easy inc/dec/toggling of types
   {
@@ -189,7 +164,6 @@ return {
       },
     },
     module = "ssr",
-    -- Calling setup is optional.
     config = function()
       require("ssr").setup({
         border = "rounded",

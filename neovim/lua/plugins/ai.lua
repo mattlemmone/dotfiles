@@ -1,7 +1,12 @@
 return {
   {
+    enabled = false, -- cant disable key mapping, docs incorrect
     'aduros/ai.vim',
     event = "VeryLazy",
+    cmd = "AI",
+    config = function()
+      vim.g.ai_no_mappings = 1
+    end
   },
   {
     "jackMort/ChatGPT.nvim",
