@@ -1,6 +1,5 @@
 return {
-  { "ruanyl/vim-gh-line",    event = "VeryLazy" }, -- open in gh
-  { "kdheepak/lazygit.nvim", event = "VeryLazy" },
+  { "ruanyl/vim-gh-line", event = "VeryLazy" },    -- open in gh
   {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },

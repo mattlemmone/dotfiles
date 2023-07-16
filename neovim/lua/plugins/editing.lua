@@ -1,17 +1,33 @@
 return {
   {
+    'tzachar/highlight-undo.nvim',
+    event = "VeryLazy",
+    config = function()
+      require('highlight-undo').setup({
+        hlgroup = 'HighlightUndo',
+        duration = 300,
+        keymaps = {
+          { 'n', 'u', 'undo', {} },
+          { 'n', 'U', 'redo', {} },
+        }
+      })
+    end
+  },
+  {
     "mg979/vim-visual-multi",
     branch = "master",
     event = "VeryLazy",
   },
   {
+    -- D2 syntax support
     "terrastruct/d2-vim",
     event = "BufReadPre *.d2",
-  }, -- D2 syntax support
+  },
   {
+    -- syntax for kitty terminal config
     "fladson/vim-kitty",
     event = "BufReadPre kitty.conf",
-  },                                             -- syntax for kitty terminal config
+  },
   { "tpope/vim-abolish",    event = "VeryLazy" }, -- easy abbrevs, subversion
   { "tpope/vim-commentary", event = "VeryLazy" }, -- commenting
   { "tpope/vim-repeat",     event = "VeryLazy" },
@@ -95,7 +111,7 @@ return {
       { "<Leader>pp", "<Plug>ReplaceWithRegisterLine",     mode = "n" },
       { "<Leader>p",  "<Plug>ReplaceWithRegisterVisual",   mode = "x" },
     },
-  },                   -- ez replace motion with register contents
+  },                    -- ez replace motion with register contents
   "markonm/traces.vim", -- live subst preview
   {
     "mizlan/iswap.nvim",

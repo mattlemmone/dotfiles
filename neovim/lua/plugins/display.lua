@@ -42,7 +42,7 @@ return {
         show_current_context_start = false,
       })
     end,
-  },                            -- indent mgmt
+  },                             -- indent mgmt
   "norcalli/nvim-colorizer.lua", -- highlight color codes real-time
   {
     "nvim-treesitter/nvim-treesitter",
@@ -107,7 +107,7 @@ return {
         sections = {
           lualine_a = { "mode" },
           lualine_b = { "branch", "diff", "diagnostics" },
-          lualine_c = { "filename" },
+          lualine_c = { "filename", require('NeoComposer.ui').status_recording },
           lualine_x = { "filetype" },
           lualine_y = {},
           lualine_z = { "location" },

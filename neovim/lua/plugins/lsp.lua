@@ -1,19 +1,28 @@
 return {
-  { "lukas-reineke/lsp-format.nvim", event = { "BufReadPre", "BufNewFile" } },
-  { "folke/lsp-colors.nvim",         event = { "BufReadPre", "BufNewFile" } }, -- backfill missing lsp highlight colors
   {
-    "pmizio/typescript-tools.nvim",                                   -- replacement for other ts plugins; be sure to disable while testing this
+    'j-hui/fidget.nvim',
+    config = function()
+      require "fidget".setup {}
+    end
+  },
+  {
+    "lukas-reineke/lsp-format.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("lsp-format").setup {
+        kotlin = {
+          exclude = { "kotlin_language_server" }
+        },
+      }
+    end,
+  },
+  { "folke/lsp-colors.nvim", event = { "BufReadPre", "BufNewFile" } }, -- backfill missing lsp highlight colors
+  {
+    "pmizio/typescript-tools.nvim",                                    -- replacement for other ts plugins; be sure to disable while testing this
     event = { "BufReadPre", "BufNewFile" },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
   },
-  {
-    "folke/trouble.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      require("trouble").setup({})
-    end,
-  }, -- diagnostics
   {
     "jose-elias-alvarez/null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -89,7 +98,7 @@ return {
         })
 
         -- Diagnostics
-        keymap.set("n", "<Leader>e", "<cmd>TroubleToggle document_diagnostics<CR>", bufopts)
+        keymap.set("n", "<Leader>e", "<cmd>Telescope diagnostics<CR>", bufopts)
 
         -- Docs
         keymap.set("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", bufopts)
@@ -148,22 +157,6 @@ return {
           tsserver_format_options = {},
         },
       })
-
-      -- require("typescript").setup({
-      --   disable_commands = false, -- prevent the plugin from creating Vim commands
-      --   debug = false,            -- enable debug logging for commands
-      --   go_to_source_definition = {
-      --     fallback = true,        -- fall back to standard LSP definition on failure
-      --   },
-      --   server = {
-      --     -- pass options to lspconfig's setup method
-      --     on_attach = function(client, bufnr)
-      --       -- Disable, prefer null-ls!
-      --       -- client.server_capabilities.documentFormattingProvider = false
-      --       on_attach_default(client, bufnr)
-      --     end,
-      --   },
-      -- })
 
       nvim_lsp.gopls.setup({
         on_attach = on_attach_default,

@@ -41,6 +41,12 @@ return {
         mode = "n",
       },
       {
+        "<Leader>cl",
+        "<CMD>lua require('telescope.builtin').commands()<CR>",
+        desc = "Commands",
+        mode = "n",
+      },
+      {
         "<Leader>ch",
         "<CMD>lua require('telescope.builtin').command_history()<CR>",
         desc = "Command History",
@@ -67,6 +73,15 @@ return {
       },
     },
     dependencies = {
+      {
+        "ecthelionvi/NeoComposer.nvim",
+        dependencies = { "kkharji/sqlite.lua" },
+        opts = {},
+        config = function()
+          require("NeoComposer").setup()
+          require("telescope").load_extension("macros")
+        end,
+      },
       {
         "nvim-telescope/telescope-project.nvim",
         config = function()
@@ -131,10 +146,10 @@ return {
         },
         extensions = {
           fzf = {
-            fuzzy = true,             -- false will only do exact matching
+            fuzzy = true,                   -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+            override_file_sorter = true,    -- override the file sorter
+            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
           },
           project = {
             base_dirs = {

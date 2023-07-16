@@ -29,7 +29,7 @@ autocmd("FileType", {
   end,
 })
 
--- Enable spellchecking
+-- Set syntax for conf files
 autocmd({ "BufReadPost", "BufNewFile", "BufRead" }, {
   pattern = { "*.conf" },
   callback = function()

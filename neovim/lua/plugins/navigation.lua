@@ -32,7 +32,11 @@ return {
   }, -- session mgmt
   {
     "ggandor/leap.nvim",
-    -- Lazy loading not needed, per docs
+    keys = {
+      { "s",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "S",  mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+    },
     config = function()
       require("leap").add_default_mappings()
     end,
@@ -42,5 +46,5 @@ return {
     event = { "VeryLazy" },
     dependencies = { "nvim-lua/plenary.nvim" },
     config = true, -- default settings
-  },             -- improved 'gx' for opening links, plugin repos, etc
+  },               -- improved 'gx' for opening links, plugin repos, etc
 }

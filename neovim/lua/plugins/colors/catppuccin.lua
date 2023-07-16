@@ -18,7 +18,7 @@ return {
           percentage = 0.15,
         },
         no_italic = false, -- Force no italic
-        no_bold = false, -- Force no bold
+        no_bold = false,   -- Force no bold
         styles = {
           comments = { "italic" },
           conditionals = { "italic" },
@@ -74,7 +74,7 @@ return {
       })
 
       vim.cmd([[
-      colorscheme catppuccin
+        colorscheme catppuccin
       ]])
     end,
   },

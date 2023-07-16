@@ -48,13 +48,36 @@ set.clipboard = "unnamedplus"
 -- we dont like dis
 set.swapfile = false
 
+-- configure display for neovim docs
+local _border = "rounded"
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = _border
+  }
+)
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  vim.lsp.handlers.signature_help, {
+    border = _border
+  }
+)
+
+vim.diagnostic.config {
+  float = { border = _border },
+  underline = true
+}
 vim.cmd([[
   highlight link GitSignsCurrentLineBlame Comment
   set foldmethod=expr
   set foldlevelstart=20
-  set foldexpr=nvim_treesitter#foldexpr()
   set foldnestmax=3
 ]])
+
+vim.api.nvim_create_autocmd('ColorScheme', {
+  command = [[highlight DiagnosticUnderlineError gui=undercurl]],
+  desc = "undercurl errors"
+})
 
 g.node_host_prog = expand("~/.asdf/installs/nodejs/18.9.0/.npm/bin/neovim-node-host")
 g.python3_host_prog = expand("~/.asdf/shims/python3")

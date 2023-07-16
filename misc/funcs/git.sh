@@ -40,9 +40,9 @@ arebase() {
 	git rebase --abort
 }
 
-delete_all_but_master_and_current_branch() {
+delete_all_but_main_master_and_current_branch() {
 	# TODO: dont just use 'master'
-	gb | grep -v 'master\|\*' | xargs git branch -D
+	gb | grep -v 'main\|master\|\*' | xargs git branch -D
 }
 
 gbi() {
