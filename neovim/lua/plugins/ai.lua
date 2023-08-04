@@ -1,6 +1,6 @@
 return {
   {
-    enabled = false, -- cant disable key mapping, docs incorrect
+    enabled = true, -- cant disable key mapping, docs incorrect
     'aduros/ai.vim',
     event = "VeryLazy",
     cmd = "AI",

@@ -1,6 +1,8 @@
 return {
   {
     'j-hui/fidget.nvim',
+    event = "VeryLazy",
+    tag = "legacy",
     config = function()
       require "fidget".setup {
         text = { spinner = 'dots' },
@@ -14,6 +16,9 @@ return {
       require("lsp-format").setup {
         kotlin = {
           exclude = { "kotlin_language_server" }
+        },
+        python = {
+          exclude = { "pylsp", }
         },
       }
     end,
@@ -55,6 +60,7 @@ return {
         sources = {
           null_ls.builtins.code_actions.eslint,
           null_ls.builtins.diagnostics.todo_comments,
+          null_ls.builtins.diagnostics.buf,
           null_ls.builtins.diagnostics.eslint.with({
             cwd = function(params)
               return nvim_lsp.util.root_pattern("src/tsconfig.json")(params.bufname)

@@ -2,30 +2,23 @@ local keymap = vim.keymap
 
 -- ESCAPEEE
 keymap.set("i", "jk", "<ESC>")
-
--- Split Navigation
-keymap.set("n", "<Leader>-", "<CMD>split<CR>")
-keymap.set("n", "<Leader>|", "<CMD>vsplit<CR>")
-
--- Terminal Mode Mappings
 keymap.set("t", "jk", "<C-\\><C-n>")
 
--- Normal Mode Mappings
-keymap.set("n", "<Leader>O", "O<Esc>")
-keymap.set("n", "<Leader>o", "o<Esc>")
-keymap.set("n", "<CR>", "ciw")
+-- Split Navigation
+keymap.set("n", "<Leader>-", "<CMD>split<CR>", { desc = "Split" })
+keymap.set("n", "<Leader>|", "<CMD>vsplit<CR>", { desc = "Vsplit" })
 
--- disable highlight
-keymap.set("n", "<Leader>hl", "<CMD>nohl<CR> ")
 
--- Copy filename to clipboard
-keymap.set("n", "<Leader>yf", "<CMD>let @+ = expand('%')<CR>", { silent = true })
+keymap.set("n", "<Leader>O", "O<Esc>", { desc = "Open Above" })
+keymap.set("n", "<Leader>o", "o<Esc>", { desc = "Open Below" })
+keymap.set("n", "<CR>", "ciw", { desc = "Change Inner Word" })
+
+keymap.set("n", "<Leader>hl", "<CMD>nohl<CR> ", { desc = "Disable Highlight" })
+
+keymap.set("n", "<Leader>yf", "<CMD>let @+ = expand('%')<CR>", { silent = true, desc = "Copy Filename" })
 
 -- undo and re-do all within the same letter
-keymap.set("n", "U", "<C-r>")
+keymap.set("n", "U", "<C-r>", { desc = "Undo" })
 
 -- Visual Mode
-keymap.set("v", "y", "ygv<esc>") -- preserve yank location
-
---
-keymap.set("n", "<Leader>l", "<CMD>Lazy<CR>")
+keymap.set("v", "y", "ygv<esc>", { desc = "Preserve Yank Location" })

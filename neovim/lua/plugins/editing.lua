@@ -1,27 +1,9 @@
 return {
-  {
-    'tzachar/highlight-undo.nvim',
-    event = "VeryLazy",
-    config = function()
-      require('highlight-undo').setup({
-        hlgroup = 'HighlightUndo',
-        duration = 300,
-        keymaps = {
-          { 'n', 'u', 'undo', {} },
-          { 'n', 'U', 'redo', {} },
-        }
-      })
-    end
-  },
-  {
-    "mg979/vim-visual-multi",
-    branch = "master",
-    event = "VeryLazy",
-  },
-  { "tpope/vim-abolish",    event = "VeryLazy" }, -- easy abbrevs, subversion
-  { "tpope/vim-commentary", event = "VeryLazy" }, -- commenting
-  { "tpope/vim-repeat",     event = "VeryLazy" },
-  { "tpope/vim-surround",   event = "VeryLazy" },
+  { "mg979/vim-visual-multi", branch = "master", event = { "BufReadPost", "BufNewFile" } },
+  { "tpope/vim-abolish",      event = "VeryLazy" }, -- easy abbrevs, subversion
+  { "tpope/vim-commentary",   event = "VeryLazy" }, -- commenting
+  { "tpope/vim-repeat",       event = "VeryLazy" },
+  { "tpope/vim-surround",     event = "VeryLazy" },
   {
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
