@@ -1,3 +1,5 @@
+local keymap = vim.keymap
+
 return {
   {
     'j-hui/fidget.nvim',
@@ -44,6 +46,15 @@ return {
         dependencies = {
           "smiteshp/nvim-navic",
           "nvim-tree/nvim-web-devicons", -- optional dependency
+          {
+            "SmiteshP/nvim-navbuddy",
+            requires = {
+              "neovim/nvim-lspconfig",
+              "SmiteshP/nvim-navic",
+              "MunifTanjim/nui.nvim",
+              "nvim-telescope/telescope.nvim" -- Optional
+            }
+          }
         },
         opts = {
           -- configurations go here
@@ -55,6 +66,7 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local nvim_lsp = require("lspconfig")
       local navic = require("nvim-navic")
+      local navbuddy = require("nvim-navbuddy")
 
       null_ls.setup({
         sources = {
@@ -82,18 +94,18 @@ return {
 
       local on_attach_default = function(client, bufnr)
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        local keymap = vim.keymap
 
         -- Bread Crumbs
         if client.server_capabilities.documentSymbolProvider then
           navic.attach(client, bufnr)
+          navbuddy.attach(client, bufnr)
         end
 
         -- Format on save
         require("lsp-format").on_attach(client)
 
         -- Code Actions
-        keymap.set({ "n", "v" }, "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
+        keymap.set({ "n", "v" }, "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", bufopts)
 
         -- Quick Fix
         keymap.set({ "n", "v" }, "<Leader>qf", "", {
@@ -106,19 +118,19 @@ return {
         })
 
         -- Diagnostics
-        keymap.set("n", "<Leader>e", "<cmd>Telescope diagnostics<CR>", bufopts)
+        keymap.set("n", "<Leader>e", "<CMD>Telescope diagnostics<CR>", bufopts)
 
         -- Docs
-        keymap.set("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", bufopts)
+        keymap.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", bufopts)
 
         --" Rename instances
         keymap.set("n", "<Leader>rn", "<CMD>lua vim.lsp.buf.rename()<CR>", bufopts)
 
         --" Goto
-        keymap.set("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", bufopts)
+        keymap.set("n", "gd", "<CMD>Telescope lsp_definitions<CR>", bufopts)
         keymap.set("n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", bufopts)
         keymap.set("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", bufopts)
-        keymap.set("n", "gr", "<CMD>Telescope lsp_references<CR>", bufopts)
+        keymap.set("n", "gr", "<CMD>Telescope lsp_references initial_mode=normal<CR>", bufopts)
       end
 
       -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
@@ -129,11 +141,12 @@ return {
         "golangci_lint_ls",
         "gradle_ls",
         "html",
+        "marksman",
         "pylsp",
         -- "pyright",
         "terraformls",
-        "yamlls",
         "vimls",
+        "yamlls",
       }
 
       for _, v in ipairs(ls_with_default_settings) do
@@ -145,8 +158,8 @@ return {
 
       -- LS with nonstandard settings
       require("typescript-tools").setup({
+        expose_as_code_actions = { "fix_all", "add_missing_imports", "remove_unused" },
         on_attach = on_attach_default,
-        -- handlers = { ... },
         settings = {
           separate_diagnostic_server = true,
           tsserver_file_preferences = {
@@ -163,7 +176,7 @@ return {
           tsserver_plugins = {},
           tsserver_max_memory = "auto",
           tsserver_format_options = {},
-        },
+        }
       })
 
       nvim_lsp.gopls.setup({
@@ -205,10 +218,6 @@ return {
       nvim_lsp.kotlin_language_server.setup({
         capabilities = capabilities,
         on_attach = on_attach_default,
-        -- Commenting this out since an official release came out to support 1.8.10 and it's not necessary to run locally
-        -- cmd = {
-        --   "/Users/matt/Dev/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
-        -- },
         settings = {
           compiler = { jvm = { target = "1.8.10" } },
         },

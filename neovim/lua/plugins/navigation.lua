@@ -13,6 +13,7 @@ return {
   }, -- navigation using brackets. TS nodes, conflicts, comments, diag, files, bufs, windows...
   {
     "stevearc/oil.nvim",
+    event = "BufEnter",
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()

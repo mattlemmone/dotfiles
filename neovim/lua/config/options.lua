@@ -69,7 +69,6 @@ vim.diagnostic.config {
 }
 vim.cmd([[
   highlight link GitSignsCurrentLineBlame Comment
-  set foldmethod=expr
   set foldlevelstart=20
   set foldnestmax=3
 ]])

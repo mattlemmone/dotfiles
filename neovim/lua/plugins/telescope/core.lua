@@ -31,9 +31,11 @@ return {
             case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
           },
           project = {
-            base_dirs = {
-              "~/Dev",
-            },
+            on_project_selected = function(prompt_bufnr)
+              local project_actions = require("telescope._extensions.project.actions")
+              project_actions.change_working_directory(prompt_bufnr, false)
+              vim.cmd("Oil .")
+            end
           },
           ["ui-select"] = {
             require("telescope.themes").get_cursor(),

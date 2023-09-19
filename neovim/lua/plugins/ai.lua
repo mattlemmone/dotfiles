@@ -1,24 +1,14 @@
 return {
   {
-    enabled = true, -- cant disable key mapping, docs incorrect
-    'aduros/ai.vim',
-    event = "VeryLazy",
-    cmd = "AI",
-    config = function()
-      vim.g.ai_no_mappings = 1
-    end
-  },
-  {
-    "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("chatgpt").setup()
-    end,
+    "dpayne/CodeGPT.nvim",
+    event = { "InsertEnter" },
     dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+    },
+    config = function()
+      require("codegpt.config")
+    end
   },
   {
     "zbirenbaum/copilot.lua",

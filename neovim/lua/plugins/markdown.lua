@@ -17,17 +17,17 @@ return {
     config = function()
       require("mkdnflow").setup({
         mappings = {
-          MkdnEnter = { { "n", "v" }, "<CR>" },
-          MkdnTab = { { "n" }, "<Tab>" },
-          MkdnSTab = false,
+          MkdnEnter = false,
+          -- MkdnTab = { { "n" }, "<Tab>" },
+          -- MkdnSTab = false,
           MkdnNextLink = false,
           MkdnPrevLink = false,
-          MkdnNextHeading = { "n", "]]" },
-          MkdnPrevHeading = { "n", "[[" },
+          -- MkdnNextHeading = { "n", "]]" },
+          -- MkdnPrevHeading = { "n", "[[" },
           MkdnGoBack = false,
           MkdnGoForward = false,
           MkdnCreateLink = false, -- see MkdnEnter
-          MkdnCreateLinkFromClipboard = false,
+          MkdnCreateLinkFromClipboard = { "n", "<Leader><CR>" },
           MkdnFollowLink = false, -- see MkdnEnter
           MkdnDestroyLink = false,
           MkdnTagSpan = false,
@@ -36,7 +36,7 @@ return {
           MkdnYankFileAnchorLink = false,
           MkdnIncreaseHeading = { "n", "+" },
           MkdnDecreaseHeading = { "n", "-" },
-          MkdnToggleToDo = { { "n", "v" }, "<C-k>" },
+          MkdnToggleToDo = { { "n", "v" }, "<CR>" },
           MkdnNewListItem = { "i", "<CR>" }, -- Use this command instead if you only want <CR> in
           MkdnNewListItemBelowInsert = { "n", "o" },
           MkdnNewListItemAboveInsert = { "n", "O" },
