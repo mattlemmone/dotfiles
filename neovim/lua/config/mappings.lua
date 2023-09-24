@@ -3,6 +3,7 @@ local keymap = vim.keymap
 -- ESCAPEEE
 keymap.set("i", "jk", "<ESC>")
 keymap.set("t", "jk", "<C-\\><C-n>")
+keymap.set("i", "<ESC>", "<Nop>")
 
 -- Split Navigation
 keymap.set("n", "<Leader>-", "<CMD>split<CR>", { desc = "Split" })

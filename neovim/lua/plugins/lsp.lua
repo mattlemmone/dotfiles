@@ -85,6 +85,7 @@ return {
           null_ls.builtins.formatting.shfmt,
           null_ls.builtins.formatting.buf,
           null_ls.builtins.formatting.black,
+          -- null_ls.builtins.formatting.yamlfmt,
           null_ls.builtins.formatting.prettierd,
           null_ls.builtins.formatting.eslint,
           null_ls.builtins.formatting.ktlint,
@@ -195,6 +196,15 @@ return {
         init_options = {
           usePlaceholders = true,
         },
+      })
+      nvim_lsp.yamlls.setup({
+        on_attach = on_attach_default,
+        settings = {
+          yaml = {
+            -- remove mapKeyOrder warning
+            keyOrdering = false,
+          },
+        }
       })
 
       nvim_lsp.lua_ls.setup({
