@@ -10,7 +10,6 @@ return {
       "hrsh7th/cmp-nvim-lsp-signature-help",
       "onsails/lspkind.nvim", -- styling for cmp
       "ray-x/cmp-treesitter",
-      'lukas-reineke/cmp-rg',
       "saadparwaiz1/cmp_luasnip",
       {
         "zbirenbaum/copilot-cmp",
@@ -97,11 +96,6 @@ return {
           { name = "buffer",                  group_index = 2, keyword_length = 3 },
           { name = "path",                    group_index = 2 },
           { name = 'treesitter',              group_index = 2 },
-          {
-            name = "rg",
-            keyword_length = 3,
-            group_index = 2,
-          },
         }),
       })
 
