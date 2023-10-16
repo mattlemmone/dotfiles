@@ -18,7 +18,7 @@ return {
       require("mkdnflow").setup({
         mappings = {
           MkdnEnter = false,
-          -- MkdnTab = { { "n" }, "<Tab>" },
+          MkdnTab = { { "n" }, "<Tab>" },
           -- MkdnSTab = false,
           MkdnNextLink = false,
           MkdnPrevLink = false,

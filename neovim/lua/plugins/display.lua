@@ -1,5 +1,19 @@
 return {
   { import = "plugins.colors" },
+
+  {
+    'dstein64/nvim-scrollview',
+    config = function()
+      require('scrollview').setup({
+        excluded_filetypes = { 'Starter' },
+        current_only = true,
+        base = 'buffer',
+        column = 120,
+        signs_on_startup = {},
+        diagnostics_severities = { vim.diagnostic.severity.ERROR }
+      })
+    end
+  },
   { "folke/zen-mode.nvim" },
   { "folke/twilight.nvim" },
   {
@@ -34,8 +48,12 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
+    event = { "BufReadPost", "BufNewFile" },
     main = "ibl",
-    opts = {}
+    config = function()
+      require("ibl").setup({
+      })
+    end,
   },
   "norcalli/nvim-colorizer.lua", -- highlight color codes real-time
   "rcarriga/nvim-notify",

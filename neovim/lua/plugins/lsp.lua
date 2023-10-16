@@ -81,14 +81,14 @@ return {
           }),
           -- Some Linters are managed by Mason
           null_ls.builtins.diagnostics.buf,
+          null_ls.builtins.diagnostics.vacuum,
           -- Formatters are managed by Mason
-          null_ls.builtins.formatting.shfmt,
-          null_ls.builtins.formatting.buf,
           null_ls.builtins.formatting.black,
-          -- null_ls.builtins.formatting.yamlfmt,
-          null_ls.builtins.formatting.prettierd,
+          null_ls.builtins.formatting.buf,
           null_ls.builtins.formatting.eslint,
           null_ls.builtins.formatting.ktlint,
+          null_ls.builtins.formatting.prettierd,
+          null_ls.builtins.formatting.shfmt,
           null_ls.builtins.formatting.stylua,
         },
       })
