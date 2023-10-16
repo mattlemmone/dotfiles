@@ -33,15 +33,9 @@ return {
     end,
   },
   {
-    -- indent mgmt
     "lukas-reineke/indent-blankline.nvim",
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require("indent_blankline").setup({
-        show_current_context = true,
-        show_current_context_start = false,
-      })
-    end,
+    main = "ibl",
+    opts = {}
   },
   "norcalli/nvim-colorizer.lua", -- highlight color codes real-time
   "rcarriga/nvim-notify",

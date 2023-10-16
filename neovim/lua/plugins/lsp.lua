@@ -139,6 +139,7 @@ return {
         "bashls",
         "cssls",
         "dockerls",
+        "docker_compose_language_service", -- docker-compose
         "golangci_lint_ls",
         "gradle_ls",
         "html",
