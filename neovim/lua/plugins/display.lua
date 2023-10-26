@@ -1,19 +1,5 @@
 return {
   { import = "plugins.colors" },
-
-  {
-    'dstein64/nvim-scrollview',
-    config = function()
-      require('scrollview').setup({
-        excluded_filetypes = { 'Starter' },
-        current_only = true,
-        base = 'buffer',
-        column = 120,
-        signs_on_startup = {},
-        diagnostics_severities = { vim.diagnostic.severity.ERROR }
-      })
-    end
-  },
   { "folke/zen-mode.nvim" },
   { "folke/twilight.nvim" },
   {
