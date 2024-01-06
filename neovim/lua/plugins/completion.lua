@@ -4,6 +4,7 @@ return {
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
@@ -50,8 +51,8 @@ return {
               nvim_lua = "[nvim]",
               nvim_lsp = "[LSP]",
               path = "[path]",
-              buffer = "[buffer]",
               nvim_lsp_signature_help = "[param]",
+              -- treesitter = "[ts]",
             },
           }),
         },
@@ -91,11 +92,21 @@ return {
           { name = "luasnip",                 group_index = 1 },
           { name = "copilot",                 group_index = 2 },
           { name = "nvim_lsp_signature_help", group_index = 2 },
-          { name = "nvim_lsp",                group_index = 2 },
-          { name = "nvim_lua",                group_index = 2 },
+          -- { name = "nvim_lsp",                group_index = 2 },
+          -- { name = "nvim_lua",                group_index = 2 },
           { name = "buffer",                  group_index = 2, keyword_length = 3 },
           { name = "path",                    group_index = 2 },
-          { name = 'treesitter',              group_index = 2 },
+          { name = "emoji",                   group_index = 2 },
+          {
+            name = "rg",
+            group_index = 2,
+            keyword_length = 3
+          },
+          -- {
+          --   name = 'treesitter',
+          --   group_index = 3,
+          --   keyword_length = 3
+          -- },
         }),
       })
 

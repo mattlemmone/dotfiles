@@ -1,13 +1,5 @@
 return {
-  {
-    "ecthelionvi/NeoComposer.nvim",
-    dependencies = { "kkharji/sqlite.lua" },
-    opts = {},
-    config = function()
-      require("NeoComposer").setup()
-      require("telescope").load_extension("macros")
-    end,
-  },
+
   {
     "nvim-telescope/telescope-project.nvim",
     config = function()
@@ -23,7 +15,7 @@ return {
     end,
   },
   {
-    "nvim-telescope/telescope-ui-select.nvim",     -- code actions in telescope.. is that all?
+    "nvim-telescope/telescope-ui-select.nvim", -- code actions in telescope.. is that all?
     config = function()
       require("telescope").load_extension("ui-select")
     end,
@@ -36,7 +28,7 @@ return {
     end,
   },
   {
-    "AckslD/nvim-neoclip.lua",     -- register history
+    "AckslD/nvim-neoclip.lua", -- register history
     dependencies = {
       { "kkharji/sqlite.lua", module = "sqlite" },
     },

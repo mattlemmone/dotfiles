@@ -1,5 +1,5 @@
 return {
-  "nvim-lualine/lualine.nvim",   -- status bar
+  "nvim-lualine/lualine.nvim", -- status bar
   event = "VeryLazy",
   config = function()
     require("lualine").setup({
@@ -25,7 +25,7 @@ return {
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = { "filename", require('NeoComposer.ui').status_recording },
+        lualine_c = { "filename" },
         lualine_x = { "filetype" },
         lualine_y = {},
         lualine_z = { "location" },
