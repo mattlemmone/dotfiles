@@ -1,3 +1,5 @@
+local vault_path = vim.fn.expand "~" .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/iOS Vault/"
+
 return {
   {
     "iamcco/markdown-preview.nvim",
@@ -7,31 +9,32 @@ return {
   {
     "epwalsh/obsidian.nvim",
     version = "*", -- latest
-    -- lazy = true,
-    -- ft = "markdown",
-    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-    -- event = {
-    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-    --   "BufReadPre path/to/my-vault/**.md",
-    --   "BufNewFile path/to/my-vault/**.md",
-    -- },
+    lazy = true,
+    open_notes_in = "hsplit",
+    event = {
+      "BufReadPre " .. vault_path .. "**.md",
+      "BufNewFile " .. vault_path .. "**.md",
+    },
     dependencies = {
-      -- Required.
       "nvim-lua/plenary.nvim",
-
-      -- see below for full list of optional dependencies 👇
     },
     opts = {
+      daily_notes = {
+        folder = "Daily Notes",
+        template = "daily.md"
+      },
+      templates = {
+        subdir = "Note Templates",
+        date_format = "%Y-%m-%d",
+        time_format = "%H:%M",
+      },
       workspaces = {
         {
           name = "iOS Vault",
-          path = "/Users/matt/Library/Mobile Documents/iCloud~md~obsidian/Documents/iOS Vault/",
+          path = vault_path
         },
 
       },
-
-      -- see below for full list of options 👇
     },
   },
   {

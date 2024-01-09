@@ -2,27 +2,27 @@ local keymap = vim.keymap
 
 return {
   {
-    'j-hui/fidget.nvim',
+    "j-hui/fidget.nvim",
     event = "VeryLazy",
     tag = "legacy",
     config = function()
-      require "fidget".setup {
-        text = { spinner = 'dots' },
-      }
-    end
+      require("fidget").setup({
+        text = { spinner = "dots" },
+      })
+    end,
   },
   {
     "lukas-reineke/lsp-format.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require("lsp-format").setup {
+      require("lsp-format").setup({
         kotlin = {
-          exclude = { "kotlin_language_server" }
+          exclude = { "kotlin_language_server" },
         },
         python = {
-          exclude = { "pylsp", }
+          exclude = { "pylsp" },
         },
-      }
+      })
     end,
   },
   { "folke/lsp-colors.nvim", event = { "BufReadPre", "BufNewFile" } }, -- backfill missing lsp highlight colors
@@ -52,9 +52,9 @@ return {
               "neovim/nvim-lspconfig",
               "SmiteshP/nvim-navic",
               "MunifTanjim/nui.nvim",
-              "nvim-telescope/telescope.nvim" -- Optional
-            }
-          }
+              "nvim-telescope/telescope.nvim", -- Optional
+            },
+          },
         },
         opts = {
           -- configurations go here
@@ -178,7 +178,7 @@ return {
           tsserver_plugins = {},
           tsserver_max_memory = "auto",
           tsserver_format_options = {},
-        }
+        },
       })
 
       nvim_lsp.gopls.setup({
@@ -205,7 +205,7 @@ return {
             -- remove mapKeyOrder warning
             keyOrdering = false,
           },
-        }
+        },
       })
 
       nvim_lsp.lua_ls.setup({

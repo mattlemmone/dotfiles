@@ -1,5 +1,15 @@
 local autocmd = vim.api.nvim_create_autocmd
 
+-- Format on save, need this explicitly for md for some reason
+autocmd("BufWritePre", {
+  pattern = {
+    "*.md",
+  },
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
+
 -- Highlight after yank
 autocmd("TextYankPost", {
   callback = function()
