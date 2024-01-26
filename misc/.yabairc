@@ -21,7 +21,7 @@ yabai -m space 2 --label personal
 yabai -m rule --add app="^Google Chrome$" space=^wolt
 
 ## Unmanaged, sticky
-yabai -m rule --add app="^(System Preferences|Things|Raycast|Contexts|zoom.us|CleanShot X|Clean Shot X|Timing|1Password|Mullvad VPN)$" sticky=on manage=off 
+yabai -m rule --add app="^(System Preferences|Things|Raycast|Contexts|zoom.us|CleanShot X|Timing|1Password|Mullvad VPN)$" sticky=on manage=off 
 
 ## Personal
 yabai -m rule --add app="^(Signal|Firefox|LINE|Music|Reeder)$" space=^personal
