@@ -11,6 +11,7 @@ return {
           --- Specifically ignoring things in personal notes folder
           file_ignore_patterns = { "Bear Export/", "Attachments/" },
           sorting_strategy = "ascending",
+          path_display = { truncate = 3 },
           layout_config = {
             vertical = { width = 0.25 },
             prompt_position = "top",
