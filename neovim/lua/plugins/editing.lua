@@ -1,9 +1,8 @@
 return {
-  { "mg979/vim-visual-multi", branch = "master", event = { "BufReadPost", "BufNewFile" } },
-  { "tpope/vim-abolish",      event = "VeryLazy" }, -- easy abbrevs, subversion
-  { "tpope/vim-commentary",   event = "VeryLazy" }, -- commenting
-  { "tpope/vim-repeat",       event = "VeryLazy" },
-  { "tpope/vim-surround",     event = "VeryLazy" },
+  { "tpope/vim-abolish",    event = "VeryLazy" }, -- easy abbrevs, subversion
+  { "tpope/vim-commentary", event = "VeryLazy" }, -- commenting
+  { "tpope/vim-repeat",     event = "VeryLazy" },
+  { "tpope/vim-surround",   event = "VeryLazy" },
   {
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
@@ -70,13 +69,6 @@ return {
     },
   },                    -- ez replace motion with register contents
   "markonm/traces.vim", -- live subst preview
-  {
-    "mizlan/iswap.nvim",
-    event = "VeryLazy",
-    keys = {
-      { "<Leader>i", "<CMD>ISwap<CR>", mode = "n" },
-    },
-  }, -- swap args, lines, objects
   {
     "andymass/vim-matchup",
     event = "VeryLazy",

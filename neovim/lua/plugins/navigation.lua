@@ -47,5 +47,7 @@ return {
     event = { "VeryLazy" },
     dependencies = { "nvim-lua/plenary.nvim" },
     config = true, -- default settings
-  },               -- improved 'gx' for opening links, plugin repos, etc
+    keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } },
+    cmd = { "Browse" },
+  }, -- improved 'gx' for opening links, plugin repos, etc
 }

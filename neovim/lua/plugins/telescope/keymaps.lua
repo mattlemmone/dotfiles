@@ -72,4 +72,10 @@ return {
     silent = true,
     desc = "File Navigation",
   },
+  {
+    "<Leader>i",
+    "<CMD>Telescope import<CR>",
+    mode = "n",
+    desc = "Search Imports",
+  },
 }

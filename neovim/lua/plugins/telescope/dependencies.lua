@@ -43,4 +43,12 @@ return {
       require("telescope").load_extension("neoclip")
     end,
   },
+  {
+    -- auto search imports
+    'piersolenski/telescope-import.nvim',
+    dependencies = 'nvim-telescope/telescope.nvim',
+    config = function()
+      require("telescope").load_extension("import")
+    end
+  },
 }

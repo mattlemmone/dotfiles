@@ -2,6 +2,32 @@ local keymap = vim.keymap
 
 return {
   {
+    --- sort of diagnostics?
+    "piersolenski/wtf.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {},
+    keys = {
+      {
+        "gw",
+        mode = { "n", "x" },
+        function()
+          require("wtf").ai()
+        end,
+        desc = "Debug diagnostic with AI",
+      },
+      {
+        mode = { "n" },
+        "gW",
+        function()
+          require("wtf").search()
+        end,
+        desc = "Search diagnostic with Google",
+      },
+    },
+  },
+  {
     "j-hui/fidget.nvim",
     event = "VeryLazy",
     tag = "legacy",
@@ -27,7 +53,12 @@ return {
   },
   { "folke/lsp-colors.nvim", event = { "BufReadPre", "BufNewFile" } }, -- backfill missing lsp highlight colors
   {
-    "pmizio/typescript-tools.nvim",                                    -- replacement for other ts plugins; be sure to disable while testing this
+    "yioneko/nvim-vtsls",
+    event = { "BufReadPre", "BufNewFile" },
+  },
+  {
+    "pmizio/typescript-tools.nvim", -- replacement for other ts plugins; be sure to disable while testing this
+    enabled = false,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
@@ -70,10 +101,10 @@ return {
 
       null_ls.setup({
         sources = {
-          null_ls.builtins.code_actions.eslint,
+          null_ls.builtins.code_actions.eslint_d,
           null_ls.builtins.diagnostics.todo_comments,
           null_ls.builtins.diagnostics.buf,
-          null_ls.builtins.diagnostics.eslint.with({
+          null_ls.builtins.diagnostics.eslint_d.with({
             cwd = function(params)
               return nvim_lsp.util.root_pattern("src/tsconfig.json")(params.bufname)
               -- or nvim_lsp.util.root_pattern("ops-tools/tsconfig.eslint.json")(params.bufname)
@@ -85,7 +116,7 @@ return {
           -- Formatters are managed by Mason
           null_ls.builtins.formatting.black,
           null_ls.builtins.formatting.buf,
-          null_ls.builtins.formatting.eslint,
+          null_ls.builtins.formatting.eslint_d,
           null_ls.builtins.formatting.ktlint,
           null_ls.builtins.formatting.prettierd,
           null_ls.builtins.formatting.shfmt,
@@ -159,26 +190,13 @@ return {
       end
 
       -- LS with nonstandard settings
-      require("typescript-tools").setup({
-        expose_as_code_actions = { "fix_all", "add_missing_imports", "remove_unused" },
+      --
+      require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+
+      -- If the lsp setup is taken over by other plugin, it is the same to call the counterpart setup function
+      require("lspconfig").vtsls.setup({
         on_attach = on_attach_default,
-        settings = {
-          separate_diagnostic_server = true,
-          tsserver_file_preferences = {
-            includeCompletionsForModuleExports = true,
-            includeInlayEnumMemberValueHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayParameterNameHints = "all",
-            includeInlayVariableTypeHints = true,
-            quotePreference = "auto",
-          },
-          publish_diagnostic_on = "insert_leave",
-          tsserver_path = nil,
-          -- specify a list of plugins to load by tsserver, e.g., for support `styled-components`
-          tsserver_plugins = {},
-          tsserver_max_memory = "auto",
-          tsserver_format_options = {},
-        },
+        capabilities = capabilities,
       })
 
       nvim_lsp.gopls.setup({

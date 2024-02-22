@@ -92,16 +92,11 @@ return {
           { name = "luasnip",                 group_index = 1 },
           { name = "copilot",                 group_index = 2 },
           { name = "nvim_lsp_signature_help", group_index = 2 },
-          -- { name = "nvim_lsp",                group_index = 2 },
-          -- { name = "nvim_lua",                group_index = 2 },
+          { name = "nvim_lsp",                group_index = 2, keyword_length = 3 },
+          { name = "nvim_lua",                group_index = 2 },
           { name = "buffer",                  group_index = 2, keyword_length = 3 },
           { name = "path",                    group_index = 2 },
           { name = "emoji",                   group_index = 2 },
-          {
-            name = "rg",
-            group_index = 2,
-            keyword_length = 3
-          },
           -- {
           --   name = 'treesitter',
           --   group_index = 3,

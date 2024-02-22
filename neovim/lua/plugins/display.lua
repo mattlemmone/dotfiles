@@ -1,7 +1,9 @@
 return {
   { import = "plugins.colors" },
-  { "folke/zen-mode.nvim" },
-  { "folke/twilight.nvim" },
+  {
+    'stevearc/dressing.nvim',
+    opts = {},
+  },
   {
     -- highlight selected ranges from command line
     "winston0410/range-highlight.nvim",
