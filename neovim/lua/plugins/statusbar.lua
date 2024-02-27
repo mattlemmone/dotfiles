@@ -27,7 +27,7 @@ return {
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = { "filename" },
         lualine_x = { "filetype", require("codegpt").get_status, },
-        lualine_y = {},
+        lualine_y = { "progress" },
         lualine_z = { "location" },
       },
       inactive_sections = {

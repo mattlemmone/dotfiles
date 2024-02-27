@@ -44,7 +44,6 @@ return {
     end,
   },
   "norcalli/nvim-colorizer.lua", -- highlight color codes real-time
-  "rcarriga/nvim-notify",
   {
     "simrat39/symbols-outline.nvim",
     event = { "BufReadPost", "BufNewFile" },

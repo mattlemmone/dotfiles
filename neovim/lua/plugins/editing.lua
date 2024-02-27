@@ -1,5 +1,4 @@
 return {
-  { "tpope/vim-abolish",    event = "VeryLazy" }, -- easy abbrevs, subversion
   { "tpope/vim-commentary", event = "VeryLazy" }, -- commenting
   { "tpope/vim-repeat",     event = "VeryLazy" },
   { "tpope/vim-surround",   event = "VeryLazy" },
@@ -16,24 +15,6 @@ return {
         noremap = true,
         silent = true,
         desc = "Generate Doc Strings",
-      },
-    },
-  },
-  {
-    "junegunn/vim-easy-align",
-    keys = {
-      {
-        -- Start interactive EasyAlign in visual mode (e.g. vipga)
-        "ga",
-        "<Plug>(EasyAlign)",
-        mode = "x",
-      },
-
-      {
-        -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
-        "ga",
-        "<Plug>(EasyAlign)",
-        mode = "n",
       },
     },
   },
@@ -83,13 +64,6 @@ return {
       require("pretty-fold").setup({})
     end,
   }, -- foldinggg
-  {
-    "chentoast/marks.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("marks").setup({ default_mappings = true })
-    end,
-  }, -- marks
   {
     "monaqa/dial.nvim",
     event = "VeryLazy",
