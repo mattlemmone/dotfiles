@@ -7,6 +7,15 @@ return {
     event = "BufEnter *.md",
   },
   {
+    'renerocksai/telekasten.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+    config = function()
+      require('telekasten').setup({
+        home = vault_path
+      })
+    end
+  },
+  {
     "epwalsh/obsidian.nvim",
     version = "*", -- latest
     lazy = true,
