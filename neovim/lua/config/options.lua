@@ -48,6 +48,8 @@ set.clipboard = "unnamedplus"
 -- we dont like dis
 set.swapfile = false
 
+set.conceallevel = 2
+
 -- configure display for neovim docs
 local _border = "rounded"
 
@@ -67,6 +69,7 @@ vim.diagnostic.config {
   float = { border = _border },
   underline = true
 }
+
 vim.cmd([[
   highlight link GitSignsCurrentLineBlame Comment
   set foldlevelstart=20
