@@ -7,15 +7,6 @@ return {
     event = "BufEnter *.md",
   },
   {
-    'renerocksai/telekasten.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim' },
-    config = function()
-      require('telekasten').setup({
-        home = vault_path
-      })
-    end
-  },
-  {
     "epwalsh/obsidian.nvim",
     version = "*", -- latest
     lazy = true,
@@ -26,6 +17,25 @@ return {
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
+    },
+    keys = {
+      {
+        "<Leader>zn",
+        mode = { "n" },
+        function() require("utils/input").promptUserForCommandArgs("Create a Note", "ObsidianNew") end,
+        desc = "Create a Note",
+      },
+      {
+        "<Leader>zt",
+        "<CMD>ObsidianTags<CR>",
+        mode = { "n" },
+      },
+      {
+        "<Leader>zr",
+        mode = { "n" },
+        function() require("utils/input").promptUserForCommandArgs("Rename Note", "ObsidianRename") end,
+        desc = "Rename Note"
+      }
     },
     opts = {
       daily_notes = {

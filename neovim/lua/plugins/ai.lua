@@ -24,7 +24,27 @@ return {
         ["tests"] = { model = "gpt-4" },
         ["explain"] = { model = "gpt-4" },
       }
-    end
+    end,
+    keys = {
+      {
+        "<Leader>qe",
+        mode = { "x" },
+        function() require("utils/input").promptUserForCommandArgs("Edit With GPT", "Chat code_edit") end,
+        desc = "Edit With GPT",
+      },
+      {
+        "<Leader>qt",
+        "<CMD>Chat tests<CR>",
+        mode = { "x" },
+        desc = "Test With GPT",
+      },
+      {
+        "<Leader>qq",
+        "<CMD>Chat explain<CR>",
+        mode = { "x" },
+        desc = "Explain With GPT",
+      },
+    }
   },
   {
     "zbirenbaum/copilot.lua",
