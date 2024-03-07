@@ -2,32 +2,6 @@ local keymap = vim.keymap
 
 return {
   {
-    --- AI diagnostics. pretty sweet.
-    "piersolenski/wtf.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    },
-    opts = {},
-    keys = {
-      {
-        "gw",
-        mode = { "n", "x" },
-        function()
-          require("wtf").ai()
-        end,
-        desc = "Debug diagnostic with AI",
-      },
-      {
-        mode = { "n" },
-        "gW",
-        function()
-          require("wtf").search()
-        end,
-        desc = "Search diagnostic with Google",
-      },
-    },
-  },
-  {
     "j-hui/fidget.nvim",
     event = "VeryLazy",
     tag = "legacy",
@@ -46,7 +20,10 @@ return {
           exclude = { "kotlin_language_server" },
         },
         python = {
-          exclude = { "pylsp" },
+          exclude = {
+            "pylsp",
+            "pyright"
+          },
         },
       })
     end,
@@ -112,9 +89,9 @@ return {
           }),
           -- Some Linters are managed by Mason
           null_ls.builtins.diagnostics.buf,
+          null_ls.builtins.diagnostics.flake8,
           null_ls.builtins.diagnostics.vacuum,
           -- Formatters are managed by Mason
-          null_ls.builtins.formatting.black,
           null_ls.builtins.formatting.buf,
           null_ls.builtins.formatting.eslint_d,
           null_ls.builtins.formatting.ktlint,
@@ -175,8 +152,8 @@ return {
         "gradle_ls",
         "html",
         "marksman",
-        "pylsp",
-        -- "pyright",
+        -- "pylsp",
+        "pyright",
         "terraformls",
         "vimls",
         "yamlls",
