@@ -1,6 +1,8 @@
 *wolt*
 *secret*
 
+~/dotfiles/zsh/plugins.zsh
+
 # vim
 neovim/plugged
 .config/nvim/sessions
