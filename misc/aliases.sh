@@ -26,7 +26,7 @@ alias tfv='terraform validate'
 alias tfi='terraform init'
 
 # Everything else
-alias ls='exa --icons'
+alias ls='eza --icons'
 alias rm='rip'
 alias rm_undo='rip -s'
 

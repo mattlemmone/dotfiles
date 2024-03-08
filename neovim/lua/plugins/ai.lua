@@ -59,6 +59,12 @@ return {
         desc = "Edit With GPT",
       },
       {
+        "<Leader>qe",
+        mode = { "n" },
+        function() require("utils/input").promptUserForCommandArgs("Complete With GPT", "Chat completion") end,
+        desc = "Complete With GPT",
+      },
+      {
         "<Leader>qt",
         "<CMD>Chat tests<CR>",
         mode = { "x" },

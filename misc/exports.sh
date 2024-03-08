@@ -3,7 +3,6 @@ export SHELL=/bin/zsh
 export EDITOR=nvim
 export PAGER='less'
 export GOPATH=$HOME/go
-export PYENV_ROOT="$HOME/.pyenv"
 
 # Path
 case $(arch) in

@@ -21,8 +21,7 @@ return {
         },
         python = {
           exclude = {
-            "pylsp",
-            "pyright"
+            "jedi_language_server",
           },
         },
       })
@@ -71,7 +70,8 @@ return {
     },
     config = function()
       local null_ls = require("null-ls")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities(lsp_capabilities)
       local nvim_lsp = require("lspconfig")
       local navic = require("nvim-navic")
       local navbuddy = require("nvim-navbuddy")
@@ -79,8 +79,10 @@ return {
       null_ls.setup({
         sources = {
           null_ls.builtins.code_actions.eslint_d,
-          null_ls.builtins.diagnostics.todo_comments,
+          null_ls.builtins.code_actions.refactoring,
           null_ls.builtins.diagnostics.buf,
+          null_ls.builtins.diagnostics.ruff,
+          null_ls.builtins.diagnostics.todo_comments,
           null_ls.builtins.diagnostics.eslint_d.with({
             cwd = function(params)
               return nvim_lsp.util.root_pattern("src/tsconfig.json")(params.bufname)
@@ -92,10 +94,12 @@ return {
           null_ls.builtins.diagnostics.flake8,
           null_ls.builtins.diagnostics.vacuum,
           -- Formatters are managed by Mason
+          null_ls.builtins.formatting.blackd,
           null_ls.builtins.formatting.buf,
           null_ls.builtins.formatting.eslint_d,
           null_ls.builtins.formatting.ktlint,
           null_ls.builtins.formatting.prettierd,
+          null_ls.builtins.formatting.ruff,
           null_ls.builtins.formatting.shfmt,
           null_ls.builtins.formatting.stylua,
         },
@@ -111,7 +115,7 @@ return {
         end
 
         -- Format on save
-        require("lsp-format").on_attach(client)
+        -- require("lsp-format").on_attach(client)
 
         -- Code Actions
         keymap.set({ "n", "v" }, "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", bufopts)
@@ -152,8 +156,8 @@ return {
         "gradle_ls",
         "html",
         "marksman",
-        -- "pylsp",
-        "pyright",
+        "jedi_language_server",
+        "ruff_lsp",
         "terraformls",
         "vimls",
         "yamlls",
@@ -166,8 +170,6 @@ return {
         })
       end
 
-      -- LS with nonstandard settings
-      --
       require("lspconfig.configs").vtsls = require("vtsls").lspconfig
 
       -- If the lsp setup is taken over by other plugin, it is the same to call the counterpart setup function

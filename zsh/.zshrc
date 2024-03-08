@@ -13,9 +13,9 @@ eval $(ssh-agent) &>/dev/null
 . $(brew --prefix asdf)/libexec/asdf.sh
 
 # Zsh
-## Load antibody plugin manager - must come before plugins
-source <(antibody init)
-source ~/dotfiles/zsh/plugins.zsh
+## Load plugin manager - must come before plugins
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load ~/dotfiles/zsh/plugins.txt
 source ~/dotfiles/zsh/options.zsh
 
 ## Fzf
@@ -44,3 +44,5 @@ fi
 zle -N _sgpt_zsh
 bindkey ^l _sgpt_zsh
 # Shell-GPT integration ZSH v0.2
+
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
