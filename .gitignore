@@ -1,7 +1,7 @@
 *wolt*
 *secret*
 
-~/dotfiles/zsh/plugins.zsh
+zsh/plugins.zsh
 
 # vim
 neovim/plugged

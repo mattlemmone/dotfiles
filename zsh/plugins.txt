@@ -1,7 +1,9 @@
-zdharma/fast-syntax-highlighting
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-history-substring-search
-zsh-users/zsh-completions
+Aloxaf/fzf-tab
 mafredri/zsh-async
+mdumitru/fancy-ctrl-z
 sindresorhus/pure
 softmoth/zsh-vim-mode
+zdharma/fast-syntax-highlighting
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+zsh-users/zsh-history-substring-search
