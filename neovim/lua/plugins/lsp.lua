@@ -11,22 +11,6 @@ return {
       })
     end,
   },
-  {
-    "lukas-reineke/lsp-format.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      require("lsp-format").setup({
-        kotlin = {
-          exclude = { "kotlin_language_server" },
-        },
-        python = {
-          exclude = {
-            "jedi_language_server",
-          },
-        },
-      })
-    end,
-  },
   { "folke/lsp-colors.nvim", event = { "BufReadPre", "BufNewFile" } }, -- backfill missing lsp highlight colors
   {
     "yioneko/nvim-vtsls",
@@ -93,15 +77,6 @@ return {
           null_ls.builtins.diagnostics.buf,
           null_ls.builtins.diagnostics.flake8,
           null_ls.builtins.diagnostics.vacuum,
-          -- Formatters are managed by Mason
-          null_ls.builtins.formatting.blackd,
-          null_ls.builtins.formatting.buf,
-          null_ls.builtins.formatting.eslint_d,
-          null_ls.builtins.formatting.ktlint,
-          null_ls.builtins.formatting.prettierd,
-          null_ls.builtins.formatting.ruff,
-          null_ls.builtins.formatting.shfmt,
-          null_ls.builtins.formatting.stylua,
         },
       })
 
@@ -113,9 +88,6 @@ return {
           navic.attach(client, bufnr)
           navbuddy.attach(client, bufnr)
         end
-
-        -- Format on save
-        -- require("lsp-format").on_attach(client)
 
         -- Code Actions
         keymap.set({ "n", "v" }, "<Leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", bufopts)
