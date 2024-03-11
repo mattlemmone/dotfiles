@@ -1,5 +1,5 @@
 return {
-  "embark-theme/vim",
-  name = "embark",
-  enabled = false,
+	"embark-theme/vim",
+	name = "embark",
+	enabled = false,
 }
