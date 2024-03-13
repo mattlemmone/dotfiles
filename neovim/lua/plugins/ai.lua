@@ -54,7 +54,7 @@ return {
 
 			local default_args = {
 				model = "gpt-4-0125-preview",
-				max_tokens = 4096 * 2,
+				max_tokens = 4096,
 			}
 
 			vim.g["codegpt_commands"] = {

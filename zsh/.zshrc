@@ -43,3 +43,6 @@ bindkey ^l _sgpt_zsh
 # Shell-GPT integration ZSH v0.2
 
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
