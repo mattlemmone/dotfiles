@@ -33,6 +33,16 @@ return {
 		},
 		config = function()
 			require("codegpt.config")
+			--  this code updates the status line colour to yellow whilst the request is in progress.
+			vim.g["codegpt_hooks"] = {
+				request_started = function()
+					vim.cmd("hi StatusLine ctermbg=NONE ctermfg=yellow")
+				end,
+				request_finished = vim.schedule_wrap(function()
+					vim.cmd("hi StatusLine ctermbg=NONE ctermfg=NONE")
+				end),
+			}
+
 			vim.g["codegpt_commands"] = {
 				["testwith"] = {
 					user_message_template = "Write tests for the following code: ```{{filetype}}\n{{text_selection}}```\n{{command_args}} "
@@ -42,12 +52,17 @@ return {
 				},
 			}
 
+			local default_args = {
+				model = "gpt-4-0125-preview",
+				max_tokens = 4096 * 2,
+			}
+
 			vim.g["codegpt_commands"] = {
-				["completion"] = { model = "gpt-4" },
-				["code_edit"] = { model = "gpt-4" },
-				["opt"] = { model = "gpt-4" },
-				["tests"] = { model = "gpt-4" },
-				["explain"] = { model = "gpt-4" },
+				["completion"] = default_args,
+				["code_edit"] = default_args,
+				["opt"] = default_args,
+				["tests"] = default_args,
+				["explain"] = default_args,
 			}
 		end,
 		keys = {

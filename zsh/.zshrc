@@ -23,9 +23,6 @@ source ~/dotfiles/zsh/options.zsh
 
 eval "$(zoxide init zsh)"
 
-# Misc
-eval $(thefuck --alias)
-
 # pnpm
 export PNPM_HOME="/Users/matt/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
