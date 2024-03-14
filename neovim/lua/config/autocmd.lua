@@ -22,11 +22,9 @@ autocmd("InsertLeave", {
 })
 
 -- Enable spellchecking
-autocmd("FileType", {
-	pattern = { "*.md", "gitcommit", "text", "tex" },
-	callback = function()
-		vim.opt_local.spell = true
-	end,
+autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "*.txt", "*.md", "gitcommit" },
+	command = "setlocal spell",
 })
 
 -- Set syntax for conf files
