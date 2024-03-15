@@ -1,6 +1,7 @@
 return {
 	{
 		"catppuccin/nvim",
+		enabled = false,
 		name = "catppuccin",
 		event = "VimEnter",
 		config = function()

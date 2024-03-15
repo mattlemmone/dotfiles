@@ -1,3 +1,5 @@
+local INITIAL_MODE_NORMAL = "initial_mode='normal'"
+
 return {
 	{
 		"<Leader>k",
@@ -7,7 +9,7 @@ return {
 	},
 	{
 		"<Leader>;",
-		":lua require'telescope'.extensions.project.project{}<CR>",
+		":lua require('telescope').extensions.project.project({" .. INITIAL_MODE_NORMAL .. "})<CR>",
 		mode = "n",
 		desc = "Project List",
 	},
@@ -67,7 +69,9 @@ return {
 	},
 	{
 		"<Leader>n",
-		"<CMD>lua require('telescope').extensions.file_browser.file_browser({path='%:p:h',initial_mode='normal',hidden=true,respect_gitignore=false})<CR>",
+		"<CMD>lua require('telescope').extensions.file_browser.file_browser({path='%:p:h',"
+			.. INITIAL_MODE_NORMAL
+			.. ",hidden=true,respect_gitignore=false})<CR>",
 		mode = "n",
 		silent = true,
 		desc = "File Navigation",
