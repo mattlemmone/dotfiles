@@ -11,7 +11,6 @@ return {
 			},
 		},
 	},
-	--      ft = { "markdown", "sh", "dockerfile", "lua", "vim", "yaml" },
 
 	config = function()
 		require("lint").linters_by_ft = {
@@ -30,7 +29,7 @@ return {
 
 		local autocmd = vim.api.nvim_create_autocmd
 
-		autocmd({ "BufWritePost", "InsertLeave" }, {
+		autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			callback = function()
 				require("lint").try_lint()
 			end,

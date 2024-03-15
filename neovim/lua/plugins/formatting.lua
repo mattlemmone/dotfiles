@@ -8,7 +8,7 @@ return {
 				go = { "gopls" },
 				markdown = { "markdownlint" },
 				protobuf = { "buf" },
-				shell = { "shfmt" },
+				shell = { "shellharden" },
 				-- run multiple formatters sequentially
 				python = { "isort", { "blackd", "black" } },
 				-- run only the first available formatter
