@@ -1,11 +1,17 @@
 local M = {}
 
 M.promptUserForCommandArgs = function(prompt, command)
-	vim.ui.input({ prompt = prompt }, function(input)
+	M.promptUserForInput(prompt, function(input)
 		if not input then
 			return
 		end
 		vim.cmd(command .. " " .. input)
+	end)
+end
+
+M.promptUserForInput = function(prompt, onConfirm)
+	vim.ui.input({ prompt = prompt }, function(input)
+		onConfirm(input)
 	end)
 end
 

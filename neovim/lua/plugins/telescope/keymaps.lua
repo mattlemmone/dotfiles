@@ -1,85 +1,105 @@
 local INITIAL_MODE_NORMAL = "initial_mode='normal'"
 
+local KEYS = {
+	LEADER = "<Leader>",
+	CMD = "<CMD>",
+	ENTER = "<CR>",
+}
+
 return {
 	{
-		"<Leader>k",
-		"<CMD>Telescope keymaps<CR>",
+		KEYS.LEADER .. "k",
+		KEYS.CMD .. "Telescope keymaps" .. KEYS.ENTER,
 		mode = "n",
 		desc = "Keymaps",
 	},
 	{
-		"<Leader>;",
-		":lua require('telescope').extensions.project.project({" .. INITIAL_MODE_NORMAL .. "})<CR>",
+		KEYS.LEADER .. ";",
+		KEYS.CMD
+			.. "lua require('telescope').extensions.project.project({"
+			.. INITIAL_MODE_NORMAL
+			.. "})"
+			.. KEYS.ENTER,
 		mode = "n",
 		desc = "Project List",
 	},
+
 	{
-		"<Leader>s",
-		"<CMD>lua require('telescope.builtin').live_grep()<CR>",
+		KEYS.LEADER .. "s",
+		KEYS.CMD .. "lua require('telescope.builtin').live_grep()" .. KEYS.ENTER,
 		mode = "n",
 		desc = "Grep",
 	},
 	{
-		"<Leader>*",
-		"<CMD>lua require('telescope.builtin').grep_string()<CR>",
+		KEYS.LEADER .. "*",
+		KEYS.CMD .. "lua require('telescope.builtin').grep_string()" .. KEYS.ENTER,
 		mode = "n",
 		desc = "Search for Word Under Cursor",
 	},
 	{
-		"<Leader>r",
-		"<CMD>lua require('telescope.builtin').resume()<CR>",
+		KEYS.LEADER .. "r",
+		KEYS.CMD .. "lua require('telescope.builtin').resume()" .. KEYS.ENTER,
 		mode = "n",
 		desc = "Resume Search",
 	},
 	{
 		'<Leader>"',
-		"<CMD>lua require('telescope').extensions.neoclip.default()<CR>",
+		KEYS.CMD .. "lua require('telescope').extensions.neoclip.default()" .. KEYS.ENTER,
 		mode = "n",
 		desc = "Yank History",
 	},
 	{
-		"<Leader>b",
-		"<CMD>lua require('telescope.builtin').buffers()<CR>",
+		KEYS.LEADER .. "b",
+		KEYS.CMD .. "lua require('telescope.builtin').buffers()" .. KEYS.ENTER,
 		desc = "List Open Buffers",
 		mode = "n",
 	},
 	{
-		"<Leader>cl",
-		"<CMD>lua require('telescope.builtin').commands()<CR>",
+		KEYS.LEADER .. "cl",
+		KEYS.CMD .. "lua require('telescope.builtin').commands()" .. KEYS.ENTER,
 		desc = "Commands",
 		mode = "n",
 	},
 	{
-		"<Leader>ch",
-		"<CMD>lua require('telescope.builtin').command_history()<CR>",
+		KEYS.LEADER .. "ch",
+		KEYS.CMD .. "lua require('telescope.builtin').command_history()" .. KEYS.ENTER,
 		desc = "Command History",
 		mode = "n",
 	},
 	{
-		"<Leader>f",
-		"<CMD>lua require('telescope.builtin').find_files()<CR>",
+		KEYS.LEADER .. "f",
+		KEYS.CMD .. "lua require('telescope.builtin').find_files()" .. KEYS.ENTER,
 		desc = "File Search",
 		mode = "n",
 	},
 	{
-		"<Leader>hh",
-		"<CMD>lua require('telescope.builtin').oldfiles()<CR>",
+		KEYS.LEADER .. "hh",
+		KEYS.CMD .. "lua require('telescope.builtin').oldfiles()" .. KEYS.ENTER,
 		desc = "File History",
 		mode = "n",
 	},
 	{
-		"<Leader>n",
-		"<CMD>lua require('telescope').extensions.file_browser.file_browser({path='%:p:h',"
+		KEYS.LEADER .. "n",
+		KEYS.CMD
+			.. "lua require('telescope').extensions.file_browser.file_browser({path='%:p:h',"
 			.. INITIAL_MODE_NORMAL
-			.. ",hidden=true,respect_gitignore=false})<CR>",
+			.. ",hidden=true,respect_gitignore=false})"
+			.. KEYS.ENTER,
 		mode = "n",
 		silent = true,
 		desc = "File Navigation",
 	},
 	{
-		"<Leader>i",
-		"<CMD>Telescope import<CR>",
+		KEYS.LEADER .. "i",
+		KEYS.CMD .. "Telescope import" .. KEYS.ENTER,
 		mode = "n",
 		desc = "Search Imports",
+	},
+
+	{
+		KEYS.LEADER .. "gm",
+		KEYS.CMD .. "Telescope marks" .. KEYS.ENTER,
+		mode = { "n" },
+		desc = "Go to Mark",
 	},
 }

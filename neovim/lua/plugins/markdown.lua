@@ -1,4 +1,17 @@
 local vault_path = vim.fn.expand("~") .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/iOS Vault/"
+local inputUtils = require("utils/input")
+
+local createTemplatedNote = function(sub_folder, template_name)
+	inputUtils.promptUserForInput("Create a File", function(filename)
+		-- 1. Create a new markdown file in ./Side Projects
+		local filepath = vault_path .. sub_folder .. "/" .. filename
+		vim.cmd("e " .. filepath .. ".md")
+		-- 2. Use existing template
+		vim.cmd("ObsidianTemplate " .. template_name)
+		-- 3. Save the file to auto generate Obsidian metadata
+		vim.cmd("w")
+	end)
+end
 
 return {
 	{
@@ -23,7 +36,7 @@ return {
 				"<Leader>zn",
 				mode = { "n" },
 				function()
-					require("utils/input").promptUserForCommandArgs("Create a Note", "ObsidianNew")
+					inputUtils.promptUserForCommandArgs("Create a Note", "ObsidianNew")
 				end,
 				desc = "Create a Note",
 			},
@@ -36,9 +49,17 @@ return {
 				"<Leader>zr",
 				mode = { "n" },
 				function()
-					require("utils/input").promptUserForCommandArgs("Rename Note", "ObsidianRename")
+					inputUtils.promptUserForCommandArgs("Rename Note", "ObsidianRename")
 				end,
 				desc = "Rename Note",
+			},
+			{
+				"<Leader>zp",
+				mode = { "n" },
+				function()
+					createTemplatedNote("Side Projects", "side projects")
+				end,
+				desc = "Create Side Project Idea",
 			},
 		},
 		opts = {

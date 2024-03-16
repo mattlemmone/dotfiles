@@ -140,18 +140,7 @@ return {
 				sources = {
 					null_ls.builtins.code_actions.eslint_d,
 					null_ls.builtins.code_actions.refactoring,
-					-- Some Linters are managed by Mason
-					-- null_ls.builtins.diagnostics.buf,
-					-- null_ls.builtins.diagnostics.flake8,
-					-- null_ls.builtins.diagnostics.ruff,
-					-- null_ls.builtins.diagnostics.todo_comments,
-					-- null_ls.builtins.diagnostics.vacuum,
-					-- null_ls.builtins.diagnostics.eslint_d.with({
-					-- 	cwd = function(params)
-					-- 		return nvim_lsp.util.root_pattern("src/tsconfig.json")(params.bufname)
-					-- 		-- or nvim_lsp.util.root_pattern("ops-tools/tsconfig.eslint.json")(params.bufname)
-					-- 	end,
-					-- }),
+					null_ls.builtins.code_actions.shellcheck,
 				},
 			})
 

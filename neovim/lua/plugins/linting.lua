@@ -15,16 +15,16 @@ return {
 	config = function()
 		require("lint").linters_by_ft = {
 			javascript = { "eslint_d" },
-			typescript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
-			typescriptreact = { "eslint_d" },
-			python = { "ruff", "mypy", "flake8" },
-			protobuf = { "buf" },
-			sh = { "shellcheck" },
 			json = { "jsonlint" },
 			jsonc = { "jsonlint" },
+			lua = { "selene" },
+			protobuf = { "buf" },
+			python = { "ruff", "mypy", "flake8" },
+			sh = { "shellcheck" },
+			typescript = { "eslint_d" },
+			typescriptreact = { "eslint_d" },
 			yaml = { "yamllint" },
-			-- markdown = { "markdownlint" },
 		}
 
 		local autocmd = vim.api.nvim_create_autocmd
