@@ -7,5 +7,4 @@ return {
 			require("which-key").setup({})
 		end,
 	},
-	-- execute lines of selected code
 }

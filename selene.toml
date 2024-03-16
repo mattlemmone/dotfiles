@@ -1,5 +1,4 @@
-std = "neovim"
-
+std="lua51+vim"
 [rules]
 global_usage = "allow"
 mixed_table = "allow"

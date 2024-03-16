@@ -1,10 +1,10 @@
 return {
+	{ import = "plugins.telescope.dependencies" },
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.2",
 		cmd = "Telescope",
 		keys = require("plugins.telescope.keymaps"),
-		dependencies = require("plugins.telescope.dependencies"),
 		config = function()
 			require("telescope").setup({
 				defaults = {
@@ -32,10 +32,13 @@ return {
 						case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 					},
 					project = {
+						hidden_files = true,
 						on_project_selected = function(prompt_bufnr)
 							local project_actions = require("telescope._extensions.project.actions")
 							project_actions.change_working_directory(prompt_bufnr, false)
 							vim.cmd("Oil .")
+							-- project_actions.change_working_directory(prompt_bufnr, false)
+							-- vim.cmd([[Telescope find_files find_command=fd,--hidden,--exclude,.git]])
 						end,
 					},
 					["ui-select"] = {
