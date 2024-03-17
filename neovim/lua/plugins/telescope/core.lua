@@ -9,7 +9,11 @@ return {
 			require("telescope").setup({
 				defaults = {
 					--- Specifically ignoring things in personal notes folder
-					file_ignore_patterns = { "Bear Export/", "Attachments/" },
+					file_ignore_patterns = {
+						"Bear Export/",
+						"Attachments/",
+						"*.mindnode/",
+					},
 					sorting_strategy = "ascending",
 					path_display = { truncate = 3 },
 					layout_config = {

@@ -12,11 +12,6 @@ return {
 						section = "Files",
 					},
 					{
-						action = "Telescope oldfiles",
-						name = "Recent",
-						section = "Files",
-					},
-					{
 						action = "Lazy update",
 						name = "Update",
 						section = "Plugins",
