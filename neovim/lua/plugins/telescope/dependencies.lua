@@ -42,7 +42,7 @@ return {
 			keyUtils.createKeyMap({
 				useLeader = true,
 				sequence = "n",
-				command = "lua require('telescope').extensions.file_browser.file_browser({path=':p:h',"
+				command = "lua require('telescope').extensions.file_browser.file_browser({path='%:p:h',"
 					.. INITIAL_MODE_NORMAL
 					.. ",hidden=true,respect_gitignore=false})",
 				description = "File Navigation",
