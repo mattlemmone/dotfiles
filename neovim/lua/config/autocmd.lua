@@ -1,43 +1,59 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- Highlight after yank
 autocmd("TextYankPost", {
+	desc = "Highlight after yank",
 	callback = function()
 		vim.highlight.on_yank({ timeout = 600 })
 	end,
 })
 
--- Disable relative numbers
 autocmd("InsertEnter", {
+	desc = "Disable relative numbers",
 	callback = function()
 		vim.opt.relativenumber = false
 	end,
 })
 
--- Enable relative numbers
 autocmd("InsertLeave", {
+	desc = "Enable relative numbers",
 	callback = function()
 		vim.opt.relativenumber = true
 	end,
 })
 
--- Enable spellchecking
 autocmd({ "BufRead", "BufNewFile" }, {
+	desc = "Enable spellchecking",
 	pattern = { "*.txt", "*.md", "gitcommit" },
 	command = "setlocal spell",
 })
 
--- Set syntax for conf files
+autocmd({ "BufRead", "BufNewFile", "BufLeave" }, {
+	desc = "Enable distraction free mode",
+	pattern = { "*.md" },
+	command = "ZenMode",
+})
+
 autocmd({ "BufReadPost", "BufNewFile", "BufRead" }, {
+	desc = "Set syntax for conf files",
 	pattern = { "*.conf" },
 	callback = function()
 		vim.cmd([[set filetype=ini]])
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufReadPost", {
+autocmd("BufReadPost", {
 	desc = "Open file at the last position it was edited earlier",
 	group = misc_augroup,
 	pattern = "*",
 	command = 'silent! normal! g`"zv',
+})
+
+autocmd("BufWritePost", {
+	pattern = { ".yabairc" },
+	command = "!yabai --restart-service",
+})
+
+autocmd("BufWritePost", {
+	pattern = { ".skhdrc" },
+	command = "!brew services restart skhd",
 })

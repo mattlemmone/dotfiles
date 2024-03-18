@@ -5,8 +5,6 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				-- theme = "tundra",
-				-- theme = "catppuccin",
 				theme = "rose-pine",
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
@@ -25,7 +23,7 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_b = { "diff", "diagnostics" },
 				lualine_c = { "filename" },
 				lualine_x = { "filetype", require("codegpt").get_status },
 				lualine_y = { "progress" },
