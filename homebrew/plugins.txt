@@ -1,4 +1,3 @@
-antibody
 antidote
 aom
 aribb24
@@ -203,10 +202,8 @@ svt-av1
 tbb
 tealdeer
 tesseract
-thefuck
 theora
 tig
-tmux
 tree
 tree-sitter
 uchardet
@@ -219,7 +216,6 @@ vapoursynth
 vulkan-headers
 vulkan-loader
 webp
-wine-stable
 x264
 x265
 xdotool
