@@ -219,7 +219,6 @@ vapoursynth
 vulkan-headers
 vulkan-loader
 webp
-wezterm
 wine-stable
 x264
 x265

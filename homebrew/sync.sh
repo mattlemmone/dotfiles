@@ -25,12 +25,8 @@ if [  "$plugins_to_remove" != "" ]; then
   fmted_to_remove=$(substitute_newline_with_space "$plugins_to_remove")
   echo "Plugins to Remove: $fmted_to_remove"
 
-  response=$(gum confirm "Are you sure you want to install these plugins?")
-
-  if [[ $response ]]; then
-    # shellcheck disable=2086
-    brew uninstall $fmted_to_remove
-  fi
+  # shellcheck disable=2086
+  gum confirm "Are you sure you want to remove these plugins?" &&  brew uninstall $fmted_to_remove
 fi
 
 plugins_to_install=$(echo "$installed_plugins" | comm -13 - <(sort $manifest_file)) 
@@ -39,12 +35,8 @@ if [  "$plugins_to_install" != "" ]; then
   fmted_to_install=$(substitute_newline_with_space "$plugins_to_install")
   echo "Plugins to Install: $fmted_to_install"
 
-  response=$(gum confirm "Are you sure you want to install these plugins?")
-
-  if [[ $response ]]; then
     # shellcheck disable=2086
-    brew install $fmted_to_install
-  fi
+  gum confirm "Are you sure you want to install these plugins?" && brew install $fmted_to_install
 fi
 
 update_manifest
