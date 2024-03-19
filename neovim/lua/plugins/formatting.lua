@@ -13,6 +13,9 @@ return {
 				python = { "isort", { "blackd", "black" } },
 				-- run only the first available formatter
 				javascript = { { "prettierd", "prettier" } },
+				javascriptreact = { { "prettierd", "prettier" } },
+				typescript = { { "prettierd", "prettier" } },
+				typescriptreact = { { "prettierd", "prettier" } },
 			},
 		})
 

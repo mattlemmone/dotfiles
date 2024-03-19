@@ -55,7 +55,7 @@ return {
 							-- "Array",
 							-- "Boolean",
 							"Class",
-							-- "Constant",
+							"Constant",
 							"Constructor",
 							"Enum",
 							-- "EnumMember",
@@ -77,7 +77,7 @@ return {
 							"String",
 							"Struct",
 							"TypeParameter",
-							-- "Variable",
+							"Variable",
 						},
 						highlight_on_hover = true,
 						autojump = true,
@@ -195,7 +195,6 @@ return {
 				"html",
 				"marksman",
 				"pyright",
-				-- "jedi_language_server",
 				"ruff_lsp",
 				"terraformls",
 				"vimls",
@@ -234,6 +233,7 @@ return {
 					usePlaceholders = true,
 				},
 			})
+
 			nvim_lsp.yamlls.setup({
 				on_attach = on_attach_default,
 				settings = {
