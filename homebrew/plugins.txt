@@ -205,6 +205,8 @@ pugixml
 pure
 pycparser
 pyenv
+python-setuptools
+python@3.10
 python@3.11
 python@3.12
 rav1e
@@ -232,7 +234,6 @@ tealdeer
 tesseract
 theora
 tig
-tree
 tree-sitter
 uchardet
 unar
