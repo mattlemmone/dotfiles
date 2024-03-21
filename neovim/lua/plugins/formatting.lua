@@ -1,6 +1,8 @@
 return {
 	"stevearc/conform.nvim",
 	opts = {},
+	event = { "BufWritePre" },
+	cmd = { "ConformInfo", "Format" },
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
@@ -38,7 +40,11 @@ return {
 					["end"] = { args.line2, end_line:len() },
 				}
 			end
-			require("conform").format({ async = true, lsp_fallback = true, range = range })
+			require("conform").format({
+				async = true,
+				lsp_fallback = "always",
+				range = range,
+			})
 		end, { range = true })
 	end,
 }
