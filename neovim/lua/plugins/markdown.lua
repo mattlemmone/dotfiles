@@ -3,7 +3,11 @@ local inputUtils = require("utils/input")
 
 local createTemplatedNote = function(sub_folder, template_name)
 	inputUtils.promptUserForInput("Create a File", function(filename)
-		-- 1. Create a new markdown file in ./Side Projects
+		if not filename then
+			return
+		end
+
+		-- 1. Create a new markdown file
 		local filepath = vault_path .. sub_folder .. "/" .. filename
 		vim.cmd("e " .. filepath .. ".md")
 		-- 2. Use existing template
