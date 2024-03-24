@@ -2,7 +2,7 @@ return {
 	{ import = "plugins.telescope.dependencies" },
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.2",
+		branch = "0.1.x",
 		cmd = "Telescope",
 		keys = require("plugins.telescope.keymaps"),
 		config = function()

@@ -1,29 +1,40 @@
-local createKeyMap = require("utils/keys").createKeyMap
+local create_key_map = require("utils/keys").create_key_map
+local git = require("utils/git")
+
+local get_git_project_root_or_current_dir = function()
+	local current_file_dir = vim.fn.expand("%:p:h")
+
+	if git.is_in_git_repo(current_file_dir) then
+		return git.get_git_root(current_file_dir)
+	end
+
+	return current_file_dir
+end
 
 return {
-	createKeyMap({
+	create_key_map({
 		useLeader = true,
 		sequence = "k",
 		command = "Telescope keymaps",
 		description = "Keymaps",
 	}),
-	createKeyMap({
+	create_key_map({
 		useLeader = true,
 		sequence = "s",
 		command = function()
-			require("telescope.builtin").live_grep()
+			require("telescope.builtin").live_grep({ cwd = get_git_project_root_or_current_dir() })
 		end,
 		description = "Grep",
 	}),
-	createKeyMap({
+	create_key_map({
 		useLeader = true,
 		sequence = "*",
 		command = function()
-			require("telescope.builtin").grep_string()
+			require("telescope.builtin").grep_string({ cwd = get_git_project_root_or_current_dir() })
 		end,
 		description = "Search for Word Under Cursor",
 	}),
-	createKeyMap({
+	create_key_map({
 		useLeader = true,
 		sequence = "r",
 		command = function()
@@ -32,7 +43,7 @@ return {
 		description = "Resume Search",
 	}),
 
-	createKeyMap({
+	create_key_map({
 		useLeader = true,
 		sequence = "b",
 		command = function()
@@ -40,7 +51,7 @@ return {
 		end,
 		description = "List Open Buffers",
 	}),
-	createKeyMap({
+	create_key_map({
 		useLeader = true,
 		sequence = "cl",
 		command = function()
@@ -48,7 +59,7 @@ return {
 		end,
 		description = "Commands",
 	}),
-	createKeyMap({
+	create_key_map({
 		useLeader = true,
 		sequence = "ch",
 		command = function()
@@ -56,15 +67,15 @@ return {
 		end,
 		description = "Command History",
 	}),
-	createKeyMap({
+	create_key_map({
 		useLeader = true,
 		sequence = "f",
 		command = function()
-			require("telescope.builtin").find_files()
+			require("telescope.builtin").find_files({ cwd = get_git_project_root_or_current_dir() })
 		end,
 		description = "File Search",
 	}),
-	createKeyMap({
+	create_key_map({
 		useLeader = true,
 		sequence = "hh",
 		command = function()
@@ -72,7 +83,7 @@ return {
 		end,
 		description = "File History",
 	}),
-	createKeyMap({
+	create_key_map({
 		useLeader = true,
 		sequence = "gm",
 		command = "Telescope marks",

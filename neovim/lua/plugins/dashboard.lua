@@ -23,7 +23,7 @@ return {
 					},
 				},
 
-				header = [[ ]],
+				header = [[ ᕕ༼ຈل͜ຈ༽ᕗ here we go again]],
 				footer = "",
 			}
 
