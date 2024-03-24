@@ -10,50 +10,66 @@ return {
 	createKeyMap({
 		useLeader = true,
 		sequence = "s",
-		command = "lua require('telescope.builtin').live_grep()",
+		command = function()
+			require("telescope.builtin").live_grep()
+		end,
 		description = "Grep",
 	}),
 	createKeyMap({
 		useLeader = true,
 		sequence = "*",
-		command = "lua require('telescope.builtin').grep_string()",
+		command = function()
+			require("telescope.builtin").grep_string()
+		end,
 		description = "Search for Word Under Cursor",
 	}),
 	createKeyMap({
 		useLeader = true,
 		sequence = "r",
-		command = "lua require('telescope.builtin').resume()",
+		command = function()
+			require("telescope.builtin").resume()
+		end,
 		description = "Resume Search",
 	}),
 
 	createKeyMap({
 		useLeader = true,
 		sequence = "b",
-		command = "lua require('telescope.builtin').buffers()",
+		command = function()
+			require("telescope.builtin").buffers()
+		end,
 		description = "List Open Buffers",
 	}),
 	createKeyMap({
 		useLeader = true,
 		sequence = "cl",
-		command = "lua require('telescope.builtin').commands()",
+		command = function()
+			require("telescope.builtin").commands()
+		end,
 		description = "Commands",
 	}),
 	createKeyMap({
 		useLeader = true,
 		sequence = "ch",
-		command = "lua require('telescope.builtin').command_history()",
+		command = function()
+			require("telescope.builtin").command_history()
+		end,
 		description = "Command History",
 	}),
 	createKeyMap({
 		useLeader = true,
 		sequence = "f",
-		command = "lua require('telescope.builtin').find_files()",
+		command = function()
+			require("telescope.builtin").find_files()
+		end,
 		description = "File Search",
 	}),
 	createKeyMap({
 		useLeader = true,
 		sequence = "hh",
-		command = "lua require('telescope.builtin').oldfiles()",
+		command = function()
+			require("telescope.builtin").oldfiles()
+		end,
 		description = "File History",
 	}),
 	createKeyMap({

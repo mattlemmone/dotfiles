@@ -1,5 +1,4 @@
 local createKeyMap = require("utils/keys").createKeyMap
-local INITIAL_MODE_NORMAL = "initial_mode='normal'"
 
 return {
 	{
@@ -10,7 +9,9 @@ return {
 			createKeyMap({
 				useLeader = true,
 				sequence = ";",
-				command = "lua require('telescope').extensions.project.project({" .. INITIAL_MODE_NORMAL .. "})",
+				command = function()
+					require("telescope").extensions.project.project({ initial_mode = "normal" })
+				end,
 				description = "Project List",
 			}),
 		},
@@ -22,6 +23,7 @@ return {
 		-- if you get issues when installing, make sure to build the binary via `gb`
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "make",
+		event = "VeryLazy",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		config = function()
 			require("telescope").load_extension("fzf")
@@ -42,9 +44,14 @@ return {
 			createKeyMap({
 				useLeader = true,
 				sequence = "n",
-				command = "lua require('telescope').extensions.file_browser.file_browser({path='%:p:h',"
-					.. INITIAL_MODE_NORMAL
-					.. ",hidden=true,respect_gitignore=false})",
+				command = function()
+					require("telescope").extensions.file_browser.file_browser({
+						path = "%:p:h",
+						initial_mode = "normal",
+						hidden = true,
+						respect_gitignore = false,
+					})
+				end,
 				description = "File Navigation",
 			}),
 		},
@@ -63,7 +70,9 @@ return {
 			createKeyMap({
 				useLeader = true,
 				sequence = '"',
-				command = "lua require('telescope').extensions.neoclip.default()",
+				command = function()
+					require("telescope").extensions.neoclip.default()
+				end,
 				description = "Yank History",
 			}),
 		},
