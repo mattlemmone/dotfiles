@@ -19,7 +19,7 @@ return {
 			json = { "jsonlint" },
 			jsonc = { "jsonlint" },
 			lua = { "selene" },
-			protobuf = { "buf" },
+			protobuf = { "buf_lint" },
 			python = { "ruff", "mypy", "flake8" },
 			sh = { "shellcheck" },
 			typescript = { "eslint_d" },

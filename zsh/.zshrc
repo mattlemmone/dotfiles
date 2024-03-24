@@ -43,3 +43,13 @@ bindkey ^l _sgpt_zsh
 # Shell-GPT integration ZSH v0.2
 
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+
+# yazi wrapper
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rip -- "$tmp"
+}

@@ -1,4 +1,4 @@
-local keyUtils = require("utils/keys")
+local createKeyMap = require("utils/keys").createKeyMap
 local INITIAL_MODE_NORMAL = "initial_mode='normal'"
 
 return {
@@ -7,7 +7,7 @@ return {
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		command = "Telescope project",
 		keys = {
-			keyUtils.createKeyMap({
+			createKeyMap({
 				useLeader = true,
 				sequence = ";",
 				command = "lua require('telescope').extensions.project.project({" .. INITIAL_MODE_NORMAL .. "})",
@@ -39,7 +39,7 @@ return {
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
 		keys = {
-			keyUtils.createKeyMap({
+			createKeyMap({
 				useLeader = true,
 				sequence = "n",
 				command = "lua require('telescope').extensions.file_browser.file_browser({path='%:p:h',"
@@ -60,7 +60,7 @@ return {
 			{ "nvim-telescope/telescope.nvim" },
 		},
 		keys = {
-			keyUtils.createKeyMap({
+			createKeyMap({
 				useLeader = true,
 				sequence = '"',
 				command = "lua require('telescope').extensions.neoclip.default()",
@@ -83,7 +83,7 @@ return {
 		"piersolenski/telescope-import.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		keys = {
-			keyUtils.createKeyMap({
+			createKeyMap({
 				useLeader = true,
 				sequence = "i",
 				command = "Telescope import",

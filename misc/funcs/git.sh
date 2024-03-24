@@ -22,22 +22,14 @@ arebase() {
 }
 
 delete_all_but_main_master_and_current_branch() {
-	# TODO: dont just use 'master'
 	gb | grep -v 'main\|master\|\*' | xargs git branch -D
 }
 
 gbi() {
-	local branch=$(gb | grep -v '*' | fzf | xargs)
+	local branch=$(gb | grep -v '*' | fzf)
 	gc $branch
 }
 
-grv() {
-	# TODO: dont just use 'master'
-	local file=$(git diff master --name-only --relative | fzf --preview "bat --color=always {}")
-	git checkout master $file
-}
-
 cmt() {
-	description=$1
 	git add . && git commit -m "$1"
 }
