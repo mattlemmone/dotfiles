@@ -6,7 +6,7 @@ local KEYS = {
 	ENTER = "<CR>",
 }
 
-M.createKeyMap = function(opts)
+M.create_key_map = function(opts)
 	local callback = (type(opts.command) == "string") and KEYS.CMD .. opts.command .. KEYS.ENTER
 		or (type(opts.command) == "function") and opts.command
 		or error("Invalid command type")

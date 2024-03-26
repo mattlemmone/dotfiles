@@ -1,6 +1,6 @@
 local M = {}
 
-M.isInGitRepo = function(path)
+M.is_in_git_repo = function(path)
 	vim.fn.system("git -C " .. path .. " rev-parse 2>/dev/null")
 	return vim.v.shell_error == 0
 end

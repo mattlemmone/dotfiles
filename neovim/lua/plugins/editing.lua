@@ -2,6 +2,7 @@ return {
 	{ "tpope/vim-commentary", event = "VeryLazy" }, -- commenting
 	{ "tpope/vim-repeat", event = "VeryLazy" },
 	{ "tpope/vim-surround", event = "VeryLazy" },
+	{ "arthurxavierx/vim-caser", event = "VeryLazy" },
 	{
 		"danymat/neogen",
 		dependencies = "nvim-treesitter/nvim-treesitter",
