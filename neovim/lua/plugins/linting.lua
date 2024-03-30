@@ -1,7 +1,7 @@
 return {
 	"mfussenegger/nvim-lint",
 	opts = {},
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufWritePost", "BufReadPost", "InsertLeave" },
 	dependencies = {
 		{ "williamboman/mason.nvim" },
 		{

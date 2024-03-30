@@ -40,9 +40,7 @@ return {
 						on_project_selected = function(prompt_bufnr)
 							local project_actions = require("telescope._extensions.project.actions")
 							project_actions.change_working_directory(prompt_bufnr, false)
-							vim.cmd("Oil .")
-							-- project_actions.change_working_directory(prompt_bufnr, false)
-							-- vim.cmd([[Telescope find_files find_command=fd,--hidden,--exclude,.git]])
+							vim.cmd([[Telescope find_files find_command=fd,--hidden,--exclude,.git]])
 						end,
 					},
 					["ui-select"] = {

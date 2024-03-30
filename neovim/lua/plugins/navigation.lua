@@ -53,15 +53,6 @@ return {
 		end,
 	}, -- navigation using brackets. TS nodes, conflicts, comments, diag, files, bufs, windows...
 	{
-		"stevearc/oil.nvim",
-		event = "BufEnter",
-		opts = {},
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("oil").setup()
-		end,
-	},
-	{
 		"folke/persistence.nvim",
 		event = "VimEnter",
 		config = function()
@@ -77,12 +68,31 @@ return {
 		keys = {
 			{ "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
 			{ "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-			{ "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
 		},
 		config = function()
 			require("leap").add_default_mappings()
 		end,
 	}, -- ez motion
+	{
+		"ggandor/flit.nvim",
+
+		config = function()
+			require("flit").setup({
+				keys = { f = "f", F = "F", t = "t", T = "T" },
+				-- A string like "nv", "nvo", "o", etc.
+				labeled_modes = "v",
+				multiline = true,
+				opts = {},
+			})
+		end,
+
+		keys = {
+			{ "f", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+			{ "F", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+			{ "t", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+			{ "T", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+		},
+	},
 	{
 		"chrishrb/gx.nvim",
 		event = { "VeryLazy" },

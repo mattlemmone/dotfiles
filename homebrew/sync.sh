@@ -38,7 +38,7 @@ manage_plugins() {
 	fmted_plugins=$(substitute_newline_with_space "$plugins")
 
 	# shellcheck disable=2086
-  # TODO: pass in function, not brew arg
+	# TODO: pass in function, not brew arg
 	gum confirm "Are you sure you want to ${action} these plugins?" && brew $action $fmted_plugins
 }
 

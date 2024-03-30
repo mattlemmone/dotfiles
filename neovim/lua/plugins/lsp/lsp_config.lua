@@ -1,26 +1,21 @@
 local keymap = vim.keymap
 
 return {
-	"jose-elias-alvarez/null-ls.nvim",
+	"neovim/nvim-lspconfig", -- easier lsp mgmt
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		"neovim/nvim-lspconfig", -- easier lsp mgmt
+		{
+			"yioneko/nvim-vtsls",
+			ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+			event = { "BufReadPre", "BufNewFile" },
+		},
 	},
 	config = function()
-		local null_ls = require("null-ls")
 		local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities(lsp_capabilities)
 		local nvim_lsp = require("lspconfig")
 		local navic = require("nvim-navic")
-
-		null_ls.setup({
-			sources = {
-				null_ls.builtins.code_actions.eslint_d,
-				null_ls.builtins.code_actions.refactoring,
-				null_ls.builtins.code_actions.shellcheck,
-			},
-		})
 
 		local on_attach_default = function(client, bufnr)
 			-- Bread Crumbs
@@ -49,7 +44,7 @@ return {
 			-- Docs
 			keymap.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", bufopts)
 
-			--" Rename instances
+			-- Rename instances
 			keymap.set("n", "<Leader>rn", "<CMD>lua vim.lsp.buf.rename()<CR>", bufopts)
 
 			--" Goto
@@ -65,13 +60,16 @@ return {
 			"bufls",
 			"cssls",
 			"dockerls",
-			"docker_compose_language_service", -- docker-compose
+			"docker_compose_language_service",
+			"eslintls",
 			"golangci_lint_ls",
 			"gradle_ls",
 			"html",
+			"jsonls",
 			"marksman",
 			"pyright",
 			"ruff_lsp",
+			"sqls",
 			"terraformls",
 			"vimls",
 			"yamlls",

@@ -9,9 +9,4 @@ return {
 		end,
 	},
 	{ "folke/lsp-colors.nvim", event = { "BufReadPre", "BufNewFile" } }, -- backfill missing lsp highlight colors
-	{
-		"yioneko/nvim-vtsls",
-		ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-		event = { "BufReadPre", "BufNewFile" },
-	},
 }
