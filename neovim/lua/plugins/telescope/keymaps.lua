@@ -1,16 +1,6 @@
 local create_key_map = require("utils/keys").create_key_map
 local git = require("utils/git")
 
-local get_git_project_root_or_current_dir = function()
-	local current_file_dir = vim.fn.expand("%:p:h")
-
-	if git.is_in_git_repo(current_file_dir) then
-		return git.get_git_root(current_file_dir)
-	end
-
-	return current_file_dir
-end
-
 return {
 	create_key_map({
 		useLeader = true,
@@ -22,7 +12,7 @@ return {
 		useLeader = true,
 		sequence = "s",
 		command = function()
-			require("telescope.builtin").live_grep({ cwd = get_git_project_root_or_current_dir() })
+			require("telescope.builtin").live_grep({ cwd = git.get_git_project_root_or_current_dir() })
 		end,
 		description = "Grep",
 	}),
@@ -30,7 +20,7 @@ return {
 		useLeader = true,
 		sequence = "*",
 		command = function()
-			require("telescope.builtin").grep_string({ cwd = get_git_project_root_or_current_dir() })
+			require("telescope.builtin").grep_string({ cwd = git.get_git_project_root_or_current_dir() })
 		end,
 		description = "Search for Word Under Cursor",
 	}),
@@ -71,7 +61,7 @@ return {
 		useLeader = true,
 		sequence = "f",
 		command = function()
-			require("telescope.builtin").find_files({ cwd = get_git_project_root_or_current_dir() })
+			require("telescope.builtin").find_files({ cwd = git.get_git_project_root_or_current_dir() })
 		end,
 		description = "File Search",
 	}),

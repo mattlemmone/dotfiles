@@ -31,6 +31,7 @@ dav1d
 docutils
 expat
 eza
+fastmod
 fd
 ffmpeg
 ffmpegthumbnailer
@@ -151,6 +152,7 @@ libxt
 libxtst
 libyaml
 little-cms2
+llvm
 lua
 luajit
 luarocks
@@ -216,6 +218,7 @@ ripgrep
 rlwrap
 rtmpdump
 rubberband
+rust
 sdl2
 selene
 shaderc
@@ -240,6 +243,7 @@ unar
 unbound
 unibilium
 unixodbc
+uptech/oss/alt
 utf8proc
 vapoursynth
 vulkan-headers
@@ -262,6 +266,7 @@ xvid
 xz
 yazi
 yt-dlp
+z3
 zeromq
 zimg
 zlib
