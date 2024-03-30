@@ -4,8 +4,8 @@ set -uo pipefail
 SCRIPT_PATH=$(dirname "$(realpath "$0")")
 MANIFEST_FILE=$SCRIPT_PATH/plugins.txt
 
-ACTION_INSTALL="install"
-ACTION_UNINSTALL="uninstall"
+BREW_ACTION_INSTALL="install"
+BREW_ACTION_UNINSTALL="uninstall"
 
 log() {
 	gum log --structured --level info "$1"
@@ -38,6 +38,7 @@ manage_plugins() {
 	fmted_plugins=$(substitute_newline_with_space "$plugins")
 
 	# shellcheck disable=2086
+  # TODO: pass in function, not brew arg
 	gum confirm "Are you sure you want to ${action} these plugins?" && brew $action $fmted_plugins
 }
 
@@ -45,7 +46,7 @@ installed_plugins=$(get_installed_plugins)
 plugins_to_remove=$(echo "$installed_plugins" | comm -23 - <(sort "$MANIFEST_FILE"))
 plugins_to_install=$(echo "$installed_plugins" | comm -13 - <(sort "$MANIFEST_FILE"))
 
-manage_plugins $ACTION_UNINSTALL "$plugins_to_remove"
-manage_plugins $ACTION_INSTALL "$plugins_to_install"
+manage_plugins $BREW_ACTION_UNINSTALL "$plugins_to_remove"
+manage_plugins $BREW_ACTION_INSTALL "$plugins_to_install"
 
 update_manifest
