@@ -61,33 +61,6 @@ return {
 		end,
 	},
 	{
-		"AckslD/nvim-neoclip.lua", -- register history
-		dependencies = {
-			{ "kkharji/sqlite.lua", module = "sqlite" },
-			{ "nvim-telescope/telescope.nvim" },
-		},
-		keys = {
-			create_key_map({
-				useLeader = true,
-				sequence = '"',
-				command = function()
-					require("telescope").extensions.neoclip.default()
-				end,
-				description = "Yank History",
-			}),
-		},
-		config = function()
-			require("neoclip").setup({
-				enable_persistent_history = true,
-				preview = true,
-				default_register = "+",
-			})
-
-			-- This must come after the above neoclip setup function, or persistent history will not work
-			require("telescope").load_extension("neoclip")
-		end,
-	},
-	{
 		-- auto search imports
 		"piersolenski/telescope-import.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
