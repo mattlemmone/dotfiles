@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 
-require("config.abbrev")
 require("config.autocmd")
 require("config.mappings")
 require("config.options")
