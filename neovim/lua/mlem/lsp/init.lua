@@ -33,7 +33,7 @@ M.setup = function()
 			navic.attach(client, bufnr)
 		end
 
-		require("config.lsp.keymaps").registerKeymaps(bufnr)
+		require("mlem.lsp.keymaps").registerKeymaps(bufnr)
 	end
 
 	for _, v in ipairs(ls_with_default_settings) do
@@ -43,11 +43,11 @@ M.setup = function()
 		})
 	end
 
-	require("config.lsp.vtsls").setup(on_attach_default, capabilities)
-	require("config.lsp.go").setup(on_attach_default, capabilities)
-	require("config.lsp.lua_ls").setup(on_attach_default, capabilities)
-	require("config.lsp.yaml_ls").setup(on_attach_default)
-	require("config.lsp.kotlin").setup(on_attach_default, capabilities)
+	require("mlem.lsp.vtsls").setup(on_attach_default, capabilities)
+	require("mlem.lsp.go").setup(on_attach_default, capabilities)
+	require("mlem.lsp.lua_ls").setup(on_attach_default, capabilities)
+	require("mlem.lsp.yaml_ls").setup(on_attach_default)
+	require("mlem.lsp.kotlin").setup(on_attach_default, capabilities)
 end
 
 return M
