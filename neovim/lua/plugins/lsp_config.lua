@@ -10,6 +10,6 @@ return {
 		},
 	},
 	config = function()
-		require("config.lsp.init").setup()
+		require("mlem.lsp.init").setup()
 	end,
 }
