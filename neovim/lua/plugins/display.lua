@@ -1,6 +1,5 @@
 return {
 	{ import = "plugins.colors" },
-	"folke/zen-mode.nvim",
 	{
 		"stevearc/dressing.nvim",
 		opts = {},

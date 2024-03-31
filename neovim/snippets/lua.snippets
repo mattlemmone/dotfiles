@@ -1,8 +1,13 @@
 
-snippet plug "New Plugin"
+snippet plug "New Lazy Plugin"
 	{"${1:name}", keys = {}, opts = {}, config = nil}
 
 snippet conf	
 	config = function()
 		$1
 	end
+
+snippet mod	
+	local M = {}
+		$1
+	return M

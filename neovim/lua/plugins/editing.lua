@@ -20,12 +20,6 @@ return {
 		},
 	},
 	{
-		"ojroques/nvim-bufdel",
-		keys = {
-			{ "<Leader>d", "<CMD>BufDel<CR>", mode = "n" },
-		},
-	}, -- dont close split when closing buffer
-	{
 		"simnalamburt/vim-mundo",
 		keys = {
 			{
@@ -100,34 +94,6 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("nvim-autopairs").setup({})
-		end,
-	},
-	{
-		"cshuaimin/ssr.nvim",
-		keys = {
-			{
-				"<leader>sr",
-				"<CMD>lua require('ssr').open()<CR>",
-				mode = { "n", "x" },
-				desc = "Structural Search and Replace",
-			},
-		},
-		module = "ssr",
-		config = function()
-			require("ssr").setup({
-				border = "rounded",
-				min_width = 50,
-				min_height = 5,
-				max_width = 120,
-				max_height = 25,
-				keymaps = {
-					close = "q",
-					next_match = "n",
-					prev_match = "N",
-					replace_confirm = "<cr>",
-					replace_all = "<leader><cr>",
-				},
-			})
 		end,
 	},
 }
