@@ -1,12 +1,8 @@
 #!/bin/bash
 
-get_branch_name() {
-	echo $(git rev-parse --abbrev-ref HEAD)
-}
-
 delete_upstream_branch() {
 	branch=$1
-	gum confirm "Are you sure you want to delete the branch: $branch?" && git push origin --delete $branch
+	gum confirm "Are you sure you want to delete the branch: $branch?" && git push origin --delete "$branch"
 }
 
 oopsies() {
@@ -27,9 +23,13 @@ delete_all_but_main_master_and_current_branch() {
 
 gbi() {
 	local branch=$(gb | grep -v '*' | fzf)
-	gc $branch
+	gc "$branch"
 }
 
 cmt() {
 	git add . && git commit -m "$1"
+}
+
+checkout_pr(){
+ gh pr checkout "$1"
 }

@@ -41,6 +41,14 @@ autocmd({ "BufReadPost", "BufNewFile", "BufRead" }, {
 	end,
 })
 
+autocmd({ "BufReadPost", "BufNewFile", "BufRead" }, {
+	desc = "Set syntax for apple-app-site-association files",
+	pattern = { "*apple-app-site-association" },
+	callback = function()
+		vim.cmd([[set filetype=json]])
+	end,
+})
+
 autocmd("BufReadPost", {
 	desc = "Open file at the last position it was edited earlier",
 	group = misc_augroup,

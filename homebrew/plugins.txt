@@ -5,6 +5,7 @@ asdf
 autoconf
 automake
 aws-iam-authenticator
+aws-vault
 awscli
 axel
 bash
@@ -198,7 +199,6 @@ pinentry
 pinentry-mac
 pixman
 pkg-config
-pnpm
 poppler
 postgresql@14
 pre-commit
@@ -206,8 +206,6 @@ pugixml
 pure
 pycparser
 pyenv
-python-setuptools
-python@3.10
 python@3.11
 python@3.12
 rav1e
@@ -245,6 +243,7 @@ unixodbc
 uptech/oss/alt
 utf8proc
 vapoursynth
+vault
 vulkan-headers
 vulkan-loader
 webp
