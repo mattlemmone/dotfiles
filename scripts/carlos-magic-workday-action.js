@@ -2,20 +2,27 @@ let WORK_TIMES = ["09:00", "18:00"];
 let CALENDAR_DATA_CELL = '[data-automation-id^="calendarDateCell"]';
 let TIME_INPUTS = '[data-automation-id="standaloneTimeWidget"]';
 let REGEX = /saturday|sunday|holiday|Daily Total Hours|submitted|approved/i;
+
 let nodes = [...document.querySelectorAll(CALENDAR_DATA_CELL)].filter(
   (node) => {
     return !node.ariaLabel.toLowerCase().match(REGEX);
-  }
+  },
 );
+
 let starting_node = (nodes.shift().style.backgroundColor = "#FFC665");
+
 let bodyObserver = new MutationObserver(async (mutations) => {
   for (let mutation of mutations) {
     let addedNodes = [...mutation.addedNodes];
     let removedNodes = [...mutation.removedNodes];
+
     for (let node of addedNodes) {
       if (node.querySelector('[data-automation-id="toastContainer"]')) {
         console.log("toast");
       }
+
+      console.log("nodery");
+
       if (
         node.dataset.automationWidget === "wd-popup" &&
         node.querySelector(TIME_INPUTS)
@@ -23,6 +30,7 @@ let bodyObserver = new MutationObserver(async (mutations) => {
         return fillTimeSheet(node);
       }
     }
+
     for (let node of removedNodes) {
       if (nodes.length === 0) {
         bodyObserver.disconnect();
@@ -30,8 +38,10 @@ let bodyObserver = new MutationObserver(async (mutations) => {
       }
       return simulateMouseClick(nodes.shift());
     }
+    console.log("done");
   }
 });
+
 bodyObserver.observe(document.body, { childList: true });
 let hoursObserver = new MutationObserver((mutations) => {
   for (let mutation of mutations) {
@@ -42,18 +52,19 @@ let hoursObserver = new MutationObserver((mutations) => {
         hoursObserver.disconnect();
         return document
           .querySelector(
-            '[role="dialog"] [data-automation-button-type="PRIMARY"]'
+            '[role="dialog"] [data-automation-button-type="PRIMARY"]',
           )
           .click();
       }
     }
   }
 });
+
 async function fillTimeSheet(node) {
   let inputs = node.querySelectorAll('[role="dialog"] input[type="text"]');
   hoursObserver.observe(
     node.querySelector('[role="dialog"] [data-automation-id="numericText"]'),
-    { childList: true }
+    { childList: true },
   );
   //await delay(1000);
   if (inputs) {
@@ -67,6 +78,7 @@ async function fillTimeSheet(node) {
     //simulateMouseClick(node.querySelector('[role="dialog"] [data-automation-button-type="PRIMARY"]'))
   }
 }
+
 function simulateMouseEvent(element, eventName, coordX, coordY) {
   element.dispatchEvent(
     new MouseEvent(eventName, {
@@ -76,7 +88,7 @@ function simulateMouseEvent(element, eventName, coordX, coordY) {
       clientX: coordX,
       clientY: coordY,
       button: 0,
-    })
+    }),
   );
 }
 function simulateMouseClick(node) {
