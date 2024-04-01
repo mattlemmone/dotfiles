@@ -19,7 +19,7 @@ return {
 			},
 		},
 		config = function()
-			require("mlem.lsp.init").setup()
+			require("mlem.lsp.init")
 		end,
 	},
 }

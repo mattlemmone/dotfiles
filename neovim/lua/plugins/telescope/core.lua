@@ -6,7 +6,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
 		cmd = "Telescope",
-		keys = require("plugins.telescope.keymaps"),
+		keys = require("mlem.keymaps.telescope"),
 		config = function()
 			require("telescope").setup({
 				defaults = {

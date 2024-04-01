@@ -1,5 +1,3 @@
-local M = {}
-
 -- :h lspconfig-all
 local ls_with_default_settings = {
 	"bashls",
@@ -21,33 +19,29 @@ local ls_with_default_settings = {
 	"yamlls",
 }
 
-M.setup = function()
-	local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
-	local capabilities = require("cmp_nvim_lsp").default_capabilities(lsp_capabilities)
-	local nvim_lsp = require("lspconfig")
-	local navic = require("nvim-navic")
+local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities(lsp_capabilities)
+local nvim_lsp = require("lspconfig")
+local navic = require("nvim-navic")
 
-	local on_attach_default = function(client, bufnr)
-		-- Bread Crumbs
-		if client.server_capabilities.documentSymbolProvider then
-			navic.attach(client, bufnr)
-		end
-
-		require("mlem.lsp.keymaps").registerKeymaps(bufnr)
+local on_attach_default = function(client, bufnr)
+	-- Bread Crumbs
+	if client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
 	end
 
-	for _, v in ipairs(ls_with_default_settings) do
-		nvim_lsp[v].setup({
-			on_attach = on_attach_default,
-			capabilities = capabilities,
-		})
-	end
-
-	require("mlem.lsp.vtsls").setup(on_attach_default, capabilities)
-	require("mlem.lsp.go").setup(on_attach_default, capabilities)
-	require("mlem.lsp.lua_ls").setup(on_attach_default, capabilities)
-	require("mlem.lsp.yaml_ls").setup(on_attach_default)
-	require("mlem.lsp.kotlin").setup(on_attach_default, capabilities)
+	require("mlem.keymaps.lsp").registerKeymaps(bufnr)
 end
 
-return M
+for _, v in ipairs(ls_with_default_settings) do
+	nvim_lsp[v].setup({
+		on_attach = on_attach_default,
+		capabilities = capabilities,
+	})
+end
+
+require("mlem.lsp.vtsls").setup(on_attach_default, capabilities)
+require("mlem.lsp.go").setup(on_attach_default, capabilities)
+require("mlem.lsp.lua_ls").setup(on_attach_default, capabilities)
+require("mlem.lsp.yaml_ls").setup(on_attach_default)
+require("mlem.lsp.kotlin").setup(on_attach_default, capabilities)
