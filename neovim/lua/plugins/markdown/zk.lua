@@ -44,6 +44,24 @@ return {
 			mode = { "n" },
 		},
 		{
+			"<Leader>zl",
+			mode = { "n" },
+			"<CMD>ObsidianBacklinks<CR>",
+			desc = "Obsidian Backlinks",
+		},
+		{
+			"<Leader>zf",
+			mode = { "n" },
+			"<CMD>ObsidianQuickSwitch<CR>",
+			desc = "Obsidian Quick Switch",
+		},
+		{
+			"<Leader>zs",
+			mode = { "n" },
+			"<CMD>ObsidianSearch<CR>",
+			desc = "Search Notes",
+		},
+		{
 			"<Leader>zr",
 			mode = { "n" },
 			function()
