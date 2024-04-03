@@ -19,7 +19,9 @@ M.registerKeymaps = function(bufnr)
 	})
 
 	-- Diagnostics
-	keymap.set("n", "<Leader>e", "<CMD>Telescope diagnostics<CR>", bufopts)
+	keymap.set("n", "<Leader>e", function()
+		require("telescope.builtin").diagnostics({ severity_limit = "WARN" })
+	end, bufopts)
 
 	keymap.set({ "i", "n" }, "<C-s>", vim.lsp.buf.signature_help, bufopts)
 
