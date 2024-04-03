@@ -8,30 +8,30 @@ return {
 		version = "^4", -- Recommended
 		ft = { "rust" },
 		keys = {
-			create_key_map({
-				mode = { "n" },
-				useLeader = true,
-				sequence = "qf",
-				command = function()
-					vim.cmd.RustLsp("codeAction")
-				end,
-			}),
-			create_key_map({
-				mode = { "n" },
-				useLeader = true,
-				sequence = "ca",
-				command = function()
-					vim.cmd.RustLsp({ "hover", "actions" })
-				end,
-			}),
-			create_key_map({
-				mode = { "n" },
-				useLeader = false,
-				sequence = "J",
-				command = function()
-					vim.cmd.RustLsp("joinLines")
-				end,
-			}),
+			-- create_key_map({
+			-- 	mode = { "n" },
+			-- 	useLeader = true,
+			-- 	sequence = "qf",
+			-- 	command = function()
+			-- 		vim.cmd.RustLsp("codeAction")
+			-- 	end,
+			-- }),
+			-- create_key_map({
+			-- 	mode = { "n" },
+			-- 	useLeader = true,
+			-- 	sequence = "ca",
+			-- 	command = function()
+			-- 		vim.cmd.RustLsp({ "hover", "actions" })
+			-- 	end,
+			-- }),
+			-- create_key_map({
+			-- 	mode = { "n" },
+			-- 	useLeader = false,
+			-- 	sequence = "J",
+			-- 	command = function()
+			-- 		vim.cmd.RustLsp("joinLines")
+			-- 	end,
+			-- }),
 		},
 	},
 	{

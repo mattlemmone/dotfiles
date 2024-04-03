@@ -21,6 +21,8 @@ M.registerKeymaps = function(bufnr)
 	-- Diagnostics
 	keymap.set("n", "<Leader>e", "<CMD>Telescope diagnostics<CR>", bufopts)
 
+	keymap.set({ "i", "n" }, "<C-s>", vim.lsp.buf.signature_help, bufopts)
+
 	-- Docs
 	keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 

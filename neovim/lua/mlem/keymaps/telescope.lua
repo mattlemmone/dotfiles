@@ -18,6 +18,12 @@ return {
 	}),
 	create_key_map({
 		useLeader = true,
+		sequence = "S",
+		command = "Telescope current_buffer_fuzzy_find",
+		description = "Fuzzy find in buffer",
+	}),
+	create_key_map({
+		useLeader = true,
 		sequence = "*",
 		command = function()
 			require("telescope.builtin").grep_string({ cwd = git.get_git_project_root_or_current_dir() })
