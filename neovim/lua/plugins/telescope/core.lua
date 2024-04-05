@@ -1,5 +1,24 @@
 local git = require("utils/git")
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "TelescopeResults",
+	callback = function(ctx)
+		vim.api.nvim_buf_call(ctx.buf, function()
+			vim.fn.matchadd("TelescopeParent", "\t\t.*$")
+			vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
+		end)
+	end,
+})
+
+local function filenameFirst(_, path)
+	local tail = vim.fs.basename(path)
+	local parent = vim.fs.dirname(path)
+	if parent == "." then
+		return tail
+	end
+	return string.format("%s\t\t%s", tail, parent)
+end
+
 return {
 	{ import = "plugins.telescope.dependencies" },
 	{
@@ -17,7 +36,7 @@ return {
 						"*.mindnode/",
 					},
 					sorting_strategy = "ascending",
-					path_display = { truncate = 3 },
+					path_display = filenameFirst,
 					layout_config = {
 						vertical = { width = 0.25 },
 						prompt_position = "top",
@@ -33,6 +52,7 @@ return {
 								require("telescope.actions").smart_send_to_qflist(...)
 								require("telescope.builtin").quickfix({ initial_mode = "normal" })
 							end,
+							["x"] = "delete_buffer",
 						},
 					},
 				},
@@ -64,6 +84,9 @@ return {
 					buffers = {
 						sort_lastused = true,
 						ignore_current_buffer = true,
+					},
+					lsp_references = {
+						path_display = { "shorten" },
 					},
 				},
 				import = {
