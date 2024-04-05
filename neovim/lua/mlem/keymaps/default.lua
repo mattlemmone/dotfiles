@@ -18,7 +18,6 @@ keymap.set("n", "<C-l>", "<CMD>wincmd l<CR>", { silent = false, remap = true, de
 
 keymap.set("n", "<Leader>O", "O<Esc>", { desc = "Open Above" })
 keymap.set("n", "<Leader>o", "o<Esc>", { desc = "Open Below" })
-keymap.set("n", "<CR>", "ciw", { desc = "Change Inner Word" })
 
 keymap.set("n", "<Leader>hl", "<CMD>nohl<CR> ", { desc = "Disable Highlight" })
 

@@ -7,7 +7,8 @@ end
 
 M.get_git_root = function(path)
 	local dot_git_path = vim.fn.finddir(".git", path)
-	return vim.fn.fnamemodify(dot_git_path, ":h")
+	local repo_root = vim.fn.fnamemodify(dot_git_path, ":h")
+	return repo_root
 end
 
 M.get_git_project_root = function(path)
@@ -16,12 +17,6 @@ M.get_git_project_root = function(path)
 	end
 
 	return nil
-end
-
-M.get_git_project_root_or_current_dir = function()
-	local current_file_dir = vim.fn.expand("%:p:h")
-
-	return M.get_git_project_root(current_file_dir) or current_file_dir
 end
 
 return M

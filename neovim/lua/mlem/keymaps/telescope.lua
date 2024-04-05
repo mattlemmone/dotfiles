@@ -12,7 +12,8 @@ return {
 		useLeader = true,
 		sequence = "s",
 		command = function()
-			require("telescope.builtin").live_grep({ cwd = git.get_git_project_root_or_current_dir() })
+			local cwd = vim.fn.expand("%:p:h")
+			require("telescope.builtin").live_grep()
 		end,
 		description = "Grep",
 	}),
@@ -26,7 +27,8 @@ return {
 		useLeader = true,
 		sequence = "*",
 		command = function()
-			require("telescope.builtin").grep_string({ cwd = git.get_git_project_root_or_current_dir() })
+			local cwd = vim.fn.expand("%:p:h")
+			require("telescope.builtin").grep_string({ cwd = git.get_git_project_root(cwd) or cwd })
 		end,
 		description = "Search for Word Under Cursor",
 	}),
@@ -66,8 +68,16 @@ return {
 	create_key_map({
 		useLeader = true,
 		sequence = "f",
+		command = "Telescope find_files",
+		description = "File Search",
+	}),
+	create_key_map({
+		useLeader = true,
+		sequence = "F",
 		command = function()
-			require("telescope.builtin").find_files({ cwd = git.get_git_project_root_or_current_dir() })
+			require("telescope.builtin").find_files({
+				cwd = require("telescope.utils").buffer_dir(),
+			})
 		end,
 		description = "File Search",
 	}),

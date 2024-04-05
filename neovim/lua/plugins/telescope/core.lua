@@ -28,6 +28,12 @@ return {
 							["<C-U>"] = require("telescope.actions").cycle_history_prev,
 							["<C-CR>"] = require("telescope.actions").to_fuzzy_refine,
 						},
+						n = {
+							["q"] = function(...)
+								require("telescope.actions").smart_send_to_qflist(...)
+								require("telescope.builtin").quickfix({ initial_mode = "normal" })
+							end,
+						},
 					},
 				},
 				extensions = {
@@ -43,7 +49,8 @@ return {
 							local project_actions = require("telescope._extensions.project.actions")
 							project_actions.change_working_directory(prompt_bufnr, false)
 
-							require("telescope.builtin").find_files({ cwd = git.get_git_project_root_or_current_dir() })
+							local cwd = vim.fn.expand("%:p:h")
+							require("telescope.builtin").find_files({ cwd = git.get_git_project_root(cwd) or cwd })
 						end,
 					},
 					["ui-select"] = {
