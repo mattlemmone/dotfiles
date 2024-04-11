@@ -2,7 +2,7 @@ return {
 	{
 		"j-hui/fidget.nvim",
 		event = "VeryLazy",
-		tag = "legacy",
+		tag = "v1.0.0",
 		config = function()
 			require("fidget").setup({ text = { spinner = "dots" } })
 		end,
