@@ -2,7 +2,10 @@ return {
 	{ import = "plugins.colors" },
 	{
 		"stevearc/dressing.nvim",
-		opts = {},
+		opts = { input = {
+			start_in_insert = false,
+			title_pos = "center",
+		} },
 	},
 	{
 		-- highlight selected ranges from command line
