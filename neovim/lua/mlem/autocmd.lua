@@ -65,3 +65,11 @@ autocmd("BufWritePost", {
 	pattern = { ".skhdrc" },
 	command = "!brew services restart skhd",
 })
+
+autocmd("BufWritePost", {
+	pattern = { ".d2" },
+	callback = function()
+		local filepath = vim.fn.expand("%:f")
+		vim.cmd("!d2 " .. filepath)
+	end,
+})

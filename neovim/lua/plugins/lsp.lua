@@ -4,7 +4,13 @@ return {
 		event = "VeryLazy",
 		tag = "v1.0.0",
 		config = function()
-			require("fidget").setup({ text = { spinner = "dots" } })
+			require("fidget").setup({
+        progress = {
+          display = {
+            progress_icon = { pattern = "dots", period = 1 },
+          },
+        }
+			})
 		end,
 	},
 	{

@@ -8,6 +8,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				go = { "gopls" },
+				rust = { "rustfmt" },
 				markdown = { "markdownlint" },
 				protobuf = { "buf" },
 				sh = { "shfmt" },

@@ -1,4 +1,4 @@
-local create_key_map = require("utils/keys").create_key_map
+local create_lazy_key_map = require("utils/keys").create_lazy_key_map
 
 return {
 	{
@@ -6,7 +6,7 @@ return {
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		command = "Telescope project",
 		keys = {
-			create_key_map({
+			create_lazy_key_map({
 				useLeader = true,
 				sequence = ";",
 				command = function()
@@ -41,7 +41,7 @@ return {
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
 		keys = {
-			create_key_map({
+			create_lazy_key_map({
 				useLeader = true,
 				sequence = "n",
 				command = function()
@@ -65,7 +65,7 @@ return {
 		"piersolenski/telescope-import.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		keys = {
-			create_key_map({
+			create_lazy_key_map({
 				useLeader = true,
 				sequence = "i",
 				command = "Telescope import",

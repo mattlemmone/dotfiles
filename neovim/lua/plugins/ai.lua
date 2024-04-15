@@ -107,6 +107,7 @@ return {
 					markdown = false,
 					help = false,
 					gitcommit = false,
+					d2 = false,
 					gitrebase = false,
 					hgcommit = false,
 					svn = false,

@@ -1,14 +1,14 @@
-local create_key_map = require("utils/keys").create_key_map
+local create_lazy_key_map = require("utils/keys").create_lazy_key_map
 local git = require("utils/git")
 
 return {
-	create_key_map({
+	create_lazy_key_map({
 		useLeader = true,
 		sequence = "k",
 		command = "Telescope keymaps",
 		description = "Keymaps",
 	}),
-	create_key_map({
+	create_lazy_key_map({
 		useLeader = true,
 		sequence = "s",
 		command = function()
@@ -17,13 +17,13 @@ return {
 		end,
 		description = "Grep",
 	}),
-	create_key_map({
+	create_lazy_key_map({
 		useLeader = true,
 		sequence = "S",
 		command = "Telescope current_buffer_fuzzy_find",
 		description = "Fuzzy find in buffer",
 	}),
-	create_key_map({
+	create_lazy_key_map({
 		useLeader = true,
 		sequence = "*",
 		command = function()
@@ -32,7 +32,7 @@ return {
 		end,
 		description = "Search for Word Under Cursor",
 	}),
-	create_key_map({
+	create_lazy_key_map({
 		useLeader = true,
 		sequence = "r",
 		command = function()
@@ -41,7 +41,7 @@ return {
 		description = "Resume Search",
 	}),
 
-	create_key_map({
+	create_lazy_key_map({
 		useLeader = true,
 		sequence = "b",
 		command = function()
@@ -49,7 +49,7 @@ return {
 		end,
 		description = "List Open Buffers",
 	}),
-	create_key_map({
+	create_lazy_key_map({
 		useLeader = true,
 		sequence = "cl",
 		command = function()
@@ -57,7 +57,7 @@ return {
 		end,
 		description = "Commands",
 	}),
-	create_key_map({
+	create_lazy_key_map({
 		useLeader = true,
 		sequence = "ch",
 		command = function()
@@ -65,13 +65,13 @@ return {
 		end,
 		description = "Command History",
 	}),
-	create_key_map({
+	create_lazy_key_map({
 		useLeader = true,
 		sequence = "f",
 		command = "Telescope find_files",
 		description = "File Search",
 	}),
-	create_key_map({
+	create_lazy_key_map({
 		useLeader = true,
 		sequence = "F",
 		command = function()
@@ -81,7 +81,7 @@ return {
 		end,
 		description = "File Search",
 	}),
-	create_key_map({
+	create_lazy_key_map({
 		useLeader = true,
 		sequence = "hh",
 		command = function()
@@ -89,7 +89,7 @@ return {
 		end,
 		description = "File History",
 	}),
-	create_key_map({
+	create_lazy_key_map({
 		useLeader = true,
 		sequence = "gm",
 		command = "Telescope marks",
