@@ -8,9 +8,7 @@ return {
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"onsails/lspkind.nvim", -- styling for cmp
-			"ray-x/cmp-treesitter",
 			"saadparwaiz1/cmp_luasnip",
 			{
 				"zbirenbaum/copilot-cmp",
@@ -51,8 +49,6 @@ return {
 							nvim_lua = "[nvim]",
 							nvim_lsp = "[LSP]",
 							path = "[path]",
-							nvim_lsp_signature_help = "[param]",
-							-- treesitter = "[ts]",
 						},
 					}),
 				},
@@ -91,17 +87,11 @@ return {
 				sources = cmp.config.sources({
 					{ name = "luasnip", group_index = 1 },
 					{ name = "copilot", group_index = 2 },
-					{ name = "nvim_lsp_signature_help", group_index = 2 },
 					{ name = "nvim_lsp", group_index = 2, keyword_length = 3 },
 					{ name = "nvim_lua", group_index = 2 },
 					{ name = "buffer", group_index = 2, keyword_length = 3 },
 					{ name = "path", group_index = 2 },
 					{ name = "emoji", group_index = 2 },
-					-- {
-					--   name = 'treesitter',
-					--   group_index = 3,
-					--   keyword_length = 3
-					-- },
 				}),
 			})
 

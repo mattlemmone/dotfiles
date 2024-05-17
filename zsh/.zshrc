@@ -18,8 +18,9 @@ source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load ~/dotfiles/zsh/plugins.txt
 source ~/dotfiles/zsh/options.zsh
 
-## Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/dotfiles/misc/bob.zsh
 
 eval "$(zoxide init zsh)"
 

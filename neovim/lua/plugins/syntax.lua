@@ -28,16 +28,6 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
 		build = ":TSUpdate",
-		dependencies = {
-			-- {
-			-- 	"nvim-treesitter/nvim-treesitter-context",
-			-- 	config = function()
-			-- 		require("treesitter-context").setup({
-			-- 			max_lines = 10,
-			-- 		})
-			-- 	end,
-			-- },
-		},
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				modules = {},

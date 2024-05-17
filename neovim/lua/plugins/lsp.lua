@@ -5,12 +5,20 @@ return {
 		tag = "v1.0.0",
 		config = function()
 			require("fidget").setup({
-        progress = {
-          display = {
-            progress_icon = { pattern = "dots", period = 1 },
-          },
-        }
+				progress = {
+					display = {
+						progress_icon = { pattern = "dots", period = 1 },
+					},
+				},
 			})
+		end,
+	},
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "VeryLazy",
+		opts = {},
+		config = function(_, opts)
+			require("lsp_signature").setup(opts)
 		end,
 	},
 	{
