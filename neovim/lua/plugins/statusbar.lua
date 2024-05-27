@@ -5,7 +5,8 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "rose-pine",
+				-- theme = "rose-pine",
+				theme = "catppuccin",
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
@@ -26,8 +27,8 @@ return {
 				lualine_b = { "diff", "diagnostics" },
 				lualine_c = {},
 				lualine_x = { "filetype", "overseer", require("codegpt").get_status },
-				lualine_y = {  },
-				lualine_z = {  },
+				lualine_y = {},
+				lualine_z = {},
 			},
 			inactive_sections = {
 				lualine_a = {},

@@ -1,12 +1,13 @@
 return {
 	{
 		"catppuccin/nvim",
-		enabled = false,
+		priority = 1000,
+		enabled = true,
 		name = "catppuccin",
 		event = "VimEnter",
 		config = function()
 			require("catppuccin").setup({
-				flavour = "mocha", -- latte, frappe, macchiato, mocha
+				flavour = "latte", -- latte, frappe, macchiato, mocha
 				-- background = { -- :h background
 				--   -- light = "latte",
 				--   dark = "mocha",
@@ -63,9 +64,21 @@ return {
 						enabled = true,
 						colored_indent_levels = false,
 					},
-					symbols_outline = true,
+					aerial = true,
+					barbecue = {
+						dim_dirname = true, -- directory name is dimmed by default
+						bold_basename = true,
+						dim_context = false,
+						alt_background = false,
+					},
 					fidget = true,
-					lsp_trouble = true,
+					flash = true,
+					treesitter = true,
+					overseer = true,
+					illuminate = {
+						enabled = true,
+						lsp = false,
+					},
 					markdown = true,
 					noice = true,
 					which_key = true,

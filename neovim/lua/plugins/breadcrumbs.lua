@@ -12,6 +12,8 @@ return {
 					lsp = {
 						preference = { "pyright" },
 					},
+					-- catpuccin
+					highlight = true,
 				})
 			end,
 		},

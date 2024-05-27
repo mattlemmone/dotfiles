@@ -10,6 +10,12 @@ return {
 						progress_icon = { pattern = "dots", period = 1 },
 					},
 				},
+				-- for catpuccin
+				notification = {
+					window = {
+						winblend = 0,
+					},
+				},
 			})
 		end,
 	},
