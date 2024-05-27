@@ -79,7 +79,7 @@ return {
 				cwd = require("telescope.utils").buffer_dir(),
 			})
 		end,
-		description = "File Search",
+		description = "File Search in buffer directory",
 	}),
 	create_lazy_key_map({
 		useLeader = true,

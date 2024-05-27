@@ -65,13 +65,6 @@ return {
 					},
 					project = {
 						hidden_files = true,
-						on_project_selected = function(prompt_bufnr)
-							local project_actions = require("telescope._extensions.project.actions")
-							project_actions.change_working_directory(prompt_bufnr, false)
-
-							local cwd = vim.fn.expand("%:p:h")
-							require("telescope.builtin").find_files({ cwd = git.get_git_project_root(cwd) or cwd })
-						end,
 					},
 					["ui-select"] = {
 						require("telescope.themes").get_cursor(),
