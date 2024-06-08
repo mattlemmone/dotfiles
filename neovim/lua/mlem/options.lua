@@ -11,6 +11,7 @@ set.splitright = true
 -- Display
 vim.o.cpoptions = vim.o.cpoptions .. "y"
 set.cursorline = true -- highlight current line
+set.cursorcolumn = true -- highlight current col
 set.encoding = "utf-8"
 set.expandtab = true -- convert <TAB> key-presses to spaces
 set.list = true -- show special chars

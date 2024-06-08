@@ -14,6 +14,7 @@ local ls_with_default_settings = {
 	"pyright",
 	"ruff_lsp",
 	"sqls",
+	"taplo",
 	"terraformls",
 	"vimls",
 	"yamlls",
