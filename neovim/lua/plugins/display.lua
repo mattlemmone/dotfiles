@@ -26,7 +26,7 @@ return {
 			require("ibl").setup({})
 		end,
 	},
-	
+
 	"norcalli/nvim-colorizer.lua", -- highlight color codes real-time
 
 	{
@@ -44,12 +44,4 @@ return {
 			})
 		end,
 	},
-	{
-		"echasnovski/mini.animate",
-		event = "VeryLazy",
-		version = "*",
-		config = function()
-			require("mini.animate").setup()
-		end,
-	}, -- navigation using brackets. TS nodes, conflicts, comments, diag, files, bufs, windows...
 }
