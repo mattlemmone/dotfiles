@@ -1,5 +1,4 @@
 local set_vim_key_map = require("utils/keys").set_vim_key_map
-local keymap = vim.keymap
 
 -- Largely ripped from https://github.com/LazyVim/LazyVim/blob/bb36f71b77d8e15788a5b62c82a1c9ec7b209e49/lua/lazyvim/plugins/extras/lang/rust.lua
 

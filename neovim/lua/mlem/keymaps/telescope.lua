@@ -12,7 +12,6 @@ return {
 		useLeader = true,
 		sequence = "s",
 		command = function()
-			local cwd = vim.fn.expand("%:p:h")
 			require("telescope.builtin").live_grep()
 		end,
 		description = "Grep",

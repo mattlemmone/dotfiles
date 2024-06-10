@@ -26,6 +26,7 @@ return {
 			require("ibl").setup({})
 		end,
 	},
+	
 	"norcalli/nvim-colorizer.lua", -- highlight color codes real-time
 
 	{

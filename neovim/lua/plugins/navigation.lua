@@ -41,10 +41,16 @@ return {
 			})
 		end,
 	},
-	{
+	{ -- f/F indicators
 		"jinh0/eyeliner.nvim",
 		event = { "BufReadPre", "BufNewFile" },
-	}, -- f/F indicators
+		config = function()
+			require("eyeliner").setup({
+				highlight_on_key = true, -- show highlights only after keypress
+				dim = false, -- dim all other characters if set to true (recommended!)
+			})
+		end,
+	},
 	{
 		"echasnovski/mini.bracketed",
 		event = "VeryLazy",

@@ -1,3 +1,5 @@
+local set_vim_key_map = require("utils/keys").set_vim_key_map
+
 return {
 	{ "tpope/vim-commentary", event = "VeryLazy" }, -- commenting
 	{ "tpope/vim-repeat", event = "VeryLazy" },
@@ -95,5 +97,35 @@ return {
 		config = function()
 			require("nvim-autopairs").setup({})
 		end,
+		{
+			"Wansmer/treesj",
+			keys = { "<space>J", "<space>j" },
+			dependencies = { "nvim-treesitter/nvim-treesitter" },
+			config = function()
+				require("treesj").setup({
+					use_default_keymaps = false,
+				})
+
+				set_vim_key_map({
+					mode = { "n" },
+					useLeader = true,
+					sequence = "J",
+					command = function()
+						require("treesj").join()
+					end,
+					description = "Join",
+				})
+
+				set_vim_key_map({
+					mode = { "n" },
+					useLeader = true,
+					sequence = "j",
+					command = function()
+						require("treesj").split()
+					end,
+					description = "Un-join",
+				})
+			end,
+		},
 	},
 }
