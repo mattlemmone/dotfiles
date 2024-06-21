@@ -19,8 +19,10 @@ return {
 	create_lazy_key_map({
 		useLeader = true,
 		sequence = "S",
-		command = "Telescope current_buffer_fuzzy_find",
-		description = "Fuzzy find in buffer",
+		command = function()
+			require("telescope.builtin").live_grep({ grep_open_files = true })
+		end,
+		description = "Grep in open buffers",
 	}),
 	create_lazy_key_map({
 		useLeader = true,

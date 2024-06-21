@@ -37,8 +37,12 @@ return {
 					},
 					sorting_strategy = "ascending",
 					path_display = filenameFirst,
+					hidden = true,
 					layout_config = {
-						vertical = { width = 0.25 },
+						vertical = {
+							height = 0.75,
+							width = 0.85,
+						},
 						prompt_position = "top",
 					},
 					mappings = {
@@ -53,6 +57,7 @@ return {
 								require("telescope.builtin").quickfix({ initial_mode = "normal" })
 							end,
 							["x"] = "delete_buffer",
+							["p"] = require("telescope.actions.layout").toggle_preview,
 						},
 					},
 				},
@@ -73,10 +78,15 @@ return {
 				pickers = {
 					find_files = {
 						find_command = { "rg", "--files" },
+						previewer = false,
+					},
+					diagnostics = {
+					path_display = filenameFirst,
 					},
 					buffers = {
 						sort_lastused = true,
 						ignore_current_buffer = true,
+						previewer = false,
 					},
 					lsp_references = {
 						path_display = { "shorten" },

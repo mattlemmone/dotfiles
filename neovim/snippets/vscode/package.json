@@ -1,0 +1,11 @@
+{
+	"name": "vscode-snippets",
+	"contributes": {
+		"snippets": [
+			{
+				"language": [ "typescriptreact" ],
+				"path": "./typescriptreact.json"
+			}
+		]
+	}
+}

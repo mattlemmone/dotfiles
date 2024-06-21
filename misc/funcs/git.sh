@@ -33,3 +33,7 @@ cmt() {
 checkout_pr(){
  gh pr checkout "$1"
 }
+
+reset_file_to_master(){
+  git checkout master -- "$1"
+}

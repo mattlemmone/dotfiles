@@ -1,6 +1,9 @@
 snippet today
 	`strftime('%a, %b %d %Y ')`
 
+snippet yesterday
+	`strftime('%a, %b %d %Y', localtime(strftime('%s') - 86400))`
+
 snippet ref b
   References
   - ${0}

@@ -1,0 +1,15 @@
+{
+"TypeScript React Function Component with Props": {
+    "prefix": "rfc",
+    "body": [
+            "import * as React from 'react'",
+            "interface ${1:${TM_FILENAME/(^.)(.*)\\..*/${1:/upcase}$2/}}Props {",
+            "\t$2",
+            "}",
+            "export const $1: React.FC<$1Props> = ({ ${2/(.*?)\\??:\\s*.*(\n?)/$1${2:+, }/g} }) => {",
+            "\treturn $3",
+            "}"
+    ],
+    "description": "TypeScript React Function Component with Props"
+}
+}
