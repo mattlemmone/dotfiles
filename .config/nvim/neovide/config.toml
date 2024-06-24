@@ -1,0 +1,12 @@
+fork = false
+frame = "none"
+idle = true
+maximized = false
+neovim-bin = "/Users/mattlemmone/.local/share/bob/nvim-bin/nvim"
+no-multigrid = false
+srgb = false
+tabs = true
+theme = "auto"
+title-hidden = true
+vsync = true
+wsl = false

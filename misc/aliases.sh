@@ -1,5 +1,6 @@
 #!/bin/bash
 alias vim='nvim'
+alias nvim='neovide'
 
 # Git
 alias gc='git checkout'
@@ -30,5 +31,3 @@ alias ls='eza --icons auto'
 alias rm='rip'
 alias rm_undo='rip -s'
 
-# Obsidian
-alias edit_personal_notes="pushd /Users/$USER/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/iOS\ Vault; vim .; popd"

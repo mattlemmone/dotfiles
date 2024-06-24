@@ -1,12 +1,12 @@
 #!/bin/bash
 export SHELL=/bin/zsh
-export EDITOR=nvim
+export EDITOR=neovide
 export PAGER='less'
 export GOPATH=$HOME/go
 
 # Path
 case $(arch) in
-arm64) # M1
+arm64) # Apple Silicon
 	export BREW_PREFIX=/opt/homebrew
 
 	;;
@@ -27,4 +27,4 @@ export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Bat
-export BAT_THEME="Dracula"
+export BAT_THEME="Catppuccin Mocha"
