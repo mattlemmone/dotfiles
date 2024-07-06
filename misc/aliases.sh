@@ -11,7 +11,7 @@ alias gd='git diff'
 alias dotfiles='nvim ~/dotfiles'
 
 # Docker
-alias docker_tty='docker exec -it $(docker ps | fzf -e --header-lines=1 --reverse | cut -d" " -f1) bash'
+alias docker_tty='docker exec -it $(docker ps | fzf -e --header-lines=1 --reverse | cut -d" " -f1) -- bash'
 alias docker_logs='docker logs -f $(docker ps | fzf -e --header-lines=1 --reverse | cut -d" " -f1)'
 
 # Kubernetes
