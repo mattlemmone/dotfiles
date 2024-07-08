@@ -20,7 +20,9 @@ return {
 		useLeader = true,
 		sequence = "S",
 		command = function()
-			require("telescope.builtin").live_grep({ grep_open_files = true })
+			require("telescope.builtin").live_grep({
+				grep_open_files = true,
+			})
 		end,
 		description = "Grep in open buffers",
 	}),

@@ -76,12 +76,23 @@ return {
 					},
 				},
 				pickers = {
+					live_grep = {
+						additional_args = {
+							"--hidden",
+							"--glob=!.git/",
+						},
+					},
 					find_files = {
-						find_command = { "rg", "--files" },
+						find_command = {
+							"rg",
+							"--files",
+							"--hidden",
+							"--glob=!.git/",
+						},
 						previewer = false,
 					},
 					diagnostics = {
-					path_display = filenameFirst,
+						path_display = filenameFirst,
 					},
 					buffers = {
 						sort_lastused = true,

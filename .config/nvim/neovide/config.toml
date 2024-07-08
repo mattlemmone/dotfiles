@@ -1,11 +1,10 @@
-fork = false
-frame = "none"
+fork = true
+frame = "buttonless"
 idle = true
 maximized = false
-neovim-bin = "/Users/mattlemmone/.local/share/bob/nvim-bin/nvim"
 no-multigrid = false
 srgb = false
-tabs = true
+tabs = false
 theme = "auto"
 title-hidden = true
 vsync = true
