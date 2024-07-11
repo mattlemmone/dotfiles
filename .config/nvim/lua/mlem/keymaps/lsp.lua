@@ -20,6 +20,7 @@ M.registerKeymaps = function(bufnr)
 
 	-- Diagnostics
 	keymap.set("n", "<Leader>e", function()
+		-- require("fzf-lua").diagnostics_workspace()
 		require("telescope.builtin").diagnostics({ severity_limit = "WARN" })
 	end, bufopts)
 
@@ -32,10 +33,12 @@ M.registerKeymaps = function(bufnr)
 	keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, bufopts)
 
 	--" Goto
+	-- keymap.set("n", "gd", "<CMD>FzfLua lsp_definitions<CR>", bufopts)
 	keymap.set("n", "gd", "<CMD>Telescope lsp_definitions<CR>", bufopts)
 	keymap.set("n", "gt", vim.lsp.buf.type_definition, bufopts)
 	keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 	keymap.set("n", "gr", "<CMD>Telescope lsp_references initial_mode=normal<CR>", bufopts)
+	-- keymap.set("n", "gr", "<CMD>FzfLua lsp_references", bufopts)
 end
 
 return M

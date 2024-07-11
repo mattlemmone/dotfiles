@@ -1,5 +1,111 @@
+local create_lazy_key_map = require("utils/keys").create_lazy_key_map
+
 return {
 	{ import = "plugins.telescope.core" },
+	{
+		"ibhagwan/fzf-lua",
+		enabled = false,
+		-- optional for icon support
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		keys = {
+			create_lazy_key_map({
+				useLeader = true,
+				sequence = "k",
+				command = "FzfLua keymaps",
+				description = "Keymaps",
+			}),
+			create_lazy_key_map({
+				useLeader = true,
+				sequence = "s",
+				command = function()
+					require("fzf-lua").live_grep_native()
+				end,
+				description = "Grep",
+			}),
+			create_lazy_key_map({
+				useLeader = true,
+				sequence = "S",
+				command = function()
+					require("fzf-lua").lgrep_curbuf()
+				end,
+				description = "Grep in current buffer",
+			}),
+			create_lazy_key_map({
+				useLeader = true,
+				sequence = "*",
+				command = function()
+					require("fzf-lua").grep_cword()
+				end,
+				description = "Search for Word Under Cursor",
+			}),
+			create_lazy_key_map({
+				useLeader = true,
+				sequence = "r",
+				command = function()
+					require("fzf-lua").resume()
+				end,
+				description = "Resume Search",
+			}),
+
+			create_lazy_key_map({
+				useLeader = true,
+				sequence = "b",
+				command = function()
+					require("fzf-lua").buffers()
+				end,
+				description = "List Open Buffers",
+			}),
+			create_lazy_key_map({
+				useLeader = true,
+				sequence = "cl",
+				command = function()
+					require("fzf-lua").commands()
+				end,
+				description = "Commands",
+			}),
+			create_lazy_key_map({
+				useLeader = true,
+				sequence = "ch",
+				command = function()
+					require("fzf-lua").command_history()
+				end,
+				description = "Command History",
+			}),
+			create_lazy_key_map({
+				useLeader = true,
+				sequence = "f",
+				command = "FzfLua files",
+				description = "File Search",
+			}),
+			create_lazy_key_map({
+				useLeader = true,
+				sequence = "hh",
+				command = function()
+					require("fzf-lua").oldfiles()
+				end,
+				description = "File History",
+			}),
+			create_lazy_key_map({
+				useLeader = true,
+				sequence = "gm",
+				command = "FzfLua marks",
+				description = "Go to Mark",
+			}),
+		},
+		config = function()
+			local actions = require("fzf-lua.actions")
+			require("fzf-lua").setup({
+				actions = {
+					files = {
+						["default"] = actions.file_edit_or_qf,
+					},
+				},
+				files = {
+					formatter = "path.filename_first",
+				},
+			})
+		end,
+	},
 	{
 		"chentoast/marks.nvim",
 		config = function()
@@ -58,6 +164,12 @@ return {
 			require("mini.bracketed").setup()
 		end,
 	}, -- navigation using brackets. TS nodes, conflicts, comments, diag, files, bufs, windows...
+	{
+		"cbochs/grapple.nvim",
+		dependencies = {
+			{ "nvim-tree/nvim-web-devicons", lazy = true },
+		},
+	},
 	{
 		"folke/persistence.nvim",
 		event = "VimEnter",

@@ -60,7 +60,5 @@ return {
 			link_folds_to_tree = true,
 			link_tree_to_folds = true,
 		})
-
-		-- require("telescope").load_extension("aerial")
 	end,
 }

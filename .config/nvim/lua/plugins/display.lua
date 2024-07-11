@@ -18,17 +18,14 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 	},
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = { "BufReadPost", "BufNewFile" },
-		tag = "v3.5.4",
-		main = "ibl",
+		"echasnovski/mini.indentscope",
+		event = "VeryLazy",
+		version = "*",
 		config = function()
-			require("ibl").setup({})
+			require("mini.indentscope").setup()
 		end,
 	},
-
 	"norcalli/nvim-colorizer.lua", -- highlight color codes real-time
-
 	{
 		"rachartier/tiny-devicons-auto-colors.nvim",
 		dependencies = {
@@ -46,6 +43,6 @@ return {
 	},
 	{
 		"shortcuts/no-neck-pain.nvim",
-    version = "*",
+		version = "*",
 	},
 }

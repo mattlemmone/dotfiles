@@ -39,16 +39,16 @@ reset_file_to_master() {
 }
 
 summarize_pr_changes() {
-  local branch=$1
+  local main_branch=$1
 
-  if [ -z "$branch" ]; then
-    echo "Branch name is required."
+  if [ -z "$main_branch" ]; then
+    echo "Target branch name is required."
     return 1
   fi
 
   local writing_style="write it like a human. lowercase everything. dont be too in depth unless necessary.dont use terminology that would seem scary or overwhleming otherwise ppl wont review hehe."
   local output_format="format in markdown in a code block cuz ill post to github."
-  local prompt="summarize file changes for a PR description. what are the significant, high level changes that devs should know about?  anticipate questions someone would ask in review and factor them into the changelog - dont explicitly call out. no need to list every single change or file unless needed. $writing_style $output_format"
+  local prompt="summarize file changes for a PR description. what are the significant, high level changes that devs should know about?  anticipate questions someone would ask in review and include these in the change log without explicitly calling it out. no need to list every single change or file unless needed. $writing_style $output_format"
 
-  gd "$branch" | sgpt --model gpt-4o "$prompt"
+  gd "$main_branch" | sgpt --model gpt-4o "$prompt" | pbcopy
 }

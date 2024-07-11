@@ -57,7 +57,7 @@ return {
 								require("telescope.builtin").quickfix({ initial_mode = "normal" })
 							end,
 							["x"] = "delete_buffer",
-							["p"] = require("telescope.actions.layout").toggle_preview,
+							["w"] = require("telescope.actions.layout").toggle_preview,
 						},
 					},
 				},
