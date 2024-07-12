@@ -219,4 +219,9 @@ return {
 		keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } },
 		cmd = { "Browse" },
 	}, -- improved 'gx' for opening links, plugin repos, etc
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		event = { "VeryLazy" },
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
 }

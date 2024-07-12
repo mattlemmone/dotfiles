@@ -1,6 +1,5 @@
 vim.o.guifont = "JetBrains Mono:h16"
 vim.g.neovide_show_border = false
-vim.g.neovide_theme = "auto"
 vim.g.neovide_cursor_animation_length = 0.05
 vim.g.neovide_cursor_trail_size = 0.3
 vim.g.neovide_floating_shadow = false

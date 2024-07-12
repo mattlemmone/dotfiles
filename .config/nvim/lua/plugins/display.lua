@@ -33,7 +33,7 @@ return {
 		},
 		event = "VeryLazy",
 		config = function()
-			local theme_colors = require("catppuccin.palettes").get_palette("latte")
+			local theme_colors = require("catppuccin.palettes").get_palette("mocha")
 
 			require("tiny-devicons-auto-colors").setup({
 				-- Optional

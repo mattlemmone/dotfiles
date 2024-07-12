@@ -7,11 +7,11 @@ return {
 		event = "VimEnter",
 		config = function()
 			require("catppuccin").setup({
-				flavour = "latte", -- latte, frappe, macchiato, mocha
-				background = { -- :h background
-					light = "latte",
-					dark = "mocha",
-				},
+				flavour = "mocha",
+				-- background = {
+				-- light = "latte",
+				-- 	dark = "mocha",
+				-- },
 				transparent_background = false,
 				term_colors = false,
 				dim_inactive = {
@@ -87,9 +87,7 @@ return {
 				},
 			})
 
-			vim.cmd([[
-        colorscheme catppuccin
-      ]])
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 }
