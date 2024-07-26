@@ -7,6 +7,9 @@ M.registerKeymaps = function(bufnr)
 
 	-- Code Actions
 	keymap.set({ "n", "v" }, "<Leader>ca", vim.lsp.buf.code_action, bufopts)
+	keymap.set("n", "<leader>ca", function()
+		require("tiny-code-action").code_action()
+	end, bufopts)
 
 	-- Quick Fix
 	keymap.set({ "n", "v" }, "<Leader>qf", "", {

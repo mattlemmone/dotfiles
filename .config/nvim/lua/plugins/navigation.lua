@@ -224,4 +224,9 @@ return {
 		event = { "VeryLazy" },
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 }

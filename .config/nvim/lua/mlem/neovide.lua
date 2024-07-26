@@ -17,4 +17,5 @@ vim.keymap.set("i", "<D-V>", "<C-R>+") -- Paste insert mode
 -- Workaround for Neovide not focusing on startup: https://github.com/neovide/neovide/issues/2330
 vim.defer_fn(function()
 	vim.cmd("NeovideFocus")
-end, 300)
+end, 30)
+

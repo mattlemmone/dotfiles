@@ -48,7 +48,7 @@ return {
 					user_message_template = "Write tests for the following code: ```{{filetype}}\n{{text_selection}}```\n{{command_args}} "
 						.. "Only return the code snippet and nothing else.",
 					callback_type = "code_popup",
-					model = "gpt-4",
+					model = "gpt-4o",
 				},
 			}
 

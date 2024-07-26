@@ -4,6 +4,7 @@ alias nvim='neovide'
 
 # Git
 alias gc='git checkout'
+alias gco='git checkout --ours'
 alias gb='git branch'
 alias gp='git pull'
 alias gs='git status'
@@ -18,7 +19,7 @@ alias docker_logs='docker logs -f $(docker ps | fzf -e --header-lines=1 --revers
 alias k='kubectl'
 alias kctx='kubectx'
 alias kns='kubens'
-alias kd='kubectl describe' 
+alias kd='kubectl describe'
 
 # Terraform
 alias tf='terraform'
@@ -30,4 +31,3 @@ alias tfi='terraform init'
 alias ls='eza --icons auto'
 alias rm='rip'
 alias rm_undo='rip -s'
-
