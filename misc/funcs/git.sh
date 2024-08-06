@@ -46,9 +46,7 @@ summarize_pr_changes() {
     return 1
   fi
 
-  local writing_style="write it like a human. lowercase everything. dont be too in depth unless necessary.dont use terminology that would seem scary or overwhleming otherwise ppl wont review hehe."
-  local output_format="format in markdown in a code block cuz ill post to github."
-  local prompt="summarize file changes for a PR description. what are the significant, high level changes that devs should know about?  anticipate questions someone would ask in review and include these in the change log without explicitly calling it out. no need to list every single change or file unless needed. $writing_style $output_format"
+  local prompt="summarize file changes for a PR description: major changes broken into a few categories/sections. write it in a human-like way, make it concise, use only lowercase. include major changes only. avoid unnecessary details. use easy and approachable language. make the changes sound reasonable. your response must use extremely simple formatting because i will paste it to GitHub. only markdown headers, hyphens and single spaces. no centering or rich formatting. use backticks for file/method etc names."
 
   gd "$main_branch" | sgpt --model gpt-4o "$prompt" | pbcopy
 }

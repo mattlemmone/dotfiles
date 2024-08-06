@@ -13,12 +13,11 @@ return {
 				protobuf = { "buf" },
 				sh = { "shfmt" },
 				-- run multiple formatters sequentially
-				python = { "isort", { "blackd", "black" } },
-				-- run only the first available formatter
-				javascript = { { "prettierd", "prettier" } },
-				javascriptreact = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
-				typescriptreact = { { "prettierd", "prettier" } },
+				python = { "isort", { "blackd", "black", stop_after_first = true } },
+				javascript = { "prettierd", "prettier", stop_after_first = true },
+				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+				typescript = { "prettierd", "prettier", stop_after_first = true },
+				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 			},
 		})
 
@@ -29,6 +28,14 @@ return {
 			pattern = { "*" },
 			callback = function(args)
 				require("conform").format({ bufnr = args.buf })
+			end,
+		})
+
+		autocmd("BufWritePre", {
+			desc = "Fix all lint and import issues",
+			pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+			callback = function(args)
+				vim.lsp.buf.code_action({ apply = true, context = { only = { "source.fixAll.eslint" } } })
 			end,
 		})
 
