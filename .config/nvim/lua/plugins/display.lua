@@ -8,11 +8,6 @@ return {
 		} },
 	},
 	{
-		-- highlight selected ranges from command line
-		"winston0410/range-highlight.nvim",
-		event = "CmdwinEnter",
-	},
-	{
 		-- "automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching."
 		"RRethy/vim-illuminate",
 		event = { "BufReadPost", "BufNewFile" },

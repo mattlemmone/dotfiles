@@ -3,110 +3,6 @@ local create_lazy_key_map = require("utils/keys").create_lazy_key_map
 return {
 	{ import = "plugins.telescope.core" },
 	{
-		"ibhagwan/fzf-lua",
-		enabled = false,
-		-- optional for icon support
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		keys = {
-			create_lazy_key_map({
-				useLeader = true,
-				sequence = "k",
-				command = "FzfLua keymaps",
-				description = "Keymaps",
-			}),
-			create_lazy_key_map({
-				useLeader = true,
-				sequence = "s",
-				command = function()
-					require("fzf-lua").live_grep_native()
-				end,
-				description = "Grep",
-			}),
-			create_lazy_key_map({
-				useLeader = true,
-				sequence = "S",
-				command = function()
-					require("fzf-lua").lgrep_curbuf()
-				end,
-				description = "Grep in current buffer",
-			}),
-			create_lazy_key_map({
-				useLeader = true,
-				sequence = "*",
-				command = function()
-					require("fzf-lua").grep_cword()
-				end,
-				description = "Search for Word Under Cursor",
-			}),
-			create_lazy_key_map({
-				useLeader = true,
-				sequence = "r",
-				command = function()
-					require("fzf-lua").resume()
-				end,
-				description = "Resume Search",
-			}),
-
-			create_lazy_key_map({
-				useLeader = true,
-				sequence = "b",
-				command = function()
-					require("fzf-lua").buffers()
-				end,
-				description = "List Open Buffers",
-			}),
-			create_lazy_key_map({
-				useLeader = true,
-				sequence = "cl",
-				command = function()
-					require("fzf-lua").commands()
-				end,
-				description = "Commands",
-			}),
-			create_lazy_key_map({
-				useLeader = true,
-				sequence = "ch",
-				command = function()
-					require("fzf-lua").command_history()
-				end,
-				description = "Command History",
-			}),
-			create_lazy_key_map({
-				useLeader = true,
-				sequence = "f",
-				command = "FzfLua files",
-				description = "File Search",
-			}),
-			create_lazy_key_map({
-				useLeader = true,
-				sequence = "hh",
-				command = function()
-					require("fzf-lua").oldfiles()
-				end,
-				description = "File History",
-			}),
-			create_lazy_key_map({
-				useLeader = true,
-				sequence = "gm",
-				command = "FzfLua marks",
-				description = "Go to Mark",
-			}),
-		},
-		config = function()
-			local actions = require("fzf-lua.actions")
-			require("fzf-lua").setup({
-				actions = {
-					files = {
-						["default"] = actions.file_edit_or_qf,
-					},
-				},
-				files = {
-					formatter = "path.filename_first",
-				},
-			})
-		end,
-	},
-	{
 		"chentoast/marks.nvim",
 		config = function()
 			require("marks").setup({
@@ -223,6 +119,76 @@ return {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		event = { "VeryLazy" },
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				textobjects = {
+					select = {
+						enable = true,
+						lookahead = true,
+						keymaps = {
+							["af"] = { query = "@function.outer", desc = "Select outer part of a function region" },
+							["if"] = { query = "@function.inner", desc = "Select inner part of a function region" },
+							["ac"] = { query = "@class.outer", desc = "Select outer part of a class region" },
+							["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+							["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+						},
+						selection_modes = {
+							["@parameter.outer"] = "v",
+							["@function.outer"] = "V",
+							["@class.outer"] = "<c-v>",
+						},
+						include_surrounding_whitespace = true,
+					},
+					swap = {
+						enable = true,
+						swap_next = {
+							["<leader>gs"] = "@parameter.inner",
+						},
+						swap_previous = {
+							["<leader>gS"] = "@parameter.inner",
+						},
+					},
+					move = {
+						enable = true,
+						set_jumps = true, -- whether to set jumps in the jumplist
+						goto_next_start = {
+							["]m"] = "@function.outer",
+							["]]"] = { query = "@class.outer", desc = "Next class start" },
+							--
+							-- You can use regex matching (i.e. lua pattern) and/or pass a list in a "query" key to group multiple queries.
+							["]o"] = "@loop.*",
+							-- ["]o"] = { query = { "@loop.inner", "@loop.outer" } }
+							--
+							-- You can pass a query group to use query from `queries/<lang>/<query_group>.scm file in your runtime path.
+							-- Below example nvim-treesitter's `locals.scm` and `folds.scm`. They also provide highlights.scm and indent.scm.
+							["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
+							["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
+						},
+						goto_next_end = {
+							["]M"] = "@function.outer",
+							["]["] = "@class.outer",
+						},
+						goto_previous_start = {
+							["[m"] = "@function.outer",
+							["[["] = "@class.outer",
+						},
+						goto_previous_end = {
+							["[M"] = "@function.outer",
+							["[]"] = "@class.outer",
+						},
+						-- Below will go to either the start or the end, whichever is closer.
+						-- Use if you want more granular movements
+						-- Make it even more gradual by adding multiple queries and regex.
+						goto_next = {
+							["]d"] = "@conditional.outer",
+						},
+						goto_previous = {
+							["[d"] = "@conditional.outer",
+						},
+					},
+				},
+			})
+		end,
 	},
 	{
 		"stevearc/oil.nvim",

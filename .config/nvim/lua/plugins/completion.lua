@@ -4,7 +4,6 @@ return {
 		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-emoji",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
@@ -93,7 +92,6 @@ return {
 					{ name = "nvim_lua", group_index = 2 },
 					{ name = "buffer", group_index = 2 },
 					{ name = "path", group_index = 2 },
-					{ name = "emoji", group_index = 3 },
 				}),
 			})
 
