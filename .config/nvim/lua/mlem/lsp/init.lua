@@ -1,7 +1,7 @@
 -- :h lspconfig-all
 local ls_with_default_settings = {
 	"bashls",
-	"bufls",
+	"buf_ls",
 	"cssls",
 	"dockerls",
 	"docker_compose_language_service",
@@ -12,7 +12,7 @@ local ls_with_default_settings = {
 	"jsonls",
 	"marksman",
 	"pyright",
-	"ruff_lsp",
+	"ruff",
 	"sqls",
 	"taplo",
 	"terraformls",
