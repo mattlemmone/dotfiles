@@ -41,8 +41,9 @@ for _, v in ipairs(ls_with_default_settings) do
 	})
 end
 
-require("mlem.lsp.vtsls").setup(on_attach_default, capabilities)
 require("mlem.lsp.go").setup(on_attach_default, capabilities)
-require("mlem.lsp.lua_ls").setup(on_attach_default, capabilities)
-require("mlem.lsp.yaml_ls").setup(on_attach_default)
 require("mlem.lsp.kotlin").setup(on_attach_default, capabilities)
+require("mlem.lsp.lua_ls").setup(on_attach_default, capabilities)
+require("mlem.lsp.swift").setup(on_attach_default)
+require("mlem.lsp.vtsls").setup(on_attach_default, capabilities)
+require("mlem.lsp.yaml_ls").setup(on_attach_default)
