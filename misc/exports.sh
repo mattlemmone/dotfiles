@@ -1,19 +1,10 @@
 #!/bin/bash
-export SHELL=/bin/zsh
+export BAT_THEME="Catppuccin Mocha"
+export BREW_PREFIX=/opt/homebrew
 export EDITOR=neovide
-export PAGER='less'
 export GOPATH=$HOME/go
-
-# Path
-case $(arch) in
-arm64) # Apple Silicon
-	export BREW_PREFIX=/opt/homebrew
-
-	;;
-i386) # Intel
-	export BREW_PREFIX=/usr/local
-	;;
-esac
+export PAGER='less'
+export SHELL=/bin/zsh
 
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -27,6 +18,3 @@ export PATH=$HOME/.gem/bin:$PATH
 
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# Bat
-export BAT_THEME="Catppuccin Mocha"

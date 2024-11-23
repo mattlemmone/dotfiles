@@ -20,8 +20,10 @@ return {
 				event = "VeryLazy",
 				build = "make install_jsregexp",
 				config = function()
-					require("luasnip.loaders.from_snipmate").lazy_load({ paths = "~/dotfiles/neovim/snippets/snipmate" })
-					require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/dotfiles/neovim/snippets/vscode" })
+					require("luasnip.loaders.from_snipmate").lazy_load({
+						paths = "~/dotfiles/.config/snippets/snipmate",
+					})
+					require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/dotfiles/.config/snippets/vscode" })
 				end,
 			},
 		},
