@@ -26,7 +26,7 @@ return {
 				lualine_a = { "mode" },
 				lualine_b = { "diff", "diagnostics" },
 				lualine_c = {},
-				lualine_x = { "filetype", "overseer", require("codegpt").get_status },
+				lualine_x = { "filetype", "overseer" },
 				lualine_y = {},
 				lualine_z = {},
 			},

@@ -39,28 +39,6 @@ return {
 		end,
 	},
 	{
-		"nvim-telescope/telescope-file-browser.nvim",
-		keys = {
-			create_lazy_key_map({
-				useLeader = true,
-				sequence = "n",
-				command = function()
-					require("telescope").extensions.file_browser.file_browser({
-						path = "%:p:h",
-						initial_mode = "normal",
-						hidden = true,
-						respect_gitignore = false,
-					})
-				end,
-				description = "File Navigation",
-			}),
-		},
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim" },
-		config = function()
-			require("telescope").load_extension("file_browser")
-		end,
-	},
-	{
 		-- auto search imports
 		"piersolenski/telescope-import.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },

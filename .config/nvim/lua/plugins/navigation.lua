@@ -1,5 +1,3 @@
-local create_lazy_key_map = require("utils/keys").create_lazy_key_map
-
 return {
 	{ import = "plugins.telescope.core" },
 	{
@@ -193,6 +191,98 @@ return {
 	{
 		"stevearc/oil.nvim",
 		opts = {},
+		config = function()
+			require("oil").setup({
+				default_file_explorer = true,
+				columns = {
+					"icon",
+					"size",
+					"mtime",
+				},
+				delete_to_trash = false,
+				watch_for_changes = false,
+				keymaps = {
+					["?"] = "actions.show_help",
+					["<CR>"] = "actions.select",
+					["<C-s>"] = {
+						"actions.select",
+						opts = { vertical = true },
+						desc = "Open the entry in a vertical split",
+					},
+					["<C-h>"] = {
+						"actions.select",
+						opts = { horizontal = true },
+						desc = "Open the entry in a horizontal split",
+					},
+					["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
+					["<C-p>"] = "actions.preview",
+					["q"] = "actions.close",
+					["<C-l>"] = "actions.refresh",
+					["-"] = "actions.parent",
+					["_"] = "actions.open_cwd",
+					["`"] = "actions.cd",
+					["~"] = {
+						"actions.cd",
+						opts = { scope = "tab" },
+						desc = ":tcd to the current oil directory",
+						mode = "n",
+					},
+					["gs"] = "actions.change_sort",
+					["gx"] = "actions.open_external",
+					["g."] = "actions.toggle_hidden",
+					["g\\"] = "actions.toggle_trash",
+				},
+				use_default_keymaps = false,
+				view_options = {
+					show_hidden = true,
+					-- This function defines what is considered a "hidden" file
+					is_hidden_file = function(name, bufnr)
+						local m = name:match("^%.")
+						return m ~= nil
+					end,
+					-- This function defines what will never be shown, even when `show_hidden` is set
+					is_always_hidden = function(name, bufnr)
+						return false
+					end,
+					-- Sort file names with numbers in a more intuitive order for humans.
+					-- Can be "fast", true, or false. "fast" will turn it off for large directories.
+					natural_order = "fast",
+					-- Sort file and directory names case insensitive
+					case_insensitive = false,
+					sort = {
+						-- sort order can be "asc" or "desc"
+						-- see :help oil-columns to see which columns are sortable
+						{ "type", "asc" },
+						{ "name", "asc" },
+					},
+					-- Customize the highlight group for the file name
+					highlight_filename = function(entry, is_hidden, is_link_target, is_link_orphan)
+						return nil
+					end,
+				},
+			})
+
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "OilEnter",
+				callback = vim.schedule_wrap(function(args)
+					local oil = require("oil")
+					if vim.api.nvim_get_current_buf() == args.data.buf and oil.get_cursor_entry() then
+						oil.open_preview()
+					end
+				end),
+			})
+		end,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+		keys = {
+			{
+				"<Leader>n",
+				function()
+					require("oil").open_float(".")
+				end,
+				mode = "n",
+				silent = true,
+				desc = "File Browser",
+			},
+		},
 	},
 }

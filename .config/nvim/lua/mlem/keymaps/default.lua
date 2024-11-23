@@ -24,7 +24,10 @@ keymap.set("n", "<Leader>hl", "<CMD>nohl<CR> ", { desc = "Disable Highlight" })
 keymap.set("n", "<Leader>yf", "<CMD>let @+ = expand('%')<CR>", { silent = true, desc = "Copy Filename" })
 
 -- undo and re-do all within the same letter
-keymap.set("n", "U", "<C-r>", { desc = "Undo" })
+keymap.set("n", "U", "<CMD>redo<CR>", { desc = "Undo" })
+
+-- ... so unbind ctrl+r, because it's a bad habit
+keymap.set("n", "<C-r>", "<Nop>")
 
 -- Visual Mode
 keymap.set("v", "y", "ygv<esc>", { desc = "Preserve Yank Location" })

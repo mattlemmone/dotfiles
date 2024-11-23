@@ -1,11 +1,19 @@
 return {
 	{ import = "plugins.colors" },
+	"nvzone/volt",
+	{ "nvzone/timerly", cmd = "TimerlyToggle" },
+	{
+		"junegunn/goyo.vim",
+		event = "BufEnter",
+	},
 	{
 		"stevearc/dressing.nvim",
-		opts = { input = {
-			start_in_insert = false,
-			title_pos = "center",
-		} },
+		opts = {
+			input = {
+				start_in_insert = false,
+				title_pos = "center",
+			},
+		},
 	},
 	{
 		-- "automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching."

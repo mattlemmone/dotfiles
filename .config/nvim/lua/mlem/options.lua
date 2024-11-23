@@ -9,6 +9,9 @@ set.splitbelow = true
 set.splitright = true
 
 -- Display
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldlevelstart = 99
 vim.o.cpoptions = vim.o.cpoptions .. "y"
 set.cursorline = true -- highlight current line
 set.cursorcolumn = true -- highlight current col
@@ -70,8 +73,6 @@ vim.diagnostic.config({
 
 vim.cmd([[
   highlight link GitSignsCurrentLineBlame Comment
-  set foldlevelstart=20
-  set foldnestmax=3
 ]])
 
 vim.api.nvim_create_autocmd("ColorScheme", {
