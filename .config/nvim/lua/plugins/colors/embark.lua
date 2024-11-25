@@ -1,5 +1,16 @@
 return {
 	"embark-theme/vim",
 	name = "embark",
-	enabled = false,
+	enabled = true,
+	config = function()
+		vim.cmd([[
+      colorscheme embark
+    ]])
+
+		require("lualine").setup({
+			options = {
+				theme = "embark",
+			},
+		})
+	end,
 }

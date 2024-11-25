@@ -2,7 +2,7 @@ return {
 	"rose-pine/neovim",
 	name = "rose-pine",
 	priority = 1000,
-	enabled = false,
+	enabled = true,
 	config = function()
 		require("rose-pine").setup({
 			variant = "dawn", -- auto, main, moon, or dawn
@@ -52,28 +52,11 @@ return {
 				h5 = "pine",
 				h6 = "foam",
 			},
-
-			highlight_groups = {
-				-- Comment = { fg = "foam" },
-				-- VertSplit = { fg = "muted", bg = "muted" },
-			},
-
-			before_highlight = function(group, highlight, palette)
-				-- Disable all undercurls
-				-- if highlight.undercurl then
-				--     highlight.undercurl = false
-				-- end
-				--
-				-- Change palette colour
-				-- if highlight.fg == palette.pine then
-				--     highlight.fg = palette.foam
-				-- end
-			end,
 		})
 
 		-- vim.cmd("colorscheme rose-pine")
 		-- vim.cmd("colorscheme rose-pine-main")
 		-- vim.cmd("colorscheme rose-pine-moon")
-		vim.cmd("colorscheme rose-pine-dawn")
+		-- vim.cmd("colorscheme rose-pine-dawn")
 	end,
 }

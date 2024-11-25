@@ -277,7 +277,9 @@ return {
 			{
 				"<Leader>n",
 				function()
-					require("oil").open_float(".")
+					local cwd = vim.fn.expand("%:p:h")
+
+					require("oil").open_float(cwd)
 				end,
 				mode = "n",
 				silent = true,

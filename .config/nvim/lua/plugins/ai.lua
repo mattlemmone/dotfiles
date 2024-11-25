@@ -28,7 +28,7 @@ return {
 		"olimorris/codecompanion.nvim",
 		lazy = false,
 		keys = {
-			{ "<leader>aa", vim.cmd.CodeCompanionActions, mode = { "n" }, desc = "Code Companion Actions" },
+			{ "<leader>aa", vim.cmd.CodeCompanionActions, mode = { "n", "v" }, desc = "Code Companion Actions" },
 			{
 				"<leader>ac",
 				function()
@@ -60,6 +60,14 @@ return {
 				end,
 				mode = { "v" },
 				desc = "Optimize",
+			},
+			{
+				"<leader>as",
+				function()
+					require("utils/input").promptUserForCommandArgs("AI Magic ✨", "CodeCompanion /buffer")
+				end,
+				mode = { "v" },
+				desc = "Inline AI Buffer Editing",
 			},
 		},
 		dependencies = {

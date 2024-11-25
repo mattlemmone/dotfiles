@@ -27,12 +27,6 @@ autocmd({ "BufRead", "BufNewFile" }, {
 	command = "setlocal spell",
 })
 
--- autocmd({ "BufRead", "BufNewFile", "BufLeave" }, {
--- 	desc = "Enable distraction free mode",
--- 	pattern = { "*.md" },
--- 	command = "ZenMode",
--- })
-
 autocmd({ "BufReadPost", "BufNewFile", "BufRead" }, {
 	desc = "Set syntax for conf files",
 	pattern = { "*.conf" },
