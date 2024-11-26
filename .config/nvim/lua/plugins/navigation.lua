@@ -41,16 +41,6 @@ return {
 			})
 		end,
 	},
-	{ -- f/F indicators
-		"jinh0/eyeliner.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("eyeliner").setup({
-				highlight_on_key = true, -- show highlights only after keypress
-				dim = false, -- dim all other characters if set to true (recommended!)
-			})
-		end,
-	},
 	{
 		"echasnovski/mini.bracketed",
 		event = "VeryLazy",
@@ -286,5 +276,11 @@ return {
 				desc = "File Browser",
 			},
 		},
+	},
+	{
+		"MagicDuck/grug-far.nvim",
+		config = function()
+			require("grug-far").setup({})
+		end,
 	},
 }

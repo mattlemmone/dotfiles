@@ -53,4 +53,11 @@ return {
 			require("tiny-code-action").setup()
 		end,
 	},
+	{
+		"Wansmer/symbol-usage.nvim",
+		event = "LspAttach",
+		config = function()
+			require("symbol-usage").setup()
+		end,
+	},
 }

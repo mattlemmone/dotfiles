@@ -1,6 +1,5 @@
 source ~/dotfiles/misc/aliases.sh
 source ~/dotfiles/misc/exports.sh
-source ~/dotfiles/misc/funcs/bash.sh
 source ~/dotfiles/misc/funcs/git.sh
 source ~/dotfiles/misc/.secrets
 
