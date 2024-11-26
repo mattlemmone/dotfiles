@@ -1,7 +1,5 @@
 return {
 	{ import = "plugins.colors" },
-	"nvzone/volt",
-	{ "nvzone/timerly", cmd = "TimerlyToggle" },
 	{
 		"junegunn/goyo.vim",
 		event = "BufEnter",

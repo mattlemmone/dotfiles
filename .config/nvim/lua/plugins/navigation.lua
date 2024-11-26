@@ -49,12 +49,6 @@ return {
 		end,
 	}, -- navigation using brackets. TS nodes, conflicts, comments, diag, files, bufs, windows...
 	{
-		"cbochs/grapple.nvim",
-		dependencies = {
-			{ "nvim-tree/nvim-web-devicons", lazy = true },
-		},
-	},
-	{
 		"folke/persistence.nvim",
 		event = "VimEnter",
 		config = function()
