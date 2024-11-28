@@ -31,3 +31,8 @@ keymap.set("n", "<C-r>", "<Nop>")
 
 -- Visual Mode
 keymap.set("v", "y", "ygv<esc>", { desc = "Preserve Yank Location" })
+
+keymap.set("n", "<A-H>", "<C-W><", { desc = "Decrease Width" })
+keymap.set("n", "<A-L>", "<C-W>>", { desc = "Increase Width" })
+keymap.set("n", "<A-K>", "<C-W>-", { desc = "Decrease Height" })
+keymap.set("n", "<A-J>", "<C-W>+", { desc = "Increase Height" })
