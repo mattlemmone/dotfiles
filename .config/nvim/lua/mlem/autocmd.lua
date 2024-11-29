@@ -7,17 +7,10 @@ autocmd("TextYankPost", {
 	end,
 })
 
-autocmd("InsertEnter", {
-	desc = "Disable relative numbers",
+autocmd("TermOpen", {
+	desc = "Disable line numbers",
 	callback = function()
-		vim.opt.relativenumber = false
-	end,
-})
-
-autocmd("InsertLeave", {
-	desc = "Enable relative numbers",
-	callback = function()
-		vim.opt.relativenumber = true
+		vim.opt_local.number = false
 	end,
 })
 

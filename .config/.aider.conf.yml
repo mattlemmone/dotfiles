@@ -18,11 +18,6 @@
 #######
 # Main:
 
-## Specify the OpenAI API key
-#openai-api-key: xxx
-
-## Specify the Anthropic API key
-#anthropic-api-key: xxx
 
 ## Specify the model to use for the main chat
 #model: xxx
@@ -102,7 +97,7 @@ o1-preview: false
 #edit-format: xxx
 
 ## Use architect edit format for the main chat
-#architect: false
+architect: true
 
 ## Specify the model to use for commit messages and chat history summarization (default depends on --model)
 #weak-model: xxx
@@ -222,7 +217,7 @@ o1-preview: false
 #subtree-only: false
 
 ## Enable/disable auto commit of LLM changes (default: True)
-#auto-commits: true
+auto-commits: false
 
 ## Enable/disable commits when repo is found dirty (default: True)
 #dirty-commits: true

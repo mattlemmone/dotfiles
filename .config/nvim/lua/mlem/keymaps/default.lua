@@ -36,3 +36,15 @@ keymap.set("n", "<A-H>", "<C-W><", { desc = "Decrease Width" })
 keymap.set("n", "<A-L>", "<C-W>>", { desc = "Increase Width" })
 keymap.set("n", "<A-K>", "<C-W>-", { desc = "Decrease Height" })
 keymap.set("n", "<A-J>", "<C-W>+", { desc = "Increase Height" })
+
+local function open_terminal_with_command(cmd)
+	vim.cmd.vsplit()
+	vim.cmd.terminal()
+	vim.api.nvim_chan_send(vim.bo.channel, cmd .. "\r")
+	-- enter insert mode
+	vim.api.nvim_feedkeys("a", "t", false)
+end
+
+keymap.set("n", "<Leader><Leader>", function()
+	open_terminal_with_command("aider")
+end, { desc = "Open Aider in Split Pane" })
