@@ -261,16 +261,16 @@ auto-commits: false
 #  - zzz
 
 ## Enable/disable automatic linting after changes (default: True)
-#auto-lint: true
+auto-lint: true
 
 ## Specify command to run tests
 #test-cmd: xxx
 
-## Enable/disable automatic testing after changes (default: False)
-#auto-test: false
+### Enable/disable automatic testing after changes (default: False)
+# auto-test: true
 
 ## Run tests and fix problems found
-#test: false
+# test: true
 
 ############
 # Analytics:
@@ -282,7 +282,7 @@ auto-commits: false
 #analytics-log: xxx
 
 ## Permanently disable analytics
-#analytics-disable: false
+analytics-disable: false
 
 #################
 # Other Settings:

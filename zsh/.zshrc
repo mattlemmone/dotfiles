@@ -59,3 +59,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Update PATH to include ~/bin; added by debase
 path+="$HOME/bin"
+
+# bun completions
+[ -s "/Users/mattlemmone/.bun/_bun" ] && source "/Users/mattlemmone/.bun/_bun"
