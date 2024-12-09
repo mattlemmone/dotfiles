@@ -1,7 +1,7 @@
 #!/bin/bash
 export BAT_THEME="Catppuccin Mocha"
 export BREW_PREFIX=/opt/homebrew
-export EDITOR=neovide
+export EDITOR=nvim
 export GOPATH=$HOME/go
 export PAGER='less'
 export SHELL=/bin/zsh

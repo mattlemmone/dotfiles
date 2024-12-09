@@ -1,6 +1,5 @@
 #!/bin/bash
 alias vim='nvim'
-alias nvim='neovide'
 
 # Git
 alias gc='git checkout'

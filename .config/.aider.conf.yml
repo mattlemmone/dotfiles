@@ -26,7 +26,7 @@
 #opus: false
 
 ## Use claude-3-5-sonnet-20241022 model for the main chat
-sonnet: true
+# sonnet: true
 
 ## Use claude-3-5-haiku-20241022 model for the main chat
 #haiku: false
@@ -53,7 +53,7 @@ sonnet: true
 #o1-mini: false
 
 ## Use o1-preview model for the main chat
-o1-preview: false
+o1-preview: true
 
 #################
 # Model Settings:
@@ -103,7 +103,7 @@ architect: true
 #weak-model: xxx
 
 ## Specify the model to use for editor tasks (default depends on --model)
-#editor-model: xxx
+editor-model: gpt-4o
 
 ## Specify the edit format for the editor model (default: depends on editor model)
 #editor-edit-format: xxx
