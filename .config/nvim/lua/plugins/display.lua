@@ -26,7 +26,10 @@ return {
 			require("mini.indentscope").setup()
 		end,
 	},
-	"norcalli/nvim-colorizer.lua", -- highlight color codes real-time
+	{
+		"norcalli/nvim-colorizer.lua",
+		event = "VeryLazy",
+	}, -- highlight color codes real-time
 	{
 		"rachartier/tiny-devicons-auto-colors.nvim",
 		dependencies = {

@@ -1,4 +1,6 @@
 return {
+
+	{ "akinsho/git-conflict.nvim", version = "*", config = true, event = "VeryLazy" },
 	{ "ruanyl/vim-gh-line", event = "VeryLazy" }, -- open in gh
 	{
 		"lewis6991/gitsigns.nvim",

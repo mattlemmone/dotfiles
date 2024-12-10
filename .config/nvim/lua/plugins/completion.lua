@@ -1,3 +1,7 @@
+local snippetsDir = "~/dotfiles/.config/nvim/snippets/"
+local vscodeSnippetDir = snippetsDir .. "vscode"
+local snipmateSnippetDir = snippetsDir .. "snipmate"
+
 return {
 	{
 		"hrsh7th/nvim-cmp",
@@ -8,6 +12,13 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
 			"onsails/lspkind.nvim", -- styling for cmp
+			{
+				"chrisgrieser/nvim-scissors",
+				dependencies = "nvim-telescope/telescope.nvim",
+				opts = {
+					snippetDir = vscodeSnippetDir,
+				},
+			},
 			"saadparwaiz1/cmp_luasnip",
 			{
 				"zbirenbaum/copilot-cmp",
@@ -21,10 +32,10 @@ return {
 				build = "make install_jsregexp",
 				config = function()
 					require("luasnip.loaders.from_snipmate").lazy_load({
-						paths = "~/dotfiles/.config/nvim/snippets/snipmate",
+						paths = snipmateSnippetDir,
 					})
 					require("luasnip.loaders.from_vscode").lazy_load({
-						paths = "~/dotfiles/.config/nvim/snippets/vscode",
+						paths = vscodeSnippetDir,
 					})
 				end,
 			},

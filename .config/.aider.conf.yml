@@ -217,7 +217,7 @@ editor-model: gpt-4o
 #subtree-only: false
 
 ## Enable/disable auto commit of LLM changes (default: True)
-auto-commits: false
+# auto-commits: false
 
 ## Enable/disable commits when repo is found dirty (default: True)
 #dirty-commits: true
@@ -296,7 +296,7 @@ analytics-disable: false
 #  - zzz
 
 ## specify a read-only file (can be used multiple times)
-#read: xxx
+read: docs/CONVENTIONS.md
 ## Specify multiple values like this:
 #read:
 #  - xxx

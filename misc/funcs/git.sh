@@ -48,5 +48,9 @@ summarize_pr_changes() {
 
   local prompt="summarize file changes for a PR description: major changes broken into a few categories/sections. write it in a human-like way, make it concise, use only lowercase. include major changes only. avoid unnecessary details. use easy and approachable language. make the changes sound reasonable. your response must use extremely simple formatting because i will paste it to GitHub. only markdown headers, hyphens and single spaces. no centering or rich formatting. use backticks for file/method etc names."
 
-  gd "$main_branch" | sgpt --model gpt-4o "$prompt" | pbcopy
+  gd "$main_branch" | sgpt --model gpt-4o-mini "$prompt" | pbcopy
+}
+
+cmt_and_push() {
+  git add . && git commit -m "$1" && git push
 }
