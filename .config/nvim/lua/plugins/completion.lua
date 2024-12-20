@@ -9,6 +9,7 @@ return {
 		dependencies = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-cmdline",
+			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
 			"onsails/lspkind.nvim", -- styling for cmp
@@ -19,7 +20,6 @@ return {
 					snippetDir = vscodeSnippetDir,
 				},
 			},
-			"saadparwaiz1/cmp_luasnip",
 			{
 				"zbirenbaum/copilot-cmp",
 				config = function()
@@ -104,7 +104,6 @@ return {
 					{ name = "luasnip", group_index = 1 },
 					{ name = "nvim_lsp", group_index = 2 },
 					{ name = "copilot", group_index = 2 },
-					{ name = "nvim_lua", group_index = 2 },
 					{ name = "buffer", group_index = 2 },
 					{ name = "path", group_index = 2 },
 				}),

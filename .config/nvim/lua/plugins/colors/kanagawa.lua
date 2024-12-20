@@ -1,7 +1,7 @@
 return {
 	{
 		"rebelot/kanagawa.nvim",
-		enabled = true,
+		enabled = false,
 		init = function()
 			vim.cmd("colorscheme kanagawa")
 		end,

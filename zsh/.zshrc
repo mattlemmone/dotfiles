@@ -62,3 +62,9 @@ path+="$HOME/bin"
 
 # bun completions
 [ -s "/Users/mattlemmone/.bun/_bun" ] && source "/Users/mattlemmone/.bun/_bun"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mattlemmone/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mattlemmone/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mattlemmone/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mattlemmone/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
