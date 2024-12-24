@@ -1,5 +1,6 @@
 -- :h lspconfig-all
 local ls_with_default_settings = {
+  "astro",
 	"bashls",
 	"buf_ls",
 	"cssls",
