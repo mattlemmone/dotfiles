@@ -13,6 +13,15 @@ return {
 	},
 
 	config = function()
+		local selene = require("lint").linters.selene
+		selene.args = {
+			"--config",
+			"~/dotfiles/.config/nvim/selene.toml",
+			"--display-style",
+			"--json",
+			"-",
+		}
+
 		require("lint").linters_by_ft = {
 			javascript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
@@ -27,9 +36,7 @@ return {
 			yaml = { "yamllint" },
 		}
 
-		local autocmd = vim.api.nvim_create_autocmd
-
-		autocmd({ "BufRead", "BufWritePost", "InsertLeave" }, {
+		vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost", "InsertLeave" }, {
 			callback = function()
 				require("lint").try_lint()
 			end,

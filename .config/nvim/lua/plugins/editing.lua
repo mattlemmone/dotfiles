@@ -93,39 +93,37 @@ return {
 	}, -- easy inc/dec/toggling of types
 	{
 		"windwp/nvim-autopairs",
-		event = "VeryLazy",
+		event = "InsertEnter",
+		config = true,
+	},
+	{
+		"Wansmer/treesj",
+		keys = { "<space>J", "<space>j" },
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
-			require("nvim-autopairs").setup({})
+			require("treesj").setup({
+				use_default_keymaps = false,
+			})
+
+			set_vim_key_map({
+				mode = { "n" },
+				useLeader = true,
+				sequence = "J",
+				command = function()
+					require("treesj").join()
+				end,
+				description = "Join",
+			})
+
+			set_vim_key_map({
+				mode = { "n" },
+				useLeader = true,
+				sequence = "j",
+				command = function()
+					require("treesj").split()
+				end,
+				description = "Un-join",
+			})
 		end,
-		{
-			"Wansmer/treesj",
-			keys = { "<space>J", "<space>j" },
-			dependencies = { "nvim-treesitter/nvim-treesitter" },
-			config = function()
-				require("treesj").setup({
-					use_default_keymaps = false,
-				})
-
-				set_vim_key_map({
-					mode = { "n" },
-					useLeader = true,
-					sequence = "J",
-					command = function()
-						require("treesj").join()
-					end,
-					description = "Join",
-				})
-
-				set_vim_key_map({
-					mode = { "n" },
-					useLeader = true,
-					sequence = "j",
-					command = function()
-						require("treesj").split()
-					end,
-					description = "Un-join",
-				})
-			end,
-		},
 	},
 }

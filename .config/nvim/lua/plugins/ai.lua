@@ -25,13 +25,22 @@ return {
 		end,
 	},
 	{
+		"olimorris/codecompanion.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = true,
+	},
+	{
 		"yetone/avante.nvim",
 		event = "VeryLazy",
+		enabled = false,
 		lazy = false,
 		version = false, -- set this if you want to always pull the latest change
 		opts = {
 			auto_suggestions_provider = "copilot",
-			provider = "claude",
+			-- provider = "claude",
 			openai = {
 				model = "gpt-4o",
 			},
@@ -40,7 +49,7 @@ return {
 			},
 		},
 		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-		build = "make",
+		build = "make BUILD_FROM_SOURCE=true",
 		-- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
