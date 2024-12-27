@@ -1,34 +1,46 @@
+# Note: it seems that for some configs to take effect, a new terminal must be opened. it's unclear why this is, or why it doesnt impact different configs of the same type (keybindings etc)
+
+# App
 desktop-notifications = false
 shell-integration = zsh
 
-# Make it pretty
-unfocused-split-opacity = 0.5
-font-family = SF-Mono
-theme = catppuccin-mocha
+# Display
+## Window
+macos-titlebar-style = "tabs"
+unfocused-split-opacity = 0.75
 background-opacity = 0.9
-background-blur-radius = 8
 mouse-hide-while-typing = true
+quick-terminal-animation-duration = 0.01
 
+## Font
+font-thicken = true
+font-family = SF-Mono
+
+## Theme
+theme = catppuccin-mocha
 
 # Keybindings
 keybind = super+shift+r=reload_config
+keybind = global:shift+space=toggle_quick_terminal
 
-## Navigation
-### Splits
-keybind = super+shift+backslash=new_split:right
+## Splits
+keybind = super+shift+\=new_split:right
 keybind = super+shift+-=new_split:down
+keybind = super+shift+z=toggle_split_zoom
 
+
+### Navigation
 keybind = ctrl+j=goto_split:bottom
 keybind = ctrl+h=goto_split:left
 keybind = ctrl+k=goto_split:top
 keybind = ctrl+l=goto_split:right
 
-# Resize
+### Resize
 keybind = super+shift+up=resize_split:up,20
 keybind = super+shift+down=resize_split:down,20
 keybind = super+shift+left=resize_split:left,20
 keybind = super+shift+right=resize_split:right,20
 
-### Tabs
+## Tabs
 keybind = super+shift+comma=move_tab:-1
 keybind = super+shift+period=move_tab:1
