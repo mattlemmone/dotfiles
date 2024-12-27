@@ -1,0 +1,34 @@
+desktop-notifications = false
+shell-integration = zsh
+
+# Make it pretty
+unfocused-split-opacity = 0.5
+font-family = SF-Mono
+theme = catppuccin-mocha
+background-opacity = 0.9
+background-blur-radius = 8
+mouse-hide-while-typing = true
+
+
+# Keybindings
+keybind = super+shift+r=reload_config
+
+## Navigation
+### Splits
+keybind = super+shift+backslash=new_split:right
+keybind = super+shift+-=new_split:down
+
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
+
+# Resize
+keybind = super+shift+up=resize_split:up,20
+keybind = super+shift+down=resize_split:down,20
+keybind = super+shift+left=resize_split:left,20
+keybind = super+shift+right=resize_split:right,20
+
+### Tabs
+keybind = super+shift+comma=move_tab:-1
+keybind = super+shift+period=move_tab:1
