@@ -1,5 +1,5 @@
 return {
-	{ import = "plugins.telescope.core" },
+	{ import = "plugins.neovim.telescope.core" },
 	{
 		"chentoast/marks.nvim",
 		config = function()

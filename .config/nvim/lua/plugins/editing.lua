@@ -96,6 +96,7 @@ return {
 		event = "InsertEnter",
 		config = true,
 	},
+	{ "windwp/nvim-ts-autotag" },
 	{
 		"Wansmer/treesj",
 		keys = { "<space>J", "<space>j" },

@@ -11,6 +11,7 @@ return {
 			"hrsh7th/cmp-cmdline",
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-nvim-lsp",
+			"tailwind-tools",
 			"hrsh7th/cmp-path",
 			"onsails/lspkind.nvim", -- styling for cmp
 			{
@@ -40,6 +41,15 @@ return {
 				end,
 			},
 		},
+		opts = function()
+			return {
+				formatting = {
+					format = require("lspkind").cmp_format({
+						before = require("tailwind-tools.cmp").lspkind_format,
+					}),
+				},
+			}
+		end,
 		config = function()
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")

@@ -3,21 +3,24 @@
 # App
 desktop-notifications = false
 shell-integration = zsh
+window-save-state = always
 
 # Display
 ## Window
 macos-titlebar-style = "tabs"
+macos-titlebar-proxy-icon = "hidden"
 unfocused-split-opacity = 0.75
 background-opacity = 0.9
 mouse-hide-while-typing = true
 quick-terminal-animation-duration = 0.01
+shell-integration-features = cursor,no-sudo,no-title
 
 ## Font
 font-thicken = true
 font-family = SF-Mono
 
 ## Theme
-theme = catppuccin-mocha
+theme = rose-pine
 
 # Keybindings
 keybind = super+shift+r=reload_config

@@ -20,7 +20,7 @@ local function filenameFirst(_, path)
 end
 
 return {
-	{ import = "plugins.telescope.dependencies" },
+	{ import = "plugins.neovim.telescope.dependencies" },
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
