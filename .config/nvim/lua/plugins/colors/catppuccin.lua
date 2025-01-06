@@ -74,7 +74,6 @@ return {
 					fidget = true,
 					flash = true,
 					treesitter = true,
-					overseer = true,
 					illuminate = {
 						enabled = true,
 						lsp = false,
