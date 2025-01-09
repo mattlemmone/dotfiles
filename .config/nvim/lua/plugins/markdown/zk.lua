@@ -22,7 +22,7 @@ end
 return {
 	"epwalsh/obsidian.nvim",
 	version = "*", -- latest
-	lazy = false,
+  commands = {'ObsidianNew', 'ObsidianTemplate', 'ObsidianTags', 'ObsidianBacklinks', 'ObsidianQuickSwitch', 'ObsidianSearch', 'ObsidianRename'},
 	open_notes_in = "hsplit",
 	event = {
 		"BufReadPre " .. vault_path .. "**.md",

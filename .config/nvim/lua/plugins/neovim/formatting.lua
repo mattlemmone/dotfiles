@@ -38,7 +38,9 @@ return {
 			callback = function(args)
 				-- vim.lsp.buf.code_action({ apply = true, context = { only = { "source.fixAll.eslint" } } })
 				-- vim.lsp.buf.code_action({ apply = true, context = { only = { "source.removeUnused.ts" } } })
-				vim.cmd("EslintFixAll")
+				if vim.fn.exists(":EslintFixAll") == 2 then
+					vim.cmd("EslintFixAll")
+				end
 			end,
 		})
 	end,

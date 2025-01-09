@@ -2,7 +2,7 @@ return {
 	{ import = "plugins.colors" },
 	{
 		"junegunn/goyo.vim",
-		event = "BufEnter",
+		event = { "BufReadPost", "BufNewFile" },
 	},
 	{
 		"stevearc/dressing.nvim",
