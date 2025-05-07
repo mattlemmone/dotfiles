@@ -1,28 +1,41 @@
 local inputUtils = require("utils/input")
 local vault_path = vim.fn.expand("~") .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/iOS Vault/"
 
-local createTemplatedNote = function(obsidian_vault_sub_folder, template_name)
-	inputUtils.promptUserForInput("Create a File", function(filename)
-		if not filename then
-			return
-		end
+-- Create a note file with the given path and template
+local function createNote(filepath, template_name)
+	vim.cmd("e " .. filepath .. ".md")
+	vim.cmd("ObsidianTemplate " .. template_name)
+	vim.cmd("w")
+end
 
-		-- Create a new markdown file
-		local filepath = vault_path .. obsidian_vault_sub_folder .. "/" .. filename
-		vim.cmd("e " .. filepath .. ".md")
+local createNoteFromTemplate = function(obsidian_vault_sub_folder, template_name, note_name)
+	if note_name then
+		local filepath = vault_path .. obsidian_vault_sub_folder .. "/" .. note_name
+		createNote(filepath, template_name)
+	else
+		inputUtils.promptUserForInput("Create a File", function(filename)
+			if not filename then
+				return
+			end
 
-		-- Use existing template
-		vim.cmd("ObsidianTemplate " .. template_name)
-
-		-- Save the file to auto generate Obsidian metadata
-		vim.cmd("w")
-	end)
+			local filepath = vault_path .. obsidian_vault_sub_folder .. "/" .. filename
+			createNote(filepath, template_name)
+		end)
+	end
 end
 
 return {
 	"epwalsh/obsidian.nvim",
 	version = "*", -- latest
-  commands = {'ObsidianNew', 'ObsidianTemplate', 'ObsidianTags', 'ObsidianBacklinks', 'ObsidianQuickSwitch', 'ObsidianSearch', 'ObsidianRename'},
+	commands = {
+		"ObsidianNew",
+		"ObsidianTemplate",
+		"ObsidianTags",
+		"ObsidianBacklinks",
+		"ObsidianQuickSwitch",
+		"ObsidianSearch",
+		"ObsidianRename",
+	},
 	open_notes_in = "hsplit",
 	event = {
 		"BufReadPre " .. vault_path .. "**.md",
@@ -36,7 +49,7 @@ return {
 			"<Leader>zn",
 			mode = { "n" },
 			function()
-				createTemplatedNote("Knowledge Base", "note")
+				createNoteFromTemplate("Knowledge Base", "note")
 			end,
 			desc = "Create a Note",
 		},
@@ -72,10 +85,18 @@ return {
 			desc = "Rename Note",
 		},
 		{
+			"<Leader>zw",
+			mode = { "n" },
+			function()
+				createNoteFromTemplate("Weekly Reviews", "weekly review: outcomes", os.date("%Y-%m-%d"))
+			end,
+			desc = "Create a Weekly Review Note",
+		},
+		{
 			"<Leader>zp",
 			mode = { "n" },
 			function()
-				createTemplatedNote("Side Projects", "side projects")
+				createNoteFromTemplate("Side Projects", "side projects")
 			end,
 			desc = "Create Side Project Idea",
 		},

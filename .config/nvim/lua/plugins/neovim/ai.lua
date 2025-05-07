@@ -1,6 +1,7 @@
 return {
 	{
 		"zbirenbaum/copilot.lua",
+		enabled = false,
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = function()
@@ -29,7 +30,7 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
 		opts = {
-			auto_suggestions_provider = "copilot",
+			auto_suggestions_provider = "openai",
 			provider = "openai",
 			openai = {
 				model = "gpt-4o",

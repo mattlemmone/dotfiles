@@ -24,7 +24,7 @@ theme = rose-pine
 
 # Keybindings
 keybind = super+shift+r=reload_config
-keybind = global:shift+space=toggle_quick_terminal
+# keybind = global:shift+space=toggle_quick_terminal
 
 ## Splits
 keybind = super+shift+\=new_split:right
