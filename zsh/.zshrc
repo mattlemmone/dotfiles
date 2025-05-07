@@ -27,20 +27,6 @@ export PNPM_HOME="/Users/matt/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
-# Shell-GPT integration ZSH v0.2
-_sgpt_zsh() {
-if [[ -n "$BUFFER" ]]; then
-    _sgpt_prev_cmd=$BUFFER
-    BUFFER+="⌛"
-    zle -I && zle redisplay
-    BUFFER=$(sgpt --shell <<< "$_sgpt_prev_cmd" --no-interaction)
-    zle end-of-line
-fi
-}
-zle -N _sgpt_zsh
-bindkey ^l _sgpt_zsh
-# Shell-GPT integration ZSH v0.2
-
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 
 # yazi wrapper
@@ -57,34 +43,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Update PATH to include ~/bin; added by debase
-path+="$HOME/bin"
-
 # bun completions
 [ -s "/Users/mattlemmone/.bun/_bun" ] && source "/Users/mattlemmone/.bun/_bun"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/mattlemmone/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mattlemmone/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/mattlemmone/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mattlemmone/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/mattlemmone/.lmstudio/bin"
-
-# Shell-GPT integration ZSH v0.2
-_sgpt_zsh() {
-if [[ -n "$BUFFER" ]]; then
-    _sgpt_prev_cmd=$BUFFER
-    BUFFER+="⌛"
-    zle -I && zle redisplay
-    BUFFER=$(sgpt --shell <<< "$_sgpt_prev_cmd" --no-interaction)
-    zle end-of-line
-fi
-}
-zle -N _sgpt_zsh
-bindkey ^l _sgpt_zsh
-# Shell-GPT integration ZSH v0.2
 
 # Added by Windsurf
 export PATH="/Users/mattlemmone/.codeium/windsurf/bin:$PATH"
