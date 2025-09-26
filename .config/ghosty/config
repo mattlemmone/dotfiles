@@ -20,7 +20,7 @@ font-thicken = true
 font-family = SF-Mono
 
 ## Theme
-theme = rose-pine
+theme = Rose Pine
 
 # Keybindings
 keybind = super+shift+r=reload_config
@@ -47,3 +47,4 @@ keybind = super+shift+right=resize_split:right,20
 ## Tabs
 keybind = super+shift+comma=move_tab:-1
 keybind = super+shift+period=move_tab:1
+keybind = shift+enter=text:\n
