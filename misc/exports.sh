@@ -18,10 +18,3 @@ export PATH=$HOME/.gem/bin:$PATH
 
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# Obsidian
-
-export OBSIDIAN_VAULT_NAME="iOS Vault"
-export OBSIDIAN_NOTE_PATH="~/Library/Mobile Documents/iCloud~md~obsidian/Documents/$OBSIDIAN_VAULT_NAME"
-
-export BLACKHOLE_SEARCH_URL="https://www.perplexity.ai/search?q="

@@ -48,3 +48,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Added by Windsurf
 export PATH="/Users/mattlemmone/.codeium/windsurf/bin:$PATH"
+
+export PATH=$PATH:/Users/mattlemmone/.spicetify
