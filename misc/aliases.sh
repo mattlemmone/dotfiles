@@ -30,3 +30,4 @@ alias tfi='terraform init'
 alias ls='eza --icons auto'
 alias rm='rip'
 alias rm_undo='rip -s'
+alias claude="~/.claude/local/claude"
