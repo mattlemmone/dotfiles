@@ -34,10 +34,10 @@ return {
 			provider = "openai",
 			providers = {
 				openai = {
-					model = "gpt-4o",
+					model = "gpt-5.2",
 				},
 				anthropic = {
-					model = "claude-3-5-sonnet-latest",
+					model = "claude-sonnet-4-5",
 				},
 			},
 		},
