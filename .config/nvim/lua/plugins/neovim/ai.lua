@@ -32,11 +32,13 @@ return {
 		opts = {
 			auto_suggestions_provider = "openai",
 			provider = "openai",
-			openai = {
-				model = "gpt-4o",
-			},
-			anthropic = {
-				model = "claude-3-5-sonnet-latest",
+			providers = {
+				openai = {
+					model = "gpt-4o",
+				},
+				anthropic = {
+					model = "claude-3-5-sonnet-latest",
+				},
 			},
 		},
 		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
