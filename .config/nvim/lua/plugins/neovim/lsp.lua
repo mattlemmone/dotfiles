@@ -7,9 +7,12 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-telescope/telescope.nvim", -- optional
-			"neovim/nvim-lspconfig", -- optional
 		},
-		opts = {}, -- your configuration
+		opts = {
+			server = {
+				override = false, -- don't setup LSP, we handle it separately
+			},
+		},
 	},
 	{
 		"j-hui/fidget.nvim",

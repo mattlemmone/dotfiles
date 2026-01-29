@@ -6,9 +6,12 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-telescope/telescope.nvim", -- optional
-			"neovim/nvim-lspconfig", -- optional
 		},
-		opts = {}, -- your configuration
+		opts = {
+			server = {
+				override = false, -- don't setup LSP, we handle it separately
+			},
+		},
 	},
 	{
 		"j-hui/fidget.nvim",
@@ -50,7 +53,7 @@ return {
 			},
 		},
 		config = function()
-			-- :h lspconfig-all
+			-- :h lsp-config
 			local ls_with_default_settings = {
 				"astro",
 				"tailwindcss",
@@ -76,7 +79,6 @@ return {
 
 			local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities(lsp_capabilities)
-			local nvim_lsp = require("lspconfig")
 			local navic = require("nvim-navic")
 
 			local on_attach_default = function(client, bufnr)
@@ -88,19 +90,27 @@ return {
 				require("mlem.keymaps.lsp").registerKeymaps(bufnr)
 			end
 
-			for _, v in ipairs(ls_with_default_settings) do
-				nvim_lsp[v].setup({
-					on_attach = on_attach_default,
-					capabilities = capabilities,
-				})
+			-- Set global defaults for all LSP servers
+			vim.lsp.config("*", {
+				on_attach = on_attach_default,
+				capabilities = capabilities,
+			})
+
+			-- Configure servers with default settings
+			for _, server in ipairs(ls_with_default_settings) do
+				vim.lsp.config(server, {})
 			end
 
-			require("plugins.neovim.lsp.go").setup(on_attach_default, capabilities)
-			require("plugins.neovim.lsp.kotlin").setup(on_attach_default, capabilities)
-			require("plugins.neovim.lsp.lua_ls").setup(on_attach_default, capabilities)
-			require("plugins.neovim.lsp.swift").setup(on_attach_default)
-			require("plugins.neovim.lsp.vtsls").setup(on_attach_default, capabilities)
-			require("plugins.neovim.lsp.yaml_ls").setup(on_attach_default)
+			-- Enable all default servers
+			vim.lsp.enable(ls_with_default_settings)
+
+			-- Configure and enable custom servers
+			require("plugins.neovim.lsp.go").setup()
+			require("plugins.neovim.lsp.kotlin").setup()
+			require("plugins.neovim.lsp.lua_ls").setup()
+			require("plugins.neovim.lsp.swift").setup()
+			require("plugins.neovim.lsp.vtsls").setup()
+			require("plugins.neovim.lsp.yaml_ls").setup()
 		end,
 	},
 	{

@@ -1,10 +1,7 @@
 local M = {}
 
-M.setup = function(on_attach)
-	local nvim_lsp = require("lspconfig")
-
-	nvim_lsp.yamlls.setup({
-		on_attach = on_attach,
+M.setup = function()
+	vim.lsp.config("yamlls", {
 		settings = {
 			yaml = {
 				-- remove mapKeyOrder warning
@@ -12,6 +9,8 @@ M.setup = function(on_attach)
 			},
 		},
 	})
+
+	vim.lsp.enable("yamlls")
 end
 
 return M

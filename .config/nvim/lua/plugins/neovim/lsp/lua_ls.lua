@@ -1,11 +1,7 @@
 local M = {}
 
-M.setup = function(on_attach, capabilities)
-	local nvim_lsp = require("lspconfig")
-
-	nvim_lsp.lua_ls.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
+M.setup = function()
+	vim.lsp.config("lua_ls", {
 		settings = {
 			Lua = {
 				diagnostics = {
@@ -20,6 +16,8 @@ M.setup = function(on_attach, capabilities)
 			},
 		},
 	})
+
+	vim.lsp.enable("lua_ls")
 end
 
 return M

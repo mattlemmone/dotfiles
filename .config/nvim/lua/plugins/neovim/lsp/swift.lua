@@ -1,9 +1,7 @@
 local M = {}
 
-M.setup = function(on_attach)
-	local nvim_lsp = require("lspconfig")
-
-	nvim_lsp.sourcekit.setup({
+M.setup = function()
+	vim.lsp.config("sourcekit", {
 		capabilities = {
 			workspace = {
 				didChangeWatchedFiles = {
@@ -12,6 +10,8 @@ M.setup = function(on_attach)
 			},
 		},
 	})
+
+	vim.lsp.enable("sourcekit")
 end
 
 return M

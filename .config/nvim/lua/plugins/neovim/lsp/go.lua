@@ -1,11 +1,7 @@
 local M = {}
 
-M.setup = function(on_attach, capabilities)
-	local nvim_lsp = require("lspconfig")
-
-	nvim_lsp.gopls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
+M.setup = function()
+	vim.lsp.config("gopls", {
 		settings = {
 			gopls = {
 				experimentalPostfixCompletions = true,
@@ -20,6 +16,8 @@ M.setup = function(on_attach, capabilities)
 			usePlaceholders = true,
 		},
 	})
+
+	vim.lsp.enable("gopls")
 end
 
 return M

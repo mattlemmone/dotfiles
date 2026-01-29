@@ -1,15 +1,13 @@
 local M = {}
 
-M.setup = function(on_attach, capabilities)
-	local nvim_lsp = require("lspconfig")
-
-	nvim_lsp.kotlin_language_server.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
+M.setup = function()
+	vim.lsp.config("kotlin_language_server", {
 		settings = {
 			compiler = { jvm = { target = "1.8.10" } },
 		},
 	})
+
+	vim.lsp.enable("kotlin_language_server")
 end
 
 return M
